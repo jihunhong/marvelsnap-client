@@ -7,8 +7,8 @@ export const Header = styled.header`
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
   color: rgb(255, 255, 255);
   transition: backdrop-filter 0.3s linear 0s, background-color 0.3s linear 0s;
-  backdrop-filter: blur(30px);
-  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.65);
   top: 0;
   left: 0;
   width: 100%;

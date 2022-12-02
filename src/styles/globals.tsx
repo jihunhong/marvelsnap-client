@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     
     h1, h2, h3, h4, h5, span, p {
         color: #fff;
+        margin: 0;
     }
 
     a {
