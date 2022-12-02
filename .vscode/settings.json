@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "eslint.alwaysShowStatus": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
+}
