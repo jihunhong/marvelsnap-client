@@ -1,10 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import AppLayout from '../src/components/@layout/AppLayout'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
   return (
+    <AppLayout>
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
@@ -66,6 +68,7 @@ const Home: NextPage = () => {
         </a>
       </footer>
     </div>
+    </AppLayout>
   )
 }
 
