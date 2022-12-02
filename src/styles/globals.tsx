@@ -1,6 +1,10 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
+import { HEADER_HEIGHT } from './setting';
 
 export const GlobalStyle = createGlobalStyle`
+    :root {
+        --header-height: ${HEADER_HEIGHT};
+    }
     html,
     body {
         padding: 0;
@@ -15,6 +19,10 @@ export const GlobalStyle = createGlobalStyle`
         flex-direction: column;
         position: relative;
     }
+    
+    h1, h2, h3, h4, h5, span, p {
+        color: #fff;
+    }
 
     a {
         color: inherit;
@@ -24,14 +32,4 @@ export const GlobalStyle = createGlobalStyle`
     * {
         box-sizing: border-box;
     }
-
-    @media (prefers-color-scheme: white) {
-        html {
-            color-scheme: dark;
-        }
-        body {
-            color: white;
-            background: black;
-        }
-    }
-`
+`;
