@@ -1,11 +1,13 @@
 import { FaGithub } from 'react-icons/fa';
 import * as S from './style';
+import videoId from '../../../../@constant/videoId';
+import Button from '../../@atoms/Button';
 
 const IntroVideoSection = () => {
   return (
     <S.IntroSectionContainer>
       <div className="container">
-        <div className="text-box">
+        <div className="content">
           <h1>Double SNAP</h1>
           <h3>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, qui saepe doloribus
@@ -17,13 +19,18 @@ const IntroVideoSection = () => {
               <FaGithub fill="#fff" />
             </>
           </a>
+          <div className="action">
+            <Button>
+              <span>DISCOVER</span>
+            </Button>
+          </div>
         </div>
-        <div className="video-container">
+        <div className="video-background">
           <div>
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/JL9F3-YxqFI?autoplay=1&mute=1&loop=1&disablekb=1&rel=0&controls=0&version=3"
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&disablekb=1&rel=0&controls=0&version=3&playlist=${videoId}`}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

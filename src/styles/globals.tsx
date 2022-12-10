@@ -1,9 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 import { HEADER_HEIGHT } from './setting';
+import { PRIMARY_COLOR } from './color';
 
 export const GlobalStyle = createGlobalStyle`
     :root {
         --header-height: ${HEADER_HEIGHT};
+        --primary-color: ${PRIMARY_COLOR};
     }
     html,
     body {

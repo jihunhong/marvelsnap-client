@@ -1,0 +1,32 @@
+import styled from 'styled-components';
+
+export const PostPreviewContainer = styled.article`
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-template-columns: 1fr 200px;
+  column-gap: 34px;
+  margin-bottom: 2rem;
+
+  .meta {
+    div.author {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      img {
+        border-radius: 50%;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+    }
+    h4 {
+      font-weight: 500;
+    }
+    h2 {
+      margin-bottom: 4px;
+    }
+    h3 {
+      font-weight: 400;
+    }
+  }
+`;

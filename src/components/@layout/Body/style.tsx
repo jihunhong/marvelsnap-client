@@ -6,6 +6,9 @@ export const BodyContainer = styled.main`
   > section {
     :not(.full-width) {
       max-width: 1192px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 56px;
     }
     width: 100%;
   }

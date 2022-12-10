@@ -6,10 +6,10 @@ export const IntroSectionContainer = styled.div`
   .container {
     position: relative;
     display: flex;
-    aspect-ratio: 2293 / 740;
+    aspect-ratio: 2543 / 531;
     width: 100%;
   }
-  .text-box {
+  .content {
     width: 100%;
     max-width: 1192px;
     position: relative;
@@ -29,9 +29,17 @@ export const IntroSectionContainer = styled.div`
     h3 {
       margin-bottom: 1rem;
     }
+    svg {
+      margin-left: 6px;
+      vertical-align: middle;
+    }
   }
 
-  .video-container {
+  .owner-link {
+    margin-bottom: 1.2rem;
+  }
+
+  .video-background {
     top: 0px;
     left: 0px;
     z-index: 1;
@@ -39,7 +47,7 @@ export const IntroSectionContainer = styled.div`
     width: 100%;
     height: auto;
     overflow: hidden;
-    aspect-ratio: 2293 / 740;
+    aspect-ratio: 2543 / 531;
 
     > div {
       :before {
