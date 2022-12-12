@@ -39,6 +39,11 @@ export const IntroSectionContainer = styled.div`
     margin-bottom: 1.2rem;
   }
 
+  .input-action {
+    width: 100%;
+    height: 48px;
+  }
+
   .video-background {
     top: 0px;
     left: 0px;

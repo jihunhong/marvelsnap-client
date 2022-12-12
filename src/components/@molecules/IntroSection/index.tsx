@@ -2,6 +2,7 @@ import { FaGithub } from 'react-icons/fa';
 import * as S from './style';
 import videoId from '../../../../@constant/videoId';
 import Button from '../../@atoms/Button';
+import Input from '../../@atoms/Input';
 
 const IntroVideoSection = () => {
   return (
@@ -19,10 +20,8 @@ const IntroVideoSection = () => {
               <FaGithub fill="#fff" />
             </>
           </a>
-          <div className="action">
-            <Button>
-              <span>DISCOVER</span>
-            </Button>
+          <div className="input-action">
+            <Input placeholder="덱, 카드이름으로 검색해보세요." />
           </div>
         </div>
         <div className="video-background">

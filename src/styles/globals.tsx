@@ -6,6 +6,10 @@ export const GlobalStyle = createGlobalStyle`
     :root {
         --header-height: ${HEADER_HEIGHT};
         --primary-color: ${PRIMARY_COLOR};
+        --gray-1: #a3a0a0;
+        --gray-2: #868484;
+        
+
     }
     html,
     body {
@@ -13,6 +17,14 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
             Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    }
+    html * {
+        outline: none;
+    }
+    body {
+        overflow: overlay;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     #__next {

@@ -17,19 +17,19 @@ const Header = () => {
         <div className="menus">
           <Link href="/decks">
             <a>
-              <span>Decks</span>
+              <span>덱</span>
             </a>
           </Link>
           <Link href="/cards">
             <a>
-              <span>Cards</span>
+              <span>카드</span>
             </a>
           </Link>
-          <Link href="/builder">
+          {/* <Link href="/builder">
             <a>
               <span>Deck Builder</span>
             </a>
-          </Link>
+          </Link> */}
           <Link href="/meta">
             <a>
               <span>Meta</span>
