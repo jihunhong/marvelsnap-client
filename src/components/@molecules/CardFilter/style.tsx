@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { Opacity } from '../../../styles/transition';
 
 export const CardFilterContainer = styled.div`
   position: absolute;
   top: 340px;
-  left: 200px;
+  right: 230px;
   width: 100%;
   max-width: 300px;
   background: rgb(19 19 19 / 85%);
@@ -43,18 +44,41 @@ export const CardFilterContainer = styled.div`
 
   .selection {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 28px);
+    grid-template-columns: repeat(auto-fill, 30px);
     column-gap: 10px;
   }
 `;
 
-export const Cost = styled.div`
-  cursor: pointer;
-  opacity: 0.3;
-  transition: opacity 0.3s;
-  :hover {
-    opacity: 1;
+export const SortSelect = styled.div`
+  display: grid;
+  row-gap: 12px;
+  div {
+    display: flex;
+    align-items: center;
+    ${Opacity}
   }
+  svg {
+    margin-right: 6px;
+  }
+`;
+
+export const KeywordSelect = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 24px 12px;
+  div {
+    display: flex;
+    align-items: center;
+    ${Opacity}
+  }
+  svg {
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+`;
+
+export const Cost = styled.div`
+  ${Opacity}
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,5 +106,25 @@ export const Cost = styled.div`
     font-weight: 700;
     text-align: center;
     line-height: 18px;
+  }
+`;
+
+export const Folded = styled.div`
+  border-radius: 4px;
+  background: var(--gray-2);
+  position: relative;
+  ${Opacity}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  :before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-width: 0 6px 6px 0;
+    border-style: solid;
+    border-color: var(--gray-1) rgb(19 19 19 / 85%);
   }
 `;
