@@ -9,7 +9,7 @@ const IntroVideoSection = () => {
     <S.IntroSectionContainer>
       <div className="container">
         <div className="content">
-          <h1>Double SNAP</h1>
+          <h1>Finger SNAP</h1>
           <h3>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, qui saepe doloribus
             ducimus

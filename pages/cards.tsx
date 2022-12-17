@@ -1,6 +1,10 @@
 import { NextPage } from 'next';
-import CardFilter from '../src/components/@molecules/CardFilter';
 import CardList from '../src/components/@molecules/CardList';
+import dynamic from 'next/dynamic';
+
+const CardFilter = dynamic(() => import('../src/components/@molecules/CardFilter'), {
+  ssr: false,
+});
 
 const Cards: NextPage = () => {
   return (

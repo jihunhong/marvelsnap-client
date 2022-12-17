@@ -13,11 +13,6 @@ export const PostPreviewContainer = styled.article`
       display: flex;
       align-items: center;
       margin-bottom: 8px;
-      img {
-        border-radius: 50%;
-        margin-right: 8px;
-        vertical-align: middle;
-      }
     }
     h4 {
       font-weight: 500;

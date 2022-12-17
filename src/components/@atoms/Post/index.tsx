@@ -1,4 +1,5 @@
 import { PostPreviewContainer } from './style';
+import Avatar from '../Avatar';
 
 type Props = {
   title: string;
@@ -16,14 +17,10 @@ const Post = ({
     <PostPreviewContainer>
       <div className="meta">
         <div className="author">
-          <a>
-            <img
-              width={20}
-              height={20}
-              src="https://avatars.githubusercontent.com/u/21700764?v=4"
-              // TODO :: example image
-            />
-          </a>
+          <Avatar
+            src="https://avatars.githubusercontent.com/u/21700764?v=4"
+            // TODO :: example image
+          />
           <a>
             <h4>{writer}</h4>
           </a>
