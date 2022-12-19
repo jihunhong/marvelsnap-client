@@ -1,11 +1,15 @@
 import { NextPage } from 'next';
-import Deck from '../src/components/@atoms/Deck';
 import DeckList from '../src/components/@molecules/DeckList';
+import PageIntro from '../src/components/@molecules/PageIntro';
 
 const Decks: NextPage = () => {
   return (
     <>
-      <section className="full-width" style={{ height: 500 }}></section>
+      <PageIntro
+        title="Decks"
+        description="메타에서 효과적인 다양한 덱들을 찾아보세요"
+        bgSource="https://earlygame.com/uploads/images/_body/FutureMarvelSnap-Banner.jpg"
+      />
       <section>
         <DeckList />
       </section>

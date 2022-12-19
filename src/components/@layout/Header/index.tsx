@@ -30,11 +30,11 @@ const Header = () => {
               <span>Deck Builder</span>
             </a>
           </Link> */}
-          <Link href="/meta">
+          {/* <Link href="/meta">
             <a>
               <span>Meta</span>
             </a>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </S.Header>

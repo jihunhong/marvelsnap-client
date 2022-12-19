@@ -1,15 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 import { HEADER_HEIGHT } from './setting';
-import { PRIMARY_COLOR } from './color';
+import * as C from './color';
 
 export const GlobalStyle = createGlobalStyle`
     :root {
         --header-height: ${HEADER_HEIGHT};
-        --primary-color: ${PRIMARY_COLOR};
+        --primary-color: ${C.PRIMARY_COLOR};
+        --primary-light-color: ${C.PRIMARY_LIGHT_COLOR};
+        --secondary-color: ${C.SECONDARY_COLOR};
+        --secondary-light-color: ${C.SECONDARY_LIGHT_COLOR};
         --gray-1: #a3a0a0;
         --gray-2: #868484;
-        
-
+        --white: #fff;
     }
     html,
     body {

@@ -1,8 +1,7 @@
 import { FaGithub } from 'react-icons/fa';
-import * as S from './style';
 import videoId from '../../../../@constant/videoId';
-import Button from '../../@atoms/Button';
 import Input from '../../@atoms/Input';
+import * as S from './style';
 
 const IntroVideoSection = () => {
   return (

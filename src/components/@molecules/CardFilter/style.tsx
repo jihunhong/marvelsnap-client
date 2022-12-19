@@ -2,8 +2,10 @@ import styled from 'styled-components';
 import { Opacity } from '../../../styles/transition';
 
 export const CardFilterContainer = styled.div`
-  position: absolute;
-  top: 340px;
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
   right: 230px;
   width: 100%;
   max-width: 300px;

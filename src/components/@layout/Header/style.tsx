@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import device from '../../../styles/devices';
+import { Opacity } from '../../../styles/transition';
 
 export const Header = styled.header`
   position: fixed;
@@ -33,6 +34,9 @@ export const Header = styled.header`
     }
 
     .menus {
+      a {
+        ${Opacity}
+      }
       margin-left: auto;
       display: flex;
       justify-content: space-between;

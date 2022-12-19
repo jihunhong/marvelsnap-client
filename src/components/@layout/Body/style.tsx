@@ -9,7 +9,7 @@ export const BodyContainer = styled.main`
       max-width: 1192px;
       margin-left: auto;
       margin-right: auto;
-      padding-top: 56px;
+      padding-top: var(--header-height);
     }
     width: 100%;
   }
