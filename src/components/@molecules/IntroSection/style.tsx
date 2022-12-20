@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import device from '../../../styles/devices';
+import { ellipsis } from '../../../styles/common';
 
 export const IntroSectionContainer = styled.div`
   width: 100%;
@@ -6,7 +8,14 @@ export const IntroSectionContainer = styled.div`
   .container {
     position: relative;
     display: flex;
-    aspect-ratio: 2543 / 531;
+
+    @media ${device.mobileS} {
+      aspect-ratio: 6/5;
+    }
+
+    @media ${device.tablet} {
+      aspect-ratio: 2543 / 531;
+    }
     width: 100%;
   }
   .content {
@@ -14,7 +23,15 @@ export const IntroSectionContainer = styled.div`
     max-width: 1192px;
     position: relative;
     z-index: 2;
-    margin: auto;
+    @media ${device.mobileS} {
+      margin: auto 2rem;
+      padding-top: var(--header-height);
+      overflow: hidden;
+    }
+    @media ${device.tablet} {
+      margin: auto;
+      padding-top: 0;
+    }
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -23,11 +40,25 @@ export const IntroSectionContainer = styled.div`
       font-family: Poppins;
     }
     h1 {
-      font-size: 106px;
+      @media ${device.mobileS} {
+        font-size: 1.8rem;
+      }
+      @media ${device.tablet} {
+        font-size: 4.2rem;
+      }
       margin-bottom: 4px;
     }
-    h3 {
-      margin-bottom: 1rem;
+    h3,
+    a {
+      @media ${device.mobileS} {
+        font-size: 0.6rem;
+        margin-bottom: 0.46rem;
+        ${ellipsis}
+      }
+      @media ${device.tablet} {
+        font-size: 1.17rem;
+        margin-bottom: 1rem;
+      }
     }
     svg {
       margin-left: 6px;
@@ -52,7 +83,14 @@ export const IntroSectionContainer = styled.div`
     width: 100%;
     height: auto;
     overflow: hidden;
-    aspect-ratio: 2543 / 531;
+
+    @media ${device.mobileS} {
+      aspect-ratio: 6/5;
+    }
+
+    @media ${device.tablet} {
+      aspect-ratio: 2543 / 531;
+    }
 
     > div {
       :before {
@@ -61,8 +99,7 @@ export const IntroSectionContainer = styled.div`
         top: 0px;
         left: 0px;
         width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
+        height: 100%;
         background-color: rgb(22 24 25 / 95%);
         z-index: 1;
       }
@@ -73,7 +110,12 @@ export const IntroSectionContainer = styled.div`
     iframe {
       width: 100%;
       height: auto;
-      aspect-ratio: 16 / 9;
+      @media ${device.mobileS} {
+        aspect-ratio: 6/5;
+      }
+      @media ${device.tablet} {
+        aspect-ratio: 16 / 9;
+      }
     }
   }
 `;

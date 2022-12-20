@@ -30,17 +30,17 @@ const Deck = ({ title, cards, author, archtype }: T.Deck) => {
               <h4>어떠어떠어떠한덱</h4>
             </a>
           </div>
+          <div className="cards">
+            {Array(12)
+              .fill()
+              .map(() => (
+                <Card />
+              ))}
+          </div>
           <div className="meta-bottom">
             <BsClock color="#fff" size={14} />
             <h4>일주일전</h4>
           </div>
-        </div>
-        <div className="cards">
-          {Array(12)
-            .fill()
-            .map(() => (
-              <Card />
-            ))}
         </div>
       </div>
     </S.DeckContainer>

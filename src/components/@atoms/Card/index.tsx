@@ -1,6 +1,5 @@
-import * as S from './style';
-import Image from 'next/image';
 import type * as T from '../../../../@types/Card';
+import * as S from './style';
 
 const Card = ({
   name,

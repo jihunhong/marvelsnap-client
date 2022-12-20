@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { CardContainer } from '../Card/style';
 import { Opacity } from '../../../styles/transition';
+import device from '../../../styles/devices';
 
 export const DeckContainer = styled.article`
   display: flex;
@@ -41,9 +42,8 @@ export const DeckContainer = styled.article`
   }
   .deck-list {
     width: 100%;
-    display: grid;
-    grid-template-areas: 'preview preview offset card card card card card card' 'preview preview offset card card card card card card';
-    grid-template-columns: repeat(3, 1fr) repeat(6, 68px);
+    display: flex;
+    flex-direction: column;
 
     .preview {
       grid-area: preview;
@@ -70,12 +70,18 @@ export const DeckContainer = styled.article`
     }
     .cards {
       width: 100%;
-      margin: 14px 0;
+      margin: 2rem -6px 2rem -6px;
       grid-area: card;
       display: grid;
-      grid-template-columns: repeat(6, 68px);
-      grid-template-rows: repeat(2, 1fr);
-      row-gap: 2rem;
+      @media ${device.mobileS} {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        row-gap: 2rem;
+      }
+      @media ${device.tablet} {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: 1fr;
+      }
     }
     ${CardContainer} {
       width: 100%;

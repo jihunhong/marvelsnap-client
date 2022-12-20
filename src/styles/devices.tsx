@@ -1,4 +1,14 @@
-import breakpoints from "./breakpoints";
+import breakpoints from './breakpoints';
+
+// {
+//   mobileS: '320px',
+//   mobileM: '375px',
+//   mobileL: '425px',
+//   tablet: '768px',
+//   laptop: '1024px',
+//   laptopL: '1440px',
+//   desktop: '2560px',
+// }
 
 export const device = {
   mobileS: `(min-width: ${breakpoints.mobileS})`,
@@ -9,5 +19,5 @@ export const device = {
   laptopL: `(min-width: ${breakpoints.laptopL})`,
   desktop: `(min-width: ${breakpoints.desktop})`,
 };
-  
-  export default device;
+
+export default device;

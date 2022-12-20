@@ -29,7 +29,11 @@ export const Header = styled.header`
       filter: invert(100%);
     }
 
-    @media ${device.laptop} {
+    @media ${device.mobileS} {
+      margin: 0 2rem;
+    }
+
+    @media ${device.tablet} {
       margin: 0 62px;
     }
 

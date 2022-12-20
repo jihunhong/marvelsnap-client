@@ -1,13 +1,27 @@
 import styled from 'styled-components';
+import device from '../../../styles/devices';
 
 export const PageIntroContainer = styled.section`
   position: relative;
   display: flex;
-  aspect-ratio: 2543 / 531;
+
+  @media ${device.mobileS} {
+    aspect-ratio: 6 / 5;
+  }
+
+  @media ${device.tablet} {
+    aspect-ratio: 2543 / 531;
+  }
   width: 100%;
   .header {
     width: 100%;
-    margin: auto;
+
+    @media ${device.mobileS} {
+      margin: auto 2rem;
+    }
+    @media ${device.tablet} {
+      margin: auto;
+    }
     max-width: 1192px;
     z-index: 2;
     h1 {
@@ -41,7 +55,14 @@ export const Background = styled.div<BackgroundProps>`
   width: 100%;
   height: auto;
   overflow: hidden;
-  aspect-ratio: 2543 / 531;
+
+  @media ${device.mobileS} {
+    aspect-ratio: 6 / 5;
+  }
+
+  @media ${device.tablet} {
+    aspect-ratio: 2543 / 531;
+  }
   background: url(${p => p.bgSource}) no-repeat top center;
   background-size: cover;
 
