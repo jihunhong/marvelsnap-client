@@ -1,4 +1,3 @@
-import { FaGithub } from 'react-icons/fa';
 import videoId from '../../../../@constant/videoId';
 import Input from '../../@atoms/Input';
 import * as S from './style';
@@ -9,16 +8,10 @@ const IntroVideoSection = () => {
       <div className="container">
         <div className="content">
           <h1>Finger SNAP</h1>
-          <h3>
+          <h4>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, qui saepe doloribus
             ducimus
-          </h3>
-          <a className="owner-link" href="https://github.com/jihunhong">
-            <>
-              <span>2022 · jihunhong</span>
-              <FaGithub fill="#fff" />
-            </>
-          </a>
+          </h4>
           <div className="input-action">
             <Input placeholder="덱, 카드이름으로 검색해보세요." />
           </div>

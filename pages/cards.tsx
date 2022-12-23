@@ -6,6 +6,7 @@ import BreadCrumb from '../src/components/@atoms/BreadCrumb';
 import Button from '../src/components/@atoms/Button';
 import { FlexRow } from '../src/components/@atoms/Flex/style';
 import { GiCardRandom, GiCardPickup } from 'react-icons/gi';
+import { useEffect } from 'react';
 
 const CardFilter = dynamic(() => import('../src/components/@molecules/CardFilter'), {
   ssr: false,
@@ -13,6 +14,11 @@ const CardFilter = dynamic(() => import('../src/components/@molecules/CardFilter
 });
 
 const Cards: NextPage = () => {
+  useEffect(() => {
+    fetch('http://localhost:3000/api/cards/list')
+      .then(res => res.json())
+      .then(json => console.log(json))
+  }, []);
   return (
     <>
       <PageIntro

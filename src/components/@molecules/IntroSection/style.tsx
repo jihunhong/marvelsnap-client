@@ -36,7 +36,7 @@ export const IntroSectionContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     h1,
-    h3 {
+    h4 {
       font-family: Poppins;
     }
     h1 {
@@ -48,8 +48,10 @@ export const IntroSectionContainer = styled.div`
       }
       margin-bottom: 4px;
     }
-    h3,
-    a {
+    h4 {
+      font-weight: 500;
+      color: var(--gray-2);
+      font-style: italic;
       @media ${device.mobileS} {
         font-size: 0.6rem;
         margin-bottom: 0.46rem;
