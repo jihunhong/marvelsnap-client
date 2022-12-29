@@ -46,7 +46,6 @@ export const DeckContainer = styled.article`
     flex-direction: column;
 
     .preview {
-      grid-area: preview;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -71,7 +70,6 @@ export const DeckContainer = styled.article`
     .cards {
       width: 100%;
       margin: 2rem -6px 2rem -6px;
-      grid-area: card;
       display: grid;
       @media ${device.mobileS} {
         grid-template-columns: repeat(6, 1fr);

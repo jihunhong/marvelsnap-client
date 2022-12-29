@@ -7,6 +7,7 @@ import Button from '../src/components/@atoms/Button';
 import { FlexRow } from '../src/components/@atoms/Flex/style';
 import { GiCardRandom, GiCardPickup } from 'react-icons/gi';
 import { useEffect } from 'react';
+import DivisionLayout from '../src/components/@layout/BuilderLayout';
 
 const CardFilter = dynamic(() => import('../src/components/@molecules/CardFilter'), {
   ssr: false,
@@ -35,10 +36,10 @@ const Cards: NextPage = () => {
           </Button>
         </FlexRow>
       </PageIntro>
-      <section>
+      <DivisionLayout>
         <CardList />
         <CardFilter />
-      </section>
+      </DivisionLayout>
     </>
   );
 };

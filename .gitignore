@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# pocketbase
+/pb
+
 # testing
 /coverage
 
