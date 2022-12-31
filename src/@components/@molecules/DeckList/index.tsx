@@ -1,6 +1,6 @@
 import * as S from './style';
 import type * as T from '@customTypes/Deck';
-import Deck from 'src/@components/@atoms/Deck';
+import Deck from '@atoms/Deck';
 
 type Props = {
   dataSource: Array<T.Deck>;

@@ -1,5 +1,5 @@
 import type * as T from '@customTypes/Card';
-import Card from '../../@atoms/Card';
+import Card from '@atoms/Card';
 import * as S from './style';
 
 type Props = {

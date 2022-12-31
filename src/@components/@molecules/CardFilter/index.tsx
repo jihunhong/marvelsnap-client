@@ -3,7 +3,7 @@ import { BsExclamationTriangle, BsLightning } from 'react-icons/bs';
 import { FaSkull } from 'react-icons/fa';
 import { GiBatteryPackAlt, GiCardDiscard, GiGlassBall } from 'react-icons/gi';
 import { TiSortAlphabeticallyOutline } from 'react-icons/ti';
-import Cost from 'src/@components/@atoms/Cost';
+import Cost from '@atoms/Cost';
 import * as S from './style';
 
 const CardFilter = () => {

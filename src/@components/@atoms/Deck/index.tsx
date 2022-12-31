@@ -1,7 +1,7 @@
 import { BsClock, BsDownload } from 'react-icons/bs';
 import type * as T from '@customTypes/Deck';
-import Avatar from 'src/@components/@atoms/Avatar';
-import Card from 'src/@components/@atoms/Card';
+import Avatar from '@atoms/Avatar';
+import Card from '@atoms/Card';
 import * as S from './style';
 
 const Deck = ({ title, cards, author, archtype }: T.Deck) => {

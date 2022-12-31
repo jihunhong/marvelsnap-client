@@ -1,4 +1,4 @@
-import Cost from 'src/@components/@atoms/Cost';
+import Cost from '@atoms/Cost';
 import * as S from './style';
 import * as T from '@customTypes/Card';
 

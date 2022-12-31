@@ -1,4 +1,4 @@
-import Post from 'src/@components/@atoms/Post';
+import Post from '@atoms/Post';
 
 const Trending = () => {
   return (

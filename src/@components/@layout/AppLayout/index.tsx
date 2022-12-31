@@ -1,5 +1,5 @@
-import Body from "src/@components/@layout/Body";
-import Header from "src/@components/@layout/Header";
+import Body from "@layout/Body";
+import Header from "@layout/Header";
 
 
 type Props = {

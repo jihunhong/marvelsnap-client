@@ -1,5 +1,5 @@
 import videoId from '@constant/videoId';
-import Input from 'src/@components/@atoms/Input';
+import Input from '@atoms/Input';
 import * as S from './style';
 
 const IntroVideoSection = () => {
