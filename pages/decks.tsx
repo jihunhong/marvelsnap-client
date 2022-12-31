@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
-import DeckList from '../src/components/@molecules/DeckList';
-import PageIntro from '../src/components/@molecules/PageIntro';
+import DeckList from 'src/@components/@molecules/DeckList';
+import PageIntro from 'src/@components/@molecules/PageIntro';
 
 const Decks: NextPage = () => {
   return (

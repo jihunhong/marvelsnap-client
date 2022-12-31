@@ -13,16 +13,17 @@
       "module-resolver",
       {
         "alias": {
-          "@actions": "./src/actions",
-          "@layout": "./src/components/@layout",
-          "@atoms": "./src/components/@atoms",
-          "@components": "./src/components",
-          "@molecules": "./src/components/@molecules",
-          "@hooks": "./src/hooks",
-          "@lib": "./src/lib",
-          "@reducers": "./src/reducers",
-          "@store": "./src/store",
-          "@config": "./config"
+          "@layout/*": "./src/@components/@layout",
+          "@atoms/*": "./src/@components/@atoms",
+          "@molecules/*": "./src/@components/@molecules",
+          "@components/*": "./src/@components",
+          "@hooks/*": "./src/@hooks",
+          "@lib/*": "./src/lib",
+          "@reducers/*": "./src/reducers",
+          "@store/*": "./src/store",
+          "@const/*": "./constants",
+          "@types/*": "./@types",
+          "@styles/*": "./src/style"
         }
       }
     ]

@@ -1,8 +1,8 @@
+import DivisionLayout from "src/@components/@layout/DivisionLayout";
+import BuilderStatus from "src/@components/@molecules/BuilderStatus";
+import CardList from "src/@components/@molecules/CardList";
+import PageIntro from "src/@components/@molecules/PageIntro";
 import { NextPage } from "next";
-import DivisionLayout from "../src/components/@layout/BuilderLayout";
-import BuilderStatus from "../src/components/@molecules/BuilderStatus";
-import CardList from "../src/components/@molecules/CardList";
-import PageIntro from "../src/components/@molecules/PageIntro";
 
 const Builder: NextPage = () => {
     

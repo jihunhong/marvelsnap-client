@@ -1,15 +1,14 @@
+import Button from 'src/@components/@atoms/Button';
+import { FlexRow } from 'src/@components/@atoms/Flex/style';
+import DivisionLayout from 'src/@components/@layout/DivisionLayout';
+import CardList from 'src/@components/@molecules/CardList';
+import PageIntro from 'src/@components/@molecules/PageIntro';
 import { NextPage } from 'next';
-import CardList from '../src/components/@molecules/CardList';
 import dynamic from 'next/dynamic';
-import PageIntro from '../src/components/@molecules/PageIntro';
-import BreadCrumb from '../src/components/@atoms/BreadCrumb';
-import Button from '../src/components/@atoms/Button';
-import { FlexRow } from '../src/components/@atoms/Flex/style';
-import { GiCardRandom, GiCardPickup } from 'react-icons/gi';
 import { useEffect } from 'react';
-import DivisionLayout from '../src/components/@layout/BuilderLayout';
+import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
 
-const CardFilter = dynamic(() => import('../src/components/@molecules/CardFilter'), {
+const CardFilter = dynamic(() => import('src/@components/@molecules/CardFilter'), {
   ssr: false,
   loading: () => <div>Filter UI Loading</div>,
 });
