@@ -1,12 +1,12 @@
+import useCardList from '@hooks/queries/useCardList';
+import { NextPage } from 'next';
+import dynamic from 'next/dynamic';
+import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
 import Button from 'src/@components/@atoms/Button';
 import { FlexRow } from 'src/@components/@atoms/Flex/style';
 import DivisionLayout from 'src/@components/@layout/DivisionLayout';
 import CardList from 'src/@components/@molecules/CardList';
 import PageIntro from 'src/@components/@molecules/PageIntro';
-import { NextPage } from 'next';
-import dynamic from 'next/dynamic';
-import { useEffect } from 'react';
-import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
 
 const CardFilter = dynamic(() => import('src/@components/@molecules/CardFilter'), {
   ssr: false,
@@ -14,11 +14,7 @@ const CardFilter = dynamic(() => import('src/@components/@molecules/CardFilter')
 });
 
 const Cards: NextPage = () => {
-  useEffect(() => {
-    fetch('http://localhost:3000/api/cards/list')
-      .then(res => res.json())
-      .then(json => console.log(json))
-  }, []);
+  const { data } = useCardList();
   return (
     <>
       <PageIntro
@@ -36,7 +32,7 @@ const Cards: NextPage = () => {
         </FlexRow>
       </PageIntro>
       <DivisionLayout>
-        <CardList />
+        <CardList dataSource={data} />
         <CardFilter />
       </DivisionLayout>
     </>

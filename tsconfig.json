@@ -22,6 +22,7 @@
       "@hooks/*": ["src/@hooks/*"],
       "@components/*": ["src/@components/*"],
       "@lib/*": ["src/lib/*"],
+      "@query/*": ["src/@query/*"],
       "@reducers/*": ["src/reducers/*"],
       "@store/*": ["src/store/*"],
       "@const/*": ["constants/*"],

@@ -1,7 +1,7 @@
 import * as S from "./style";
 
 type Props = {
-    children: JSX.Element
+    children: Array<JSX.Element>
 }
 
 const DivisionLayout = ({ children }:Props) => {

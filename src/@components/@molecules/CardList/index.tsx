@@ -9,11 +9,9 @@ type Props = {
 const CardList = ({ dataSource }: Props) => {
   return (
     <S.CardListContainer>
-      {Array(160)
-        .fill()
-        .map(() => (
-          <Card />
-        ))}
+      {dataSource?.map(item => (
+        <Card key={item?.id} {...item} />
+      ))}
     </S.CardListContainer>
   );
 };

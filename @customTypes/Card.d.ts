@@ -1,4 +1,5 @@
 export type Card = {
+  id: string;
   name: string;
   src: string;
   cost: number;
@@ -9,4 +10,5 @@ export type Card = {
   variants?: Array<Props>;
   artist?: string;
   description: string;
+  en: string;
 };
