@@ -12,7 +12,7 @@ const Card = ({
   power,
   variants,
   artist,
-  description,
+  effect,
   en
 }: T.Card) => {
   return (
@@ -20,8 +20,10 @@ const Card = ({
       <img
         src={`https://marvelsnap.imgix.net/cards/basic/${en.toLowerCase().replaceAll(' ', '-')}.webp?w=256&h=256`}
         loading="lazy"
+        alt={name}
       />
-      {/* <Image width={256} height={256} src={`https://marvelsnap.imgix.net/cards/basic/${en.toLowerCase().replaceAll(' ', '-')}.webp?w=256&h=256`} alt={name} lazyBoundary="300px" /> */}
+      <p className='name'>{name}</p>
+      <p className='effect'>{effect}</p>
     </S.CardContainer>
   );
 };

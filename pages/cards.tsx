@@ -2,19 +2,33 @@ import useCardList from '@hooks/queries/useCardList';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
+import { dehydrate, QueryClient, useQuery } from 'react-query';
 import Button from 'src/@components/@atoms/Button';
 import { FlexRow } from 'src/@components/@atoms/Flex/style';
 import DivisionLayout from 'src/@components/@layout/DivisionLayout';
 import CardList from 'src/@components/@molecules/CardList';
 import PageIntro from 'src/@components/@molecules/PageIntro';
+import { fetchCardList } from 'src/@fetch';
 
-const CardFilter = dynamic(() => import('src/@components/@molecules/CardFilter'), {
+const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
   ssr: false,
   loading: () => <div>Filter UI Loading</div>,
 });
 
-const Cards: NextPage = () => {
+export async function getServerSideProps() {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery('/api/cards/list', fetchCardList);
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient)
+    }
+  }
+}
+
+const Cards: NextPage = (props) => {
   const { data } = useCardList();
+
   return (
     <>
       <PageIntro

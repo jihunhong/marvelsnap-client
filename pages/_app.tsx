@@ -1,20 +1,23 @@
-import { client } from '@query/index';
 import { GlobalStyle } from '@styles/globals';
 import type { AppProps } from 'next/app';
-import { QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools'
+import { useState } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { Hydrate } from 'react-query/hydration';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import AppLayout from 'src/@components/@layout/AppLayout';
 
 
 function App({ Component, pageProps }: AppProps) {
-
+  const [queryClient] = useState(() => new QueryClient());
   return (
-    <QueryClientProvider client={client}>
-      <GlobalStyle />
-      <AppLayout>
-        <Component {...pageProps} />
-      </AppLayout>
-      <ReactQueryDevtools position="bottom-right" />
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <GlobalStyle />
+        <AppLayout>
+          <Component {...pageProps} />
+        </AppLayout>
+        <ReactQueryDevtools position="bottom-right" />
+      </Hydrate>
     </QueryClientProvider>
   );
 }

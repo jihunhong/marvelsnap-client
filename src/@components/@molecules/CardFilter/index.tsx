@@ -5,8 +5,12 @@ import { GiBatteryPackAlt, GiCardDiscard, GiGlassBall } from 'react-icons/gi';
 import { TiSortAlphabeticallyOutline } from 'react-icons/ti';
 import Cost from '@atoms/Cost';
 import * as S from './style';
+import useCardFilter from '@hooks/useFilter';
 
 const CardFilter = () => {
+
+  const [onClick] = useCardFilter();
+
   return (
     <S.CardFilterContainer>
       <div className="content">
@@ -36,26 +40,26 @@ const CardFilter = () => {
             <div className="divider"></div>
           </div>
           <S.KeywordSelect>
-            <div>
-              <BsLightning size={16} /> 출현
+            <div onClick={onClick}>
+              <BsLightning size={16} />출현
             </div>
-            <div>
+            <div onClick={onClick}>
               <BiLoaderCircle size={16} />
               지속
             </div>
-            <div>
+            <div onClick={onClick}>
               <BsExclamationTriangle size={16} />
               능력없음
             </div>
-            <div>
+            <div onClick={onClick}>
               <GiCardDiscard size={16} />
               버리기
             </div>
-            <div>
+            <div onClick={onClick}>
               <BiMoveHorizontal size={16} />
               이동
             </div>
-            <div>
+            <div onClick={onClick}>
               <FaSkull size={16} />
               파괴
             </div>

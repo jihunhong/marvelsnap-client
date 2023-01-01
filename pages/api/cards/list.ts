@@ -12,9 +12,10 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
     const cards = await pb.collection('cards').getFullList(300, {
-        expand: 'keywords',
-        sort: '+cost,+power,+en'
+        expand: 'keywords.name',
+        sort: '+cost,+power,+en',
+        filter: "grade!=0"
     });
-
-  res.status(200).json(cards)
+    console.log(cards);
+    res.status(200).json(cards)
 }

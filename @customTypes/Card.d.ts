@@ -9,6 +9,6 @@ export type Card = {
   power: number;
   variants?: Array<Props>;
   artist?: string;
-  description: string;
+  effect: string;
   en: string;
 };
