@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type CustomProps = {
-  colorType: 'primary' | 'secondary';
+  colorType: 'primary' | 'secondary' | 'warn';
 };
 
 export const ButtonTag = styled.button<CustomProps>`

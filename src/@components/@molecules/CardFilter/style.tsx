@@ -43,11 +43,20 @@ export const CardFilterContainer = styled.section`
     grid-template-columns: repeat(auto-fill, 27px);
     column-gap: 10px;
   }
+
+  button {
+    width: 100%;
+    justify-content: center;
+    svg {
+      margin-right: 8px;
+    }
+  }
 `;
 
 export const SortSelect = styled.div`
   display: grid;
   row-gap: 12px;
+  grid-template-columns: 1fr 1fr;
   div {
     display: flex;
     align-items: center;

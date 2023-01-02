@@ -16,6 +16,5 @@ export default async function handler(
         sort: '+cost,+power,+en',
         filter: "grade!=0"
     });
-    console.log(cards);
     res.status(200).json(cards)
 }

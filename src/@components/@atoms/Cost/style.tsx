@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Opacity } from '@styles/transition';
 
-export const CostContainer = styled.div`
+export const CostContainer = styled.span`
   ${Opacity}
   display: flex;
   align-items: center;
@@ -25,10 +25,8 @@ export const CostContainer = styled.div`
     );
   box-shadow: rgb(22 13 51 / 80%) 0px 0px 6px, rgb(0 0 0 / 50%) 0px 0px 3px 1px inset;
   border-radius: 50%;
-  span {
-    font-size: 14px;
-    font-weight: 700;
-    text-align: center;
-    line-height: 18px;
-  }
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 18px;
 `;

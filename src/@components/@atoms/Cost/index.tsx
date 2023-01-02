@@ -4,11 +4,11 @@ type Props = {
     amount: number | string
 }
 
-const Cost = ({ amount }: Props) => {
+const Cost = ({ amount, ...props }: Props) => {
 
     return (
-        <S.CostContainer>
-            <span>{amount}</span>
+        <S.CostContainer {...props}>
+            {amount}
         </S.CostContainer>
     )
 }

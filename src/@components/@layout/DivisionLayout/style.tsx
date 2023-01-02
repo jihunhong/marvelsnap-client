@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { BuilderStatusContainer } from "../../@molecules/BuilderStatus/style";
 import { CardListContainer } from "../../@molecules/CardList/style";
 
 
@@ -7,7 +6,6 @@ export const DivisionLayoutContainer = styled.section`
     display: grid;
     grid-template-columns: repeat(13, 1fr);
     grid-template-areas: "card card card card card card card card offset filter filter filter";
-    overscroll: none;
 
     ${CardListContainer} {
         grid-area: card;

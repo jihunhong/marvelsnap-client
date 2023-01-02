@@ -1,12 +1,12 @@
 import { textEllipsis } from '@styles/text';
 import styled from 'styled-components';
+import css from 'styled-jsx/css';
 
 export const CardContainer = styled.article`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  aspect-ratio: 1/1;
   img {
     width: 127%;
     margin-bottom: 4px;
@@ -19,12 +19,17 @@ export const CardContainer = styled.article`
     text-align: center;
     &.name {
       font-size: 0.8rem;
+      font-weight: 500;
       color: var(--gray-1);
       margin-bottom: 4px;
     }
     &.effect {
       font-size: 0.6rem;
       color: var(--gray-2);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
     }
   }
 `;

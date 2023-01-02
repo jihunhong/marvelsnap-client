@@ -1,8 +1,9 @@
 import useCardList from '@hooks/queries/useCardList';
+import keys from '@query/keys';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
-import { dehydrate, QueryClient, useQuery } from 'react-query';
+import { dehydrate, QueryClient } from 'react-query';
 import Button from 'src/@components/@atoms/Button';
 import { FlexRow } from 'src/@components/@atoms/Flex/style';
 import DivisionLayout from 'src/@components/@layout/DivisionLayout';
@@ -17,7 +18,7 @@ const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery('/api/cards/list', fetchCardList);
+  await queryClient.prefetchQuery([keys.cardList, null], fetchCardList);
 
   return {
     props: {
@@ -27,7 +28,8 @@ export async function getServerSideProps() {
 }
 
 const Cards: NextPage = (props) => {
-  const { data } = useCardList();
+  
+  const [{ data }, onClick] = useCardList();
 
   return (
     <>
@@ -47,7 +49,7 @@ const Cards: NextPage = (props) => {
       </PageIntro>
       <DivisionLayout>
         <CardList dataSource={data} />
-        <CardFilter />
+        <CardFilter onClick={onClick} />
       </DivisionLayout>
     </>
   );

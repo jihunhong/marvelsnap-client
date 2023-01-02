@@ -1,14 +1,14 @@
 import { ButtonTag } from './style';
 
 type Props = {
-  colorType?: 'primary' | 'secondary';
+  colorType?: 'primary' | 'secondary' | 'warn';
   icon?: JSX.Element;
   children: JSX.Element;
 };
 
-const Button = ({ children, colorType = 'primary', icon }: Props) => {
+const Button = ({ children, colorType = 'primary', icon, ...props }: Props) => {
   return (
-    <ButtonTag colorType={colorType}>
+    <ButtonTag colorType={colorType} {...props}>
       {icon}
       {children}
     </ButtonTag>
