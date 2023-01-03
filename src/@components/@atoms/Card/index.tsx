@@ -18,7 +18,7 @@ const Card = ({
   return (
     <S.CardContainer>
       <img
-        src={`https://marvelsnap.imgix.net/cards/basic/${en.toLowerCase().replaceAll(' ', '-')}.webp?w=256&h=256`}
+        src={`https://marvelsnap.imgix.net/cards/basic/${en?.toLowerCase().replaceAll(' ', '-')}.webp?w=256&h=256`}
         loading="lazy"
         alt={name}
       />
