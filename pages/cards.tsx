@@ -1,5 +1,6 @@
-import useCardList from '@hooks/queries/useCardList';
+import useCardFilter from '@hooks/queries/useCardFilter';
 import keys from '@query/keys';
+import useCardListQuery from '@query/useCardListQuery';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
@@ -22,22 +23,18 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      dehydratedState: dehydrate(queryClient)
-    }
-  }
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 }
 
-const Cards: NextPage = (props) => {
-  
-  const [{ data }, onClick] = useCardList();
+const Cards: NextPage = props => {
+  const [dataSource] = useCardListQuery();
+  const [onClick] = useCardFilter();
 
   return (
     <>
-      <PageIntro
-        title="Cards"
-        description="게임에서 사용되는 다양한 카드들을 찾아보세요"
-        bgSource="https://assets-prd.ignimgs.com/2022/05/18/multiplecard-showcase-d1-v2-1652904981819.png"
-      >
+      <PageIntro title="Cards" description="게임에서 사용되는 다양한 카드들을 찾아보세요" bgSource="https://assets-prd.ignimgs.com/2022/05/18/multiplecard-showcase-d1-v2-1652904981819.png">
         <FlexRow>
           <Button icon={<GiCardRandom />}>
             <span>랜덤 카드</span>
@@ -48,7 +45,7 @@ const Cards: NextPage = (props) => {
         </FlexRow>
       </PageIntro>
       <DivisionLayout>
-        <CardList dataSource={data} />
+        <CardList dataSource={dataSource} />
         <CardFilter onClick={onClick} />
       </DivisionLayout>
     </>

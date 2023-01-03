@@ -23,7 +23,7 @@
           "@reducers/*": "./src/reducers",
           "@store/*": "./src/store",
           "@const/*": "./constants",
-          "@types/*": "./@types",
+          "@customTypes/*": "./@customTypes",
           "@styles/*": "./src/style"
         }
       }

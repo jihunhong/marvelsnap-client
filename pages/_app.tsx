@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import AppLayout from 'src/@components/@layout/AppLayout';
-
+import { RecoilRoot } from 'recoil';
 
 function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
@@ -13,9 +13,11 @@ function App({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
         <GlobalStyle />
-        <AppLayout>
-          <Component {...pageProps} />
-        </AppLayout>
+        <RecoilRoot>
+          <AppLayout>
+            <Component {...pageProps} />
+          </AppLayout>
+        </RecoilRoot>
         <ReactQueryDevtools position="bottom-right" />
       </Hydrate>
     </QueryClientProvider>

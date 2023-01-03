@@ -6,9 +6,12 @@ import { FaSkull } from 'react-icons/fa';
 import { GiBatteryPackAlt, GiCardDiscard, GiGlassBall } from 'react-icons/gi';
 import { IoMdClose, IoMdCloseCircleOutline } from 'react-icons/io';
 import { TiSortAlphabeticallyOutline } from 'react-icons/ti';
+import { useResetRecoilState } from 'recoil';
+import { filterAtom } from 'src/@store/cardList';
 import * as S from './style';
 
 const CardFilter = ({ onClick }) => {
+  const resetFilter = useResetRecoilState(filterAtom);
 
   return (
     <S.CardFilterContainer>
@@ -40,7 +43,8 @@ const CardFilter = ({ onClick }) => {
           </div>
           <S.KeywordSelect onClick={onClick}>
             <div data-type="keyword" data-value="출현">
-              <BsLightning size={16} />출현
+              <BsLightning size={16} />
+              출현
             </div>
             <div data-type="keyword" data-value="지속">
               <BiLoaderCircle size={16} />
@@ -70,13 +74,13 @@ const CardFilter = ({ onClick }) => {
             <div className="divider"></div>
           </div>
           <div className="selection" onClick={onClick}>
-            <Cost amount={0} data-type='cost' data-value={0} />
-            <Cost amount={1} data-type='cost' data-value={1} />
-            <Cost amount={2} data-type='cost' data-value={2} />
-            <Cost amount={3} data-type='cost' data-value={3} />
-            <Cost amount={4} data-type='cost' data-value={4} />
-            <Cost amount={5} data-type='cost' data-value={5} />
-            <Cost amount='6+' data-type='cost' data-value={6} />
+            <Cost amount={0} data-type="cost" data-value={0} />
+            <Cost amount={1} data-type="cost" data-value={1} />
+            <Cost amount={2} data-type="cost" data-value={2} />
+            <Cost amount={3} data-type="cost" data-value={3} />
+            <Cost amount={4} data-type="cost" data-value={4} />
+            <Cost amount={5} data-type="cost" data-value={5} />
+            <Cost amount="6+" data-type="cost" data-value={6} />
           </div>
         </section>
         <section className="filter">
@@ -85,16 +89,26 @@ const CardFilter = ({ onClick }) => {
             <div className="divider"></div>
           </div>
           <div className="selection" onClick={onClick}>
-            <S.Folded data-type="grade" data-value={1}>I</S.Folded>
-            <S.Folded data-type="grade" data-value={2}>II</S.Folded>
-            <S.Folded data-type="grade" data-value={3}>III</S.Folded>
-            <S.Folded data-type="grade" data-value={4}>IV</S.Folded>
-            <S.Folded data-type="grade" data-value={5}>V</S.Folded>
+            <S.Folded data-type="grade" data-value={1}>
+              I
+            </S.Folded>
+            <S.Folded data-type="grade" data-value={2}>
+              II
+            </S.Folded>
+            <S.Folded data-type="grade" data-value={3}>
+              III
+            </S.Folded>
+            <S.Folded data-type="grade" data-value={4}>
+              IV
+            </S.Folded>
+            <S.Folded data-type="grade" data-value={5}>
+              V
+            </S.Folded>
           </div>
         </section>
-        <Button icon={<BsFillTrashFill />} colorType="warn" onClick={onClick} data-type="reset">
-            <span>필터 제거</span>
-          </Button>
+        <Button icon={<BsFillTrashFill />} colorType="warn" onClick={resetFilter}>
+          <span>필터 제거</span>
+        </Button>
       </div>
     </S.CardFilterContainer>
   );
