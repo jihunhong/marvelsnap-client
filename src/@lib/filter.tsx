@@ -5,7 +5,7 @@ export const filtering = (cards, filter) => {
     return cards;
   }
   if (filter.type === 'sort') {
-    return cards.sort((a, b) => a[filter.value] - b[filter.value]);
+    return [...cards].sort((a, b) => a[filter.value] - b[filter.value]);
   }
 
   if (filter.type === 'grade') {

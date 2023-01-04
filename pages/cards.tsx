@@ -1,8 +1,10 @@
+import Card from '@atoms/Card';
 import useCardFilter from '@hooks/queries/useCardFilter';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
 import { dehydrate, QueryClient } from 'react-query';
 import Button from 'src/@components/@atoms/Button';
@@ -45,7 +47,16 @@ const Cards: NextPage = props => {
         </FlexRow>
       </PageIntro>
       <DivisionLayout>
-        <CardList dataSource={dataSource} />
+        <CardList
+          dataSource={dataSource}
+          renderItem={item => (
+            <Link href={`/card/${item?.en?.toLowerCase()}`}>
+              <a>
+                <Card key={item?.id} {...item} />
+              </a>
+            </Link>
+          )}
+        />
         <CardFilter onClick={onClick} />
       </DivisionLayout>
     </>

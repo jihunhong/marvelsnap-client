@@ -5,3 +5,4 @@ export const SECONDARY_COLOR = '#00d64c';
 export const SECONDARY_LIGHT_COLOR = '#67e895';
 
 export const WARN_COLOR = '#CC3300';
+export const WARN_LIGHT_COLOR = '#cd5026';

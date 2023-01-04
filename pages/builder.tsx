@@ -1,3 +1,5 @@
+import Card from '@atoms/Card';
+import useBuilder from '@hooks/useBuilder';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
 import { NextPage } from 'next';
@@ -21,11 +23,20 @@ export async function getServerSideProps() {
 
 const Builder: NextPage = () => {
   const [dataSource] = useCardListQuery();
+  const [onClick] = useBuilder();
+
   return (
     <>
       <PageIntro title="Deck Builder" description="" bgSource="https://earlygame.com/uploads/images/_body/FutureMarvelSnap-Banner.jpg" />
       <DivisionLayout>
-        <CardList dataSource={dataSource} />
+        <CardList
+          dataSource={dataSource}
+          renderItem={item => (
+            <div key={item?.id} data-id={item?.id} data-name={item?.name} data-en={item?.en} data-cost={item?.cost} onClick={onClick}>
+              <Card {...item} />
+            </div>
+          )}
+        />
         <BuilderStatus />
       </DivisionLayout>
     </>

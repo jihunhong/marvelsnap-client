@@ -41,9 +41,6 @@ export const CardFilterContainer = styled.section`
   button {
     width: 100%;
     justify-content: center;
-    :hover {
-      background-color: initial;
-    }
     svg {
       margin-right: 8px;
     }

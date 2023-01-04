@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
         --secondary-color: ${C.SECONDARY_COLOR};
         --secondary-light-color: ${C.SECONDARY_LIGHT_COLOR};
         --warn-color: ${C.WARN_COLOR};
+        --warn-light-color: ${C.WARN_LIGHT_COLOR};
         --gray-1: #a3a0a0;
         --gray-2: #868484;
         --white: #fff;

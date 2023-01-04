@@ -1,19 +1,14 @@
 import type * as T from '@customTypes/Card';
-import Card from '@atoms/Card';
+import { ReactNode } from 'react';
 import * as S from './style';
 
 type Props = {
   dataSource: Array<T.Card>;
+  renderItem: (item: T.Card) => ReactNode;
 };
 
-const CardList = ({ dataSource }: Props) => {
-  return (
-    <S.CardListContainer>
-      {dataSource?.map(item => (
-        <Card key={item?.id} {...item} />
-      ))}
-    </S.CardListContainer>
-  );
+const CardList = ({ dataSource, renderItem }: Props) => {
+  return <S.CardListContainer>{dataSource?.map(renderItem)}</S.CardListContainer>;
 };
 
 export default CardList;
