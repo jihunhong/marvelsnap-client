@@ -1,9 +1,9 @@
 import { SyntheticEvent } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { selectFilter } from 'src/@store/cardList';
+import { filterSelector } from 'src/@store/cardList';
 
 const useCardFilter = (): [(e: SyntheticEvent) => void] => {
-  const setFilter = useSetRecoilState(selectFilter);
+  const setFilter = useSetRecoilState(filterSelector);
   const onClick = (e: SyntheticEvent) => {
     if (!(e.target instanceof HTMLDivElement || e.target instanceof HTMLSpanElement)) {
       return;

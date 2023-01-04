@@ -6,11 +6,12 @@ import { FaSkull } from 'react-icons/fa';
 import { GiBatteryPackAlt, GiCardDiscard, GiGlassBall } from 'react-icons/gi';
 import { IoMdClose, IoMdCloseCircleOutline } from 'react-icons/io';
 import { TiSortAlphabeticallyOutline } from 'react-icons/ti';
-import { useResetRecoilState } from 'recoil';
+import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { filterAtom } from 'src/@store/cardList';
 import * as S from './style';
 
 const CardFilter = ({ onClick }) => {
+  const filter = useRecoilValue(filterAtom);
   const resetFilter = useResetRecoilState(filterAtom);
 
   return (
@@ -41,7 +42,7 @@ const CardFilter = ({ onClick }) => {
             <div className="title">KEYWORD</div>
             <div className="divider"></div>
           </div>
-          <S.KeywordSelect onClick={onClick}>
+          <S.KeywordSelect onClick={onClick} active={filter?.value}>
             <div data-type="keyword" data-value="출현">
               <BsLightning size={16} />
               출현
@@ -73,7 +74,7 @@ const CardFilter = ({ onClick }) => {
             <div className="title">COST</div>
             <div className="divider"></div>
           </div>
-          <div className="selection" onClick={onClick}>
+          <S.PickSelect onClick={onClick} active={filter?.type === 'cost' ? filter?.value : null}>
             <Cost amount={0} data-type="cost" data-value={0} />
             <Cost amount={1} data-type="cost" data-value={1} />
             <Cost amount={2} data-type="cost" data-value={2} />
@@ -81,14 +82,14 @@ const CardFilter = ({ onClick }) => {
             <Cost amount={4} data-type="cost" data-value={4} />
             <Cost amount={5} data-type="cost" data-value={5} />
             <Cost amount="6+" data-type="cost" data-value={6} />
-          </div>
+          </S.PickSelect>
         </section>
         <section className="filter">
           <div className="header">
             <div className="title">POOL</div>
             <div className="divider"></div>
           </div>
-          <div className="selection" onClick={onClick}>
+          <S.PickSelect onClick={onClick} active={filter?.type === 'grade' ? filter?.value : null}>
             <S.Folded data-type="grade" data-value={1}>
               I
             </S.Folded>
@@ -104,7 +105,7 @@ const CardFilter = ({ onClick }) => {
             <S.Folded data-type="grade" data-value={5}>
               V
             </S.Folded>
-          </div>
+          </S.PickSelect>
         </section>
         <Button icon={<BsFillTrashFill />} colorType="warn" onClick={resetFilter}>
           <span>필터 제거</span>

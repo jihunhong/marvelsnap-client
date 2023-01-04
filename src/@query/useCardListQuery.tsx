@@ -3,7 +3,7 @@ import keys from '@query/keys';
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { fetchCardList } from 'src/@fetch';
-import { filterAtom, cardListAtom, filteredCardListAtom, selectCards, selectFilter } from 'src/@store/cardList';
+import { filterAtom, cardListAtom, filteredCardListAtom, cardsSelector, filterSelector } from 'src/@store/cardList';
 
 const useCardListQuery = (): [Card[]] => {
   const [cardList, setCardList] = useRecoilState(cardListAtom);

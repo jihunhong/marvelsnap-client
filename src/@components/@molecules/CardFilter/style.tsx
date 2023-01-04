@@ -38,24 +38,33 @@ export const CardFilterContainer = styled.section`
     }
   }
 
-  .selection {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 27px);
-    column-gap: 10px;
-  }
-
   button {
     width: 100%;
     justify-content: center;
+    :hover {
+      background-color: initial;
+    }
     svg {
       margin-right: 8px;
     }
   }
 `;
 
+export const PickSelect = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 27px);
+  column-gap: 10px;
+  div,
+  span {
+    &[data-value='${props => props.active}'] {
+      opacity: 1;
+    }
+  }
+`;
+
 export const SortSelect = styled.div`
   display: grid;
-  row-gap: 12px;
+  row-gap: 24px;
   grid-template-columns: 1fr 1fr;
   div {
     display: flex;
@@ -75,6 +84,9 @@ export const KeywordSelect = styled.div`
     display: flex;
     align-items: center;
     ${Opacity}
+  }
+  div[data-value='${props => props.active}'] {
+    opacity: 1;
   }
   svg {
     vertical-align: middle;
