@@ -11,6 +11,8 @@ export const GlobalStyle = createGlobalStyle`
         --secondary-light-color: ${C.SECONDARY_LIGHT_COLOR};
         --warn-color: ${C.WARN_COLOR};
         --warn-light-color: ${C.WARN_LIGHT_COLOR};
+        --success-color: ${C.SUCCSS_COLOR};
+        --success-light-color: ${C.SUCCESS_LIGHT_COLOR};
         --gray-1: #a3a0a0;
         --gray-2: #868484;
         --white: #fff;

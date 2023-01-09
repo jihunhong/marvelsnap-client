@@ -1,9 +1,9 @@
 import { SyntheticEvent } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { deckSelector } from 'src/@store/builder';
+import { addSelector } from 'src/@store/builder';
 
 const useBuilder = () => {
-  const setDeckStatus = useSetRecoilState(deckSelector);
+  const setDeckStatus = useSetRecoilState(addSelector);
   const onClick = (e: SyntheticEvent) => {
     if (!(e.currentTarget instanceof HTMLDivElement)) {
       return;

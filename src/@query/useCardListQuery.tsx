@@ -9,6 +9,9 @@ const useCardListQuery = (): [Card[]] => {
   const [cardList, setCardList] = useRecoilState(cardListAtom);
   useQuery(keys.cardList, fetchCardList, {
     onSuccess: data => setCardList(data),
+    refetchOnReconnect: false,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   });
   const filteredCardList = useRecoilValue(filteredCardListAtom);
   const filter = useRecoilValue(filterAtom);

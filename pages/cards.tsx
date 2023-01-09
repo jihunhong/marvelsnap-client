@@ -1,5 +1,6 @@
 import Card from '@atoms/Card';
-import useCardFilter from '@hooks/queries/useCardFilter';
+import useCardFilter from '@hooks/useCardFilter';
+
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
 import { NextPage } from 'next';

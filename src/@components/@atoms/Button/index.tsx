@@ -1,9 +1,9 @@
 import { ButtonTag } from './style';
 
 type Props = {
-  colorType?: 'primary' | 'secondary' | 'warn';
+  colorType?: 'primary' | 'secondary' | 'warn' | 'success';
   icon?: JSX.Element;
-  children: JSX.Element;
+  children?: JSX.Element;
 };
 
 const Button = ({ children, colorType = 'primary', icon, ...props }: Props) => {

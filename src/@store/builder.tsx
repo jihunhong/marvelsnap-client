@@ -6,8 +6,8 @@ export const deckStatusAtom = atom<Card[]>({
   default: [],
 });
 
-export const deckSelector = selector({
-  key: 'selectDecks',
+export const addSelector = selector({
+  key: 'addDeckItem',
   get: () => {},
   set: ({ get, set }, newItem) => {
     const current = get(deckStatusAtom);
@@ -26,5 +26,15 @@ export const deckSelector = selector({
       deckStatusAtom,
       newState?.sort((a, b) => a.cost - b.cost),
     );
+  },
+});
+
+export const removeSelector = selector({
+  key: 'removeDeckItem',
+  get: () => {},
+  set: ({ get, set }, specificId) => {
+    const current = get(deckStatusAtom);
+    const newState = current.filter(item => item.id !== specificId);
+    set(deckStatusAtom, newState);
   },
 });
