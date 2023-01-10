@@ -2,7 +2,9 @@ import { CardRowContainer } from '@atoms/CardRow/style';
 import styled from 'styled-components';
 
 export const DeckPostModalContainer = styled.dialog`
-  position: fixed;
+  &[open] {
+    position: fixed;
+  }
   top: 50%;
   left: 50%;
   right: 50%;

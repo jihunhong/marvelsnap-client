@@ -3,6 +3,7 @@ import CardRow from '@atoms/CardRow';
 import Input from '@atoms/Input';
 import useModalToggler from '@hooks/useModalToggler';
 import usePostDeck from '@hooks/usePostDeckList';
+import { useEffect, useRef } from 'react';
 import { TbClipboardList } from 'react-icons/tb';
 import { useRecoilValue } from 'recoil';
 import { deckStatusAtom } from 'src/@store/builder';
@@ -14,8 +15,14 @@ const DeckPostModal = () => {
   const status = useRecoilValue(deckStatusAtom);
   const [canceller] = useModalToggler('postDeck');
   const [postDeckEvent] = usePostDeck();
+  const dialogRef = useRef();
+  useEffect(() => {
+    if (dialogRef.current) {
+      if (!visible) dialogRef.current?.close();
+    }
+  }, [dialogRef, visible]);
   return (
-    <S.DeckPostModalContainer open={visible}>
+    <S.DeckPostModalContainer open={visible} ref={dialogRef}>
       <S.Header>
         <div className="title">
           <TbClipboardList size={24} color={'#fff'} />

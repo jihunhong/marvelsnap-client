@@ -14,7 +14,6 @@ export const modalStatus = selectorFamily({
     (param: string) =>
     ({ get }) => {
       const modalState = get(modalAtom);
-      console.log(modalState);
       return modalState[param];
     },
 });
