@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
         --gray-1: #a3a0a0;
         --gray-2: #868484;
         --white: #fff;
+        --black-background: #161819;
     }
     html,
     body {

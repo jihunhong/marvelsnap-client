@@ -1,6 +1,6 @@
 import Button from '@atoms/Button';
 import CardRow from '@atoms/CardRow';
-import usePostDeck from '@hooks/usePostDeckList';
+import useModalToggler from '@hooks/useModalToggler';
 import useRemoveItem from '@hooks/useRemoveItem';
 import DeckStatistic from '@molecules/DeckStatistic';
 import { BsCheck } from 'react-icons/bs';
@@ -11,8 +11,7 @@ import * as S from './style';
 const BuilderStatus = () => {
   const status = useRecoilValue(deckStatusAtom);
   const [onClick] = useRemoveItem();
-  const [postDeckEvent] = usePostDeck();
-
+  const [toggler] = useModalToggler('postDeck');
   return (
     <S.BuilderStatusContainer>
       <div className="content">
@@ -25,7 +24,7 @@ const BuilderStatus = () => {
             </div>
           ))}
         </div>
-        <Button icon={<BsCheck />} colorType="primary" onClick={postDeckEvent}>
+        <Button icon={<BsCheck />} colorType="primary" onClick={toggler}>
           <span>등록</span>
         </Button>
       </div>

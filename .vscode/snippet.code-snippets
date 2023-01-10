@@ -1,6 +1,6 @@
 {
   "Import styleing file in same folder": {
-    "scope": "javascript,typescript",
+    "scope": "javascript,typescriptreact",
     "prefix": "sfs",
     "body": ["import * as S from './style';"],
     "description": "ssr import"

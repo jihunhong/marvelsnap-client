@@ -7,12 +7,15 @@ type CustomProps = {
 export const ButtonTag = styled.button<CustomProps>`
   display: flex;
   align-items: center;
+  justify-content: center;
   border-radius: 4px;
   padding: 1rem;
   background-color: var(--${p => p.colorType}-color);
+  border: 1px;
+  border-style: solid;
+  border-color: var(--${p => p.colorType}-color);
   text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
   box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -2px 0px inset;
-  border: none;
   user-select: none;
   touch-action: manipulation;
   height: 32px;
@@ -26,5 +29,10 @@ export const ButtonTag = styled.button<CustomProps>`
   }
   svg {
     margin-right: 4px;
+  }
+
+  span {
+    text-align: center;
+    font-weight: 500;
   }
 `;

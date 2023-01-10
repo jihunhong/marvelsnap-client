@@ -33,7 +33,6 @@ export const filterSelector = selector({
   set: ({ get, set }, newFilter) => {
     const cards = get(cardListAtom);
     const result = filtering(cards, newFilter);
-    console.log(newFilter);
     set(filterAtom, newFilter);
     set(filteredCardListAtom, result);
   },

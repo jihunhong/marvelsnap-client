@@ -1,5 +1,6 @@
 import Card from '@atoms/Card';
 import useBuilder from '@hooks/useBuilder';
+import DeckPostModal from '@molecules/DeckPostModal';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
 import { NextPage } from 'next';
@@ -27,6 +28,7 @@ const Builder: NextPage = () => {
 
   return (
     <>
+      <DeckPostModal />
       <PageIntro title="Deck Builder" description="" bgSource="https://earlygame.com/uploads/images/_body/FutureMarvelSnap-Banner.jpg" />
       <DivisionLayout>
         <CardList
