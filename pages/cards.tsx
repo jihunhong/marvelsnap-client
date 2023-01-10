@@ -1,6 +1,5 @@
 import Card from '@atoms/Card';
 import useCardFilter from '@hooks/useCardFilter';
-
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
 import { NextPage } from 'next';
@@ -13,7 +12,7 @@ import { FlexRow } from 'src/@components/@atoms/Flex/style';
 import DivisionLayout from 'src/@components/@layout/DivisionLayout';
 import CardList from 'src/@components/@molecules/CardList';
 import PageIntro from 'src/@components/@molecules/PageIntro';
-import { fetchCardList } from 'src/@fetch';
+import { getCardListApi } from 'src/@fetch';
 
 const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
   ssr: false,
@@ -22,7 +21,7 @@ const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery([keys.cardList, null], fetchCardList);
+  await queryClient.prefetchQuery([keys.getCardList, null], getCardListApi);
 
   return {
     props: {

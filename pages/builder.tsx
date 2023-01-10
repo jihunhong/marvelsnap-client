@@ -8,11 +8,11 @@ import DivisionLayout from 'src/@components/@layout/DivisionLayout';
 import BuilderStatus from 'src/@components/@molecules/BuilderStatus';
 import CardList from 'src/@components/@molecules/CardList';
 import PageIntro from 'src/@components/@molecules/PageIntro';
-import { fetchCardList } from 'src/@fetch';
+import { getCardListApi } from 'src/@fetch';
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery([keys.cardList, null], fetchCardList);
+  await queryClient.prefetchQuery([keys.getCardList, null], getCardListApi);
 
   return {
     props: {
@@ -32,7 +32,7 @@ const Builder: NextPage = () => {
         <CardList
           dataSource={dataSource}
           renderItem={item => (
-            <div key={item?.id} data-id={item?.id} data-name={item?.name} data-en={item?.en} data-cost={item?.cost} onClick={onClick}>
+            <div key={item?.id} data-keywords={item?.keywords || ''} data-id={item?.id} data-name={item?.name} data-en={item?.en} data-cost={item?.cost} onClick={onClick}>
               <Card {...item} />
             </div>
           )}

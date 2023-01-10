@@ -1,5 +1,7 @@
 const keys = {
-    cardList : '/api/cards/list'
-}
+  getCardList: '/api/cards/list',
+  getDeckList: '/api/decks/list',
+  postDeckList: '/api/deck',
+};
 
 export default keys;

@@ -8,7 +8,7 @@ export const BuilderStatusContainer = styled.section`
 
   .content {
     display: grid;
-    grid-template-rows: 24px 24px 515px 1fr;
+    grid-template-rows: 59px 515px 1fr;
     row-gap: 10px;
     min-height: var(--min-height);
   }
@@ -20,7 +20,7 @@ export const BuilderStatusContainer = styled.section`
     border-style: dashed;
     border-color: var(--gray-2);
     padding: 12px;
-    border-radius: 12px;
+    border-radius: 6px;
     max-height: 515px;
 
     > div {

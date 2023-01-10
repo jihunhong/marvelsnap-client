@@ -2,12 +2,12 @@ import { Card } from '@customTypes/Card';
 import keys from '@query/keys';
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { fetchCardList } from 'src/@fetch';
+import { getCardListApi } from 'src/@fetch';
 import { filterAtom, cardListAtom, filteredCardListAtom, cardsSelector, filterSelector } from 'src/@store/cardList';
 
 const useCardListQuery = (): [Card[]] => {
   const [cardList, setCardList] = useRecoilState(cardListAtom);
-  useQuery(keys.cardList, fetchCardList, {
+  useQuery(keys.getCardList, getCardListApi, {
     onSuccess: data => setCardList(data),
     refetchOnReconnect: false,
     refetchOnMount: false,

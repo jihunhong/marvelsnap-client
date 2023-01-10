@@ -1,13 +1,14 @@
 import { Card } from '@customTypes/Card';
 import { atom, selector } from 'recoil';
+import { v1 } from 'uuid';
 
 export const deckStatusAtom = atom<Card[]>({
-  key: 'deckStatus',
+  key: `deckStatus/${v1()}`,
   default: [],
 });
 
 export const addSelector = selector({
-  key: 'addDeckItem',
+  key: `addDeckItem/${v1()}`,
   get: () => {},
   set: ({ get, set }, newItem) => {
     const current = get(deckStatusAtom);
@@ -30,7 +31,7 @@ export const addSelector = selector({
 });
 
 export const removeSelector = selector({
-  key: 'removeDeckItem',
+  key: `removeDeckItem/${v1()}`,
   get: () => {},
   set: ({ get, set }, specificId) => {
     const current = get(deckStatusAtom);

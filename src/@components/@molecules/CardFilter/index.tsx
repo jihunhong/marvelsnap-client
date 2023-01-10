@@ -1,10 +1,8 @@
 import Button from '@atoms/Button';
 import Cost from '@atoms/Cost';
-import { BiLoaderCircle, BiMoveHorizontal } from 'react-icons/bi';
-import { BsExclamationTriangle, BsFillTrashFill, BsLightning } from 'react-icons/bs';
-import { FaSkull } from 'react-icons/fa';
-import { GiBatteryPackAlt, GiCardDiscard, GiGlassBall } from 'react-icons/gi';
-import { IoMdClose, IoMdCloseCircleOutline } from 'react-icons/io';
+import { DestroyIcon, DiscardIcon, MoveIcon, NoneAbilityIcon, OnGoingIcon, OnRevealIcon } from '@atoms/Icon';
+import { BsFillTrashFill } from 'react-icons/bs';
+import { GiBatteryPackAlt, GiGlassBall } from 'react-icons/gi';
 import { TiSortAlphabeticallyOutline } from 'react-icons/ti';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { filterAtom } from 'src/@store/cardList';
@@ -44,27 +42,27 @@ const CardFilter = ({ onClick }) => {
           </div>
           <S.KeywordSelect onClick={onClick} active={filter?.value}>
             <div data-type="keyword" data-value="출현">
-              <BsLightning size={16} />
+              <OnRevealIcon />
               출현
             </div>
             <div data-type="keyword" data-value="지속">
-              <BiLoaderCircle size={16} />
+              <OnGoingIcon />
               지속
             </div>
             <div data-type="keyword" data-value="능력없음">
-              <BsExclamationTriangle size={16} />
+              <NoneAbilityIcon />
               능력없음
             </div>
             <div data-type="keyword" data-value="버리기">
-              <GiCardDiscard size={16} />
+              <DiscardIcon />
               버리기
             </div>
             <div data-type="keyword" data-value="이동">
-              <BiMoveHorizontal size={16} />
+              <MoveIcon />
               이동
             </div>
             <div data-type="keyword" data-value="파괴">
-              <FaSkull size={16} />
+              <DestroyIcon />
               파괴
             </div>
           </S.KeywordSelect>

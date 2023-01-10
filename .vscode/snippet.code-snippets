@@ -1,0 +1,14 @@
+{
+  "Import styleing file in same folder": {
+    "scope": "javascript,typescript",
+    "prefix": "sfs",
+    "body": ["import * as S from './style';"],
+    "description": "ssr import"
+  },
+  "Import customTypes": {
+    "scope": "javascript,typescriptreact",
+    "prefix": "cts",
+    "body": ["import type * as T from '@customTypes/index';"],
+    "description": "import asterisk from customType"
+  }
+}
