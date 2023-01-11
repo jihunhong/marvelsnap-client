@@ -6,14 +6,12 @@ type Props = {
   dataSource: Array<T.Deck>;
 };
 
-const DeckList = ({ dataSource }: Props) => {
+const DeckList = ({ dataSource = [] }: Props) => {
   return (
     <S.DeckListContainer>
-      {Array(4)
-        .fill()
-        .map(() => (
-          <Deck />
-        ))}
+      {dataSource?.map(item => (
+        <Deck key={item.id} {...item} />
+      ))}
     </S.DeckListContainer>
   );
 };

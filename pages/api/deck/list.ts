@@ -8,11 +8,10 @@ type Data = {
 const pb = new PocketBase('http://127.0.0.1:8090');
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const record = await pb.collection('decks').create({
-    title: req.body.title,
-    description: 'none',
-    items: req.body.items,
+  const decks = await pb.collection('decks').getList(1, 30, {
+    expand: 'items',
+    sort: '-created',
   });
-  console.log(record);
-  res.status(200).json(record);
+
+  res.status(200).json(decks);
 }

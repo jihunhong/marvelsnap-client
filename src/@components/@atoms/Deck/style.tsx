@@ -83,6 +83,10 @@ export const DeckContainer = styled.article`
     }
     ${CardContainer} {
       width: 100%;
+      p.effect,
+      p.name {
+        display: none;
+      }
       img {
         width: 100%;
         object-fit: cover;

@@ -31,7 +31,6 @@ export const modalToggler = selector({
       ...modalState,
       [key]: !modalState[key],
     };
-    console.log(newState);
     set(modalAtom, newState);
   },
 });

@@ -6,11 +6,12 @@ export const getCardListApi = async () => {
 };
 
 export const getDeckListApi = async () => {
-  const { data } = await axios.get('http://localhost:3000/api/decks/list');
+  const { data } = await axios.get('http://localhost:3000/api/deck/list');
+  console.log(data);
   return data;
 };
 
-export const postDeckApi = async payload => {
+export const postDeckApi = async (payload: { title: string; items: string[] }) => {
   const { data } = await axios.post('http://localhost:3000/api/deck', payload);
   return data;
 };

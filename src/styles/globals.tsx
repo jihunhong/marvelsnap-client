@@ -17,6 +17,15 @@ export const GlobalStyle = createGlobalStyle`
         --gray-2: #868484;
         --white: #fff;
         --black-background: #161819;
+
+        --layer-header: 10;
+        --layer-modal: 100;
+    }
+    @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
     }
     html,
     body {
@@ -27,6 +36,9 @@ export const GlobalStyle = createGlobalStyle`
     }
     html * {
         outline: none;
+    }
+    html:has(dialog[open]) {
+        overflow: hidden;
     }
     body {
         overflow: overlay;

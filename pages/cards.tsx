@@ -21,7 +21,7 @@ const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery([keys.getCardList, null], getCardListApi);
+  await queryClient.prefetchQuery(keys.getCardList, getCardListApi);
 
   return {
     props: {

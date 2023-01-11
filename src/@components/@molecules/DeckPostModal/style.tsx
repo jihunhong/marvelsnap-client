@@ -1,28 +1,7 @@
 import { CardRowContainer } from '@atoms/CardRow/style';
 import styled from 'styled-components';
 
-export const DeckPostModalContainer = styled.dialog`
-  &[open] {
-    position: fixed;
-  }
-  top: 50%;
-  left: 50%;
-  right: 50%;
-  transform: translate(-50%, -50%);
-  width: 480px;
-  border: none;
-  outline: none;
-  border-radius: 14px;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(45deg, #232525 0%, #232525 100%);
-  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%), 0px 4px 4px rgb(0 0 0 / 25%);
-  border: 1px solid rgb(255 255 255 / 5%);
-  z-index: 3000;
-  &::backdrop {
-    background: rgb(0 0 0 / 0.4);
-  }
-`;
+export const DeckPostModalContainer = styled.dialog``;
 
 export const Header = styled.section`
   display: flex;
@@ -45,7 +24,7 @@ export const Header = styled.section`
 `;
 
 export const Body = styled.section`
-  padding: 2rem 0;
+  padding: 1rem 0;
 
   display: grid;
   grid-template-rows: 21px 1fr;
@@ -70,7 +49,7 @@ export const Body = styled.section`
 export const Footer = styled.section`
   display: grid;
   grid-template-rows: 23px 1fr;
-  row-gap: 12px;
+  row-gap: 1rem;
   h4 {
     font-weight: 400;
     text-align: center;

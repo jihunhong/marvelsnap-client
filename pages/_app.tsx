@@ -8,6 +8,7 @@ import AppLayout from 'src/@components/@layout/AppLayout';
 import { RecoilRoot } from 'recoil';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ModalBoundary from '@components/@hoc/ModalBoundary';
 
 function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
@@ -18,8 +19,8 @@ function App({ Component, pageProps }: AppProps) {
         <RecoilRoot>
           <ToastContainer
             position="bottom-center"
-            autoClose={3000}
-            hideProgressBar={false}
+            autoClose={1200}
+            hideProgressBar={true}
             newestOnTop={false}
             closeOnClick
             rtl={false}
@@ -29,6 +30,7 @@ function App({ Component, pageProps }: AppProps) {
             theme="dark"
             limit={1}
           />
+          <ModalBoundary />
           <AppLayout>
             <Component {...pageProps} />
           </AppLayout>

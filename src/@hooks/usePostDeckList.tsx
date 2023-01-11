@@ -1,30 +1,33 @@
-import useModalToggler from '@hooks/useModalToggler';
+import useApiNotify from '@hooks/notify/useApiNotify';
+import useBlockNotify from '@hooks/notify/useBlockNotify';
 import keys from '@query/keys';
-import { useRouter } from 'next/router';
-import { SyntheticEvent } from 'react';
+import { MutableRefObject, SyntheticEvent } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
-import { toast } from 'react-toastify';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
 import { postDeckApi } from 'src/@fetch';
 import { deckStatusAtom } from 'src/@store/builder';
 import { modalToggler } from 'src/@store/modal';
 
-const usePostDeck = () => {
+const usePostDeck = (ref: MutableRefObject<any>) => {
   const status = useRecoilValue(deckStatusAtom);
+  const reset = useResetRecoilState(deckStatusAtom);
   const queryClient = useQueryClient();
   const toggler = useSetRecoilState(modalToggler);
-  const notify = () => toast.success('저장되었습니다!');
+  const apiNotify = useApiNotify();
+  const blockNotify = useBlockNotify();
+
   const { mutate } = useMutation(postDeckApi, {
     onSuccess: () => {
       queryClient.invalidateQueries(keys.getDeckList);
       toggler('postDeck');
-      notify();
+      apiNotify.postDeckSuccess();
+      reset();
       // TODO : redirect deck page
     },
     onError: () => {
       queryClient.invalidateQueries(keys.getDeckList);
       toggler('postDeck');
-      notify();
+      apiNotify.postDeckError();
       // TODO : redirect deck page
     },
   });
@@ -33,8 +36,16 @@ const usePostDeck = () => {
     if (!(e.target instanceof HTMLButtonElement)) {
       return;
     }
-    const cIds = status.map(v => v.id);
-    mutate({ cIds });
+    if (status.length < 12) {
+      blockNotify.blockDeckAmount();
+      return;
+    }
+    if (!ref.current?.value) {
+      blockNotify.blockEmptyTitle();
+      return;
+    }
+    const items = status.map(v => v.id);
+    mutate({ items, title: ref.current?.value });
   };
 
   return [onClick];

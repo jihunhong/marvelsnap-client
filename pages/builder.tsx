@@ -28,7 +28,6 @@ const Builder: NextPage = () => {
 
   return (
     <>
-      <DeckPostModal />
       <PageIntro title="Deck Builder" description="" bgSource="https://earlygame.com/uploads/images/_body/FutureMarvelSnap-Banner.jpg" />
       <DivisionLayout>
         <CardList
