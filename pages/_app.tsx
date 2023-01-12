@@ -39,7 +39,7 @@ function App({ Component, pageProps }: AppProps) {
             draggable={false}
             pauseOnHover={false}
             theme="dark"
-            limit={1}
+            limit={3}
           />
           <ModalBoundary />
           <AppLayout>

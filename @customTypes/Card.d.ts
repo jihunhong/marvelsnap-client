@@ -7,8 +7,10 @@ export type Card = {
   keywords?: Array<string>;
   source: Array<string>;
   power: number;
+  grade: number;
   variants?: Array<Props>;
   artist?: string;
   effect: string;
   en: string;
+  cardDefId: string;
 };

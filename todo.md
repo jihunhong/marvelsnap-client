@@ -1,8 +1,8 @@
-덱코드 import export
+덱코드 import export(o)
 덱설명
 덱 author
-덱 리스트 컴포넌트에서 카드 정렬
-덱 created 시간 arrange
+덱 리스트 컴포넌트에서 카드 정렬(o)
+덱 created 시간 arrange(o)
 무한스크롤
 덱빌더 필터처리
 카드 디테일페이지

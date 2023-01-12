@@ -4,6 +4,7 @@ import Input from '@atoms/Input';
 import ModalBase from '@atoms/Modal';
 import useModalToggler from '@hooks/useModalToggler';
 import usePostDeck from '@hooks/usePostDeckList';
+import DeckRow from '@molecules/DeckRow';
 import { useRef } from 'react';
 import { TbClipboardList } from 'react-icons/tb';
 import { useRecoilValue } from 'recoil';
@@ -25,13 +26,14 @@ const DeckPostModal = () => {
       </S.Header>
       <S.Body>
         <Input ref={titleRef} placeholder="덱 이름을 입력해주세요" />
-        <div className="deck-data">
-          {status?.map(item => (
+        <DeckRow
+          dataSource={status}
+          renderItem={item => (
             <div key={item?.id}>
               <CardRow {...item} />
             </div>
-          ))}
-        </div>
+          )}
+        />
       </S.Body>
       <S.Footer>
         <div>

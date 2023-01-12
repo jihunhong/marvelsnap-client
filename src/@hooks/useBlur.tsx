@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import canvasBlur from 'src/@lib/scaleToFit';
+import canvasBlur from '@lib/scaleToFit';
 
 const useBlur = (ref, src) => {
   useEffect(() => {

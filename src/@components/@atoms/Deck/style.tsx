@@ -10,7 +10,26 @@ export const DeckContainer = styled.article`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 1px solid rgb(255 255 255 / 5%);
   border-radius: 10px;
-
+  .tags {
+    margin-left: 0;
+    .tag {
+      &[data-series='5'] {
+        background: linear-gradient(180deg, #8d2fc8 0%, #7b1bb5 100%);
+      }
+      &[data-series='4'] {
+        background: linear-gradient(180deg, #1660e5 0%, #0a58d4 100%);
+      }
+      &[data-series='3'] {
+        background: linear-gradient(180deg, #19cda3 0%, #0cb186 100%);
+      }
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 20px;
+      padding: 4px 7px;
+      height: 22px;
+      border-radius: 4px;
+    }
+  }
   padding: 24px 28px;
 
   .header {
@@ -28,6 +47,9 @@ export const DeckContainer = styled.article`
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
+    svg {
+      margin-right: 8px;
+    }
     h5 {
       font-weight: 400;
     }
@@ -36,8 +58,10 @@ export const DeckContainer = styled.article`
   .meta-bottom {
     display: flex;
     align-items: center;
-    svg {
-      margin-right: 6px;
+
+    h4 {
+      margin-left: auto;
+      color: var(--gray-1);
     }
   }
   .deck-list {

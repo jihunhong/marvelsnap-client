@@ -1,7 +1,7 @@
 import { Card } from '@customTypes/Card';
 import { Filter } from '@customTypes/Filter';
 import { atom, selector } from 'recoil';
-import { filtering } from 'src/@lib/filter';
+import { filtering } from '@lib/filter';
 import { v1 } from 'uuid';
 
 export const cardListAtom = atom<Card[]>({

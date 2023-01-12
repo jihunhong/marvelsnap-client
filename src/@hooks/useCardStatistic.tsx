@@ -13,7 +13,7 @@ const useCardStatistic = (dataSource: Array<Card>) => {
   };
   for (const el of dataSource) {
     if (el.keywords) {
-      const keywords = el.keywords.split(',');
+      const { keywords } = el;
       for (const k of keywords) {
         json[kIds[k]] = (json[kIds[k]] || 0) + 1;
       }

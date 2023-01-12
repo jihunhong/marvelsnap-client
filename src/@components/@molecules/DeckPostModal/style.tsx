@@ -1,4 +1,5 @@
 import { CardRowContainer } from '@atoms/CardRow/style';
+import { DeckRowContainer } from '@molecules/DeckRow/style';
 import styled from 'styled-components';
 
 export const DeckPostModalContainer = styled.dialog``;
@@ -30,20 +31,11 @@ export const Body = styled.section`
   grid-template-rows: 21px 1fr;
   row-gap: 12px;
 
-  .deck-data {
-    display: grid;
-    grid-template-rows: repeat(12, 40px);
-    row-gap: 1px;
-    border-style: dashed;
-    border-color: var(--gray-2);
-    padding: 12px;
-    border-radius: 6px;
-    max-height: 515px;
-
-    ${CardRowContainer} {
-        border-style: dashed;
-        padding: 2px;
+  ${DeckRowContainer} {
+    > div {
+      cursor: unset;
     }
+  }
 `;
 
 export const Footer = styled.section`

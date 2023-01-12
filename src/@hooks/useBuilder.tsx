@@ -11,6 +11,7 @@ const useBuilder = () => {
     if (!(e.currentTarget instanceof HTMLDivElement)) {
       return;
     }
+    e.currentTarget.setAttribute('selected', 'true');
     const duplicate = status.find(item => item.id === e.currentTarget.dataset?.id);
     if (status.length >= 12) {
       blockNotify.blockDeckAmount();

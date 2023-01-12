@@ -2,6 +2,7 @@ import Button from '@atoms/Button';
 import CardRow from '@atoms/CardRow';
 import useModalToggler from '@hooks/useModalToggler';
 import useRemoveItem from '@hooks/useRemoveItem';
+import DeckRow from '@molecules/DeckRow';
 import DeckStatistic from '@molecules/DeckStatistic';
 import { BsCheck } from 'react-icons/bs';
 import { useRecoilValue } from 'recoil';
@@ -17,13 +18,14 @@ const BuilderStatus = () => {
       <div className="content">
         {/* <Button className="filter" icon={<BsFilter />} colorType="success" /> */}
         <DeckStatistic dataSource={status} />
-        <div className="deck-data">
-          {status?.map(item => (
+        <DeckRow
+          dataSource={status}
+          renderItem={item => (
             <div key={item.id} data-id={item?.id} onClick={onClick}>
               <CardRow {...item} />
             </div>
-          ))}
-        </div>
+          )}
+        />
         <Button icon={<BsCheck />} colorType="primary" onClick={toggler}>
           <span>등록</span>
         </Button>
