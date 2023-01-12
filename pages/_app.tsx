@@ -9,9 +9,20 @@ import { RecoilRoot } from 'recoil';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ModalBoundary from '@components/@hoc/ModalBoundary';
+import useApiNotify from '@hooks/notify/useApiNotify';
 
 function App({ Component, pageProps }: AppProps) {
-  const [queryClient] = useState(() => new QueryClient());
+  const notify = useApiNotify();
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            onError: error => notify.getRequestError(),
+          },
+        },
+      }),
+  );
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>

@@ -19,14 +19,6 @@ export const filterAtom = atom<Filter | null>({
   default: null,
 });
 
-export const cardsSelector = selector<Card[]>({
-  key: `selectCards/${v1()}`,
-  get: () => {},
-  set: ({ set }, newCards: Card[]) => {
-    set(cardListAtom, newCards);
-  },
-});
-
 export const filterSelector = selector({
   key: `selectFilters/${v1()}`,
   get: () => {},

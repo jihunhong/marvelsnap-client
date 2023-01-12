@@ -1,5 +1,10 @@
+import Button from '@atoms/Button';
 import Card from '@atoms/Card';
+import { FlexRow } from '@atoms/Flex/style';
 import useCardFilter from '@hooks/useCardFilter';
+import DivisionLayout from '@layout/DivisionLayout';
+import CardList from '@molecules/CardList';
+import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
 import { NextPage } from 'next';
@@ -7,11 +12,6 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
 import { dehydrate, QueryClient } from 'react-query';
-import Button from 'src/@components/@atoms/Button';
-import { FlexRow } from 'src/@components/@atoms/Flex/style';
-import DivisionLayout from 'src/@components/@layout/DivisionLayout';
-import CardList from 'src/@components/@molecules/CardList';
-import PageIntro from 'src/@components/@molecules/PageIntro';
 import { getCardListApi } from 'src/@fetch';
 
 const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
@@ -21,7 +21,7 @@ const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(keys.getCardList, getCardListApi);
+  await queryClient.prefetchQuery([keys.getCardList], getCardListApi);
 
   return {
     props: {

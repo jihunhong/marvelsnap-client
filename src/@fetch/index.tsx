@@ -7,7 +7,6 @@ export const getCardListApi = async () => {
 
 export const getDeckListApi = async () => {
   const { data } = await axios.get('http://localhost:3000/api/deck/list');
-  console.log(data);
   return data;
 };
 

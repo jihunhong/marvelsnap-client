@@ -8,7 +8,7 @@ import { getDeckListApi } from 'src/@fetch';
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(keys.getDeckList, getDeckListApi);
+  await queryClient.prefetchQuery([keys.getDeckList], getDeckListApi);
 
   return {
     props: {
@@ -19,7 +19,6 @@ export async function getServerSideProps() {
 
 const Decks: NextPage = () => {
   const dataSource = useDeckListQuery();
-  console.log(dataSource);
   return (
     <>
       <PageIntro title="Decks" description="메타에서 효과적인 다양한 덱들을 찾아보세요" bgSource="https://earlygame.com/uploads/images/_body/FutureMarvelSnap-Banner.jpg" />
