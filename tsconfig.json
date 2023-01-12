@@ -28,7 +28,8 @@
       "@store/*": ["src/store/*"],
       "@const/*": ["constants/*"],
       "@customTypes/*": ["@customTypes/*"],
-      "@styles/*": ["src/styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "@fetch/*": ["src/@fetch/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pb/cards.js"],

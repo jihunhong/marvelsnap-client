@@ -18,13 +18,14 @@
           "@molecules/*": "./src/@components/@molecules",
           "@hooks/*": "./src/@hooks",
           "@components/*": "./src/@components",
-          "@lib/*": "./src/lib",
+          "@lib/*": "./src/@lib",
           "@query/*": "./src/@query/*",
           "@reducers/*": "./src/reducers",
           "@store/*": "./src/store",
           "@const/*": "./constants",
           "@customTypes/*": "./@customTypes",
-          "@styles/*": "./src/style"
+          "@styles/*": "./src/style",
+          "@fetch/*": "./src/@fetch"
         }
       }
     ]

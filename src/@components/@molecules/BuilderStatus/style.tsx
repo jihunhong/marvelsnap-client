@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CardRowContainer } from 'src/@components/@atoms/CardRow/style';
+import { CardRowContainer } from '@atoms/CardRow/style';
 
 export const BuilderStatusContainer = styled.section`
   > * {

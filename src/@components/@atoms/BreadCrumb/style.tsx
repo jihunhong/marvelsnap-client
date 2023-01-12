@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FlexRow } from 'src/@components/@atoms/Flex/style';
+import { FlexRow } from '@atoms/Flex/style';
 
 export const BreadCrumbsContainer = styled(FlexRow)`
   text-transform: uppercase;

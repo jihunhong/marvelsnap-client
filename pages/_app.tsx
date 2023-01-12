@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import AppLayout from 'src/@components/@layout/AppLayout';
+import AppLayout from '@layout/AppLayout';
 import { RecoilRoot } from 'recoil';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

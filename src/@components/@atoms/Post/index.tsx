@@ -1,5 +1,5 @@
 import { PostPreviewContainer } from './style';
-import Avatar from 'src/@components/@atoms/Avatar';
+import Avatar from '@atoms/Avatar';
 
 type Props = {
   title: string;
@@ -8,11 +8,7 @@ type Props = {
   writer: string;
 };
 
-const Post = ({
-  title = 'ChatGPT Is Having a Thomas Edison Moment',
-  content = 'Why breakthrough technologies need to be accessible',
-  writer = 'jihunhong',
-}: Partial<Props>) => {
+const Post = ({ title = 'ChatGPT Is Having a Thomas Edison Moment', content = 'Why breakthrough technologies need to be accessible', writer = 'jihunhong' }: Partial<Props>) => {
   return (
     <PostPreviewContainer>
       <div className="meta">

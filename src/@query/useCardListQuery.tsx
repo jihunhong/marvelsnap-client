@@ -1,10 +1,9 @@
 import { Card } from '@customTypes/Card';
-import useApiNotify from '@hooks/notify/useApiNotify';
 import keys from '@query/keys';
 import { useDebugValue, useEffect } from 'react';
-import { QueryClient, useQuery, useQueryClient } from 'react-query';
+import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { getCardListApi } from 'src/@fetch';
+import { getCardListApi } from '@fetch/index';
 import { cardListAtom, filterAtom, filteredCardListAtom } from 'src/@store/cardList';
 
 const useCardListQuery = (): [Card[]] => {

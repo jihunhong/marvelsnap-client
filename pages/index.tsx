@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
-import IntroSection from 'src/@components/@molecules/IntroSection';
-import Trending from 'src/@components/@molecules/Trending';
+import IntroSection from '@molecules/IntroSection';
+import Trending from '@molecules/Trending';
 
 const Home: NextPage = () => {
   return (

@@ -5,11 +5,11 @@ import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
 import { NextPage } from 'next';
 import { dehydrate, QueryClient } from 'react-query';
-import DivisionLayout from 'src/@components/@layout/DivisionLayout';
-import BuilderStatus from 'src/@components/@molecules/BuilderStatus';
-import CardList from 'src/@components/@molecules/CardList';
-import PageIntro from 'src/@components/@molecules/PageIntro';
-import { getCardListApi } from 'src/@fetch';
+import DivisionLayout from '@layout/DivisionLayout';
+import BuilderStatus from '@molecules/BuilderStatus';
+import CardList from '@molecules/CardList';
+import PageIntro from '@molecules/PageIntro';
+import { getCardListApi } from '@fetch/index';
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();

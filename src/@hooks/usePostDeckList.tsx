@@ -4,7 +4,7 @@ import keys from '@query/keys';
 import { MutableRefObject, SyntheticEvent } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
-import { postDeckApi } from 'src/@fetch';
+import { postDeckApi } from '@fetch/index';
 import { deckStatusAtom } from 'src/@store/builder';
 import { modalToggler } from 'src/@store/modal';
 

@@ -12,7 +12,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
 import { dehydrate, QueryClient } from 'react-query';
-import { getCardListApi } from 'src/@fetch';
+import { getCardListApi } from '@fetch/index';
 
 const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
   ssr: false,

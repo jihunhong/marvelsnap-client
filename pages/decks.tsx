@@ -2,9 +2,9 @@ import keys from '@query/keys';
 import useDeckListQuery from '@query/useDeckListQuery';
 import { NextPage } from 'next';
 import { dehydrate, QueryClient } from 'react-query';
-import DeckList from 'src/@components/@molecules/DeckList';
-import PageIntro from 'src/@components/@molecules/PageIntro';
-import { getDeckListApi } from 'src/@fetch';
+import DeckList from '@molecules/DeckList';
+import PageIntro from '@molecules/PageIntro';
+import { getDeckListApi } from '@fetch/index';
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
