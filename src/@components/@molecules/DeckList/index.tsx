@@ -3,7 +3,7 @@ import type * as T from '@customTypes/Deck';
 import Deck from '@atoms/Deck';
 
 type Props = {
-  dataSource: Array<T.Deck>;
+  dataSource?: undefined | Array<T.Deck>;
 };
 
 const DeckList = ({ dataSource = [] }: Props) => {

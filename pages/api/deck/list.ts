@@ -11,6 +11,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const decks = await pb.collection('decks').getList(1, 30, {
     expand: 'items',
     sort: '-created',
+    page: req.query?.page || 1,
+    perPage: 12,
   });
 
   res.status(200).json(decks);

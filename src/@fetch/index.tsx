@@ -5,8 +5,12 @@ export const getCardListApi = async () => {
   return data;
 };
 
-export const getDeckListApi = async () => {
-  const { data } = await axios.get('http://localhost:3000/api/deck/list');
+export const getDeckListApi = async (page: number = 1) => {
+  const { data } = await axios.get('http://localhost:3000/api/deck/list', {
+    params: {
+      page,
+    },
+  });
   return data;
 };
 

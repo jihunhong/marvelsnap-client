@@ -34,6 +34,5 @@ export const InputTag = styled.input`
   caret-color: var(--primary-color);
   ::placeholder {
     color: var(--gray-1);
-    font-style: italic;
   }
 `;
