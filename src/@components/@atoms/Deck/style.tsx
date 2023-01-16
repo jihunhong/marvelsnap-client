@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { CardContainer } from '../Card/style';
 import { Opacity } from '../../../styles/transition';
 import device from '../../../styles/devices';
+import { TagContainer } from '@atoms/Tag/style';
 
 export const DeckContainer = styled.article`
   display: flex;
@@ -12,23 +13,6 @@ export const DeckContainer = styled.article`
   border-radius: 10px;
   .tags {
     margin-left: 0;
-    .tag {
-      &[data-series='5'] {
-        background: linear-gradient(180deg, #8d2fc8 0%, #7b1bb5 100%);
-      }
-      &[data-series='4'] {
-        background: linear-gradient(180deg, #1660e5 0%, #0a58d4 100%);
-      }
-      &[data-series='3'] {
-        background: linear-gradient(180deg, #19cda3 0%, #0cb186 100%);
-      }
-      font-weight: 700;
-      font-size: 12px;
-      line-height: 20px;
-      padding: 4px 7px;
-      height: 22px;
-      border-radius: 4px;
-    }
   }
   padding: 24px 28px;
 

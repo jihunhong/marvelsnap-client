@@ -19,7 +19,11 @@ export const GlobalStyle = createGlobalStyle`
         --white: #fff;
         --black-background: #161819;
 
+        --card-offset: 16px;
+        // 카드 이미지 container와 실제 카드 이미지의 간격
+
         --layer-header: 10;
+        --layer-content: 20;
         --layer-modal: 100;
     }
     @font-face {

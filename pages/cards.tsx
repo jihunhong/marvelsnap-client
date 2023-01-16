@@ -50,7 +50,7 @@ const Cards: NextPage = props => {
         <CardList
           dataSource={dataSource}
           renderItem={item => (
-            <Link href={`/card/${item?.en?.toLowerCase()}`}>
+            <Link href={`/card/${item?.cardDefId}`}>
               <a>
                 <Card key={item?.id} {...item} />
               </a>
