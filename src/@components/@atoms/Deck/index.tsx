@@ -7,7 +7,6 @@ import useCopyCode from '@hooks/action/useDeckCode';
 import useDeckTag from '@hooks/deck/useDeckTag';
 import format from '@lib/day';
 import { FaRegCopy } from 'react-icons/fa';
-import { IoMdPricetags } from 'react-icons/io';
 import * as S from './style';
 
 const Deck = ({ title, description = '', created, expand, author, archtype }: T.Deck) => {

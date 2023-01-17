@@ -64,6 +64,7 @@ export const Background = styled.div<BackgroundProps>`
     aspect-ratio: 2543 / 531;
   }
   background: url(${p => p.bgSource}) no-repeat top center;
+  background-position: center center;
   background-size: cover;
 
   :before {

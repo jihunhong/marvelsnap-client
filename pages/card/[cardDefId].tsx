@@ -1,12 +1,12 @@
-import { FlexColumn, FlexRow } from '@atoms/Flex/style';
-import { SeriesIcon, StarIcon } from '@atoms/Icon';
-import Tag from '@atoms/Tag';
+import { FlexRow } from '@atoms/Flex/style';
 import { baseImgix } from '@constant/imigx';
-import { kIds } from '@constant/keywords';
 import { getCardApi } from '@fetch/index';
 import DetailLayout from '@layout/DetailLayout';
+import CardDetail from '@molecules/CardDetail';
+import CommentInput from '@molecules/CommentInput';
+import Comments from '@molecules/Comments';
 import PageIntro from '@molecules/PageIntro';
-import Rating from '@molecules/Rating';
+import Variants from '@molecules/Variants';
 import keys from '@query/keys';
 import useCardQuery from '@query/useCardQuery';
 import { NextPage, NextPageContext } from 'next';
@@ -14,7 +14,7 @@ import { dehydrate, QueryClient } from 'react-query';
 
 export async function getServerSideProps(context: NextPageContext) {
   const queryClient = new QueryClient();
-  const id = context.query?.cardDefId;
+  const id = context.query?.cardDefId as string;
   await queryClient.prefetchQuery([keys.getCard, id], () => getCardApi(id));
 
   return {
@@ -29,80 +29,22 @@ const Detail: NextPage = props => {
   return (
     <>
       <DetailLayout>
-        <PageIntro title={data?.en} description={''}>
+        <PageIntro title={data?.en} description={''} bgSource={`${baseImgix}/static/background-card-detail.webp`}>
           <FlexRow></FlexRow>
         </PageIntro>
-        <section>
+        <section className="card-info">
           <div>
-            <img src={`${baseImgix}/cards/basic/${data?.en?.toLowerCase().replaceAll(' ', '-')}.webp?w=480&h=480&trim=auto`} loading="lazy" alt={data?.name} />
-            <div className="meta">
-              <p className="name">{`${data?.en} - ${data?.name}`}</p>
-              <p className="effect">{data?.effect}</p>
-              <div>
-                <Tag icon={<SeriesIcon />} data-series={data?.grade}>
-                  SEREIS {data?.grade}
-                </Tag>
-                {data?.keywords?.map((item: string) => (
-                  <Tag data-keyword={kIds[item]} key={item}>
-                    {kIds[item]}
-                  </Tag>
-                ))}
-              </div>
-              <section className="grid">
-                <section className="label">
-                  <h3>카드 평가</h3>
-                  <h2>2.8</h2>
-                </section>
-                <section />
-                <section className="rating-status">
-                  <section className="progress-grid">
-                    <div>
-                      <StarIcon size={8} />
-                      <StarIcon size={8} />
-                      <StarIcon size={8} />
-                      <StarIcon size={8} />
-                      <StarIcon size={8} />
-                    </div>
-                    <progress max="100" value="70" />
-                  </section>
-                  <section className="progress-grid">
-                    <div>
-                      <StarIcon size={8} />
-                      <StarIcon size={8} />
-                      <StarIcon size={8} />
-                      <StarIcon size={8} />
-                    </div>
-                    <progress max="100" value="50" />
-                  </section>
-                  <section className="progress-grid">
-                    <div>
-                      <StarIcon size={8} />
-                      <StarIcon size={8} />
-                      <StarIcon size={8} />
-                    </div>
-                    <progress max="100" value="40" />
-                  </section>
-                  <section className="progress-grid">
-                    <div>
-                      <StarIcon size={8} />
-                      <StarIcon size={8} />
-                    </div>
-                    <progress max="100" value="20" />
-                  </section>
-                  <section className="progress-grid">
-                    <div>
-                      <StarIcon size={8} />
-                    </div>
-                    <progress max="100" value="7" />
-                  </section>
-                </section>
-              </section>
-              <div>
-                <Rating value={2} />
-              </div>
-            </div>
+            <section>
+              <img src={`${baseImgix}/cards/basic/${data?.en?.toLowerCase().replaceAll(' ', '-')}.webp?w=480&h=480&trim=auto`} loading="lazy" alt={data?.name} />
+            </section>
+            <section className="meta">
+              <CardDetail {...data} />
+              <Variants />
+            </section>
           </div>
         </section>
+        <CommentInput {...data} />
+        <Comments />
       </DetailLayout>
     </>
   );
