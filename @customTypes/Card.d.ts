@@ -13,4 +13,5 @@ export type Card = {
   effect: string;
   en: string;
   cardDefId: string;
+  expand?: Array<any>;
 };

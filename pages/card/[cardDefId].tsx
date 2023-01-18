@@ -35,11 +35,11 @@ const Detail: NextPage = props => {
         <section className="card-info">
           <div>
             <section>
-              <img src={`${baseImgix}/cards/basic/${data?.en?.toLowerCase().replaceAll(' ', '-')}.webp?w=480&h=480&trim=auto`} loading="lazy" alt={data?.name} />
+              <img src={`${baseImgix}/cards/basic/${data?.en?.toLowerCase().replaceAll(' ', '-')}.webp?w=480&h=480&trim=auto`} alt={data?.name} />
             </section>
             <section className="meta">
               <CardDetail {...data} />
-              <Variants />
+              <Variants cardDefId={data?.cardDefId} dataSource={data?.expand?.variants} />
             </section>
           </div>
         </section>

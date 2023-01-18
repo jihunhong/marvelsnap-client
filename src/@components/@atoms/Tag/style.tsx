@@ -42,4 +42,9 @@ export const TagContainer = styled.span`
   &[data-series='3'] {
     background: linear-gradient(180deg, #19cda3 0%, #0cb186 100%);
   }
+  &[data-series='1'],
+  [data-series='2'],
+  [data-series='3'] {
+    background: linear-gradient(180deg, #ed5949 0%, #f12711 100%);
+  }
 `;

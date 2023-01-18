@@ -9,7 +9,7 @@ import * as S from './style';
 const CardDetail = ({ name, effect, en, grade, keywords }: T.Card) => {
   return (
     <S.CardDetailContainer>
-      <p className="name">{`${en} - ${name}`}</p>
+      <p className="name">{name}</p>
       <p className="effect">{effect}</p>
       <FlexRow>
         <Tag icon={<SeriesIcon />} data-series={grade}>
