@@ -27,3 +27,38 @@ export const getCardApi = async (cardDefId: string) => {
   });
   return data;
 };
+
+export const getCommentApi = async ({ collectionId, recordId, page }: { collectionId: string; recordId: string; page: number }) => {
+  const { data } = await axios.get('http://localhost:3000/api/comment/list', {
+    params: {
+      page,
+      collectionId,
+      recordId,
+    },
+  });
+  return data;
+};
+
+export const postCommentApi = async (payload: { collectionId: string; recordId: string; content: string }) => {
+  const { data } = await axios.post('http://localhost:3000/api/comment', payload);
+  return data;
+};
+
+export const getScoreApi = async ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
+  const { data } = await axios.get('http://localhost:3000/api/score/list', {
+    params: {
+      collectionId,
+      recordId,
+    },
+  });
+  return data;
+};
+
+export const postScoreApi = async ({ collectionId, recordId, score }: { collectionId: string; recordId: string; score: number }) => {
+  const { data } = await axios.post('http://localhost:3000/api/score', {
+    collectionId,
+    recordId,
+    score,
+  });
+  return data;
+};

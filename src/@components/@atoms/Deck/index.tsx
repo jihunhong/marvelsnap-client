@@ -16,7 +16,6 @@ const Deck = ({ title, description = '', created, expand, author, archtype }: T.
     <S.DeckContainer>
       <div className="header">
         <div className="author">
-          {/* <Avatar size={20} name={author} variant="beam" colors={['#FC580C', '#FC6B0A', '#F0AB3D', '#F8872E', '#FFA927', '#FDCA49']} /> */}
           <Avatar width={20} height={20} src="https://avatars.githubusercontent.com/u/21700764?v=4" />
           <a>
             <h4>{'쓴사람이름'}</h4>

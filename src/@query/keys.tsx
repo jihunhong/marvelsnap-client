@@ -3,6 +3,9 @@ const keys = {
   getDeckList: '/api/decks/list',
   postDeckList: '/api/deck',
   getCard: '/api/card',
+  postComment: '/api/comment',
+  getCommentList: '/api/comment/list',
+  getScoreList: '/api/score/list',
 };
 
 export default keys;

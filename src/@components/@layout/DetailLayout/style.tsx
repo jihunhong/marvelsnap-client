@@ -6,6 +6,7 @@ export const DetailLayoutContainer = styled.section`
   > section.card-info {
     display: flex;
     width: 100%;
+    margin-top: 2rem;
     margin-bottom: 8rem;
     > div {
       width: 100%;

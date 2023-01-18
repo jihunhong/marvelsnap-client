@@ -1,14 +1,14 @@
 import { Attributes, DOMAttributes } from 'react';
 import { ButtonTag } from './style';
 
-interface Props extends DOMAttributes<HTMLButtonElement> {
+interface ButtonProps extends DOMAttributes<HTMLButtonElement> {
   colorType?: 'primary' | 'secondary' | 'warn' | 'success';
   icon?: JSX.Element;
   className?: string;
   children?: JSX.Element;
 }
 
-const Button = ({ children, colorType = 'primary', icon, ...props }: Props & Attributes) => {
+const Button = ({ children, colorType = 'primary', icon, ...props }: ButtonProps & Attributes) => {
   return (
     <ButtonTag colorType={colorType} {...props}>
       {icon}

@@ -3,7 +3,7 @@ import CardRow from '@atoms/CardRow';
 import Input from '@atoms/Input';
 import ModalBase from '@atoms/Modal';
 import useModalToggler from '@hooks/useModalToggler';
-import usePostDeck from '@hooks/usePostDeckList';
+import usePostDeck from '@query/usePostDeck';
 import DeckRow from '@molecules/DeckRow';
 import { useRef } from 'react';
 import { TbClipboardList } from 'react-icons/tb';

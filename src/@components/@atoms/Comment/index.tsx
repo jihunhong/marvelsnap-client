@@ -1,13 +1,21 @@
-import Avatar from '@atoms/Avatar';
+import { fromNow } from '@lib/day';
+import Avatar from 'boring-avatars';
 import * as S from './style';
 
-const Comment = ({ writer, content }: any) => {
+type CommentProps = {
+  writer?: string;
+  content: string;
+  created: string;
+  id: string;
+};
+
+const Comment = ({ writer, content, created, id }: CommentProps) => {
   return (
     <S.Comment>
       <div className="header">
-        <Avatar width={20} height={20} src="https://avatars.githubusercontent.com/u/21700764?v=4" />
+        <Avatar size={20} name={id} variant="beam" colors={['#FC580C', '#FC6B0A', '#F0AB3D', '#F8872E', '#FFA927', '#FDCA49']} />
         <h4>{writer}</h4>
-        <span>2일 전</span>
+        <span>{fromNow(created)}</span>
       </div>
       <div className="body">
         <p>{content}</p>

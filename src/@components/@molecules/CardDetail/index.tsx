@@ -1,19 +1,20 @@
 import { FlexRow } from '@atoms/Flex/style';
-import { SeriesIcon, StarIcon } from '@atoms/Icon';
+import { SeriesIcon } from '@atoms/Icon';
 import Tag from '@atoms/Tag';
 import { kIds } from '@constant/keywords';
 import * as T from '@customTypes/Card';
 import Rating from '@molecules/Rating';
+import ScoreDetail from '@molecules/ScoreDetail';
 import * as S from './style';
 
-const CardDetail = ({ name, effect, en, grade, keywords }: T.Card) => {
+const CardDetail = ({ name, effect, grade, keywords, collectionId, id }: T.Card) => {
   return (
     <S.CardDetailContainer>
       <p className="name">{name}</p>
       <p className="effect">{effect}</p>
       <FlexRow>
         <Tag icon={<SeriesIcon />} data-series={grade}>
-          SEREIS {grade}
+          <span>SEREIS {grade}</span>
         </Tag>
         {keywords?.map((item: string) => (
           <Tag data-keyword={kIds[item]} key={item}>
@@ -21,57 +22,9 @@ const CardDetail = ({ name, effect, en, grade, keywords }: T.Card) => {
           </Tag>
         ))}
       </FlexRow>
-      <section className="grid">
-        <section className="label">
-          <h3>카드 평가</h3>
-          <h2>2.8</h2>
-        </section>
-        <section />
-        <section className="rating-status">
-          <section className="progress-grid">
-            <div>
-              <StarIcon size={8} />
-              <StarIcon size={8} />
-              <StarIcon size={8} />
-              <StarIcon size={8} />
-              <StarIcon size={8} />
-            </div>
-            <progress max="100" value="70" />
-          </section>
-          <section className="progress-grid">
-            <div>
-              <StarIcon size={8} />
-              <StarIcon size={8} />
-              <StarIcon size={8} />
-              <StarIcon size={8} />
-            </div>
-            <progress max="100" value="50" />
-          </section>
-          <section className="progress-grid">
-            <div>
-              <StarIcon size={8} />
-              <StarIcon size={8} />
-              <StarIcon size={8} />
-            </div>
-            <progress max="100" value="40" />
-          </section>
-          <section className="progress-grid">
-            <div>
-              <StarIcon size={8} />
-              <StarIcon size={8} />
-            </div>
-            <progress max="100" value="20" />
-          </section>
-          <section className="progress-grid">
-            <div>
-              <StarIcon size={8} />
-            </div>
-            <progress max="100" value="7" />
-          </section>
-        </section>
-      </section>
+      <ScoreDetail collectionId={collectionId} recordId={id} title="카드 평가" />
       <div>
-        <Rating value={2} />
+        <Rating collectionId={collectionId} recordId={id} value={2} />
       </div>
     </S.CardDetailContainer>
   );

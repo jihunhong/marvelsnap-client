@@ -14,4 +14,5 @@ export type Card = {
   en: string;
   cardDefId: string;
   expand?: Array<any>;
+  collectionId?: string;
 };

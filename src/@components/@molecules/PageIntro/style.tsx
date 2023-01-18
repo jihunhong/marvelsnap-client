@@ -74,7 +74,17 @@ export const Background = styled.div<BackgroundProps>`
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: rgb(22 24 25 / 95%);
+    background-color: rgb(22 24 25 / 50%);
     z-index: 1;
+  }
+
+  :after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: -1rem;
+    right: -1rem;
+    height: 15rem;
+    background-image: linear-gradient(to top, var(--black-background), rgba(0, 0, 0, 0));
   }
 `;

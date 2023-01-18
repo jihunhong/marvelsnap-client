@@ -44,7 +44,7 @@ const Detail: NextPage = props => {
           </div>
         </section>
         <CommentInput {...data} />
-        <Comments />
+        <Comments {...data} />
       </DetailLayout>
     </>
   );

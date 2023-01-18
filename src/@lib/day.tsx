@@ -15,4 +15,9 @@ const format = (date: string) => {
   return dayjs(date).tz().format('YYYY-MM-DD');
 };
 
+export const fromNow = (created: string) => {
+  dayjs.locale('ko');
+  return dayjs(created).fromNow();
+};
+
 export default format;
