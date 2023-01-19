@@ -5,14 +5,8 @@ export const PageIntroContainer = styled.section`
   position: relative;
   display: flex;
 
-  @media ${device.mobileS} {
-    aspect-ratio: 6 / 5;
-  }
-
-  @media ${device.tablet} {
-    aspect-ratio: 2543 / 531;
-  }
   width: 100%;
+  height: 350px;
   .header {
     width: 100%;
 
@@ -52,19 +46,10 @@ export const Background = styled.div<BackgroundProps>`
   top: 0;
   left: 0;
   z-index: 1;
-  width: 100%;
-  height: auto;
   overflow: hidden;
-
-  @media ${device.mobileS} {
-    aspect-ratio: 6 / 5;
-  }
-
-  @media ${device.tablet} {
-    aspect-ratio: 2543 / 531;
-  }
-  background: url(${p => p.bgSource}) no-repeat top center;
-  background-position: center center;
+  width: 100%;
+  height: 350px;
+  background: url(${p => p.bgSource}) no-repeat center top;
   background-size: cover;
 
   :before {

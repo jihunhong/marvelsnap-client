@@ -32,7 +32,6 @@ export async function getServerSideProps() {
 
 const Cards: NextPage = props => {
   const [dataSource] = useCardListQuery();
-  const [onClick] = useCardFilter();
 
   return (
     <>
@@ -57,7 +56,7 @@ const Cards: NextPage = props => {
             </Link>
           )}
         />
-        <CardFilter onClick={onClick} />
+        <CardFilter />
       </DivisionLayout>
     </>
   );

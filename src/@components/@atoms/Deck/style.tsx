@@ -87,6 +87,7 @@ export const DeckContainer = styled.article`
       @media ${device.tablet} {
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: 1fr;
+        column-gap: 4px;
       }
     }
     ${CardContainer} {
@@ -98,7 +99,6 @@ export const DeckContainer = styled.article`
       img {
         width: 100%;
         object-fit: cover;
-        transform: scale(1.3);
       }
     }
   }

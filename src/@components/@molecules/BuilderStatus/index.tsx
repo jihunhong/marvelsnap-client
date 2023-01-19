@@ -4,7 +4,7 @@ import useModalToggler from '@hooks/useModalToggler';
 import useRemoveItem from '@hooks/useRemoveItem';
 import DeckRow from '@molecules/DeckRow';
 import DeckStatistic from '@molecules/DeckStatistic';
-import { BsCheck } from 'react-icons/bs';
+import { BsCheck, BsFilter } from 'react-icons/bs';
 import { useRecoilValue } from 'recoil';
 import { deckStatusAtom } from 'src/@store/builder';
 import * as S from './style';
@@ -14,10 +14,9 @@ const BuilderStatus = () => {
   const [onClick] = useRemoveItem();
   const [toggler] = useModalToggler('postDeck');
   return (
-    <S.BuilderStatusContainer>
+    <S.BuilderStatusContainer initial={{ x: 300, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
       <div className="content">
-        {/* <Button className="filter" icon={<BsFilter />} colorType="success" /> */}
-        <DeckStatistic dataSource={status} />
+        {/* <DeckStatistic dataSource={status} /> */}
         <DeckRow
           dataSource={status}
           renderItem={item => (

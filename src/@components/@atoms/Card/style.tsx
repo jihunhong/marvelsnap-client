@@ -8,7 +8,7 @@ export const CardContainer = styled.article`
   justify-content: center;
   flex-direction: column;
   img {
-    width: 127%;
+    width: 100%;
     margin-bottom: 4px;
     :hover {
       transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);

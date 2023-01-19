@@ -1,7 +1,8 @@
-import styled from 'styled-components';
 import { Opacity } from '@styles/transition';
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
-export const CardFilterContainer = styled.section`
+export const CardFilterContainer = styled(motion.section)`
   .content {
     width: 100%;
     display: grid;
@@ -9,7 +10,7 @@ export const CardFilterContainer = styled.section`
     row-gap: 20px;
     align-content: start;
     border-radius: 6px;
-    padding: 0.8rem;
+    padding-top: 42px;
     color: #fff;
   }
 

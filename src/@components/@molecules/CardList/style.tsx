@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const CardListContainer = styled.section`
   display: grid;
-  grid-template-columns: repeat(6, calc(100% / 6));
+  --sum-of-column-gaps: 40px;
+  --container-width: calc(100% - 40px);
+  grid-template-columns: repeat(6, calc(var(--container-width) / 6));
   grid-template-rows: repeat(12, 1fr);
   column-gap: 8px;
   row-gap: 8px;

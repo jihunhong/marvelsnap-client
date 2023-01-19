@@ -1,6 +1,7 @@
 import Button from '@atoms/Button';
 import Cost from '@atoms/Cost';
 import { DestroyIcon, DiscardIcon, MoveIcon, NoneAbilityIcon, OnGoingIcon, OnRevealIcon } from '@atoms/Icon';
+import useCardFilter from '@hooks/useCardFilter';
 import { BsFillTrashFill } from 'react-icons/bs';
 import { GiBatteryPackAlt, GiGlassBall } from 'react-icons/gi';
 import { TiSortAlphabeticallyOutline } from 'react-icons/ti';
@@ -8,12 +9,13 @@ import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { filterAtom } from 'src/@store/cardList';
 import * as S from './style';
 
-const CardFilter = ({ onClick }) => {
+const CardFilter = () => {
   const filter = useRecoilValue(filterAtom);
   const resetFilter = useResetRecoilState(filterAtom);
+  const [onClick] = useCardFilter();
 
   return (
-    <S.CardFilterContainer>
+    <S.CardFilterContainer key="filter" initial={{ x: 300, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
       <div className="content">
         <section className="filter">
           <div className="header">
