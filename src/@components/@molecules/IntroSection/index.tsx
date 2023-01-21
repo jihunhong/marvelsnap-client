@@ -1,6 +1,7 @@
 import videoId from '@constant/videoId';
 import Input from '@atoms/Input';
 import * as S from './style';
+import SearchInput from '@molecules/SearchInput';
 
 const IntroVideoSection = () => {
   return (
@@ -9,9 +10,7 @@ const IntroVideoSection = () => {
         <div className="content">
           <h1>Cosmo.gl</h1>
           <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, qui saepe doloribus ducimus</h4>
-          <div className="input-action">
-            <Input placeholder="덱, 카드이름으로 검색해보세요" />
-          </div>
+          <SearchInput />
         </div>
         <div className="video-background">
           <div>

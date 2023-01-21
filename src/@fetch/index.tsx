@@ -62,3 +62,12 @@ export const postScoreApi = async ({ collectionId, recordId, score }: { collecti
   });
   return data;
 };
+
+export const searchingApi = async (q: string) => {
+  const { data } = await axios.get('http://localhost:3000/api/search', {
+    params: {
+      q,
+    },
+  });
+  return data;
+};

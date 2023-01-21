@@ -61,6 +61,8 @@ export const GlobalStyle = createGlobalStyle`
     h1, h2, h3, h4, h5, span, p {
         color: rgb(255 255 255 / 95%);
         margin: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 
     a {

@@ -6,6 +6,7 @@ const keys = {
   postComment: '/api/comment',
   getCommentList: '/api/comment/list',
   getScoreList: '/api/score/list',
+  getSearch: '/api/search',
 };
 
 export default keys;

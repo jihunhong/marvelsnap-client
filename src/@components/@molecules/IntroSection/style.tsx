@@ -26,7 +26,6 @@ export const IntroSectionContainer = styled.div`
     @media ${device.mobileS} {
       margin: auto 2rem;
       padding-top: var(--header-height);
-      overflow: hidden;
     }
     @media ${device.tablet} {
       margin: auto;
@@ -70,11 +69,6 @@ export const IntroSectionContainer = styled.div`
 
   .owner-link {
     margin-bottom: 1.2rem;
-  }
-
-  .input-action {
-    width: 100%;
-    height: 48px;
   }
 
   .video-background {

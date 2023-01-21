@@ -14,11 +14,13 @@ export const InputContainer = styled.div`
     height: 100%;
     transition: transform 0.25s;
     transform: scaleX(0);
+    cursor: text;
   }
   &:focus-within {
     :after {
       border-bottom: var(--primary-color) 2px solid;
       transform: scale(1);
+      cursor: text;
     }
   }
 `;

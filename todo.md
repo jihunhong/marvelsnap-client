@@ -5,13 +5,15 @@
 무한스크롤(o)
 댓글(o)
 덱빌더 필터처리(o) => sticky header에 filter 옵션 다는걸로하는게 나을듯.. (후순위)
+검색 UI(o)
 
 - 덱설명
 - 덱 author
-검색 UI
 카드 hover 효과
 footer
 덱 작성후 페이지 전환
+
+덱페이지 무한스크롤 뒤로가기 restoration
 
 *컨텐츠
 카드 뒷면
