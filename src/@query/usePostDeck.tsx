@@ -7,6 +7,7 @@ import { useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
 import { postDeckApi } from '@fetch/index';
 import { deckStatusAtom } from 'src/@store/builder';
 import { modalToggler } from 'src/@store/modal';
+import { useRouter } from 'next/router';
 
 const usePostDeck = (ref: MutableRefObject<any>) => {
   const status = useRecoilValue(deckStatusAtom);
@@ -15,13 +16,15 @@ const usePostDeck = (ref: MutableRefObject<any>) => {
   const toggler = useSetRecoilState(modalToggler);
   const apiNotify = useApiNotify();
   const blockNotify = useBlockNotify();
+  const router = useRouter();
 
   const { mutate } = useMutation(postDeckApi, {
-    onSuccess: () => {
+    onSuccess: data => {
       queryClient.invalidateQueries(keys.getDeckList);
       toggler('postDeck');
       apiNotify.postDeckSuccess();
       reset();
+      router.push(`/deck/${data?.id}`);
       // TODO : redirect deck page
     },
     onError: () => {

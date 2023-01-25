@@ -25,10 +25,10 @@ const useCommentListQuery = ({ collectionId, recordId }: { collectionId: string;
     fetchNextPage();
   };
 
-  const isLast = data?.pages[0]?.totalPages === data?.pages[0]?.page;
+  const isLast = data?.pages[0]?.totalPages === data?.pages[0]?.page || data?.pages[0]?.totalPages === 0;
   const dataSource: undefined | T.Comment[] = data?.pages?.map(p => p.items)?.flat();
 
-  useDebugValue([data]);
+  useDebugValue([data, isLast]);
 
   return { dataSource, handler, isLast };
 };

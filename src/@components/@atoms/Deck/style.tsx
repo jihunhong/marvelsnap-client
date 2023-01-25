@@ -7,6 +7,7 @@ import { TagContainer } from '@atoms/Tag/style';
 export const DeckContainer = styled.article`
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   background: linear-gradient(45deg, #232525 0%, #232525 100%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 1px solid rgb(255 255 255 / 5%);
