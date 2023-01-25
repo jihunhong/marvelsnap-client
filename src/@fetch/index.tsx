@@ -14,7 +14,7 @@ export const getDeckListApi = async (page: number = 1) => {
   return data;
 };
 
-export const postDeckApi = async (payload: { title: string; items: string[] }) => {
+export const postDeckApi = async (payload: { title: string; items: string[]; description: string | null }) => {
   const { data } = await axios.post('http://localhost:3000/api/deck', payload);
   return data;
 };

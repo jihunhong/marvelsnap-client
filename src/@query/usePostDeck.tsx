@@ -9,7 +9,7 @@ import { deckStatusAtom } from 'src/@store/builder';
 import { modalToggler } from 'src/@store/modal';
 import { useRouter } from 'next/router';
 
-const usePostDeck = (ref: MutableRefObject<any>) => {
+const usePostDeck = (ref: MutableRefObject<any>, description: string | null) => {
   const status = useRecoilValue(deckStatusAtom);
   const reset = useResetRecoilState(deckStatusAtom);
   const queryClient = useQueryClient();
@@ -48,7 +48,7 @@ const usePostDeck = (ref: MutableRefObject<any>) => {
       return;
     }
     const items = status.map(v => v.id);
-    mutate({ items, title: ref.current?.value });
+    mutate({ items, title: ref.current?.value, description });
   };
 
   return [onClick];

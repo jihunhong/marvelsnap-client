@@ -1,21 +1,28 @@
 import Button from '@atoms/Button';
-import CardRow from '@atoms/CardRow';
+import Card from '@atoms/Card';
 import Input from '@atoms/Input';
 import ModalBase from '@atoms/Modal';
 import useModalToggler from '@hooks/useModalToggler';
+import useQuill from '@hooks/useQuill';
 import usePostDeck from '@query/usePostDeck';
-import DeckRow from '@molecules/DeckRow';
-import { useRef } from 'react';
+import dynamic from 'next/dynamic';
+import { useDebugValue, useRef } from 'react';
 import { TbClipboardList } from 'react-icons/tb';
 import { useRecoilValue } from 'recoil';
 import { deckStatusAtom } from 'src/@store/builder';
 import * as S from './style';
 
+const Quill = dynamic(() => import('@atoms/Quill'), {
+  ssr: false,
+});
+
 const DeckPostModal = () => {
   const status = useRecoilValue(deckStatusAtom);
   const [canceller] = useModalToggler('postDeck');
   const titleRef = useRef();
-  const [postDeckEvent] = usePostDeck(titleRef);
+  const [description, handler] = useQuill(null);
+  const [postDeckEvent] = usePostDeck(titleRef, description);
+  useDebugValue(description);
   return (
     <ModalBase modalKey={'postDeck'}>
       <S.Header>
@@ -26,14 +33,12 @@ const DeckPostModal = () => {
       </S.Header>
       <S.Body>
         <Input ref={titleRef} placeholder="덱 이름을 입력해주세요" />
-        <DeckRow
-          dataSource={status}
-          renderItem={item => (
-            <div key={item?.id}>
-              <CardRow {...item} />
-            </div>
-          )}
-        />
+        <div className="grid">
+          {status?.map(item => (
+            <Card key={item.id} {...item} name="" />
+          ))}
+        </div>
+        <Quill value={description} onChange={handler} placeholder="덱 설명을 입력해주세요" />
       </S.Body>
       <S.Footer>
         <div>

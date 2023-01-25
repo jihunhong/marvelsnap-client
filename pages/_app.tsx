@@ -10,6 +10,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ModalBoundary from '@components/@hoc/ModalBoundary';
 import useApiNotify from '@hooks/notify/useApiNotify';
+import 'react-quill/dist/quill.snow.css';
 
 function App({ Component, pageProps }: AppProps) {
   const notify = useApiNotify();

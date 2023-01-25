@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   if (req.method === 'POST') {
     const record = await pb.collection('decks').create({
       title: req.body.title,
-      description: 'none',
+      description: req.body.description,
       items: req.body.items,
     });
     res.status(200).json(record);

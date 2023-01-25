@@ -9,6 +9,7 @@ import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useDeckInfoQuery from '@query/useDeckInfo';
 import { NextPage, NextPageContext } from 'next';
+import dynamic from 'next/dynamic';
 import { dehydrate, QueryClient } from 'react-query';
 
 export async function getServerSideProps(context: NextPageContext) {
@@ -23,6 +24,10 @@ export async function getServerSideProps(context: NextPageContext) {
   };
 }
 
+const RawHtml = dynamic(() => import('@atoms/RawHtml'), {
+  ssr: false,
+});
+
 const DeckDetail: NextPage = props => {
   const [data] = useDeckInfoQuery();
   return (
@@ -36,7 +41,7 @@ const DeckDetail: NextPage = props => {
           <section className="meta"></section>
         </section>
         <section className="description">
-          <div>{data.description}</div>
+          <RawHtml content={data?.description} />
         </section>
         <CommentInput {...data} />
         <Comments {...data} />

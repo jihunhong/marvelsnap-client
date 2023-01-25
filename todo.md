@@ -6,13 +6,14 @@
 댓글(o)
 덱빌더 필터처리(o) => sticky header에 filter 옵션 다는걸로하는게 나을듯.. (후순위)
 검색 UI(o)
+덱 작성후 페이지 전환(o)
+덱 디테일 페이지(o)
 
 - 덱설명
 - 덱 author
 - 카드 hover 효과
 footer
-덱 작성후 페이지 전환(o)
-덱 디테일 페이지(o)
+로고
 
 덱페이지 무한스크롤 뒤로가기 restoration
 

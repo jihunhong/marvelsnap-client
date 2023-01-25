@@ -28,12 +28,51 @@ export const Body = styled.section`
   padding: 1rem 0;
 
   display: grid;
-  grid-template-rows: 21px 1fr;
+  --quill-editor-height: 350px;
+  grid-template-rows: 21px 1fr var(--quill-editor-height);
   row-gap: 12px;
-
   ${DeckRowContainer} {
     > div {
       cursor: unset;
+    }
+  }
+  .grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+  }
+
+  .quill {
+    height: var(--quill-editor-height);
+    .ql-toolbar {
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+    .ql-container {
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+    .ql-container.ql-snow {
+      height: 295px;
+    }
+    .ql-editor.ql-blank {
+      :before {
+        color: var(--white);
+      }
+    }
+    .ql-toolbar .ql-stroke {
+      fill: none;
+      stroke: #fff;
+    }
+
+    .ql-toolbar .ql-fill {
+      fill: #fff;
+      stroke: none;
+    }
+
+    .ql-toolbar .ql-picker {
+      color: #fff;
     }
   }
 `;
