@@ -8,7 +8,8 @@ import * as S from './style';
 type CommentInputProps = {
   collectionId: string;
   id: string;
-  name: string;
+  name?: string;
+  title?: string;
 };
 
 const CommentInput = ({ collectionId, id, ...props }: CommentInputProps) => {
@@ -16,7 +17,7 @@ const CommentInput = ({ collectionId, id, ...props }: CommentInputProps) => {
   const [onClick] = usePostComment({ collectionId, recordId: id, content: value });
   return (
     <S.CardCommentContainer>
-      <Textarea placeholder={`"${props?.name}"에 관한 의견을 남겨보세요`} onChange={handler} value={value} />
+      <Textarea placeholder={`"${props?.name || props?.title}"에 관한 의견을 남겨보세요`} onChange={handler} value={value} />
       <Button icon={<BsChatDots />} colorType="success" onClick={onClick}>
         <span>등록</span>
       </Button>

@@ -28,6 +28,15 @@ export const getCardApi = async (cardDefId: string) => {
   return data;
 };
 
+export const getDeckApi = async (id: string) => {
+  const { data } = await axios.get('http://localhost:3000/api/deck', {
+    params: {
+      id,
+    },
+  });
+  return data;
+};
+
 export const getCommentApi = async ({ collectionId, recordId, page }: { collectionId: string; recordId: string; page: number }) => {
   const { data } = await axios.get('http://localhost:3000/api/comment/list', {
     params: {

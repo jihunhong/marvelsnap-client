@@ -1,3 +1,7 @@
+export interface Expand {
+  items: Array<Card>;
+}
+
 export type Card = {
   id: string;
   name: string;
@@ -13,6 +17,6 @@ export type Card = {
   effect: string;
   en: string;
   cardDefId: string;
-  expand?: Array<any>;
+  expand?: Array<any> | Expand;
   collectionId?: string;
 };

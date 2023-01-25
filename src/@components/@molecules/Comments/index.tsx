@@ -15,11 +15,11 @@ const Comments = ({ collectionId, id }: CommentsProps) => {
       {dataSource?.map((item, i) => (
         <Comment key={item?.id} id={item.id} created={item.created} writer={'jihunhong'} content={item.content} />
       ))}
-      {!isLast ? (
+      {!!isLast ? null : (
         <MoreButton onClick={handler}>
           <span>더보기</span>
         </MoreButton>
-      ) : null}
+      )}
     </S.CommentsContainer>
   );
 };

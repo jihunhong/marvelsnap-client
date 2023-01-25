@@ -4,7 +4,7 @@ export const CardCommentContainer = styled.div`
   position: relative;
   margin-bottom: 1.4rem;
   textarea {
-    background: rgb(15 15 15 / 80%);
+    background: #0f0f0fcc;
     padding: 1rem;
     border-radius: 6px;
     width: 100%;

@@ -1,6 +1,6 @@
-import Body from "@layout/Body";
-import Header from "@layout/Header";
-
+import Body from '@layout/Body';
+import Footer from '@layout/Footer';
+import Header from '@layout/Header';
 
 type Props = {
   children: JSX.Element;
@@ -11,7 +11,7 @@ const AppLayout = ({ children }: Props) => {
     <>
       <Header />
       <Body>{children}</Body>
-      <footer></footer>
+      <Footer />
     </>
   );
 };

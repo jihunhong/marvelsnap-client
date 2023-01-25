@@ -9,9 +9,10 @@
 
 - 덱설명
 - 덱 author
-카드 hover 효과
+- 카드 hover 효과
 footer
 덱 작성후 페이지 전환
+덱 디테일 페이지
 
 덱페이지 무한스크롤 뒤로가기 restoration
 

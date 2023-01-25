@@ -46,6 +46,7 @@ export const GlobalStyle = createGlobalStyle`
         overflow: hidden;
     }
     body {
+        background-color: #161819;
         overflow: overlay;
         max-width: 100%;
         overflow-x: hidden;

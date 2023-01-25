@@ -9,9 +9,9 @@ import format from '@lib/day';
 import { FaRegCopy } from 'react-icons/fa';
 import * as S from './style';
 
-const Deck = ({ title, description = '', created, expand, author, archtype }: T.Deck) => {
-  const [handler] = useCopyCode({ items: expand?.items, title });
-  const series = useDeckTag({ items: expand?.items });
+const Deck = ({ title, description = '', created, cards, author, archtype }: T.Deck) => {
+  const [handler] = useCopyCode({ items: cards, title });
+  const series = useDeckTag({ items: cards });
   return (
     <S.DeckContainer>
       <div className="header">
@@ -34,7 +34,7 @@ const Deck = ({ title, description = '', created, expand, author, archtype }: T.
             </a>
           </div>
           <div className="cards">
-            {expand?.items?.map(v => (
+            {cards?.map(v => (
               <Card key={v.id} {...v} />
             ))}
           </div>

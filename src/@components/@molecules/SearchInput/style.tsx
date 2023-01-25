@@ -21,29 +21,31 @@ export const ResultEntry = styled(motion.div)`
     :hover {
       background: #673ab74f;
     }
-    cursor: pointer;
-    transition: background 0.3s cubic-bezier(0.4, 0, 1, 1);
-    display: grid;
-    padding: 0.6rem 1rem;
-    grid-template-columns: 60px 1fr;
-    grid-template-rows: auto 1fr;
-    grid-column-gap: 0.5rem;
-    grid-template-areas:
-      'image name'
-      'image description';
+    a {
+      cursor: pointer;
+      transition: background 0.3s cubic-bezier(0.4, 0, 1, 1);
+      display: grid;
+      padding: 0.6rem 1rem;
+      grid-template-columns: 60px 1fr;
+      grid-template-rows: auto 1fr;
+      grid-column-gap: 0.5rem;
+      grid-template-areas:
+        'image name'
+        'image description';
 
-    > img {
-      grid-area: image;
-      width: 100%;
-    }
-    > span {
-      grid-area: name;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-    > p {
-      grid-area: description;
-      font-style: italic;
+      > img {
+        grid-area: image;
+        width: 100%;
+      }
+      > span {
+        grid-area: name;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+      }
+      > p {
+        grid-area: description;
+        font-style: italic;
+      }
     }
   }
 `;
@@ -55,4 +57,8 @@ export const InputEntry = styled.div`
 export const SearchInputContainer = styled.div`
   width: 100%;
   position: relative;
+  input {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
 `;

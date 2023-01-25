@@ -3,6 +3,7 @@ import { InputContainer, InputTag } from '@atoms/Input/style';
 import * as T from '@customTypes/Card';
 import useSearch from '@hooks/action/useSearch';
 import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
 import * as S from './style';
 
 const SearchInput = () => {
@@ -19,9 +20,13 @@ const SearchInput = () => {
           <S.ResultEntry initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             {data?.map((item: T.Card) => (
               <motion.div key={item.id} initial={{ y: 60, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ opacity: 0 }}>
-                <CardImage en={item?.en} />
-                <span>{item.name}</span>
-                <p>{item.effect}</p>
+                <Link href={`/card/${item?.cardDefId}`}>
+                  <a>
+                    <CardImage en={item?.en} />
+                    <span>{item.name}</span>
+                    <p>{item.effect}</p>
+                  </a>
+                </Link>
               </motion.div>
             ))}
           </S.ResultEntry>

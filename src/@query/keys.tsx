@@ -7,6 +7,7 @@ const keys = {
   getCommentList: '/api/comment/list',
   getScoreList: '/api/score/list',
   getSearch: '/api/search',
+  getDeck: '/api/deck',
 };
 
 export default keys;

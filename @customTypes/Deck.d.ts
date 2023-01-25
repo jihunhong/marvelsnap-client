@@ -7,6 +7,7 @@ export type Deck = {
   expand: {
     items: Array<T.Card>;
   };
+  cards: Array<T.Card>;
   author: string;
   archtype: Array<ArchType>;
   created: string; // "2023-01-11 11:41:14.909Z"
