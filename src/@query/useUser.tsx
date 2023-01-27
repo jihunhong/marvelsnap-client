@@ -1,13 +1,18 @@
 import { pb } from '@lib/pb';
 import { useQuery } from 'react-query';
+import { useRecoilState } from 'recoil';
+import { userAtom } from 'src/@store/user';
 
 const useUser = () => {
+  const [user, setUser] = useRecoilState(userAtom);
   const getUser = async () => {
     return await pb.authStore.model;
   };
-  const { data } = useQuery('user', getUser);
+  useQuery('user', getUser, {
+    onSuccess: response => setUser(response),
+  });
 
-  return [data];
+  return [user];
 };
 
 export default useUser;

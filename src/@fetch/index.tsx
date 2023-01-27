@@ -49,7 +49,11 @@ export const getCommentApi = async ({ collectionId, recordId, page }: { collecti
 };
 
 export const postCommentApi = async (payload: { collectionId: string; recordId: string; content: string }) => {
-  const { data } = await axios.post('http://localhost:3000/api/comment', payload);
+  const { data } = await axios.post('http://localhost:3000/api/comment', payload, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')?.token,
+    },
+  });
   return data;
 };
 
@@ -64,11 +68,19 @@ export const getScoreApi = async ({ collectionId, recordId }: { collectionId: st
 };
 
 export const postScoreApi = async ({ collectionId, recordId, score }: { collectionId: string; recordId: string; score: number }) => {
-  const { data } = await axios.post('http://localhost:3000/api/score', {
-    collectionId,
-    recordId,
-    score,
-  });
+  const { data } = await axios.post(
+    'http://localhost:3000/api/score',
+    {
+      collectionId,
+      recordId,
+      score,
+    },
+    {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')?.token,
+      },
+    },
+  );
   return data;
 };
 

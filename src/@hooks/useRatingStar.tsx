@@ -1,10 +1,16 @@
 import usePostScore from '@query/usePostScore';
-import { useDebugValue, useState } from 'react';
+import useScoreList from '@query/useScoreList';
+import { useDebugValue, useLayoutEffect, useState } from 'react';
 
 const useRatingStar = ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
+  const { avg } = useScoreList({ collectionId, recordId });
   const [score, setScore] = useState(0);
   const [select, setSelect] = useState(0);
   const [mutate] = usePostScore({ collectionId, recordId });
+
+  useLayoutEffect(() => {
+    setScore(parseInt(avg));
+  }, [avg]);
 
   const onHover = (e: MouseEvent) => {
     let value = 0;

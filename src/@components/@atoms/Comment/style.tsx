@@ -1,3 +1,4 @@
+import { AvatarContainer } from '@atoms/Avatar/style';
 import styled from 'styled-components';
 
 export const Comment = styled.article`
@@ -6,7 +7,8 @@ export const Comment = styled.article`
     align-items: center;
   }
   .header {
-    svg {
+    svg,
+    ${AvatarContainer} {
       margin-right: 12px;
     }
     h4 {

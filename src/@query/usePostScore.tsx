@@ -1,6 +1,7 @@
 import { postScoreApi } from '@fetch/index';
 import useApiNotify from '@hooks/notify/useApiNotify';
 import keys from '@query/keys';
+import { AxiosError, AxiosResponse } from 'axios';
 import { useMutation, useQueryClient } from 'react-query';
 
 const usePostScore = ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
