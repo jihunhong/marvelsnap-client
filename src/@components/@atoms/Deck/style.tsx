@@ -3,6 +3,7 @@ import { CardContainer } from '../Card/style';
 import { Opacity } from '../../../styles/transition';
 import device from '../../../styles/devices';
 import { TagContainer } from '@atoms/Tag/style';
+import { AvatarContainer } from '@atoms/Avatar/style';
 
 export const DeckContainer = styled.article`
   display: flex;
@@ -28,11 +29,11 @@ export const DeckContainer = styled.article`
       }
     }
   }
-  div.author {
+  div.writer {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    svg {
+    ${AvatarContainer} {
       margin-right: 8px;
     }
     h5 {

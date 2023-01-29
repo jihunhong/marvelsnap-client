@@ -12,7 +12,7 @@ const Post = ({ title = 'ChatGPT Is Having a Thomas Edison Moment', content = 'W
   return (
     <PostPreviewContainer>
       <div className="meta">
-        <div className="author">
+        <div className="writer">
           <Avatar
             src="https://avatars.githubusercontent.com/u/21700764?v=4"
             // TODO :: example image

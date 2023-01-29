@@ -8,8 +8,8 @@ type QuillProps = {
   placeholder: string;
 };
 
-const Quill = ({ value, onChange, placeholder }: QuillProps) => {
-  return <ReactQuill theme="snow" modules={modules} formats={formats} value={value} onChange={onChange} placeholder={placeholder} />;
+const Quill = (props: any, { value, onChange, placeholder }: QuillProps) => {
+  return <ReactQuill theme="snow" modules={modules} formats={formats} value={value} onChange={onChange} placeholder={placeholder} {...props} />;
 };
 
 export default Quill;

@@ -1,25 +1,37 @@
-import { GlobalStyle } from '@styles/globals';
-import type { AppProps } from 'next/app';
-import { useState } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { Hydrate } from 'react-query/hydration';
-import { ReactQueryDevtools } from 'react-query/devtools';
-import AppLayout from '@layout/AppLayout';
-import { RecoilRoot } from 'recoil';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import ModalBoundary from '@components/@hoc/ModalBoundary';
 import useApiNotify from '@hooks/notify/useApiNotify';
+import { GlobalStyle } from '@styles/globals';
+import { NextPage } from 'next';
+import type { AppProps } from 'next/app';
+import { ReactElement, ReactNode, useState } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import { Hydrate } from 'react-query/hydration';
 import 'react-quill/dist/quill.snow.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { RecoilRoot } from 'recoil';
 
-function App({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+  pageProps: {
+    dehydratedState: {};
+  };
+};
+
+function App({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout || (page => page);
   const notify = useApiNotify();
   const [queryClient] = useState(
     () =>
       new QueryClient({
         defaultOptions: {
           queries: {
-            onError: error => notify.getRequestError(),
+            onError: () => notify.getRequestError(),
           },
         },
       }),
@@ -43,9 +55,7 @@ function App({ Component, pageProps }: AppProps) {
             limit={3}
           />
           <ModalBoundary />
-          <AppLayout>
-            <Component {...pageProps} />
-          </AppLayout>
+          {getLayout(<Component {...pageProps} />)}
         </RecoilRoot>
         <ReactQueryDevtools position="bottom-right" />
       </Hydrate>

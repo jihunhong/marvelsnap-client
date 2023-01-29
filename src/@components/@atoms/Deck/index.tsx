@@ -6,7 +6,7 @@ import type * as T from '@customTypes/Deck';
 import type * as C from '@customTypes/Card';
 import useCopyCode from '@hooks/action/useDeckCode';
 import useDeckTag from '@hooks/deck/useDeckTag';
-import useNavigation from '@hooks/useNavigate';
+import useNavigate from '@hooks/useNavigate';
 import format from '@lib/day';
 import Link from 'next/link';
 import { FaRegCopy } from 'react-icons/fa';
@@ -17,14 +17,14 @@ const RawHtml = dynamic(() => import('@atoms/RawHtml'), {
   loading: () => <div>loading description...</div>,
 });
 
-const Deck = ({ id, title, description = '', created, cards, author, archtype }: T.Deck) => {
+const Deck = ({ id, title, description = '', created, cards, writer, archtype }: T.Deck) => {
   const [handler] = useCopyCode({ items: cards, title });
   const series = useDeckTag({ items: cards });
-  const [navigate] = useNavigation({ href: `/deck/${id}` });
+  const [navigate] = useNavigate({ href: `/deck/${id}` });
   return (
     <S.DeckContainer>
       <div className="header">
-        <div className="author" onClick={navigate}>
+        <div className="writer" onClick={navigate}>
           <Avatar width={20} height={20} src="https://avatars.githubusercontent.com/u/21700764?v=4" />
           <a>
             <h4>{'쓴사람이름'}</h4>

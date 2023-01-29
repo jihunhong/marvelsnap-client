@@ -22,7 +22,7 @@ const Comment = ({ writer, content, created, id, avatarUrl, user }: CommentProps
   return (
     <S.Comment>
       <div className="header">
-        {avatarUrl ? <Avatar src={avatarUrl} /> : <RandomAvatar size={20} name={writer} variant="beam" colors={['#FC580C', '#FC6B0A', '#F0AB3D', '#F8872E', '#FFA927', '#FDCA49']} />}
+        <Avatar src={avatarUrl} writer={writer} />
         <h4>{writer}</h4>
         <span>{fromNow(created)}</span>
       </div>

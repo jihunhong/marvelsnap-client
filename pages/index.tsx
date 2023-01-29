@@ -1,8 +1,9 @@
-import type { NextPage } from 'next';
+import AppLayout from '@layout/AppLayout';
 import IntroSection from '@molecules/IntroSection';
 import Trending from '@molecules/Trending';
+import { ReactElement } from 'react';
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <>
       <section className="full-width">
@@ -14,4 +15,5 @@ const Home: NextPage = () => {
   );
 };
 
+Home.getLayout = (page: ReactElement) => <AppLayout>{page}</AppLayout>;
 export default Home;

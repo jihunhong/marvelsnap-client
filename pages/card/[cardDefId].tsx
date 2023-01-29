@@ -1,6 +1,7 @@
 import { FlexRow } from '@atoms/Flex/style';
 import { baseImgix } from '@constant/imigx';
 import { getCardApi } from '@fetch/index';
+import AppLayout from '@layout/AppLayout';
 import DetailLayout from '@layout/DetailLayout';
 import CardDetail from '@molecules/CardDetail';
 import CommentInput from '@molecules/CommentInput';
@@ -9,7 +10,8 @@ import PageIntro from '@molecules/PageIntro';
 import Variants from '@molecules/Variants';
 import keys from '@query/keys';
 import useCardQuery from '@query/useCardQuery';
-import { NextPage, NextPageContext } from 'next';
+import { NextPageContext } from 'next';
+import { ReactElement } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 
 export async function getServerSideProps(context: NextPageContext) {
@@ -24,7 +26,7 @@ export async function getServerSideProps(context: NextPageContext) {
   };
 }
 
-const Detail: NextPage = props => {
+const Detail = () => {
   const [data] = useCardQuery();
   return (
     <>
@@ -50,4 +52,5 @@ const Detail: NextPage = props => {
   );
 };
 
+Detail.getLayout = (page: ReactElement) => <AppLayout>{page}</AppLayout>;
 export default Detail;

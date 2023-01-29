@@ -13,6 +13,8 @@ import Link from 'next/link';
 import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
 import { dehydrate, QueryClient } from 'react-query';
 import { getCardListApi } from '@fetch/index';
+import AppLayout from '@layout/AppLayout';
+import { ReactElement } from 'react';
 
 const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
   ssr: false,
@@ -30,7 +32,7 @@ export async function getServerSideProps() {
   };
 }
 
-const Cards: NextPage = props => {
+const Cards = () => {
   const [dataSource] = useCardListQuery();
 
   return (
@@ -62,4 +64,5 @@ const Cards: NextPage = props => {
   );
 };
 
+Cards.getLayout = (page: ReactElement) => <AppLayout>{page}</AppLayout>;
 export default Cards;

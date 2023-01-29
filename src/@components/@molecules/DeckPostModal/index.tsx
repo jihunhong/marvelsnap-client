@@ -38,7 +38,7 @@ const DeckPostModal = () => {
             <Card key={item.id} {...item} name="" />
           ))}
         </div>
-        <Quill value={description} onChange={handler} placeholder="덱 설명을 입력해주세요" />
+        <Quill modules={{}} formats={[]} value={description} onChange={handler} placeholder="덱 설명을 입력해주세요" />
       </S.Body>
       <S.Footer>
         <div>

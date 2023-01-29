@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import { HEADER_HEIGHT } from './setting';
 import * as C from './color';
+import { HEADER_HEIGHT } from './setting';
 
 export const GlobalStyle = createGlobalStyle`
     :root {
@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
         --gray-0: #cacaca;
         --gray-1: #a3a0a0;
         --gray-2: #868484;
-        --white: #fff;
+        --white: rgb(255 255 255 / 95%);
         --black-background: #161819;
 
         --card-offset: 16px;
@@ -73,5 +73,37 @@ export const GlobalStyle = createGlobalStyle`
 
     * {
         box-sizing: border-box;
+    }
+
+    .quill {
+        .ql-snow {
+            border: none;
+        }
+        .ql-toolbar {
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+        .ql-container {
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+        .ql-editor.ql-blank {
+            :before {
+            color: var(--white);
+            }
+        }
+        .ql-toolbar .ql-stroke {
+            fill: none;
+            stroke: #fff;
+        }
+
+        .ql-toolbar .ql-fill {
+            fill: #fff;
+            stroke: none;
+        }
+
+        .ql-toolbar .ql-picker {
+            color: #fff;
+        }
     }
 `;

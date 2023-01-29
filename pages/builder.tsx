@@ -1,9 +1,10 @@
-import Button from '@atoms/Button';
 import Card from '@atoms/Card';
 import CardListHeader from '@atoms/CardListHeader';
+import * as T from '@customTypes/Card';
 import { getCardListApi } from '@fetch/index';
 import useBuilder from '@hooks/useBuilder';
 import useToggle from '@hooks/useToggle';
+import AppLayout from '@layout/AppLayout';
 import DivisionLayout from '@layout/DivisionLayout';
 import CardList from '@molecules/CardList';
 import PageIntro from '@molecules/PageIntro';
@@ -11,8 +12,7 @@ import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
-import { SyntheticEvent } from 'react';
-import { BsFilter } from 'react-icons/bs';
+import { ReactElement, SyntheticEvent } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 import { useRecoilValue } from 'recoil';
 import { getIds } from 'src/@store/builder';
@@ -35,14 +35,14 @@ export async function getServerSideProps() {
   };
 }
 
-const Builder: NextPage = () => {
+const Builder = () => {
   const [dataSource] = useCardListQuery();
   const [onClick] = useBuilder();
   const selectedIds = useRecoilValue(getIds);
   const [visible, handler, setVisible] = useToggle();
 
-  const onAdd = (e: SyntheticEvent) => {
-    onClick(e);
+  const onAdd = (e: SyntheticEvent, item: T.Card) => {
+    onClick(e, item);
     setVisible(false);
   };
 
@@ -55,17 +55,7 @@ const Builder: NextPage = () => {
           <CardList
             dataSource={dataSource}
             renderItem={item => (
-              <div
-                key={item?.id}
-                data-keywords={item?.keywords || ''}
-                data-id={item?.id}
-                data-name={item?.name}
-                data-en={item?.en}
-                data-cost={item?.cost}
-                data-power={item?.power}
-                data-selected={selectedIds.includes(item?.id)}
-                onClick={onAdd}
-              >
+              <div key={item?.id} data-selected={selectedIds.includes(item?.id)} onClick={e => onAdd(e, item)}>
                 <Card {...item} />
               </div>
             )}
@@ -77,4 +67,5 @@ const Builder: NextPage = () => {
   );
 };
 
+Builder.getLayout = (page: ReactElement) => <AppLayout>{page}</AppLayout>;
 export default Builder;

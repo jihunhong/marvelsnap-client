@@ -9,7 +9,7 @@ export const PostPreviewContainer = styled.article`
   margin-bottom: 2rem;
 
   .meta {
-    div.author {
+    div.writer {
       display: flex;
       align-items: center;
       margin-bottom: 8px;

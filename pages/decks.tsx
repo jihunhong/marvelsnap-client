@@ -1,11 +1,12 @@
 import { getDeckListApi } from '@fetch/index';
 import useInView from '@hooks/useInView';
+import AppLayout from '@layout/AppLayout';
 import DeckList from '@molecules/DeckList';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useDeckListQuery from '@query/useDeckListQuery';
 import { NextPage } from 'next';
-import { useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 
 export async function getServerSideProps() {
@@ -20,7 +21,7 @@ export async function getServerSideProps() {
   };
 }
 
-const Decks: NextPage = () => {
+const Decks = () => {
   const { ref, visible } = useInView();
   const { dataSource, fetchNextPage, isFetchingNextPage } = useDeckListQuery();
 
@@ -41,4 +42,5 @@ const Decks: NextPage = () => {
   );
 };
 
+Decks.getLayout = (page: ReactElement) => <AppLayout>{page}</AppLayout>;
 export default Decks;

@@ -14,7 +14,6 @@ export const addSelector = selector({
   get: () => {},
   set: ({ get, set }, newItem) => {
     const current = get(deckStatusAtom);
-    newItem.keywords = [...newItem.keywords?.split(',')];
     const newState = [...current, newItem];
     set(deckStatusAtom, asc(newState));
   },

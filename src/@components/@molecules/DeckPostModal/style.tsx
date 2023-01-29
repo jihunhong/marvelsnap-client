@@ -45,34 +45,8 @@ export const Body = styled.section`
 
   .quill {
     height: var(--quill-editor-height);
-    .ql-toolbar {
-      border-top-left-radius: 6px;
-      border-top-right-radius: 6px;
-    }
-    .ql-container {
-      border-bottom-left-radius: 6px;
-      border-bottom-right-radius: 6px;
-    }
     .ql-container.ql-snow {
       height: 295px;
-    }
-    .ql-editor.ql-blank {
-      :before {
-        color: var(--white);
-      }
-    }
-    .ql-toolbar .ql-stroke {
-      fill: none;
-      stroke: #fff;
-    }
-
-    .ql-toolbar .ql-fill {
-      fill: #fff;
-      stroke: none;
-    }
-
-    .ql-toolbar .ql-picker {
-      color: #fff;
     }
   }
 `;

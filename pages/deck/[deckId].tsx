@@ -1,6 +1,7 @@
 import { FlexRow } from '@atoms/Flex/style';
 import { baseImgix } from '@constant/imigx';
 import { getDeckApi } from '@fetch/index';
+import AppLayout from '@layout/AppLayout';
 import DetailLayout from '@layout/DetailLayout';
 import CardGrid from '@molecules/CardGrid';
 import CommentInput from '@molecules/CommentInput';
@@ -8,8 +9,9 @@ import Comments from '@molecules/Comments';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useDeckInfoQuery from '@query/useDeckInfo';
-import { NextPage, NextPageContext } from 'next';
+import { NextPageContext } from 'next';
 import dynamic from 'next/dynamic';
+import { ReactElement } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 
 export async function getServerSideProps(context: NextPageContext) {
@@ -28,7 +30,7 @@ const RawHtml = dynamic(() => import('@atoms/RawHtml'), {
   ssr: false,
 });
 
-const DeckDetail: NextPage = props => {
+const DeckDetail = () => {
   const [data] = useDeckInfoQuery();
   return (
     <>
@@ -50,4 +52,5 @@ const DeckDetail: NextPage = props => {
   );
 };
 
+DeckDetail.getLayout = (page: ReactElement) => <AppLayout>{page}</AppLayout>;
 export default DeckDetail;
