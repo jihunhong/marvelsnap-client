@@ -27,8 +27,11 @@ export const ButtonTag = styled.button<CustomProps>`
   :hover {
     background-color: var(--${p => p.colorType}-light-color);
   }
-  svg {
-    margin-right: 4px;
+
+  &:has(span) {
+    svg {
+      margin-right: 4px;
+    }
   }
 
   span {

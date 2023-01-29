@@ -13,6 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     pb.authStore.clear();
   }
 
+  // Duplicate check
   try {
     const exist = await pb.collection('rating').getFirstListItem(`collection="${req.body.collectionId}" && recordId="${req.body.recordId}" && user="${pb.authStore.model?.id}"`);
     await pb.collection('rating').update(exist.id, {

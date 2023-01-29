@@ -8,6 +8,8 @@ const useApiNotify = () => {
   const postCommentError = () => toast.error('댓글 작성이 실패했습니다. \n 잠시후 다시 시도해주세요');
   const postScoreSuccess = () => toast.success('평점이 반영되었습니다');
   const postScoreError = () => toast.error('평점이 반영에 실패했습니다. \n 잠시후 다시 시도해주세요');
+  const delCommentSuccess = () => toast.success('댓글이 삭제되었습니다.');
+  const delCommentError = () => toast.error('댓글 삭제에 실패했습니다. \n 잠시후 다시 시도해주세요');
 
   const loginError = () => toast.error('로그인 응답이 올바르지 않습니다. \n 잠시후 다시 시도해주세요');
 
@@ -20,6 +22,8 @@ const useApiNotify = () => {
     postScoreSuccess,
     postScoreError,
     loginError,
+    delCommentSuccess,
+    delCommentError,
   };
 };
 

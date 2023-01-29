@@ -10,6 +10,7 @@ export interface Comment {
     user?: {
       avatarUrl?: string;
       name?: string;
+      id?: string;
     };
   };
 }

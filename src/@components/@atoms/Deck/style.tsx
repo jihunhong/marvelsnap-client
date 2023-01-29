@@ -65,8 +65,12 @@ export const DeckContainer = styled.article`
           line-height: 19px;
           margin-bottom: 0.6rem;
         }
-        h4 {
-          font-weight: 500;
+        div {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+          color: rgb(255 255 255 / 95%);
         }
       }
       .meta-bottom {

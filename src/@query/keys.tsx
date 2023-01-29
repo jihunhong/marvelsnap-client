@@ -4,6 +4,7 @@ const keys = {
   postDeckList: '/api/deck',
   getCard: '/api/card',
   postComment: '/api/comment',
+  delComment: '/api/comment',
   getCommentList: '/api/comment/list',
   getScoreList: '/api/score/list',
   getSearch: '/api/search',

@@ -11,6 +11,11 @@ import format from '@lib/day';
 import Link from 'next/link';
 import { FaRegCopy } from 'react-icons/fa';
 import * as S from './style';
+import dynamic from 'next/dynamic';
+const RawHtml = dynamic(() => import('@atoms/RawHtml'), {
+  ssr: false,
+  loading: () => <div>loading description...</div>,
+});
 
 const Deck = ({ id, title, description = '', created, cards, author, archtype }: T.Deck) => {
   const [handler] = useCopyCode({ items: cards, title });
@@ -34,7 +39,7 @@ const Deck = ({ id, title, description = '', created, cards, author, archtype }:
           <div className="meta" onClick={navigate}>
             <a>
               <h3>{title}</h3>
-              <h4>{description}</h4>
+              <RawHtml content={description} />
             </a>
           </div>
           <div className="cards">

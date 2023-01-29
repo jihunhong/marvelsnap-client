@@ -57,6 +57,18 @@ export const postCommentApi = async (payload: { collectionId: string; recordId: 
   return data;
 };
 
+export const delCommentApi = async (id: string) => {
+  const { data } = await axios.delete('http://localhost:3000/api/comment', {
+    data: {
+      id,
+    },
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')?.token,
+    },
+  });
+  return data;
+};
+
 export const getScoreApi = async ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
   const { data } = await axios.get('http://localhost:3000/api/score/list', {
     params: {
