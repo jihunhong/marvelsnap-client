@@ -5,7 +5,6 @@ import DeckList from '@molecules/DeckList';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useDeckListQuery from '@query/useDeckListQuery';
-import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
