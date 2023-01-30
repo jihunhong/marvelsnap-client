@@ -1,14 +1,13 @@
 import videoId from '@constant/videoId';
-import Input from '@atoms/Input';
-import * as S from './style';
 import SearchInput from '@molecules/SearchInput';
+import * as S from './style';
 
 const IntroVideoSection = () => {
   return (
     <S.IntroSectionContainer>
       <div className="container">
         <div className="content">
-          <h1>Cosmo.gl</h1>
+          <h1>Snaptico.com</h1>
           <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, qui saepe doloribus ducimus</h4>
           <SearchInput />
         </div>

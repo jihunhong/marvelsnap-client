@@ -34,3 +34,20 @@ export const modalToggler = selector({
     set(modalAtom, newState);
   },
 });
+
+export const modalCloser = selector({
+  key: `modalToggler/${v1()}`,
+  get: () => {},
+  set: ({ get, set }, key) => {
+    // atom에 선언되어있는 객체를 key값만 받아 상태 변경(toggle)
+    const modalState = get(modalAtom);
+    if (!Object.keys(modalState).includes(key)) {
+      console.error('Unrecognized Modal Key => ', key);
+    }
+    const newState = {
+      ...modalState,
+      [key]: false,
+    };
+    set(modalAtom, newState);
+  },
+});

@@ -25,9 +25,9 @@ const Deck = ({ id, title, description = '', created, cards, writer, archtype }:
     <S.DeckContainer>
       <div className="header">
         <div className="writer" onClick={navigate}>
-          <Avatar width={20} height={20} src="https://avatars.githubusercontent.com/u/21700764?v=4" />
+          <Avatar width={20} height={20} src={writer?.avatar || writer?.avatarUrl} writer={writer?.username || writer?.name} />
           <a>
-            <h4>{'쓴사람이름'}</h4>
+            <h4>{writer?.username || writer?.name || 'Unknown'}</h4>
           </a>
         </div>
         <div className="action" onClick={handler}>
@@ -38,8 +38,8 @@ const Deck = ({ id, title, description = '', created, cards, writer, archtype }:
         <div className="preview">
           <div className="meta" onClick={navigate}>
             <a>
-              <h3>{title}</h3>
-              <RawHtml content={description} />
+              <h2>{title}</h2>
+              {/* <RawHtml content={description} /> */}
             </a>
           </div>
           <div className="cards">

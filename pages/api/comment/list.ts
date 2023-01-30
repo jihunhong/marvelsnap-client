@@ -1,13 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import PocketBase from 'pocketbase';
 
-type Data = {
-  name: string;
-};
-
 const pb = new PocketBase('http://127.0.0.1:8090');
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   const comments = await pb.collection('comments').getList(1, 30, {
     filter: `collection='${req.query?.collectionId}' && recordId='${req.query?.recordId}'`,
     expand: 'user',

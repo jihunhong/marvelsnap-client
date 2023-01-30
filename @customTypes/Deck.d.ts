@@ -1,14 +1,16 @@
-import type * as T from '.Card';
+import { Card } from '.Card';
+import { User } from './User';
 
 export type Deck = {
   id: string;
   title: string;
   description: string;
   expand: {
-    items: Array<T.Card>;
+    items: Array<C.Card>;
+    writer: User;
   };
-  cards: Array<T.Card>;
-  writer: string;
+  cards: Array<C.Card>;
+  writer: User;
   archtype: Array<ArchType>;
   created: string; // "2023-01-11 11:41:14.909Z"
 };

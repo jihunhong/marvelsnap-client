@@ -21,7 +21,7 @@ const DeckPostModal = () => {
   const [canceller] = useModalToggler('postDeck');
   const titleRef = useRef();
   const [description, handler] = useQuill(null);
-  const [postDeckEvent] = usePostDeck(titleRef, description);
+  const [postDeckEvent] = usePostDeck(titleRef?.current?.value, description);
   useDebugValue(description);
   return (
     <ModalBase modalKey={'postDeck'}>

@@ -9,9 +9,9 @@ const useBuilder = () => {
   const setDeckStatus = useSetRecoilState(addSelector);
   const blockNotify = useBlockNotify();
   const onClick = (e: SyntheticEvent, item: Card) => {
-    if (!(e.currentTarget instanceof HTMLDivElement)) {
-      return;
-    }
+    // if (!(e.currentTarget instanceof HTMLDivElement)) {
+    //   return;
+    // }
     e.currentTarget.setAttribute('selected', 'true');
     const duplicate = status.find(el => el.id === item?.id);
     if (status.length >= 12) {

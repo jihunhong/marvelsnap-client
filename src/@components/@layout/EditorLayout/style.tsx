@@ -8,10 +8,18 @@ export const EditorLayoutContainer = styled.section`
   grid-auto-flows: column;
   grid-template-columns: 1fr 1fr;
 
+  .editor,
+  .preview {
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+  }
+
   .editor {
     position: sticky;
     top: 0;
-    height: calc(100vh - var(--header-height));
+    height: 100vh;
+    padding: 2rem 2rem 6rem;
     ${CardGridContainer} {
       grid-auto-flow: row;
       grid-template-rows: 1fr;
@@ -23,6 +31,21 @@ export const EditorLayoutContainer = styled.section`
     }
     .quill {
       height: 100%;
+    }
+    .actions {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 4rem;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      background-color: #323232;
+      button {
+        margin: 0;
+      }
     }
   }
   .preview {
@@ -42,12 +65,5 @@ export const EditorLayoutContainer = styled.section`
       border-radius: 6px;
       color: var(--white);
     }
-  }
-
-  .editor,
-  .preview {
-    display: flex;
-    padding: 2rem;
-    flex-direction: column;
   }
 `;

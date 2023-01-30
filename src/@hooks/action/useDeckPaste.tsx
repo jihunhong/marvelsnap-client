@@ -1,18 +1,18 @@
 import useNotify from '@hooks/notify/useNotify';
 import { decode } from '@lib/deck';
 import isClient from '@lib/isClient';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, MutableRefObject } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { deckStatusAtom, pasteDeckStatus } from 'src/@store/builder';
+import { pasteDeckStatus } from 'src/@store/builder';
 import { cardListAtom } from 'src/@store/cardList';
 
-const useDeckPaste = () => {
+const useDeckPaste = (ref: MutableRefObject<any>) => {
   const cardList = useRecoilValue(cardListAtom);
   const setStatus = useSetRecoilState(pasteDeckStatus);
   const notify = useNotify();
   const handler = (e: ChangeEvent<HTMLInputElement>) => {
-    if (isClient()) {
-      const value = e.target.value;
+    if (isClient() && ref?.current?.value) {
+      const value = ref?.current?.value;
       try {
         const decoded = decode(value);
         const status = decoded?.Cards.map(c => {

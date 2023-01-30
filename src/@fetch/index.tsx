@@ -15,7 +15,11 @@ export const getDeckListApi = async (page: number = 1) => {
 };
 
 export const postDeckApi = async (payload: { title: string; items: string[]; description: string | null }) => {
-  const { data } = await axios.post('http://localhost:3000/api/deck', payload);
+  const { data } = await axios.post('http://localhost:3000/api/deck', payload, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')?.token,
+    },
+  });
   return data;
 };
 

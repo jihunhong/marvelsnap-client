@@ -60,11 +60,12 @@ export const DeckContainer = styled.article`
       flex-direction: column;
       justify-content: space-between;
       .meta {
-        h3 {
+        h2 {
           font-weight: 700;
-          font-size: 1.1rem;
+          font-size: 1.4rem;
           line-height: 19px;
           margin-bottom: 0.6rem;
+          color: var(--white);
         }
         div {
           display: -webkit-box;

@@ -11,7 +11,7 @@ export const BuilderStatusContainer = styled(motion.section)`
     grid-template-rows: 515px 1fr;
     row-gap: 10px;
     min-height: var(--min-height);
-    padding-top: 42px;
+    padding-top: 50px;
   }
 
   button {

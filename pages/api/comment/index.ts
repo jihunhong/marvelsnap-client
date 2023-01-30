@@ -20,7 +20,7 @@ const deleteRequestForRemove = async (req: NextApiRequest, pb: PocketBase) => {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   pb.authStore.save(req.headers.authorization);
-  if (!pb.authStore.isValid) res.status(401).send('Bad authorization');
+  if (!pb.authStore.isValid) return res.status(401).end();
 
   try {
     await pb.collection('users').authRefresh();

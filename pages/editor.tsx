@@ -1,36 +1,52 @@
-import Input from '@atoms/Input';
-import RawHtml from '@atoms/RawHtml';
+import Button from '@atoms/Button';
+import { InputContainer, InputTag } from '@atoms/Input/style';
+import Text from '@atoms/Text';
+import useInput from '@hooks/useInput';
 import useQuill from '@hooks/useQuill';
 import EditorLayout from '@layout/EditorLayout';
 import CardGrid from '@molecules/CardGrid';
+import usePostDeck from '@query/usePostDeck';
 import dynamic from 'next/dynamic';
-import { useRef } from 'react';
+import { ReactElement } from 'react';
+import { BsCheck } from 'react-icons/bs';
 import { useRecoilValue } from 'recoil';
 import { deckStatusAtom } from 'src/@store/builder';
 
 const Quill = dynamic(() => import('@atoms/Quill'), {
   ssr: false,
 });
+const RawHtml = dynamic(() => import('@atoms/RawHtml'), {
+  ssr: false,
+});
 
 const Editor = () => {
-  const titleRef = useRef();
+  const [title, handler] = useInput('');
   const [content, onChange] = useQuill(null);
   const addedCards = useRecoilValue(deckStatusAtom);
+  const [postDeck] = usePostDeck(title, content);
 
   return (
-    <EditorLayout>
+    <>
       <div className="editor">
-        <Input placeholder="덱 이름을 입력해주세요" ref={titleRef} />
+        <InputContainer>
+          <InputTag type="text" placeholder="덱 제목을 입력해보세요" value={title as string} onChange={handler} />
+        </InputContainer>
         <CardGrid expand={{ items: addedCards }} />
         <Quill value={content} onChange={onChange} placeholder="덱 설명을 입력해보세요" />
+        <div className="actions">
+          <Button colorType="success" icon={<BsCheck />} onClick={postDeck}>
+            <span>등록</span>
+          </Button>
+        </div>
       </div>
-      <div className="preview">
-        <h1>{titleRef?.current?.value}</h1>
+      <div className="preview ql-snow">
+        <Text content={title || '덱 제목이 표시됩니다'} as="h2" />
         <CardGrid expand={{ items: addedCards }} />
-        <RawHtml content={content || '글 내용이 표시됩니다'} />
+        <RawHtml className="ql-editor" content={content || '덱설명이 표시됩니다'} />
       </div>
-    </EditorLayout>
+    </>
   );
 };
 
+Editor.getLayout = (page: ReactElement) => <EditorLayout>{page}</EditorLayout>;
 export default Editor;

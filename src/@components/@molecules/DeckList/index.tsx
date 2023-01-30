@@ -10,7 +10,7 @@ const DeckList = ({ dataSource = [] }: Props) => {
   return (
     <S.DeckListContainer>
       {dataSource?.map(item => (
-        <Deck key={item.id} {...item} cards={item.expand?.items} />
+        <Deck key={item.id} {...item} cards={item.expand?.items} writer={item.expand?.writer} />
       ))}
     </S.DeckListContainer>
   );
