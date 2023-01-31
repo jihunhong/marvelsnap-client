@@ -7,7 +7,7 @@ const IntroVideoSection = () => {
     <S.IntroSectionContainer>
       <div className="container">
         <div className="content">
-          <h1>Snaptico.com</h1>
+          <h1>Snapsco.net</h1>
           <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, qui saepe doloribus ducimus</h4>
           <SearchInput />
         </div>

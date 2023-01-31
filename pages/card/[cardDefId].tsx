@@ -45,6 +45,7 @@ const Detail = () => {
             </section>
           </div>
         </section>
+
         <CommentInput {...data} />
         <Comments {...data} />
       </DetailLayout>

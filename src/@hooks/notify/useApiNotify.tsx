@@ -11,6 +11,10 @@ const useApiNotify = () => {
   const delCommentSuccess = () => toast.success('댓글이 삭제되었습니다.');
   const delCommentError = () => toast.error('댓글 삭제에 실패했습니다. \n 잠시후 다시 시도해주세요');
 
+  const postLikeSuccess = () => toast.success('추천되었습니다.');
+  const postLikeError = () => toast.error('추천 요청이 실패했습니다. \n 잠시후 다시 시도해주세요');
+  const postLikeDuplicate = () => toast.warn('이미 추천한 게시물입니다.');
+
   const loginError = () => toast.error('로그인 응답이 올바르지 않습니다. \n 잠시후 다시 시도해주세요');
 
   return {
@@ -24,6 +28,9 @@ const useApiNotify = () => {
     loginError,
     delCommentSuccess,
     delCommentError,
+    postLikeSuccess,
+    postLikeError,
+    postLikeDuplicate,
   };
 };
 

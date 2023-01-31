@@ -1,6 +1,4 @@
-import { textEllipsis } from '@styles/text';
 import styled from 'styled-components';
-import css from 'styled-jsx/css';
 
 export const CardContainer = styled.article`
   display: flex;

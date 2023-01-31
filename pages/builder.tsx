@@ -6,23 +6,16 @@ import useBuilder from '@hooks/useBuilder';
 import useToggle from '@hooks/useToggle';
 import AppLayout from '@layout/AppLayout';
 import DivisionLayout from '@layout/DivisionLayout';
+import BuilderStatus from '@molecules/BuilderStatus';
+import CardFilter from '@molecules/CardFilter';
 import CardList from '@molecules/CardList';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
-import { NextPage } from 'next';
-import dynamic from 'next/dynamic';
 import { ReactElement, SyntheticEvent } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 import { useRecoilValue } from 'recoil';
 import { getIds } from 'src/@store/builder';
-
-const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
-  ssr: false,
-});
-const BuilderStatus = dynamic(() => import('@molecules/BuilderStatus'), {
-  ssr: false,
-});
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();

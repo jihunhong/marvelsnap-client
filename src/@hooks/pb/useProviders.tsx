@@ -10,7 +10,6 @@ const useProviders = () => {
     const pb = new PocketBase('http://127.0.0.1:8090');
     (async () => {
       const authMethods = await pb.collection('users').listAuthMethods();
-      console.log(authMethods);
       setProviders(authMethods.authProviders);
     })();
   }, []);

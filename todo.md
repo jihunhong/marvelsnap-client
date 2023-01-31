@@ -13,8 +13,8 @@
 - 카드 hover 효과
 덱 작성 페이지 벗어날때 확인(o)
 덱 작성시 로그인된 유저 체크(o) (모달띄워야댐)
-덱페이지 무한스크롤 뒤로가기 restoration
-footer
+footer(o)
+- 덱페이지 무한스크롤 뒤로가기 restoration
 로고
 로그인 페이지, 모달
 seo

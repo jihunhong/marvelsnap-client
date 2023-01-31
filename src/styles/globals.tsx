@@ -13,6 +13,8 @@ export const GlobalStyle = createGlobalStyle`
         --warn-light-color: ${C.WARN_LIGHT_COLOR};
         --success-color: ${C.SUCCSS_COLOR};
         --success-light-color: ${C.SUCCESS_LIGHT_COLOR};
+        --plain-color: ${C.PLAIN_COLOR};
+        --plain-light-color: ${C.PLAIN_LIGHT_COLOR};
         --gray-0: #cacaca;
         --gray-1: #a3a0a0;
         --gray-2: #868484;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const BodyContainer = styled.main`
   min-height: 100vh;
-  padding-bottom: 10rem;
+  padding-bottom: 2rem;
   > section {
     :not(.full-width) {
       max-width: 1192px;

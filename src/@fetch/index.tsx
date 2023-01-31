@@ -108,3 +108,31 @@ export const searchingApi = async (q: string) => {
   });
   return data;
 };
+
+export const postLikeApi = async ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
+  const { data } = await axios.post(
+    'http://localhost:3000/api/like',
+    {
+      collectionId,
+      recordId,
+    },
+    {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')?.token,
+      },
+    },
+  );
+
+  return data;
+};
+
+export const getLikeApi = async ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
+  const { data } = await axios.get('http://localhost:3000/api/like/list', {
+    params: {
+      collectionId,
+      recordId,
+    },
+  });
+
+  return data;
+};

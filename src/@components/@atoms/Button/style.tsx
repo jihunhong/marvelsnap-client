@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type CustomProps = {
-  colorType: 'primary' | 'secondary' | 'warn' | 'success';
+  colorType: 'primary' | 'secondary' | 'warn' | 'success' | 'plain';
 };
 
 export const ButtonTag = styled.button<CustomProps>`
@@ -25,12 +25,19 @@ export const ButtonTag = styled.button<CustomProps>`
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   margin-right: 8px;
   :hover {
+    transform: scale(1.02);
     background-color: var(--${p => p.colorType}-light-color);
+    box-shadow: rgb(0 0 0 / 40%) 0px 2px 15px, rgb(0 0 0 / 30%) 0px 7px 20px -3px, rgb(0 0 0 / 20%) 0px -2px 0px inset;
+  }
+  :active {
+    transform: scale(0.95);
+    background-color: var(--${p => p.colorType}-color);
+    box-shadow: box-shadow: rgb(0 0 0 / 60%) 0px 2px 15px, rgb(0 0 0 / 60%) 0px 7px 20px -3px, rgb(0 0 0 / 20%) 0px -2px 0px inset;
   }
 
   &:has(span) {
     svg {
-      margin-right: 4px;
+      margin-right: 6px;
     }
   }
 

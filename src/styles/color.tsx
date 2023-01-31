@@ -9,3 +9,6 @@ export const WARN_LIGHT_COLOR = '#cd5026';
 
 export const SUCCSS_COLOR = '#24a0ed';
 export const SUCCESS_LIGHT_COLOR = '#49b3f5';
+
+export const PLAIN_COLOR = '#373b55';
+export const PLAIN_LIGHT_COLOR = '#52556d';

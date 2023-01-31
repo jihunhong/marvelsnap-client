@@ -4,18 +4,19 @@ import PocketBase from 'pocketbase';
 const pb = new PocketBase('http://127.0.0.1:8090');
 
 const postRequestForCreate = async (req: NextApiRequest, pb: PocketBase) => {
-  const record = await pb.collection('comments').create({
+  const record = await pb.collection('like').create({
     collection: req.body.collectionId,
     recordId: req.body.recordId,
-    content: req.body.content,
     user: pb.authStore.model?.id,
   });
   return record;
 };
 
-const deleteRequestForRemove = async (req: NextApiRequest, pb: PocketBase) => {
-  await pb.collection('comments').delete(req.body.id);
-  return;
+const getRequestForRead = async (req: NextApiRequest, pb: PocketBase) => {
+  const result = await pb.collection('like').getList(1, 30, {
+    filter: `collection = "${req.body.collectionId}" && recordId = "${req.body.recordId}" && user = "${pb.authStore.model?.id}"`,
+  });
+  return result;
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
@@ -24,23 +25,30 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   try {
     await pb.collection('users').authRefresh();
-  } catch (err) {
-    console.error(err.message);
+  } catch (_) {
     pb.authStore.clear();
   }
+
+  // Duplicate check
+  try {
+    await pb.collection('like').getFirstListItem(`collection="${req.body.collectionId}" && recordId="${req.body.recordId}" && user="${pb.authStore.model?.id}"`);
+    pb.authStore.clear();
+    return res.status(409).end();
+  } catch (_) {}
 
   try {
     if (req.method === 'POST') {
       const record = await postRequestForCreate(req, pb);
       res.status(200).json(record);
-    } else if (req.method === 'DELETE') {
-      await deleteRequestForRemove(req, pb);
-      res.status(200).send(null);
+    } else if (req.method === 'GET') {
+      const result = await getRequestForRead(req, pb);
+      console.log(result);
+      res.status(200).json(result);
     }
   } catch (err) {
     if (err instanceof Error) {
-      res.status(500).send(err);
       console.error(err.message);
+      res.status(500).send(err);
     }
   } finally {
     pb.authStore.clear();

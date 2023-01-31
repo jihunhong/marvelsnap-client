@@ -1,16 +1,15 @@
 import { postCommentApi } from '@fetch/index';
 import useApiNotify from '@hooks/notify/useApiNotify';
 import keys from '@query/keys';
+import useUser from '@query/useUser';
 import { useRouter } from 'next/router';
 import { SyntheticEvent } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
-import { useRecoilValue } from 'recoil';
-import { userAtom } from 'src/@store/user';
 
 const usePostComment = ({ collectionId, recordId, content = '' }: { collectionId: string; recordId: string; content: string | null }): [() => void, (e: SyntheticEvent) => void, boolean] => {
   const queryClient = useQueryClient();
   const apiNotify = useApiNotify();
-  const user = useRecoilValue(userAtom);
+  const [user] = useUser();
   const router = useRouter();
   const { mutate, isSuccess } = useMutation(postCommentApi, {
     onSuccess: () => {

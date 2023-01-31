@@ -14,7 +14,6 @@ export const DivisionLayoutContainer = styled.section`
     grid-area: card;
   }
 
-  --fixed-padding-top: calc(var(--header-height) * 2);
   --min-height: calc(100vh - var(--header-height));
   > section:nth-child(2) {
     position: relative;
@@ -22,7 +21,7 @@ export const DivisionLayoutContainer = styled.section`
 
     .content {
       position: sticky;
-      top: var(--fixed-padding-top);
+      top: var(--header-height);
       min-height: var(--min-height);
     }
   }

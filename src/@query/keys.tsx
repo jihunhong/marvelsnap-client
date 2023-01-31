@@ -9,6 +9,8 @@ const keys = {
   getScoreList: '/api/score/list',
   getSearch: '/api/search',
   getDeck: '/api/deck',
+  postLike: '/api/like',
+  getLike: '/api/like/list',
 };
 
 export default keys;

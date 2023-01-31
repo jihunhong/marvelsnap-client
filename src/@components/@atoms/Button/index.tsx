@@ -2,7 +2,7 @@ import { Attributes, DOMAttributes } from 'react';
 import { ButtonTag } from './style';
 
 interface ButtonProps extends DOMAttributes<HTMLButtonElement> {
-  colorType?: 'primary' | 'secondary' | 'warn' | 'success';
+  colorType?: 'primary' | 'secondary' | 'warn' | 'success' | 'plain';
   icon?: JSX.Element;
   className?: string;
   children?: JSX.Element;

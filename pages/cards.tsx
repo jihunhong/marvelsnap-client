@@ -15,6 +15,7 @@ import { dehydrate, QueryClient } from 'react-query';
 import { getCardListApi } from '@fetch/index';
 import AppLayout from '@layout/AppLayout';
 import { ReactElement } from 'react';
+import useCardNavigate from '@hooks/action/useCardNavigate';
 
 const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
   ssr: false,
@@ -34,15 +35,16 @@ export async function getServerSideProps() {
 
 const Cards = () => {
   const [dataSource] = useCardListQuery();
+  const { daily, random } = useCardNavigate();
 
   return (
     <>
       <PageIntro title="Cards" description="게임에서 사용되는 다양한 카드들을 찾아보세요" bgSource="https://assets-prd.ignimgs.com/2022/05/18/multiplecard-showcase-d1-v2-1652904981819.png">
         <FlexRow>
-          <Button icon={<GiCardRandom />}>
+          <Button icon={<GiCardRandom />} onClick={random}>
             <span>랜덤 카드</span>
           </Button>
-          <Button icon={<GiCardPickup />} colorType="secondary">
+          <Button icon={<GiCardPickup />} colorType="secondary" onClick={daily}>
             <span>오늘의 카드</span>
           </Button>
         </FlexRow>

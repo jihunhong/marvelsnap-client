@@ -1,4 +1,6 @@
 import { CardGridContainer } from '@molecules/CardGrid/style';
+import { DeckCodeContainer } from '@molecules/DeckCode/style';
+import { RecommendContainer } from '@molecules/Recommend/style';
 import styled from 'styled-components';
 
 // prettier - ignore
@@ -47,5 +49,19 @@ export const DetailLayoutContainer = styled.section`
     padding: 24px 30px;
     border-radius: 6px;
     color: var(--white);
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    margin: 0 0 2rem;
+    ${DeckCodeContainer} {
+      width: calc(100% - 100px);
+      height: 32px;
+      margin-right: 1rem;
+    }
+    ${RecommendContainer} {
+      width: 100px;
+    }
   }
 `;
