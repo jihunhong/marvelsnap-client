@@ -1,6 +1,7 @@
 import { FlexRow } from '@atoms/Flex/style';
+import collections from '@constant/collections';
 import { baseImgix } from '@constant/imigx';
-import { getDeckApi } from '@fetch/index';
+import { getCommentApi, getDeckApi, getLikeApi } from '@fetch/index';
 import useDeckPaste from '@hooks/action/useDeckPaste';
 import useCopyCode from '@hooks/deck/useDeckCode';
 import useDeckCode from '@hooks/deck/useDeckCode';
@@ -23,6 +24,8 @@ export async function getServerSideProps(context: NextPageContext) {
   const queryClient = new QueryClient();
   const id = context.query?.deckId as string;
   await queryClient.prefetchQuery([keys.getDeck, id], () => getDeckApi(id));
+  await queryClient.prefetchQuery([keys.getCommentList, collections.deck, id], () => getLikeApi({ collectionId: collections.deck, recordId: id }));
+  await queryClient.fetchQuery([keys.getLike, collections.deck, id], () => getCommentApi({ collectionId: collections.deck, recordId: id, page: 1 }));
 
   return {
     props: {

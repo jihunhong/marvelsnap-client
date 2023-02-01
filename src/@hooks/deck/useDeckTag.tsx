@@ -1,6 +1,6 @@
 import * as T from '@customTypes/Card';
 
-const useDeckTag = ({ items }: { items: Array<T.Card> }) => {
+const useDeckTag = ({ items = [] }: { items: Array<T.Card> }) => {
   let max: number = 0;
   for (const item of items) {
     if (item.grade > max) {

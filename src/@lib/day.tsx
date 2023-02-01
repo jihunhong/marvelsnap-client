@@ -12,7 +12,7 @@ dayjs.locale('ko');
 dayjs.tz.setDefault('Asia/Seoul');
 
 const format = (date: string) => {
-  return dayjs(date).tz().format('YYYY-MM-DD');
+  return dayjs(date).tz().format('YY.MM.DD');
 };
 
 export const fromNow = (created: string) => {

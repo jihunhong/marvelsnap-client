@@ -11,7 +11,7 @@ import { useInfiniteQuery } from 'react-query';
  */
 
 const useCommentListQuery = ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
-  const { data, fetchNextPage } = useInfiniteQuery([keys.getCommentList, collectionId, recordId], ({ pageParam = 1 }) => getCommentApi({ collectionId, recordId, page: pageParam }), {
+  const { data, fetchNextPage } = useInfiniteQuery([keys.getCommentList, collectionId, recordId], ({ pageParam = 2 }) => getCommentApi({ collectionId, recordId, page: pageParam }), {
     getNextPageParam: data => (data.page === data.totalPages ? undefined : data.page + 1),
     refetchOnReconnect: false,
     refetchOnMount: false,
@@ -25,7 +25,7 @@ const useCommentListQuery = ({ collectionId, recordId }: { collectionId: string;
     fetchNextPage();
   };
 
-  const isLast = data?.pages[0]?.totalPages === data?.pages[0]?.page || data?.pages[0]?.totalPages === 0;
+  const isLast = data?.pages?.[0]?.totalPages === data?.pages?.[0]?.page || data?.pages?.[0]?.totalPages === 0;
   const dataSource: undefined | T.Comment[] = data?.pages?.map(p => p.items)?.flat();
 
   useDebugValue([data, isLast]);

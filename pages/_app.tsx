@@ -1,6 +1,5 @@
 import ModalBoundary from '@components/@hoc/ModalBoundary';
 import useApiNotify from '@hooks/notify/useApiNotify';
-import useCacheScroll from '@hooks/useScrollRestoration';
 import { GlobalStyle } from '@styles/globals';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';

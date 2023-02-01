@@ -1,6 +1,7 @@
 import * as T from '@customTypes/Deck';
 import { getDeckListApi } from '@fetch/index';
 import keys from '@query/keys';
+import { useMemo, useState } from 'react';
 import { useInfiniteQuery } from 'react-query';
 
 /**
@@ -10,16 +11,17 @@ import { useInfiniteQuery } from 'react-query';
  */
 
 const useDeckListQuery = () => {
-  const { data, fetchNextPage, isFetchingNextPage } = useInfiniteQuery(keys.getDeckList, ({ pageParam = 2 }) => getDeckListApi(pageParam), {
-    getNextPageParam: data => (data.page === data.totalPages ? undefined : data.page + 1),
+  const { data, fetchNextPage, isLoading, hasNextPage } = useInfiniteQuery([keys.getDeckList], ({ pageParam = 2 }) => getDeckListApi(pageParam), {
+    getNextPageParam: data => {
+      return data.page === data.totalPages ? undefined : data.page + 1;
+    },
     refetchOnReconnect: false,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   });
 
-  const dataSource: undefined | T.Deck[] = data?.pages?.map(p => p.items)?.flat();
-
-  return { dataSource, fetchNextPage, isFetchingNextPage };
+  const dataSource: undefined | T.Deck[] = useMemo(() => data?.pages?.map(p => p.items)?.flat(), [data]);
+  return { dataSource, fetchNextPage, isLoading, hasNextPage };
 };
 
 export default useDeckListQuery;

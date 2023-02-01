@@ -1,9 +1,8 @@
-import styled from 'styled-components';
-import { CardContainer } from '../Card/style';
-import { Opacity } from '../../../styles/transition';
-import device from '../../../styles/devices';
-import { TagContainer } from '@atoms/Tag/style';
 import { AvatarContainer } from '@atoms/Avatar/style';
+import styled from 'styled-components';
+import device from '../../../styles/devices';
+import { Opacity } from '../../../styles/transition';
+import { CardContainer } from '../Card/style';
 
 export const DeckContainer = styled.article`
   display: flex;
@@ -16,10 +15,12 @@ export const DeckContainer = styled.article`
   .tags {
     margin-left: 0;
   }
-  padding: 24px 28px;
+  padding: 1.1rem 1.3rem;
 
   .header {
     position: relative;
+    display: flex;
+    align-items: center;
     .action {
       position: absolute;
       top: 0;
@@ -32,23 +33,31 @@ export const DeckContainer = styled.article`
   div.writer {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 8px;
     ${AvatarContainer} {
       margin-right: 8px;
     }
     h5 {
       font-weight: 400;
     }
-  }
-
-  .meta-bottom {
-    display: flex;
-    align-items: center;
-
     h4 {
+      font-weight: 500;
+    }
+    > span {
+      font-size: 0.8rem;
+      font-weight: 500;
       margin-left: auto;
       color: var(--gray-1);
     }
+  }
+
+  .meta-top {
+    a {
+      display: flex;
+      align-items: center;
+    }
+
+    margin-bottom: 1rem;
   }
   .deck-list {
     width: 100%;
@@ -64,7 +73,7 @@ export const DeckContainer = styled.article`
           font-weight: 700;
           font-size: 1.4rem;
           line-height: 19px;
-          margin-bottom: 0.6rem;
+          margin-bottom: 0;
           color: var(--white);
         }
         div {
@@ -84,7 +93,7 @@ export const DeckContainer = styled.article`
     }
     .cards {
       width: 100%;
-      margin: 2rem -6px 2rem -6px;
+      margin: 1rem -6px 1rem -6px;
       display: grid;
       @media ${device.mobileS} {
         grid-template-columns: repeat(6, 1fr);
