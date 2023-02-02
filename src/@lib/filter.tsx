@@ -1,11 +1,17 @@
 import keywords from '@constant/keywords';
+import { ascName, descName } from '@lib/sort';
 
 export const filtering = (cards, filter) => {
   if (!filter.value || filter.type === 'reset') {
     return cards;
   }
   if (filter.type === 'sort') {
-    return [...cards].sort((a, b) => a[filter.value] - b[filter.value]);
+    if (filter.value === 'en') {
+      const result = ascName([...cards]);
+      return filter.direction === 'asc' ? result : result.reverse();
+    }
+    const result = [...cards].sort((a, b) => a[filter.value] - b[filter.value]);
+    return filter.direction === 'asc' ? result : result.reverse();
   }
 
   if (filter.type === 'grade') {
