@@ -1,6 +1,8 @@
+import { Opacity } from '@styles/transition';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const ModalBaseContainer = styled.dialog`
+export const ModalBaseContainer = styled(motion.dialog)`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -24,7 +26,7 @@ export const ModalBaseContainer = styled.dialog`
   }
 `;
 
-export const PropsModalContainer = styled.dialog`
+export const PropsModalContainer = styled(motion.dialog)`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -49,5 +51,22 @@ export const PropsModalContainer = styled.dialog`
     background: rgb(0 0 0 / 0.4);
     // backdrop-filter: blur(3px);
     // TODO :: toast ui에 z-index 이슈
+  }
+  overflowy
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    svg {
+      margin-left: auto;
+      cursor: pointer;
+      ${Opacity}
+    }
   }
 `;

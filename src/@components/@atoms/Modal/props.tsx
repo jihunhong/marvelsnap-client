@@ -1,4 +1,5 @@
 import usePropsModalControl from '@hooks/modal/usePropModalControl';
+import { BsXCircle } from 'react-icons/bs';
 import * as S from './style';
 
 type PropsModalBaseProps = {
@@ -8,13 +9,16 @@ type PropsModalBaseProps = {
 };
 
 const PropsModalBase = ({ visible, children, onClose }: PropsModalBaseProps) => {
-  const { ref, onClick } = usePropsModalControl(visible);
+  const { ref, onClick, close } = usePropsModalControl(visible);
   if (!visible) {
     return null;
   }
 
   return (
-    <S.PropsModalContainer onClose={onClose} onClick={onClick} ref={ref}>
+    <S.PropsModalContainer onClose={onClose} onClick={onClick} ref={ref} initial={{ opacity: 0, x: '-50%', y: '-40%' }} animate={{ opacity: 1, x: '-50%', y: '-50%' }} exit={{ opacity: 0 }}>
+      <div className="header">
+        <BsXCircle color={'#fff'} size={24} onClick={close} />
+      </div>
       {children}
     </S.PropsModalContainer>
   );

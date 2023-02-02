@@ -16,13 +16,17 @@ const usePropsModalControl = (visible: boolean) => {
     }
   }, [dialogRef, visible]);
 
+  const close = () => {
+    dialogRef.current.close();
+  };
+
   const onClick = (e: SyntheticEvent) => {
     if (e.target === dialogRef.current) {
       dialogRef.current.close();
     }
   };
 
-  return { ref: dialogRef, onClick };
+  return { ref: dialogRef, onClick, close };
 };
 
 export default usePropsModalControl;
