@@ -1,3 +1,4 @@
+import collections from '@constant/collections';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import PocketBase from 'pocketbase';
 
@@ -10,6 +11,11 @@ const postRequestForCreate = async (req: NextApiRequest, pb: PocketBase) => {
     content: req.body.content,
     user: pb.authStore.model?.id,
   });
+  if (req.body.collectionId === collections.deck) {
+    await pb.collection(req.body.collectionId).update(req.body.recordId, {
+      comment: record.id,
+    });
+  }
   return record;
 };
 

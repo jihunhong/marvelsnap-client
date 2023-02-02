@@ -35,30 +35,27 @@ export const DeckContainer = styled.article`
     display: flex;
     align-items: center;
     margin-bottom: 8px;
-    .recommend {
-      grid-area: info;
+
+    .post-info {
       display: grid;
-      grid-template-rows: 1fr;
-      grid-template-columns: 20px 20px;
-      column-gap: 1rem;
-      color: var(--white);
-      span {
-        text-align: center;
+      grid-template-columns: repeat(3, 68px);
+      column-gap: 16px;
+      div {
+        display: grid;
+        grid-template-columns: 20px 40px;
+        column-gap: 8px;
+        svg,
+        span {
+          color: var(--gray-1);
+          text-align: center;
+          font-weight: 600;
+        }
       }
-      margin-right: 1rem;
-      align-items: center;
-    }
-    .profile {
-      display: grid;
-      grid-template-columns: 30px 150px;
-      column-gap: 4px;
-      align-items: center;
-      h4 {
-        font-weight: 600;
-        width: 100%;
-        ${textEllipsis};
+      div:nth-of-type(1) span {
+        border-right: 1px solid rgb(134 132 132 / 45%);
       }
     }
+
     > span {
       font-size: 0.8rem;
       font-weight: 500;

@@ -1,21 +1,19 @@
 import Button from '@atoms/Button';
 import Card from '@atoms/Card';
 import { FlexRow } from '@atoms/Flex/style';
-import useCardFilter from '@hooks/useCardFilter';
+import { getCardListApi } from '@fetch/index';
+import useCardNavigate from '@hooks/action/useCardNavigate';
+import AppLayout from '@layout/AppLayout';
 import DivisionLayout from '@layout/DivisionLayout';
 import CardList from '@molecules/CardList';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
-import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { ReactElement } from 'react';
 import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
 import { dehydrate, QueryClient } from 'react-query';
-import { getCardListApi } from '@fetch/index';
-import AppLayout from '@layout/AppLayout';
-import { ReactElement } from 'react';
-import useCardNavigate from '@hooks/action/useCardNavigate';
 
 const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
   ssr: false,
@@ -50,16 +48,18 @@ const Cards = () => {
         </FlexRow>
       </PageIntro>
       <DivisionLayout>
-        <CardList
-          dataSource={dataSource}
-          renderItem={item => (
-            <Link href={`/card/${item?.cardDefId}`}>
-              <a>
-                <Card key={item?.id} {...item} />
-              </a>
-            </Link>
-          )}
-        />
+        <section>
+          <CardList
+            dataSource={dataSource}
+            renderItem={item => (
+              <Link href={`/card/${item?.cardDefId}`}>
+                <a>
+                  <Card key={item?.id} {...item} />
+                </a>
+              </Link>
+            )}
+          />
+        </section>
         <CardFilter />
       </DivisionLayout>
     </>

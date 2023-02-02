@@ -1,3 +1,4 @@
+import { AvatarContainer } from '@atoms/Avatar/style';
 import styled from 'styled-components';
 import device from '../../../styles/devices';
 import { Opacity } from '../../../styles/transition';
@@ -46,6 +47,9 @@ export const Header = styled.header`
       span {
         margin-left: 2rem;
         font-weight: 500;
+      }
+      ${AvatarContainer} {
+        margin-left: 2rem;
       }
     }
   }

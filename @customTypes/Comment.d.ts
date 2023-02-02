@@ -9,6 +9,7 @@ export interface Comment {
   expand?: {
     user?: {
       avatarUrl?: string;
+      username?: string;
       name?: string;
       id?: string;
     };

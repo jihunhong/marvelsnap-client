@@ -14,4 +14,6 @@ export type Deck = {
   writer: User;
   archtype: Array<ArchType>;
   created: string; // "2023-01-11 11:41:14.909Z"
+  like?: Array<string>;
+  comment?: Array<string>;
 };

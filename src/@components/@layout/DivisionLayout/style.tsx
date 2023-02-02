@@ -10,7 +10,7 @@ export const DivisionLayoutContainer = styled.section`
     grid-area: card;
   }
 
-  section:nth-child(1):has(${CardListContainer}) {
+  section:has(${CardListContainer}) {
     grid-area: card;
   }
 

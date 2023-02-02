@@ -13,7 +13,15 @@ const Comments = ({ collectionId, id }: CommentsProps) => {
   return (
     <S.CommentsContainer>
       {dataSource?.map(item => (
-        <Comment key={item?.id} id={item.id} created={item.created} writer={item?.expand?.user?.name} content={item.content} avatarUrl={item?.expand?.user?.avatarUrl} user={item?.expand?.user?.id} />
+        <Comment
+          key={item?.id}
+          id={item.id}
+          created={item.created}
+          writer={item?.expand?.user?.username || item?.expand?.user?.name}
+          content={item.content}
+          avatarUrl={item?.expand?.user?.avatarUrl}
+          user={item?.expand?.user?.id}
+        />
       ))}
       {!!isLast ? null : (
         <MoreButton onClick={handler}>

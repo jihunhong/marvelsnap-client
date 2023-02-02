@@ -1,4 +1,3 @@
-import Avatar from '@atoms/Avatar';
 import Card from '@atoms/Card';
 import { SeriesIcon } from '@atoms/Icon';
 import Tag from '@atoms/Tag';
@@ -9,11 +8,11 @@ import useDeckTag from '@hooks/deck/useDeckTag';
 import useNavigate from '@hooks/useNavigate';
 import { fromNow } from '@lib/day';
 import Link from 'next/link';
-import { FaRegCopy } from 'react-icons/fa';
+import { FaRegCommentDots, FaRegCopy } from 'react-icons/fa';
 import { FiThumbsUp } from 'react-icons/fi';
 import * as S from './style';
 
-const Deck = ({ id, title, created, cards, writer }: T.Deck) => {
+const Deck = ({ id, title, created, cards, like, comment }: T.Deck) => {
   const [handler] = useCopyCode({ items: cards, title });
   const series = useDeckTag({ items: cards });
   const [navigate] = useNavigate({ href: `/decks?id=${id}`, as: `/deck/${id}` });
@@ -53,9 +52,15 @@ const Deck = ({ id, title, created, cards, writer }: T.Deck) => {
         </div>
       </div>
       <div className="footer">
-        <div className="profile">
-          <Avatar width={24} height={24} src={writer?.avatar || writer?.avatarUrl} writer={writer?.username || writer?.name} />
-          <h4>{writer?.username || writer?.name || 'Unknown'}</h4>
+        <div className="post-info">
+          <div>
+            <FiThumbsUp size={18} />
+            <span>{like?.length || 0}</span>
+          </div>
+          <div>
+            <FaRegCommentDots size={18} />
+            <span>{comment?.length || 0}</span>
+          </div>
         </div>
         <span>{fromNow(created)}</span>
       </div>

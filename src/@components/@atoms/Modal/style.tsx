@@ -60,7 +60,7 @@ export const PropsModalContainer = styled(motion.dialog)`
     display: none;
   }
 
-  .header {
+  > .header {
     position: sticky;
     top: 0;
     left: 0;

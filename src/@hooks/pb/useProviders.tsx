@@ -4,13 +4,13 @@ import PocketBase from 'pocketbase';
 import { useEffect, useState } from 'react';
 
 const useProviders = () => {
-  const [providers, setProviders] = useState();
+  const [providers, setProviders] = useState([]);
   const router = useRouter();
   useEffect(() => {
     const pb = new PocketBase('http://127.0.0.1:8090');
     (async () => {
       const authMethods = await pb.collection('users').listAuthMethods();
-      setProviders(authMethods.authProviders);
+      setProviders(p => [...authMethods.authProviders]);
     })();
   }, []);
 

@@ -10,6 +10,7 @@ const useDeckInfoQuery = () => {
     refetchOnReconnect: false,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
+    enabled: !!id,
   });
   return [data];
 };

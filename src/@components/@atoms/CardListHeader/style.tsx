@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const CardListHeaderContainer = styled.div`
   background: #1618199c;
-  // background: linear-gradient(180deg, var(--black-background), #16181991);
   z-index: var(--layer-header);
   position: sticky;
   top: var(--header-height);
