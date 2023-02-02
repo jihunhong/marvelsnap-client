@@ -1,3 +1,4 @@
+import { AvatarContainer } from '@atoms/Avatar/style';
 import styled from 'styled-components';
 
 export const PostPreviewContainer = styled.article`
@@ -13,6 +14,9 @@ export const PostPreviewContainer = styled.article`
       display: flex;
       align-items: center;
       margin-bottom: 8px;
+      ${AvatarContainer} {
+        margin-right: 8px;
+      }
     }
     h4 {
       font-weight: 500;

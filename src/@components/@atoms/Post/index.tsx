@@ -27,12 +27,7 @@ const Post = ({ title = 'ChatGPT Is Having a Thomas Edison Moment', content = 'W
         </a>
       </div>
       <div className="thumb-container">
-        <img
-          width={200}
-          height={134}
-          src="https://miro.medium.com/fit/c/300/201/1*uPt_ccZmvCMnQahIs43ahg.png"
-          // TODO :: example image
-        />
+        <img width={200} height={134} src="https://miro.medium.com/fit/c/300/201/1*uPt_ccZmvCMnQahIs43ahg.png" />
       </div>
     </PostPreviewContainer>
   );

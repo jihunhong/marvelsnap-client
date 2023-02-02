@@ -8,7 +8,7 @@ const IntroVideoSection = () => {
       <div className="container">
         <div className="content">
           <h1>Snapsco.net</h1>
-          <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, qui saepe doloribus ducimus</h4>
+          <h4>마블스냅과 관련된 다양한 컨텐츠를 찾아보세요</h4>
           <SearchInput />
         </div>
         <div className="video-background">
