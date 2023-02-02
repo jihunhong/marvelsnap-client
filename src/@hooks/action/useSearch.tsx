@@ -3,7 +3,6 @@ import useInput from '@hooks/useInput';
 import useDebounce from '@hooks/util/useDebounce';
 import isClient from '@lib/isClient';
 import keys from '@query/keys';
-import { useDebugValue } from 'react';
 import { useQuery } from 'react-query';
 
 const useSearch = () => {
@@ -12,7 +11,6 @@ const useSearch = () => {
   const { data } = useQuery([keys.getSearch, q], () => searchingApi(q), {
     enabled: !!q && isClient(),
   });
-  useDebugValue(data);
   return { value, handler, data };
 };
 

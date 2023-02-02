@@ -1,4 +1,4 @@
-import useModalControl from '@hooks/useModalControl';
+import useModalControl from '@hooks/modal/useModalControl';
 import { useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 import { modalStatus } from 'src/@store/modal';
@@ -14,7 +14,7 @@ const ModalBase = ({ children, modalKey: key }: Props) => {
   const dialogRef = useRef();
   useModalControl(key, dialogRef);
   if (!visible) {
-    return <></>;
+    return null;
   }
 
   return <S.ModalBaseContainer ref={dialogRef}>{children}</S.ModalBaseContainer>;

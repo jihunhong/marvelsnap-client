@@ -1,6 +1,6 @@
 import usePostScore from '@query/usePostScore';
 import useScoreList from '@query/useScoreList';
-import { useDebugValue, useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 const useRatingStar = ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
   const { avg } = useScoreList({ collectionId, recordId });
@@ -26,7 +26,6 @@ const useRatingStar = ({ collectionId, recordId }: { collectionId: string; recor
     }
   };
 
-  useDebugValue([score, select]);
   return { score, select, onClick, onHover };
 };
 

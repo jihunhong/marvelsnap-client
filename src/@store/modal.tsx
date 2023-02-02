@@ -36,7 +36,7 @@ export const modalToggler = selector({
 });
 
 export const modalCloser = selector({
-  key: `modalToggler/${v1()}`,
+  key: `modalCloser/${v1()}`,
   get: () => {},
   set: ({ get, set }, key) => {
     // atom에 선언되어있는 객체를 key값만 받아 상태 변경(toggle)

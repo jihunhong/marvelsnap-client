@@ -2,11 +2,11 @@ import Button from '@atoms/Button';
 import Card from '@atoms/Card';
 import Input from '@atoms/Input';
 import ModalBase from '@atoms/Modal';
-import useModalToggler from '@hooks/useModalToggler';
+import useModalToggler from '@hooks/modal/useModalToggler';
 import useQuill from '@hooks/useQuill';
 import usePostDeck from '@query/usePostDeck';
 import dynamic from 'next/dynamic';
-import { useDebugValue, useRef } from 'react';
+import { useRef } from 'react';
 import { TbClipboardList } from 'react-icons/tb';
 import { useRecoilValue } from 'recoil';
 import { deckStatusAtom } from 'src/@store/builder';
@@ -22,7 +22,6 @@ const DeckPostModal = () => {
   const titleRef = useRef();
   const [description, handler] = useQuill(null);
   const [postDeckEvent] = usePostDeck(titleRef?.current?.value, description);
-  useDebugValue(description);
   return (
     <ModalBase modalKey={'postDeck'}>
       <S.Header>

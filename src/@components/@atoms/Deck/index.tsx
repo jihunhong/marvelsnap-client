@@ -15,12 +15,12 @@ import * as S from './style';
 const Deck = ({ id, title, created, cards, writer }: T.Deck) => {
   const [handler] = useCopyCode({ items: cards, title });
   const series = useDeckTag({ items: cards });
-  const [navigate] = useNavigate({ href: `/deck/${id}` });
+  const [navigate] = useNavigate({ href: `/decks?id=${id}`, as: `/deck/${id}` });
   return (
     <S.DeckContainer>
       <div className="header">
         <div className="meta-top">
-          <Link href={{ pathname: '/deck/[deckId]', query: { deckId: id } }}>
+          <Link href={`/decks?id=${id}`} as={`/deck/${id}`} scroll={false} shallow={true}>
             <a>
               <div className="tags">
                 <Tag icon={<SeriesIcon />} className="tag" data-series={series}>
@@ -38,11 +38,7 @@ const Deck = ({ id, title, created, cards, writer }: T.Deck) => {
       <div className="deck-list">
         <div className="preview" onClick={navigate}>
           <div className="meta">
-            <Link href={{ pathname: '/deck/[deckId]', query: { deckId: id } }}>
-              <a>
-                <h2>{title}</h2>
-              </a>
-            </Link>
+            <h2>{title}</h2>
           </div>
           <div className="cards">
             {cards?.map((v: C.Card) => (
@@ -57,7 +53,7 @@ const Deck = ({ id, title, created, cards, writer }: T.Deck) => {
       </div>
       <div className="writer">
         <Avatar width={20} height={20} src={writer?.avatar || writer?.avatarUrl} writer={writer?.username || writer?.name} />
-        <Link href={{ pathname: '/deck/[deckId]', query: { deckId: id } }}>
+        <Link href={`/decks?id=${id}`} as={`/deck/${id}`} scroll={false} shallow={true}>
           <a>
             <h4>{writer?.username || writer?.name || 'Unknown'}</h4>
           </a>

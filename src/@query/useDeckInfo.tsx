@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 
 const useDeckInfoQuery = () => {
   const router = useRouter();
-  const id = router.query?.deckId;
+  const id = router.query?.deckId || router.query?.id;
   const { data } = useQuery([keys.getDeck, id], () => getDeckApi(id), {
     refetchOnReconnect: false,
     refetchOnMount: false,

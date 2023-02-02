@@ -1,6 +1,6 @@
 import Button from '@atoms/Button';
 import CardRow from '@atoms/CardRow';
-import useModalToggler from '@hooks/useModalToggler';
+import useModalToggler from '@hooks/modal/useModalToggler';
 import useRemoveItem from '@hooks/useRemoveItem';
 import useNavigate from '@hooks/useNavigate';
 import DeckRow from '@molecules/DeckRow';
