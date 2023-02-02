@@ -13,8 +13,8 @@ const useCardNavigate = () => {
   const daily = () => {
     const year = dayjs().get('year');
     const start = dayjs(`${year}-01-01`);
-    const count = start.diff(dayjs(), 'day');
-    const index = count % cardList.length;
+    const count = dayjs().diff(start, 'day');
+    const index = count % (cardList.length - 1);
     router.push(`/card/${cardList[index].cardDefId}`);
   };
 

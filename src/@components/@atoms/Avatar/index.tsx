@@ -10,10 +10,10 @@ type Props = {
 };
 
 const Avatar = ({ width = 20, height = 20, src, href = '/', writer }: Props) => {
-  if (!writer || !src) {
+  if (!writer && !src) {
     return (
       <S.AvatarContainer>
-        <RandomAvatar size={20} name={writer} variant="beam" colors={['#FC580C', '#FC6B0A', '#F0AB3D', '#F8872E', '#FFA927', '#FDCA49']} />
+        <RandomAvatar size={width} name={writer} variant="beam" colors={['#FC580C', '#FC6B0A', '#F0AB3D', '#F8872E', '#FFA927', '#FDCA49']} />
       </S.AvatarContainer>
     );
   }

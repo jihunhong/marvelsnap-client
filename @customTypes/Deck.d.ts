@@ -9,6 +9,7 @@ export type Deck = {
     items: Array<C.Card>;
     writer: User;
   };
+  collectionId?: string;
   cards: Array<C.Card>;
   writer: User;
   archtype: Array<ArchType>;

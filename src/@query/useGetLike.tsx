@@ -10,7 +10,7 @@ const useGetLike = ({ collectionId, recordId }: { collectionId: string; recordId
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   });
-  return [data];
+  return [data?.totalItems];
 };
 
 export default useGetLike;

@@ -13,7 +13,6 @@ export const TagContainer = styled.span`
   svg {
     margin-right: 4px;
   }
-
   &[data-keyword='출현'] {
     background: linear-gradient(180deg, #ffc918 0%, #ffba01 100%);
   }
@@ -42,9 +41,10 @@ export const TagContainer = styled.span`
   &[data-series='3'] {
     background: linear-gradient(180deg, #19cda3 0%, #0cb186 100%);
   }
-  &[data-series='1'],
-  [data-series='2'],
-  [data-series='3'] {
+  &[data-series='2'] {
+    background: linear-gradient(180deg, #5343b2 0%, #3b2f81 100%);
+  }
+  &[data-series='1'] {
     background: linear-gradient(180deg, #ed5949 0%, #f12711 100%);
   }
 `;

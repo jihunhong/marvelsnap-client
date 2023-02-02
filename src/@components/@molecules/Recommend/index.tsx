@@ -14,7 +14,7 @@ const Recommend = ({ collectionId, id }: RecommendProps) => {
   const [count] = useGetLike({ collectionId, recordId: id });
   return (
     <S.RecommendContainer>
-      <Button icon={<FiThumbsUp />} colorType="plain" onClick={like}>
+      <Button icon={<FiThumbsUp />} colorType="primary" onClick={like}>
         <span>좋아요</span>
       </Button>
     </S.RecommendContainer>

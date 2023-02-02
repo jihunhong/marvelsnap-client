@@ -9,6 +9,8 @@ import { useRecoilValue } from 'recoil';
 import { deckStatusAtom } from 'src/@store/builder';
 import * as S from './style';
 import useMobileCheck from '@hooks/useMobileCheck';
+import useBlockNotify from '@hooks/notify/useBlockNotify';
+import { SyntheticEvent } from 'react-toastify/dist/utils';
 
 const BuilderStatus = () => {
   const status = useRecoilValue(deckStatusAtom);
@@ -16,6 +18,14 @@ const BuilderStatus = () => {
   const [isMobile] = useMobileCheck();
   const [toggler] = useModalToggler('postDeck');
   const [navigate] = useNavigate({ href: '/editor' });
+  const notify = useBlockNotify();
+  const handleRoute = (e: SyntheticEvent) => {
+    if (status?.length < 12) {
+      notify.blockDeckAmount();
+    } else {
+      navigate(e);
+    }
+  };
   return (
     <S.BuilderStatusContainer initial={{ x: 300, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
       <div className="content">
@@ -28,7 +38,7 @@ const BuilderStatus = () => {
             </div>
           )}
         />
-        <Button icon={<BsCheck />} colorType="primary" onClick={isMobile ? toggler : navigate}>
+        <Button icon={<BsCheck />} colorType="primary" onClick={isMobile ? toggler : handleRoute}>
           <span>등록</span>
         </Button>
       </div>

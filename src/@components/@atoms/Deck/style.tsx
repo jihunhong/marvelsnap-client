@@ -1,4 +1,5 @@
 import { AvatarContainer } from '@atoms/Avatar/style';
+import { textEllipsis } from '@styles/text';
 import styled from 'styled-components';
 import device from '../../../styles/devices';
 import { Opacity } from '../../../styles/transition';
@@ -30,18 +31,33 @@ export const DeckContainer = styled.article`
       }
     }
   }
-  div.writer {
+  div.footer {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
-    ${AvatarContainer} {
-      margin-right: 8px;
+    .recommend {
+      grid-area: info;
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: 20px 20px;
+      column-gap: 1rem;
+      color: var(--white);
+      span {
+        text-align: center;
+      }
+      margin-right: 1rem;
+      align-items: center;
     }
-    h5 {
-      font-weight: 400;
-    }
-    h4 {
-      font-weight: 500;
+    .profile {
+      display: grid;
+      grid-template-columns: 30px 150px;
+      column-gap: 4px;
+      align-items: center;
+      h4 {
+        font-weight: 600;
+        width: 100%;
+        ${textEllipsis};
+      }
     }
     > span {
       font-size: 0.8rem;

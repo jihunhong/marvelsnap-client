@@ -10,6 +10,7 @@ import useNavigate from '@hooks/useNavigate';
 import { fromNow } from '@lib/day';
 import Link from 'next/link';
 import { FaRegCopy } from 'react-icons/fa';
+import { FiThumbsUp } from 'react-icons/fi';
 import * as S from './style';
 
 const Deck = ({ id, title, created, cards, writer }: T.Deck) => {
@@ -51,13 +52,11 @@ const Deck = ({ id, title, created, cards, writer }: T.Deck) => {
           </div>
         </div>
       </div>
-      <div className="writer">
-        <Avatar width={20} height={20} src={writer?.avatar || writer?.avatarUrl} writer={writer?.username || writer?.name} />
-        <Link href={`/decks?id=${id}`} as={`/deck/${id}`} scroll={false} shallow={true}>
-          <a>
-            <h4>{writer?.username || writer?.name || 'Unknown'}</h4>
-          </a>
-        </Link>
+      <div className="footer">
+        <div className="profile">
+          <Avatar width={24} height={24} src={writer?.avatar || writer?.avatarUrl} writer={writer?.username || writer?.name} />
+          <h4>{writer?.username || writer?.name || 'Unknown'}</h4>
+        </div>
         <span>{fromNow(created)}</span>
       </div>
     </S.DeckContainer>

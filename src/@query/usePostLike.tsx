@@ -20,9 +20,6 @@ const usePostLike = ({ collectionId, recordId }: { collectionId: string; recordI
   });
 
   const onClick = (e: SyntheticEvent) => {
-    if (!(e.target instanceof HTMLButtonElement) && !(e.target instanceof HTMLSpanElement)) {
-      return;
-    }
     mutate({ collectionId, recordId });
   };
 

@@ -26,7 +26,6 @@ export const Header = styled.header`
     align-items: center;
 
     svg {
-      filter: invert(100%);
     }
 
     @media ${device.mobileS} {
