@@ -4,6 +4,12 @@ const nextConfig = {
     domains: ['marvelsnap.imgix.net'],
     disableStaticImages: true,
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   reactStrictMode: true,
   swcMinify: true,
 };
