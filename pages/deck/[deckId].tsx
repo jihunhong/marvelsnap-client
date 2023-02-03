@@ -1,4 +1,4 @@
-import { FlexColumn, FlexRow } from '@atoms/Flex/style';
+import { FlexRow } from '@atoms/Flex/style';
 import DeckDetailTemplate from '@components/@template/deck/[deckId]';
 import collections from '@constant/collections';
 import { baseImgix } from '@constant/imigx';

@@ -11,7 +11,7 @@ import { useInfiniteQuery } from 'react-query';
  */
 
 const useDeckListQuery = () => {
-  const { data, fetchNextPage, isLoading, hasNextPage } = useInfiniteQuery([keys.getDeckList], ({ pageParam = 2 }) => getDeckListApi(pageParam), {
+  const { data, fetchNextPage, isFetching, isLoading, hasNextPage } = useInfiniteQuery([keys.getDeckList], ({ pageParam = 2 }) => getDeckListApi(pageParam), {
     getNextPageParam: data => {
       return data.page === data.totalPages ? undefined : data.page + 1;
     },
@@ -21,7 +21,7 @@ const useDeckListQuery = () => {
   });
 
   const dataSource: undefined | T.Deck[] = useMemo(() => data?.pages?.map(p => p.items)?.flat(), [data]);
-  return { dataSource, fetchNextPage, isLoading, hasNextPage };
+  return { dataSource, fetchNextPage, isFetching, isLoading, hasNextPage };
 };
 
 export default useDeckListQuery;

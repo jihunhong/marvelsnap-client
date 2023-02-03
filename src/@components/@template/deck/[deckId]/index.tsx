@@ -2,7 +2,6 @@ import Avatar from '@atoms/Avatar';
 import { SeriesIcon } from '@atoms/Icon';
 import Tag from '@atoms/Tag';
 import useCopyCode from '@hooks/deck/useDeckCode';
-import useDeckKeywords from '@hooks/deck/useDeckKeywords';
 import useDeckSeries from '@hooks/deck/useDeckSeries';
 import format from '@lib/day';
 import CardGrid from '@molecules/CardGrid';
