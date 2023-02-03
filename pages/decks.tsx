@@ -24,14 +24,14 @@ export async function getServerSideProps({ req }: NextPageContext) {
 
 const Decks = () => {
   const { ref, visible: intersecting } = useInView();
-  const { dataSource, fetchNextPage, isFetching, isLoading, hasNextPage } = useDeckListQuery();
+  const { dataSource, fetchNextPage, isFetching, isFetchingNextPage, hasNextPage } = useDeckListQuery();
   const router = useRouter();
 
   useEffect(() => {
-    if (intersecting && hasNextPage && !isFetching && !isLoading) {
+    if (intersecting && hasNextPage && !isFetching && !isFetchingNextPage) {
       fetchNextPage();
     }
-  }, [intersecting, fetchNextPage, isFetching, hasNextPage, isLoading]);
+  }, [intersecting, fetchNextPage, isFetching, hasNextPage, isFetchingNextPage]);
 
   return (
     <>
@@ -39,7 +39,7 @@ const Decks = () => {
       <section>
         <DeckDetailModal visible={!!router.query.id} />
         <DeckList dataSource={dataSource} />
-        {isFetching || isLoading ? <>loading...</> : <div ref={hasNextPage && !isFetching && !isLoading ? ref : null} />}
+        {isFetching || isFetchingNextPage ? <>loading...</> : <div ref={hasNextPage && !isFetching && !isFetchingNextPage ? ref : null} />}
       </section>
     </>
   );
