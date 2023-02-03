@@ -7,7 +7,7 @@ const useProviders = () => {
   const [providers, setProviders] = useState([]);
   const router = useRouter();
   useEffect(() => {
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.NEXT_PUBLIC_END_POINT);
     (async () => {
       const authMethods = await pb.collection('users').listAuthMethods();
       setProviders(p => [...authMethods.authProviders]);

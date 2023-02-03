@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import PocketBase from 'pocketbase';
 
-const pb = new PocketBase('http://127.0.0.1:8090');
+const pb = new PocketBase(process.env.END_POINT);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   const ratings = await pb.collection('rating').getFullList(330, {

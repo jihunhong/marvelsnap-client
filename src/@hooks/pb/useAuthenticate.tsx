@@ -11,7 +11,7 @@ const useAuthenticate = () => {
   const notify = useApiNotify();
   useEffect(() => {
     const params = new URL(window.location).searchParams;
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.NEXT_PUBLIC_END_POINT);
     const provider: Provider = JSON.parse(localStorage.getItem('provider')!);
     if (provider.state !== params.get('state')) {
       throw "State parameters don't match.";
