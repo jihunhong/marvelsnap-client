@@ -39,7 +39,7 @@ const Decks = () => {
       <section>
         <DeckDetailModal visible={!!router.query.id} />
         <DeckList dataSource={dataSource} />
-        {isFetching || isLoading ? <>loading...</> : <div ref={hasNextPage ? ref : null} />}
+        {isFetching || isLoading ? <>loading...</> : <div ref={hasNextPage && !isFetching && !isLoading ? ref : null} />}
       </section>
     </>
   );
