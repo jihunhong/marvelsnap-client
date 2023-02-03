@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 export const getCardListApi = async () => {
-  const { data } = await axios.get('https://127.0.0.1/api/card/list');
+  const { data } = await axios.get('http://127.0.0.1/api/card/list');
   return data;
 };
 
 export const getDeckListApi = async (page: number = 1) => {
-  const { data } = await axios.get('https://127.0.0.1/api/deck/list', {
+  const { data } = await axios.get('http://127.0.0.1/api/deck/list', {
     params: {
       page,
     },
@@ -15,7 +15,7 @@ export const getDeckListApi = async (page: number = 1) => {
 };
 
 export const postDeckApi = async (payload: { title: string; items: string[]; description: string | null }) => {
-  const { data } = await axios.post('https://127.0.0.1/api/deck', payload, {
+  const { data } = await axios.post('http://127.0.0.1/api/deck', payload, {
     headers: {
       Authorization: JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')?.token,
     },
@@ -24,7 +24,7 @@ export const postDeckApi = async (payload: { title: string; items: string[]; des
 };
 
 export const getCardApi = async (cardDefId: string) => {
-  const { data } = await axios.get('https://127.0.0.1/api/card', {
+  const { data } = await axios.get('http://127.0.0.1/api/card', {
     params: {
       cardDefId,
     },
@@ -33,7 +33,7 @@ export const getCardApi = async (cardDefId: string) => {
 };
 
 export const getDeckApi = async (id: string) => {
-  const { data } = await axios.get('https://127.0.0.1/api/deck', {
+  const { data } = await axios.get('http://127.0.0.1/api/deck', {
     params: {
       id,
     },
@@ -42,7 +42,7 @@ export const getDeckApi = async (id: string) => {
 };
 
 export const getCommentApi = async ({ collectionId, recordId, page }: { collectionId: string; recordId: string; page: number }) => {
-  const { data } = await axios.get('https://127.0.0.1/api/comment/list', {
+  const { data } = await axios.get('http://127.0.0.1/api/comment/list', {
     params: {
       page,
       collectionId,
@@ -53,7 +53,7 @@ export const getCommentApi = async ({ collectionId, recordId, page }: { collecti
 };
 
 export const postCommentApi = async (payload: { collectionId: string; recordId: string; content: string }) => {
-  const { data } = await axios.post('https://127.0.0.1/api/comment', payload, {
+  const { data } = await axios.post('http://127.0.0.1/api/comment', payload, {
     headers: {
       Authorization: JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')?.token,
     },
@@ -62,7 +62,7 @@ export const postCommentApi = async (payload: { collectionId: string; recordId: 
 };
 
 export const delCommentApi = async (id: string) => {
-  const { data } = await axios.delete('https://127.0.0.1/api/comment', {
+  const { data } = await axios.delete('http://127.0.0.1/api/comment', {
     data: {
       id,
     },
@@ -74,7 +74,7 @@ export const delCommentApi = async (id: string) => {
 };
 
 export const getScoreApi = async ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
-  const { data } = await axios.get('https://127.0.0.1/api/score/list', {
+  const { data } = await axios.get('http://127.0.0.1/api/score/list', {
     params: {
       collectionId,
       recordId,
@@ -85,7 +85,7 @@ export const getScoreApi = async ({ collectionId, recordId }: { collectionId: st
 
 export const postScoreApi = async ({ collectionId, recordId, score }: { collectionId: string; recordId: string; score: number }) => {
   const { data } = await axios.post(
-    'https://127.0.0.1/api/score',
+    'http://127.0.0.1/api/score',
     {
       collectionId,
       recordId,
@@ -101,7 +101,7 @@ export const postScoreApi = async ({ collectionId, recordId, score }: { collecti
 };
 
 export const searchingApi = async (q: string) => {
-  const { data } = await axios.get('https://127.0.0.1/api/search', {
+  const { data } = await axios.get('http://127.0.0.1/api/search', {
     params: {
       q,
     },
@@ -111,7 +111,7 @@ export const searchingApi = async (q: string) => {
 
 export const postLikeApi = async ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
   const { data } = await axios.post(
-    'https://127.0.0.1/api/like',
+    'http://127.0.0.1/api/like',
     {
       collectionId,
       recordId,
@@ -127,7 +127,7 @@ export const postLikeApi = async ({ collectionId, recordId }: { collectionId: st
 };
 
 export const getLikeApi = async ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
-  const { data } = await axios.get('https://127.0.0.1/api/like/list', {
+  const { data } = await axios.get('http://127.0.0.1/api/like/list', {
     params: {
       collectionId,
       recordId,
