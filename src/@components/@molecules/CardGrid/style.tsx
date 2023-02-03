@@ -1,4 +1,4 @@
-import CardImage from '@atoms/CardImg';
+import CardImage from '@atoms/CardImage';
 import styled from 'styled-components';
 
 export const CardGridContainer = styled.section`

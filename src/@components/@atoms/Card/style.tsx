@@ -5,13 +5,13 @@ export const CardContainer = styled.article`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  :hover {
+    transform: scale(1.05);
+  }
   img {
     width: 100%;
     margin-bottom: 4px;
-    :hover {
-      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      transform: scale(1.05);
-    }
   }
   p {
     text-align: center;

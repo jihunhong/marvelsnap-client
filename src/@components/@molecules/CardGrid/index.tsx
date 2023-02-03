@@ -1,4 +1,4 @@
-import CardImage from '@atoms/CardImg';
+import CardImage from '@atoms/CardImage';
 import * as T from '@customTypes/Card';
 import * as S from './style';
 
@@ -10,7 +10,7 @@ const CardGrid = ({ expand }: CardGridProps) => {
   return (
     <S.CardGridContainer>
       {expand?.items?.map(item => (
-        <CardImage key={item?.cardDefId} en={item.en} w={151} h={204} />
+        <CardImage key={item?.cardDefId} en={item.en} w={140} h={159} priority />
       ))}
     </S.CardGridContainer>
   );

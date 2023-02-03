@@ -54,7 +54,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
             theme="dark"
             limit={3}
           />
-          <ModalBoundary />
+          {/* <ModalBoundary /> */}
           {getLayout(<Component {...pageProps} />)}
         </RecoilRoot>
         <ReactQueryDevtools position="bottom-right" />

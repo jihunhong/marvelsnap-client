@@ -1,19 +1,22 @@
 import Button from '@atoms/Button';
 import Card from '@atoms/Card';
 import { FlexRow } from '@atoms/Flex/style';
-import { getCardListApi } from '@fetch/index';
+import { getCardApi, getCardListApi } from '@fetch/index';
 import useCardNavigate from '@hooks/action/useCardNavigate';
 import AppLayout from '@layout/AppLayout';
 import DivisionLayout from '@layout/DivisionLayout';
 import CardList from '@molecules/CardList';
+import CardDetailModal from '@molecules/Modal/CardDetailModal';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
+import useCardQuery from '@query/useCardQuery';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { ReactElement } from 'react';
+import { useRouter } from 'next/router';
+import { ReactElement, SyntheticEvent } from 'react';
 import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
-import { dehydrate, QueryClient } from 'react-query';
+import { dehydrate, QueryClient, useQueryClient } from 'react-query';
 
 const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
   ssr: false,
@@ -34,6 +37,7 @@ export async function getServerSideProps() {
 const Cards = () => {
   const [dataSource] = useCardListQuery();
   const { daily, random } = useCardNavigate();
+  const router = useRouter();
 
   return (
     <>
@@ -49,12 +53,13 @@ const Cards = () => {
       </PageIntro>
       <DivisionLayout>
         <section>
+          <CardDetailModal visible={!!router.query.id} />
           <CardList
             dataSource={dataSource}
             renderItem={item => (
-              <Link href={`/card/${item?.cardDefId}`}>
-                <a>
-                  <Card key={item?.id} {...item} />
+              <Link key={item?.id} href={`/cards?id=${item?.cardDefId}`} as={`/card/${item?.cardDefId}`} scroll={false} shallow={true}>
+                <a id={item?.cardDefId}>
+                  <Card {...item} w={116} h={148} />
                 </a>
               </Link>
             )}

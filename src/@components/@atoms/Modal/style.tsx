@@ -87,9 +87,10 @@ export const PropsModalContainer = styled(motion.dialog)`
 
   .body {
     padding: 1rem 2rem 1.4rem 2rem;
-    overflow: hidden;
-    :hover {
-      overflow-y: auto;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar{
+      display:none;
     }
     .deck-info {
       padding: 0;

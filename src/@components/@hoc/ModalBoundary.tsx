@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 
-const DeckPostModal = dynamic(() => import('@molecules/DeckPostModal'), {
+const DeckPostModal = dynamic(() => import('@molecules/Modal/DeckPostModal'), {
   ssr: false,
   loading: () => <></>,
 });

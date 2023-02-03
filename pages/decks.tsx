@@ -1,6 +1,6 @@
 import { getDeckListApi } from '@fetch/index';
 import AppLayout from '@layout/AppLayout';
-import DeckDetailModal from '@molecules/DeckDetailModal';
+import DeckDetailModal from '@molecules/Modal/DeckDetailModal';
 import DeckList from '@molecules/DeckList';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';

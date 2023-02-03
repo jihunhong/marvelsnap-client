@@ -1,11 +1,12 @@
-import { baseImgix } from '@constant/imigx';
-import * as S from './style';
+import { variantLoader } from '@lib/loader';
+import Image from 'next/image';
+import { CardImageContainer } from '@atoms/CardImage/style';
 
-const Variant = ({ name, cardDefId, id }) => {
+const Variant = ({ id, cardDefId, w = 123, h = 158, priority = false }: { id: string; cardDefId: string; w?: number; h?: number; priority?: boolean }) => {
   return (
-    <S.VariantContainer>
-      <img src={`${baseImgix}/variants/${cardDefId}/${id}.webp?w=256&h=256`} alt={name} />
-    </S.VariantContainer>
+    <CardImageContainer>
+      <Image src={cardDefId} layout="fill" priority={priority} objectFit="cover" alt={cardDefId} loader={() => variantLoader({ src: `${cardDefId}/${id}`, width: w * 2, height: h * 2 })} />
+    </CardImageContainer>
   );
 };
 

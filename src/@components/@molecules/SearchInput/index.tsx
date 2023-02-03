@@ -1,13 +1,16 @@
-import CardImage from '@atoms/CardImg';
+import CardImage from '@atoms/CardImage';
 import { InputContainer, InputTag } from '@atoms/Input/style';
 import * as T from '@customTypes/Card';
 import useSearch from '@hooks/action/useSearch';
+import CardDetailModal from '@molecules/Modal/CardDetailModal';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import * as S from './style';
 
 const SearchInput = () => {
   const { value, handler, data } = useSearch();
+  const router = useRouter();
   return (
     <S.SearchInputContainer>
       <S.InputEntry>
@@ -20,7 +23,7 @@ const SearchInput = () => {
           <S.ResultEntry initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             {data?.map((item: T.Card) => (
               <motion.div key={item.id} initial={{ y: 60, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ opacity: 0 }}>
-                <Link href={`/card/${item?.cardDefId}`}>
+                <Link href={`${router.asPath}?id=${item?.cardDefId}`} as={`/card/${item?.cardDefId}`} shallow={true}>
                   <a>
                     <CardImage en={item?.en} />
                     <span>{item.name}</span>
