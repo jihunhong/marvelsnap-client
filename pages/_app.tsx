@@ -2,7 +2,6 @@ import useApiNotify from '@hooks/notify/useApiNotify';
 import useGoogleAnalytics from '@hooks/util/useGoogleAnalytics';
 import GoogleScript from '@layout/GoogleScript';
 import { GlobalStyle } from '@styles/globals';
-// @ts-ignore
 import { Analytics } from '@vercel/analytics/react';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
