@@ -1,15 +1,14 @@
 import useToggle from '@hooks/useToggle';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
-const useInView = () => {
-  const ref = useRef(null);
-  const [visible, toggle] = useToggle(false);
+const useInView = ref => {
+  const [visible, toggle, setVisible] = useToggle(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries, ob) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          toggle();
+          setVisible(true);
           ob.unobserve(entry.target);
         }
       });
@@ -20,7 +19,7 @@ const useInView = () => {
     return () => {
       observer.disconnect();
     };
-  }, [ref, toggle]);
+  }, [ref, flag]);
   return { ref, visible };
 };
 export default useInView;

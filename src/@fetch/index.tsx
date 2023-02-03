@@ -1,12 +1,15 @@
 import axios from 'axios';
 
+const baseUrl = process.env.NODE_ENV === 'production' ? 'https://snapsco.net/' : 'http://localhost:3000';
+axios.defaults.baseURL = baseUrl;
+
 export const getCardListApi = async () => {
-  const { data } = await axios.get('https://snapsco.net/api/card/list');
+  const { data } = await axios.get('/api/card/list');
   return data;
 };
 
 export const getDeckListApi = async (page: number = 1) => {
-  const { data } = await axios.get('https://snapsco.net/api/deck/list', {
+  const { data } = await axios.get('/api/deck/list', {
     params: {
       page,
     },
@@ -15,7 +18,7 @@ export const getDeckListApi = async (page: number = 1) => {
 };
 
 export const postDeckApi = async (payload: { title: string; items: string[]; description: string | null }) => {
-  const { data } = await axios.post('https://snapsco.net/api/deck', payload, {
+  const { data } = await axios.post('/api/deck', payload, {
     headers: {
       Authorization: JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')?.token,
     },
@@ -24,7 +27,7 @@ export const postDeckApi = async (payload: { title: string; items: string[]; des
 };
 
 export const getCardApi = async (cardDefId: string) => {
-  const { data } = await axios.get('https://snapsco.net/api/card', {
+  const { data } = await axios.get('/api/card', {
     params: {
       cardDefId,
     },
@@ -33,7 +36,7 @@ export const getCardApi = async (cardDefId: string) => {
 };
 
 export const getDeckApi = async (id: string) => {
-  const { data } = await axios.get('https://snapsco.net/api/deck', {
+  const { data } = await axios.get('/api/deck', {
     params: {
       id,
     },
@@ -42,7 +45,7 @@ export const getDeckApi = async (id: string) => {
 };
 
 export const getCommentApi = async ({ collectionId, recordId, page }: { collectionId: string; recordId: string; page: number }) => {
-  const { data } = await axios.get('https://snapsco.net/api/comment/list', {
+  const { data } = await axios.get('/api/comment/list', {
     params: {
       page,
       collectionId,
@@ -53,7 +56,7 @@ export const getCommentApi = async ({ collectionId, recordId, page }: { collecti
 };
 
 export const postCommentApi = async (payload: { collectionId: string; recordId: string; content: string }) => {
-  const { data } = await axios.post('https://snapsco.net/api/comment', payload, {
+  const { data } = await axios.post('/api/comment', payload, {
     headers: {
       Authorization: JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')?.token,
     },
@@ -62,7 +65,7 @@ export const postCommentApi = async (payload: { collectionId: string; recordId: 
 };
 
 export const delCommentApi = async (id: string) => {
-  const { data } = await axios.delete('https://snapsco.net/api/comment', {
+  const { data } = await axios.delete('/api/comment', {
     data: {
       id,
     },
@@ -74,7 +77,7 @@ export const delCommentApi = async (id: string) => {
 };
 
 export const getScoreApi = async ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
-  const { data } = await axios.get('https://snapsco.net/api/score/list', {
+  const { data } = await axios.get('/api/score/list', {
     params: {
       collectionId,
       recordId,
@@ -85,7 +88,7 @@ export const getScoreApi = async ({ collectionId, recordId }: { collectionId: st
 
 export const postScoreApi = async ({ collectionId, recordId, score }: { collectionId: string; recordId: string; score: number }) => {
   const { data } = await axios.post(
-    'https://snapsco.net/api/score',
+    '/api/score',
     {
       collectionId,
       recordId,
@@ -101,7 +104,7 @@ export const postScoreApi = async ({ collectionId, recordId, score }: { collecti
 };
 
 export const searchingApi = async (q: string) => {
-  const { data } = await axios.get('https://snapsco.net/api/search', {
+  const { data } = await axios.get('/api/search', {
     params: {
       q,
     },
@@ -111,7 +114,7 @@ export const searchingApi = async (q: string) => {
 
 export const postLikeApi = async ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
   const { data } = await axios.post(
-    'https://snapsco.net/api/like',
+    '/api/like',
     {
       collectionId,
       recordId,
@@ -127,7 +130,7 @@ export const postLikeApi = async ({ collectionId, recordId }: { collectionId: st
 };
 
 export const getLikeApi = async ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
-  const { data } = await axios.get('https://snapsco.net/api/like/list', {
+  const { data } = await axios.get('/api/like/list', {
     params: {
       collectionId,
       recordId,
