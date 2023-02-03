@@ -1,6 +1,9 @@
-import ModalBoundary from '@components/@hoc/ModalBoundary';
 import useApiNotify from '@hooks/notify/useApiNotify';
+import useGoogleAnalytics from '@hooks/util/useGoogleAnalytics';
+import GoogleScript from '@layout/GoogleScript';
 import { GlobalStyle } from '@styles/globals';
+// @ts-ignore
+import { Analytics } from '@vercel/analytics/react';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { ReactElement, ReactNode, useState } from 'react';
@@ -25,6 +28,7 @@ type AppPropsWithLayout = AppProps & {
 
 function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || (page => page);
+  useGoogleAnalytics();
   const notify = useApiNotify();
   const [queryClient] = useState(
     () =>
@@ -36,6 +40,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
         },
       }),
   );
+
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
@@ -55,6 +60,8 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
             limit={3}
           />
           {/* <ModalBoundary /> */}
+          <Analytics />
+          <GoogleScript />
           {getLayout(<Component {...pageProps} />)}
         </RecoilRoot>
         <ReactQueryDevtools position="bottom-right" />
