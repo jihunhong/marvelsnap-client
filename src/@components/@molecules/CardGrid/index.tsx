@@ -10,7 +10,7 @@ const CardGrid = ({ expand }: CardGridProps) => {
   return (
     <S.CardGridContainer>
       {expand?.items?.map(item => (
-        <CardImage key={item?.cardDefId} cardDefId={item.cardDefId} w={140} h={159} priority />
+        <CardImage key={item?.cardDefId} cardDefId={item.cardDefId} w={140} priority />
       ))}
     </S.CardGridContainer>
   );

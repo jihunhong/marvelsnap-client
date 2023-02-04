@@ -59,7 +59,7 @@ const Cards = () => {
             renderItem={item => (
               <Link key={item?.id} href={`/cards?id=${item?.cardDefId}`} as={`/card/${item?.cardDefId}`} scroll={false} shallow={true}>
                 <a id={item?.cardDefId}>
-                  <Card {...item} w={116} h={148} />
+                  <Card {...item} w={116} />
                 </a>
               </Link>
             )}

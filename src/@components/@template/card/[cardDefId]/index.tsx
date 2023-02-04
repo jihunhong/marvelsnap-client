@@ -13,7 +13,7 @@ const CardDetailTemplate = () => {
     <S.CardDetailContainer>
       <div className="meta">
         <section>
-          <CardImage cardDefId={data?.cardDefId} priority w={357} h={483} />
+          <CardImage cardDefId={data?.cardDefId} w={357} />
         </section>
         <section className="meta">
           <CardDetail {...data} />

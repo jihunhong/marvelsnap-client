@@ -5,7 +5,7 @@ import * as S from './style';
 const Card = ({ name, effect, cardDefId, w, h }: Partial<T.Card> & { w?: number; h?: number }) => {
   return (
     <S.CardContainer>
-      <CardImage cardDefId={cardDefId!} w={w} h={h} />
+      <CardImage cardDefId={cardDefId!} w={w} />
       <p className="name">{name}</p>
       <p className="effect">{effect}</p>
     </S.CardContainer>
