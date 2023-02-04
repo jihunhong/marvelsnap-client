@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { CostContainer } from '../Cost/style';
 
 type customProps = {
-  $en: string;
+  $cardDefId: string;
 };
 
 export const CardRowContainer = styled.article<customProps>`
@@ -25,7 +25,7 @@ export const CardRowContainer = styled.article<customProps>`
     overflow: hidden;
     width: 100%;
     height: 100%;
-    background: url('${baseImgix}/cards/basic/${props => props.$en.toLowerCase().replaceAll(' ', '-')}.webp?format=auto&rect=center,230,420,80&q=70');
+    background: url('${baseImgix}/cards/basic/${props => props.$cardDefId}.webp?format=auto&rect=center,230,420,80&q=70');
     background-size: cover;
     :before {
       content: '';

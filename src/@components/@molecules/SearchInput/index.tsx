@@ -25,7 +25,7 @@ const SearchInput = () => {
               <motion.div key={item.id} initial={{ y: 60, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ opacity: 0 }}>
                 <Link href={`${router.asPath}?id=${item?.cardDefId}`} as={`/card/${item?.cardDefId}`} shallow={true}>
                   <a>
-                    <CardImage en={item?.en} />
+                    <CardImage cardDefId={item?.cardDefId} />
                     <span>{item.name}</span>
                     <p>{item.effect}</p>
                   </a>

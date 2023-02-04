@@ -7,7 +7,7 @@ type loaderProps = {
   quailty?: number;
 };
 export const cardLoader = ({ src, width, height, quailty = 100 }: loaderProps) => {
-  return `${baseImgix}/cards/basic/${src?.toLowerCase().replaceAll(' ', '-')}.webp?w=${width}`;
+  return `${baseImgix}/cards/basic/${src}.webp?w=${width}`;
 };
 
 export const variantLoader = ({ src, width, height }: loaderProps) => {
