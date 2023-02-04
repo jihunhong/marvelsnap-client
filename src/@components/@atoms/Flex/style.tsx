@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type Flex = {
-  justify?: 'center' | 'space-between' | 'space-around';
+  justify?: 'center' | 'space-between' | 'space-around' | 'flex-start';
 };
 
 export const FlexRow = styled.div<Flex>`

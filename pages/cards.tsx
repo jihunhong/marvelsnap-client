@@ -1,7 +1,7 @@
 import Button from '@atoms/Button';
 import Card from '@atoms/Card';
 import { FlexRow } from '@atoms/Flex/style';
-import { getCardApi, getCardListApi } from '@fetch/index';
+import { getCardListApi } from '@fetch/index';
 import useCardNavigate from '@hooks/action/useCardNavigate';
 import AppLayout from '@layout/AppLayout';
 import DivisionLayout from '@layout/DivisionLayout';
@@ -10,13 +10,12 @@ import CardDetailModal from '@molecules/Modal/CardDetailModal';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
-import useCardQuery from '@query/useCardQuery';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ReactElement, SyntheticEvent } from 'react';
+import { ReactElement } from 'react';
 import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
-import { dehydrate, QueryClient, useQueryClient } from 'react-query';
+import { dehydrate, QueryClient } from 'react-query';
 
 const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
   ssr: false,
