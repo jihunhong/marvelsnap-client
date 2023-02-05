@@ -12,6 +12,7 @@ import CardList from '@molecules/CardList';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
+import Head from 'next/head';
 import { ReactElement, SyntheticEvent } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 import { useRecoilValue } from 'recoil';
@@ -41,6 +42,9 @@ const Builder = () => {
 
   return (
     <>
+      <Head>
+        <meta name="Robots" content="noindex,nofollow" />
+      </Head>
       <PageIntro title="Deck Builder" description="" bgSource="https://earlygame.com/uploads/images/_body/FutureMarvelSnap-Banner.jpg" />
       <DivisionLayout>
         <section>

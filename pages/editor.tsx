@@ -7,6 +7,7 @@ import EditorLayout from '@layout/EditorLayout';
 import CardGrid from '@molecules/CardGrid';
 import usePostDeck from '@query/usePostDeck';
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 import { ReactElement } from 'react';
 import { BsCheck } from 'react-icons/bs';
 import { useRecoilValue } from 'recoil';
@@ -27,6 +28,9 @@ const Editor = () => {
 
   return (
     <>
+      <Head>
+        <meta name="Robots" content="noindex,nofollow" />
+      </Head>
       <div className="editor">
         <InputContainer>
           <InputTag type="text" placeholder="덱 제목을 입력해보세요" value={title as string} onChange={handler} />

@@ -1,3 +1,4 @@
+import { defaultTitle } from '@constant/text';
 import useApiNotify from '@hooks/notify/useApiNotify';
 import useGoogleAnalytics from '@hooks/util/useGoogleAnalytics';
 import GoogleScript from '@layout/GoogleScript';
@@ -5,6 +6,7 @@ import { GlobalStyle } from '@styles/globals';
 import { Analytics } from '@vercel/analytics/react';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import { ReactElement, ReactNode, useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -41,31 +43,36 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
   );
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <GlobalStyle />
-        <RecoilRoot>
-          <ToastContainer
-            position="bottom-center"
-            autoClose={1200}
-            hideProgressBar={true}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable={false}
-            pauseOnHover={false}
-            theme="dark"
-            limit={3}
-          />
-          {/* <ModalBoundary /> */}
-          <Analytics />
-          <GoogleScript />
-          {getLayout(<Component {...pageProps} />)}
-        </RecoilRoot>
-        <ReactQueryDevtools position="bottom-right" />
-      </Hydrate>
-    </QueryClientProvider>
+    <>
+      <Head>
+        <title>{defaultTitle}</title>
+      </Head>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <GlobalStyle />
+          <RecoilRoot>
+            <ToastContainer
+              position="bottom-center"
+              autoClose={1200}
+              hideProgressBar={true}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable={false}
+              pauseOnHover={false}
+              theme="dark"
+              limit={3}
+            />
+            {/* <ModalBoundary /> */}
+            <Analytics />
+            <GoogleScript />
+            {getLayout(<Component {...pageProps} />)}
+          </RecoilRoot>
+          <ReactQueryDevtools position="bottom-right" />
+        </Hydrate>
+      </QueryClientProvider>
+    </>
   );
 }
 

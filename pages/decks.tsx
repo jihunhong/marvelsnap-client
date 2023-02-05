@@ -10,6 +10,8 @@ import { useRouter } from 'next/router';
 import { ReactElement, useEffect } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 import { useInView } from 'react-intersection-observer';
+import Head from 'next/head';
+import { defaultTitle } from '@constant/text';
 
 export async function getServerSideProps({ req }: NextPageContext) {
   const queryClient = new QueryClient();
@@ -34,6 +36,9 @@ const Decks = () => {
 
   return (
     <>
+      <Head>
+        <title>{`덱 리스트, 덱 갤러리, 덱 DB - ${defaultTitle}`}</title>
+      </Head>
       <PageIntro title="Decks" description="메타에서 효과적인 다양한 덱들을 찾아보세요" bgSource="https://earlygame.com/uploads/images/_body/FutureMarvelSnap-Banner.jpg" />
       <section>
         <DeckDetailModal visible={!!router.query.id} />
