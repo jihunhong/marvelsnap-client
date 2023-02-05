@@ -1,3 +1,4 @@
+import { DEFAULT_SEO } from '@constant/defaultSeo';
 import { defaultTitle } from '@constant/text';
 import useApiNotify from '@hooks/notify/useApiNotify';
 import useGoogleAnalytics from '@hooks/util/useGoogleAnalytics';
@@ -5,6 +6,7 @@ import GoogleScript from '@layout/GoogleScript';
 import { GlobalStyle } from '@styles/globals';
 import { Analytics } from '@vercel/analytics/react';
 import { NextPage } from 'next';
+import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { ReactElement, ReactNode, useState } from 'react';
@@ -44,9 +46,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <>
-      <Head>
-        <title>{defaultTitle}</title>
-      </Head>
+      <DefaultSeo {...DEFAULT_SEO} />
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <GlobalStyle />

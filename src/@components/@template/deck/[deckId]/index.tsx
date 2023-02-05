@@ -1,7 +1,7 @@
 import Avatar from '@atoms/Avatar';
 import { SeriesIcon } from '@atoms/Icon';
 import Tag from '@atoms/Tag';
-import { deckTitleSuffix } from '@constant/text';
+import { deckTitleSuffix, siteBaseUrl } from '@constant/text';
 import useCopyCode from '@hooks/deck/useDeckCode';
 import useDeckSeries from '@hooks/deck/useDeckSeries';
 import format from '@lib/day';
@@ -11,8 +11,9 @@ import Comments from '@molecules/Comments';
 import DeckCode from '@molecules/DeckCode';
 import Recommend from '@molecules/Recommend';
 import useDeckInfoQuery from '@query/useDeckInfo';
+import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
+import { useRouter } from 'next/router';
 import * as S from './style';
 
 const RawHtml = dynamic(() => import('@atoms/RawHtml'), {
@@ -23,11 +24,16 @@ const DeckDetailTemplate = () => {
   const [data] = useDeckInfoQuery();
   const [handler, encoded] = useCopyCode({ title: data?.title, items: data?.expand?.items });
   const [series] = useDeckSeries(data?.expand?.items);
+  const router = useRouter();
   return (
     <>
-      <Head>
-        <title>{`${data?.title} ${deckTitleSuffix}`}</title>
-      </Head>
+      <NextSeo
+        title={`${data?.title} - ${deckTitleSuffix}`}
+        openGraph={{
+          url: `${siteBaseUrl}/${router.asPath}`,
+          title: `${data?.title} - ${deckTitleSuffix}`,
+        }}
+      />
       <S.DeckDetailTemplateContainer>
         <section className="deck-info">
           <CardGrid {...data} />

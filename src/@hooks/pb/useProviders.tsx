@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import PocketBase from 'pocketbase';
 import { useEffect, useState } from 'react';
 
-const useProviders = () => {
-  const [providers, setProviders] = useState([]);
+const useProviders = (): [Array<Provider>, (provider: Provider) => void] => {
+  const [providers, setProviders] = useState<Array<Provider>>([]);
   const router = useRouter();
   useEffect(() => {
     const pb = new PocketBase(process.env.NEXT_PUBLIC_END_POINT);

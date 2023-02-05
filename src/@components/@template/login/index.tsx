@@ -1,5 +1,6 @@
 import GoogleBtn from '@atoms/GoogleBtn';
 import { baseImgix } from '@constant/imigx';
+import { Provider } from '@customTypes/Provider';
 import useProviders from '@hooks/pb/useProviders';
 import Image from 'next/image';
 import { FiInfo } from 'react-icons/fi';
@@ -22,7 +23,9 @@ const LoginTemplate = () => {
             <p>마블스냅에 관한 정보와 게임 플레이에 관한 다양한 컨텐츠를 즐겨보세요</p>
           </div>
           <div className="body">
-            <GoogleBtn />
+            {providers?.map((item: Provider) => (
+              <GoogleBtn key={item.name} onClick={() => handler(item)} />
+            ))}
           </div>
         </div>
       </S.AuthsContainer>
