@@ -12,7 +12,7 @@ const ErrorTemplate = ({ statusCode }: { statusCode: number }) => {
       </FlexColumn>
       <div className="animations">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" id="blobSvg" transform="rotate(0)" filter="blur(0px)">
-          <image x="0" y="0" width="100%" height="100%" clip-path="url(#shape)" href="https://marvelsnap.imgix.net/static/error-page-asset.webp" preserveAspectRatio="none"></image>{' '}
+          <image x="0" y="0" width="100%" height="100%" clipPath="url(#shape)" href="https://marvelsnap.imgix.net/static/error-page-asset.webp" preserveAspectRatio="none"></image>{' '}
           <defs>
             <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%"></stop> <stop offset="100%"></stop>

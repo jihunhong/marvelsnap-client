@@ -1,3 +1,4 @@
+import { BiDonateHeart } from 'react-icons/bi';
 import { BsFillEnvelopeFill, BsGithub } from 'react-icons/bs';
 import { FaDiscord, FaHeart } from 'react-icons/fa';
 import * as S from './style';
@@ -29,7 +30,7 @@ const Footer = () => {
             <FaDiscord size={21} />
           </a>
           <a href="https://toon.at/donate/638107584926564794" target="_blank" rel="noreferrer noopener">
-            <FaHeart size={20} color="#fb0082" />
+            <BiDonateHeart size={20} />
           </a>
         </div>
       </div>
