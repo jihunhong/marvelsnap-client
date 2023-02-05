@@ -15,6 +15,10 @@ const format = (date: string) => {
   return dayjs(date).tz().format('YY.MM.DD');
 };
 
+export const formatWithTime = (date: string) => {
+  return dayjs(date).tz().format('YY.MM.DD HH:mm:ss');
+};
+
 export const fromNow = (created: string) => {
   dayjs.locale('ko');
   return dayjs(created).fromNow();

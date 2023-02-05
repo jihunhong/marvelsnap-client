@@ -48,17 +48,9 @@ export const CardFilterContainer = styled(motion.section)`
   }
 `;
 
-export const PickSelect = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 27px);
-  column-gap: 10px;
-  div,
-  span {
-    &[data-value='${props => props.active}'] {
-      opacity: 1;
-    }
-  }
-`;
+type PickSelectProps = {
+  active: string | number | undefined | null;
+};
 
 export const SortSelect = styled.div`
   display: grid;
@@ -93,21 +85,74 @@ export const KeywordSelect = styled.div`
 `;
 
 export const Folded = styled.div`
-  border-radius: 4px;
-  background: var(--gray-2);
-  position: relative;
-  ${Opacity}
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 38px;
-  :before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-width: 0 6px 6px 0;
-    border-style: solid;
-    border-color: var(--gray-1) rgb(19 19 19 / 85%);
+  justify-content: flex-start;
+  &[data-value='5'] {
+    background: linear-gradient(to right, #8d2fc8 0%, #7b1bb5 100%);
+  }
+  &[data-value='4'] {
+    background: linear-gradient(to right, #1660e5 0%, #0a58d4 100%);
+  }
+  &[data-value='3'] {
+    background: linear-gradient(to right, #19cda3 0%, #0cb186 100%);
+  }
+  &[data-value='2'] {
+    background: linear-gradient(to right, #5343b2 0%, #3b2f81 100%);
+  }
+  &[data-value='1'] {
+    background: linear-gradient(to right, #ed5949 0%, #f12711 100%);
+  }
+`;
+
+type CollectionFoldedProps = {
+  $percent?: string;
+};
+
+export const CollectionFolded = styled.div<CollectionFoldedProps>`
+  justify-content: space-between;
+  &[data-value='5'] {
+    background: linear-gradient(to right, #8d2fc8 0%, #7b1bb5 ${props => props.$percent || '100'}%, transparent ${props => props.$percent || '100'}%, transparent 100%);
+  }
+  &[data-value='4'] {
+    background: linear-gradient(to right, #1660e5 0%, #0a58d4 ${props => props.$percent || '100'}%, transparent ${props => props.$percent || '100'}%, transparent 100%);
+  }
+  &[data-value='3'] {
+    background: linear-gradient(to right, #19cda3 0%, #0cb186 ${props => props.$percent || '100'}%, transparent ${props => props.$percent || '100'}%, transparent 100%);
+  }
+  &[data-value='2'] {
+    background: linear-gradient(to right, #5343b2 0%, #3b2f81 ${props => props.$percent || '100'}%, transparent ${props => props.$percent || '100'}%, transparent 100%);
+  }
+  &[data-value='1'] {
+    background: linear-gradient(to right, #ed5949 0%, #f12711 ${props => props.$percent || '100'}%, transparent ${props => props.$percent || '100'}%, transparent 100%);
+  }
+`;
+
+export const PickSelect = styled.div<PickSelectProps>`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(27px, 1fr));
+  column-gap: 4px;
+  :has(${Folded}, ${CollectionFolded}) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(27px, 1fr));
+    row-gap: 4px;
+    div {
+      border-radius: 4px;
+      justify-content: space-between;
+      height: 1.9rem;
+      padding: 1rem 0.8rem;
+      position: relative;
+      ${Opacity}
+      display: flex;
+      align-items: center;
+      span {
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+    }
+  }
+  div,
+  span {
+    &[data-value='${props => props.active}'] {
+      opacity: 1;
+    }
   }
 `;

@@ -139,3 +139,12 @@ export const getLikeApi = async ({ collectionId, recordId }: { collectionId: str
 
   return data;
 };
+
+export const getUserCollectionApi = async (profileId: string) => {
+  const { data } = await axios.get('/api/user/collection', {
+    params: {
+      profileId,
+    },
+  });
+  return data;
+};

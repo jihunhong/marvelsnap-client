@@ -11,6 +11,8 @@ const keys = {
   getDeck: '/api/deck',
   postLike: '/api/like',
   getLike: '/api/like/list',
+
+  getUserCollection: '/api/user/collection',
 };
 
 export default keys;

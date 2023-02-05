@@ -1,21 +1,23 @@
 import Button from '@atoms/Button';
 import Cost from '@atoms/Cost';
 import { DestroyIcon, DiscardIcon, MoveIcon, NoneAbilityIcon, OnGoingIcon, OnRevealIcon } from '@atoms/Icon';
-import useCardFilter from '@hooks/useCardFilter';
+import useCollectionFilter from '@hooks/useCollectionFilter';
+import useCollectionStat from '@hooks/useCollectionStat';
 import useToggle from '@hooks/useToggle';
+import * as S from '@molecules/CardFilter/style';
 import { BsFillTrashFill } from 'react-icons/bs';
 import { GiBatteryPackAlt, GiGlassBall } from 'react-icons/gi';
 import { HiSortAscending, HiSortDescending } from 'react-icons/hi';
 import { TiSortAlphabeticallyOutline } from 'react-icons/ti';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
-import { filterAtom } from 'src/@store/cardList';
-import * as S from './style';
+import { filterAtom } from 'src/@store/collectionList';
 
-const CardFilter = () => {
+const CollectionFilter = () => {
   const filter = useRecoilValue(filterAtom);
   const resetFilter = useResetRecoilState(filterAtom);
-  const [onClick] = useCardFilter();
+  const [onClick] = useCollectionFilter();
   const [ascend, handler] = useToggle(true);
+  const series = useCollectionStat();
 
   return (
     <S.CardFilterContainer key="filter" initial={{ x: 300, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
@@ -105,22 +107,27 @@ const CardFilter = () => {
             <div className="title">POOL</div>
             <div className="divider"></div>
           </div>
-          <S.PickSelect active={filter?.type === 'grade' ? filter?.value : null}>
-            <S.Folded data-type="grade" data-value={1} onClick={onClick}>
+          <S.PickSelect className="collection" active={filter?.type === 'grade' ? filter?.value : null}>
+            <S.CollectionFolded data-type="grade" data-value={1} onClick={onClick} $percent={series ? ((series?.[1].mine / series?.[1].count) * 100).toFixed(1) : '100'}>
               <span>Series 1</span>
-            </S.Folded>
-            <S.Folded data-type="grade" data-value={2} onClick={onClick}>
+              <span>{`${series?.[1].mine}/${series?.[1].count}`}</span>
+            </S.CollectionFolded>
+            <S.CollectionFolded data-type="grade" data-value={2} onClick={onClick} $percent={series ? ((series?.[2].mine / series?.[2].count) * 100).toFixed(1) : '100'}>
               <span>Series 2</span>
-            </S.Folded>
-            <S.Folded data-type="grade" data-value={3} onClick={onClick}>
+              <span>{`${series?.[2].mine}/${series?.[2].count}`}</span>
+            </S.CollectionFolded>
+            <S.CollectionFolded data-type="grade" data-value={3} onClick={onClick} $percent={series ? ((series?.[3].mine / series?.[3].count) * 100).toFixed(1) : '100'}>
               <span>Series 3</span>
-            </S.Folded>
-            <S.Folded data-type="grade" data-value={4} onClick={onClick}>
+              <span>{`${series?.[3].mine}/${series?.[3].count}`}</span>
+            </S.CollectionFolded>
+            <S.CollectionFolded data-type="grade" data-value={4} onClick={onClick} $percent={series ? ((series?.[4].mine / series?.[4].count) * 100).toFixed(1) : '100'}>
               <span>Series 4</span>
-            </S.Folded>
-            <S.Folded data-type="grade" data-value={5} onClick={onClick}>
+              <span>{`${series?.[4].mine}/${series?.[4].count}`}</span>
+            </S.CollectionFolded>
+            <S.CollectionFolded data-type="grade" data-value={5} onClick={onClick} $percent={series ? ((series?.[5].mine / series?.[5].count) * 100).toFixed(1) : '100'}>
               <span>Series 5</span>
-            </S.Folded>
+              <span>{`${series?.[5].mine}/${series?.[5].count}`}</span>
+            </S.CollectionFolded>
           </S.PickSelect>
         </section>
         <Button icon={<BsFillTrashFill />} colorType="warn" onClick={resetFilter}>
@@ -131,4 +138,4 @@ const CardFilter = () => {
   );
 };
 
-export default CardFilter;
+export default CollectionFilter;
