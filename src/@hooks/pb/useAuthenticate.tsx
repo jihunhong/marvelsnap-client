@@ -1,4 +1,5 @@
 import { Provider } from '@customTypes/Provider';
+import { baseUrl } from '@fetch/index';
 import useApiNotify from '@hooks/notify/useApiNotify';
 import { useRouter } from 'next/router';
 import PocketBase from 'pocketbase';
@@ -18,20 +19,25 @@ const useAuthenticate = () => {
     }
 
     pb.collection('users')
-      .authWithOAuth2(provider.name, params.get('code'), provider.codeVerifier, 'http://localhost:3000/redirect')
+      .authWithOAuth2(provider.name, params.get('code'), provider.codeVerifier, `${baseUrl}/redirect`)
       .then(response => {
-        console.log('authentication data === ', response);
         pb.collection('users').update(response.record.id, {
           name: response.meta.name,
           avatarUrl: response.meta.avatarUrl,
         });
         queryClient.setQueryData('user', pb.authStore.baseModel);
-        router.push('/');
+
+        const beforeLoginPath = sessionStorage.getItem('history_path');
+        router.push(beforeLoginPath || '/');
       })
-      .catch(() => {
+      .catch(err => {
+        debugger;
+        console.error(err);
         notify.loginError();
         localStorage.removeItem('provider');
-        router.push('/');
+        localStorage.removeItem('pocketbase_auth');
+        const beforeLoginPath = sessionStorage.getItem('history_path');
+        router.push(beforeLoginPath || '/');
       });
   }, []);
 

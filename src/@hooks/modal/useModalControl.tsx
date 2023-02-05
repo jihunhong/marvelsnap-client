@@ -1,18 +1,30 @@
-import { MutableRefObject, useEffect } from 'react';
+import { MutableRefObject, SyntheticEvent, useEffect, useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 import { modalStatus } from 'src/@store/modal';
 
-const useModalControl = (key: string, ref: MutableRefObject<any>) => {
+const useModalControl = (key: string) => {
   const visible = useRecoilValue(modalStatus(key));
+  const dialogRef = useRef(null);
   useEffect(() => {
-    if (ref?.current) {
+    if (dialogRef?.current) {
       if (!visible) {
-        ref.current.close();
+        dialogRef.current.close();
       } else {
-        if (!ref.current.open) ref.current.showModal();
+        if (!dialogRef.current.open) dialogRef.current.showModal();
       }
     }
-  }, [ref, visible]);
+  }, [dialogRef, visible]);
+  const close = () => {
+    dialogRef?.current?.close();
+  };
+
+  const onClick = (e: SyntheticEvent) => {
+    if (e.target === dialogRef.current) {
+      dialogRef.current?.close();
+    }
+    return;
+  };
+  return { ref: dialogRef, onClick, close };
 };
 
 export default useModalControl;

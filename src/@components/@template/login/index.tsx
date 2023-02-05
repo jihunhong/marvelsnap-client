@@ -10,12 +10,6 @@ const LoginTemplate = () => {
   const [providers, handler] = useProviders();
   return (
     <S.LoginTemplateContainer>
-      {/* {providers?.map(item => (
-        <Button key={item?.name} onClick={() => handler(item)}>
-          <span>{item.name}</span>
-        </Button>
-      ))} */}
-
       <S.AuthsContainer>
         <div>
           <div className="header">
@@ -33,8 +27,8 @@ const LoginTemplate = () => {
         <Image src={`${baseImgix}/static/login-page-background.webp`} layout="fill" objectFit="cover" alt="today season pass image" />
         <div>
           <h1>Snapsco를 이용해보세요</h1>
-          <span>덱코드를 입력해 이용해보고 댓글을 남기고 카드들의 평점을 매길 수 있습니다</span>
-          <p>정기적으로 업로드되는 글도 읽어보세요</p>
+          <h3>덱코드를 입력해 이용해보고 댓글을 남기고 카드들의 평점을 매길 수 있습니다</h3>
+          <h4>정기적으로 업로드되는 글도 읽어보세요</h4>
           <div className="divider" />
           <div className="ps">
             <FiInfo size={14} color="#fff" />

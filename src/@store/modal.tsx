@@ -5,6 +5,7 @@ export const modalAtom = atom({
   key: `modal/${v1()}`,
   default: {
     postDeck: false,
+    login: false,
   },
 });
 

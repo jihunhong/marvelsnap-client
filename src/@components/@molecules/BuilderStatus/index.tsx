@@ -1,25 +1,26 @@
 import Button from '@atoms/Button';
 import CardRow from '@atoms/CardRow';
-import useModalToggler from '@hooks/modal/useModalToggler';
-import useRemoveItem from '@hooks/useRemoveItem';
+import useBlockNotify from '@hooks/notify/useBlockNotify';
 import useNavigate from '@hooks/useNavigate';
+import useRemoveItem from '@hooks/useRemoveItem';
 import DeckRow from '@molecules/DeckRow';
+import useUser from '@query/useUser';
 import { BsCheck } from 'react-icons/bs';
+import { SyntheticEvent } from 'react-toastify/dist/utils';
 import { useRecoilValue } from 'recoil';
 import { deckStatusAtom } from 'src/@store/builder';
 import * as S from './style';
-import useMobileCheck from '@hooks/useMobileCheck';
-import useBlockNotify from '@hooks/notify/useBlockNotify';
-import { SyntheticEvent } from 'react-toastify/dist/utils';
 
 const BuilderStatus = () => {
   const status = useRecoilValue(deckStatusAtom);
   const [onClick] = useRemoveItem();
-  const [isMobile] = useMobileCheck();
-  const [toggler] = useModalToggler('postDeck');
   const [navigate] = useNavigate({ href: '/editor' });
   const notify = useBlockNotify();
+  const [user] = useUser();
   const handleRoute = (e: SyntheticEvent) => {
+    if (!!user === false) {
+      return notify.loginAccessNotify();
+    }
     if (status?.length < 12) {
       notify.blockDeckAmount();
     } else {
@@ -38,7 +39,7 @@ const BuilderStatus = () => {
             </div>
           )}
         />
-        <Button icon={<BsCheck />} colorType="primary" onClick={isMobile ? toggler : handleRoute}>
+        <Button icon={<BsCheck />} colorType="primary" onClick={handleRoute}>
           <span>등록</span>
         </Button>
       </div>

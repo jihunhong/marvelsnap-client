@@ -42,11 +42,7 @@ const Deck = ({ id, title, created, cards, like, comment }: T.Deck) => {
           </div>
           <div className="cards">
             {cards?.map((v: C.Card) => (
-              <Link key={v.id} href={`/card/${v.cardDefId}`}>
-                <a>
-                  <Card {...v} />
-                </a>
-              </Link>
+              <Card key={v.id} {...v} />
             ))}
           </div>
         </div>

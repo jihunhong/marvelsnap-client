@@ -1,5 +1,5 @@
+import ModalBoundary from '@components/@hoc/ModalBoundary';
 import { DEFAULT_SEO } from '@constant/defaultSeo';
-import { defaultTitle } from '@constant/text';
 import useApiNotify from '@hooks/notify/useApiNotify';
 import useGoogleAnalytics from '@hooks/util/useGoogleAnalytics';
 import GoogleScript from '@layout/GoogleScript';
@@ -8,7 +8,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { NextPage } from 'next';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
-import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import { ReactElement, ReactNode, useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -54,7 +54,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
             <ToastContainer
               position="bottom-center"
               autoClose={1200}
-              hideProgressBar={true}
+              hideProgressBar={false}
               newestOnTop={false}
               closeOnClick
               rtl={false}
@@ -64,7 +64,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
               theme="dark"
               limit={3}
             />
-            {/* <ModalBoundary /> */}
+            <ModalBoundary />
             <Analytics />
             <GoogleScript />
             {getLayout(<Component {...pageProps} />)}

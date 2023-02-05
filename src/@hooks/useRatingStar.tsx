@@ -1,5 +1,7 @@
+import useBlockNotify from '@hooks/notify/useBlockNotify';
 import usePostScore from '@query/usePostScore';
 import useScoreList from '@query/useScoreList';
+import useUser from '@query/useUser';
 import { useLayoutEffect, useState } from 'react';
 
 const useRatingStar = ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
@@ -7,6 +9,8 @@ const useRatingStar = ({ collectionId, recordId }: { collectionId: string; recor
   const [score, setScore] = useState(0);
   const [select, setSelect] = useState(0);
   const [mutate] = usePostScore({ collectionId, recordId });
+  const [user] = useUser();
+  const notify = useBlockNotify();
 
   useLayoutEffect(() => {
     setScore(parseInt(avg));
@@ -22,6 +26,9 @@ const useRatingStar = ({ collectionId, recordId }: { collectionId: string; recor
     const value = e.target?.dataset.score;
     if (value) {
       setScore(parseInt(value));
+      if (!!user === false) {
+        return notify.loginAccessNotify();
+      }
       mutate({ collectionId, recordId, score: parseInt(value) });
     }
   };

@@ -105,6 +105,26 @@ export const PropsModalContainer = styled(motion.dialog)`
     background-color: #171717;
     border-top: 1px solid rgba(255,255,255,0.1);
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    kbd {
+      background-color: #eee;
+      border-radius: 3px;
+      border: 1px solid #b4b4b4;
+      box-shadow: 0 1px 1px rgb(0 0 0 / 20%), 0 2px 0 0 rgb(255 255 255 / 70%) inset;
+      color: #333;
+      display: inline-block;
+      font-size: 0.85em;
+      font-weight: 700;
+      line-height: 1;
+      padding: 2px 4px;
+      white-space: nowrap;
+      margin-right: 4px;
+      ${Opacity}
+    }
+    p {
+      font-size: 0.85em;
+      font-weight: 700;
+      color: var(--gray-1);
+    }
     button {
       margin-left: auto;
     }

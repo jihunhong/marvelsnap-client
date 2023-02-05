@@ -26,9 +26,14 @@ export const BackgroundContainer = styled.div`
       line-height: 1;
       margin-bottom: 16px;
     }
-    > span {
-      font-weight: 500;
-      margin-bottom: 8px;
+    h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
     }
     div.divider {
       margin: 16px 0;

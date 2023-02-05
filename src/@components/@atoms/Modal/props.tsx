@@ -26,6 +26,8 @@ const PropsModalBase = ({ icon, title, visible, children, onClose }: PropsModalB
       </div>
       <div className="body">{children}</div>
       <div className="footer">
+        <kbd onClick={close}>ESC</kbd>
+        <p>키를 눌러 종료할 수 있습니다</p>
         <Button colorType="plain" onClick={close}>
           <span>닫기</span>
         </Button>

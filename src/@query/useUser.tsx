@@ -8,7 +8,7 @@ const useUser = () => {
   const getUser = async () => {
     return await pb.authStore.model;
   };
-  useQuery('user', getUser, {
+  useQuery(['user'], getUser, {
     onSuccess: response => setUser(response),
   });
 

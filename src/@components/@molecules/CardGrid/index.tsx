@@ -1,5 +1,6 @@
 import CardImage from '@atoms/CardImage';
 import * as T from '@customTypes/Card';
+import Link from 'next/link';
 import * as S from './style';
 
 type CardGridProps = {
@@ -10,7 +11,11 @@ const CardGrid = ({ expand }: CardGridProps) => {
   return (
     <S.CardGridContainer>
       {expand?.items?.map(item => (
-        <CardImage key={item?.cardDefId} cardDefId={item.cardDefId} w={140} priority />
+        <Link key={item?.cardDefId} href={{ pathname: '/card/[cardDefId]', query: { cardDefId: item?.cardDefId } }}>
+          <a>
+            <CardImage cardDefId={item.cardDefId} w={140} priority />
+          </a>
+        </Link>
       ))}
     </S.CardGridContainer>
   );

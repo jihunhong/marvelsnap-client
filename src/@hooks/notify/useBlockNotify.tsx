@@ -1,3 +1,4 @@
+import LoginToast from '@atoms/Toast/Login';
 import { toast } from 'react-toastify';
 
 /**
@@ -8,11 +9,19 @@ const useBlockNotify = () => {
   const blockDeckAmount = () => toast.warn('덱은 12장의 카드로 구성해야 합니다');
   const blockDuplicateCard = () => toast.warn('이미 추가한 카드입니다');
   const blockEmptyTitle = () => toast.warn('덱 이름을 추가해주세요');
+  const loginAccessNotify = () =>
+    toast(<LoginToast />, {
+      position: 'bottom-right',
+      autoClose: 8000,
+      pauseOnHover: true,
+      closeOnClick: false,
+    });
 
   return {
     blockDeckAmount,
     blockDuplicateCard,
     blockEmptyTitle,
+    loginAccessNotify,
   };
 };
 

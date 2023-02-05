@@ -1,9 +1,10 @@
 import * as S from './style';
 import { FcGoogle } from 'react-icons/fc';
+import { SyntheticEvent } from 'react';
 
-const GoogleBtn = (...props: any) => {
+const GoogleBtn = ({ onClick }: { onClick: (e: SyntheticEvent) => void }) => {
   return (
-    <S.GoogleLoginBtnContainer {...props}>
+    <S.GoogleLoginBtnContainer onClick={onClick}>
       <FcGoogle size={19} />
       <span>Sign in with Google</span>
     </S.GoogleLoginBtnContainer>
