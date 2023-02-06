@@ -5,6 +5,15 @@ export const filtering = (cards, filter) => {
   if (!filter.value || filter.type === 'reset') {
     return cards;
   }
+  if (filter.type === 'own') {
+    if (filter.value === 'owned') {
+      return cards.filter(v => v.mine);
+    }
+    if (filter.value === 'unowned') {
+      return cards.filter(v => !v.mine);
+    }
+    return cards;
+  }
   if (filter.type === 'sort') {
     if (filter.value === 'en') {
       const result = ascName([...cards]);

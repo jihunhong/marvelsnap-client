@@ -1,11 +1,11 @@
-import { Attributes, DOMAttributes } from 'react';
+import { Attributes, DOMAttributes, ReactNode } from 'react';
 import { ButtonTag } from './style';
 
 interface ButtonProps extends DOMAttributes<HTMLButtonElement> {
   colorType?: 'primary' | 'secondary' | 'warn' | 'success' | 'plain';
   icon?: JSX.Element;
   className?: string;
-  children?: JSX.Element;
+  children?: JSX.Element | ReactNode;
 }
 
 const Button = ({ children, colorType = 'primary', icon, ...props }: ButtonProps & Attributes) => {

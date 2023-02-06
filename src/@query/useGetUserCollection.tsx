@@ -5,7 +5,7 @@ import keys from '@query/keys';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { useRecoilValue } from 'recoil';
-import { filterAtom, filteredCollectionListAtom } from 'src/@store/collectionList';
+import { collectionSelector, filterAtom, seriesCollectionListAtom } from 'src/@store/collectionList';
 
 const useGetUserCollection = (): { collection: Array<CollectionCard>; profileId: string; updated: string } => {
   const router = useRouter();
@@ -17,7 +17,7 @@ const useGetUserCollection = (): { collection: Array<CollectionCard>; profileId:
     enabled: !!profileId,
   });
   const [collection] = useAggregateCollection(data?.cards, isFetched);
-  const filteredCollectionList = useRecoilValue(filteredCollectionListAtom);
+  const filteredCollectionList = useRecoilValue(collectionSelector);
   const filter = useRecoilValue(filterAtom);
 
   return { collection: filter ? filteredCollectionList : collection, profileId: data?.profileId, updated: data?.updated };

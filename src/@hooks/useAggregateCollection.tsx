@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
 import * as T from '@customTypes/Card';
-import { useQuery } from 'react-query';
-import keys from '@query/keys';
+import { CollectionCard } from '@customTypes/CollectionCard';
 import { getCardListApi } from '@fetch/index';
 import { aggregate } from '@lib/collectionMapping';
-import { CollectionCard } from '@customTypes/CollectionCard';
+import keys from '@query/keys';
+import { useEffect } from 'react';
+import { useQuery } from 'react-query';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 import { collectionListAtom } from 'src/@store/collectionList';
 

@@ -1,10 +1,16 @@
+import { ButtonGroupContainer } from '@atoms/ButtonGroup/style';
 import styled from 'styled-components';
 import { CardListContainer } from '../../@molecules/CardList/style';
 
 export const DivisionLayoutContainer = styled.section`
   display: grid;
-  grid-template-columns: repeat(13, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-template-areas: 'card card card card card card card card offset filter filter filter';
+
+  ${ButtonGroupContainer} {
+    margin-bottom: 1rem;
+    margin-left: 8px;
+  }
 
   ${CardListContainer} {
     grid-area: card;
