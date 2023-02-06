@@ -25,7 +25,7 @@ const CardDetailTemplate = () => {
           description: `${data?.name} - ${data?.effect}`,
           images: [
             {
-              url: `${baseImgix}/cards/basic/${data?.cardDefId}.png`,
+              url: `${baseImgix}/cards/basic/${data?.cardDefId}.webp`,
             },
           ],
         }}
