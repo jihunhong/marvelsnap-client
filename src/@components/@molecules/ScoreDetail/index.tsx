@@ -16,7 +16,6 @@ const ScoreDetail = ({ title, collectionId, recordId }: ScoreDetailProps) => {
         <h3>{title}</h3>
         <h2>{avg}</h2>
       </section>
-      <section />
       <section className="rating-status">
         <section className="progress-grid">
           <div>

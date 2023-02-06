@@ -1,8 +1,10 @@
 import Button from '@atoms/Button';
 import { InputContainer, InputTag } from '@atoms/Input/style';
 import Text from '@atoms/Text';
+import { breakpoints } from '@constant/breakpoints';
 import useInput from '@hooks/useInput';
 import useQuill from '@hooks/useQuill';
+import useSize from '@hooks/util/useSize';
 import EditorLayout from '@layout/EditorLayout';
 import CardGrid from '@molecules/CardGrid';
 import usePostDeck from '@query/usePostDeck';
@@ -25,6 +27,7 @@ const Editor = () => {
   const [content, onChange] = useQuill(null);
   const addedCards = useRecoilValue(deckStatusAtom);
   const [postDeck] = usePostDeck(title, content);
+  const [size] = useSize();
 
   return (
     <>
@@ -43,11 +46,13 @@ const Editor = () => {
           </Button>
         </div>
       </div>
-      <div className="preview ql-snow">
-        <Text content={title || '덱 제목이 표시됩니다'} as="h2" />
-        <CardGrid expand={{ items: addedCards }} />
-        <RawHtml className="ql-editor" content={content || '덱설명이 표시됩니다'} />
-      </div>
+      {size > breakpoints.laptop ? (
+        <div className="preview ql-snow">
+          <Text content={title || '덱 제목이 표시됩니다'} as="h2" />
+          <CardGrid expand={{ items: addedCards }} />
+          <RawHtml className="ql-editor" content={content || '덱설명이 표시됩니다'} />
+        </div>
+      ) : null}
     </>
   );
 };

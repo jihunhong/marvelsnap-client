@@ -1,9 +1,16 @@
+import device from '@styles/devices';
 import styled from 'styled-components';
 
 export const ScoreDetailContainer = styled.section`
-  display: grid;
-  grid-template-columns: 92px 2fr 2fr;
+  display: flex;
   width: 100%;
+
+  @media ${device.tablet} {
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
   .label {
     display: flex;
     flex-direction: column;

@@ -2,17 +2,22 @@ import device from '@styles/devices';
 import styled from 'styled-components';
 
 export const BodyContainer = styled.main`
-  min-height: 100vh;
+  min-width: 320px;
   padding-bottom: 2rem;
   > section {
     :not(.full-width) {
       max-width: 1192px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-top: var(--header-height);
-      margin: auto;
+      margin: 0 2rem;
+      width: auto;
+      padding-top: 2rem;
       @media ${device.mobileS} {
         margin: 0 2rem;
+        width: auto;
+        padding-top: 2rem;
+      }
+      @media ${device.tablet} {
+        margin: 0 2rem;
+        width: auto;
       }
       @media ${device.laptop} {
         margin: 0 62px;
@@ -23,6 +28,5 @@ export const BodyContainer = styled.main`
         width: 100%;
       }
     }
-    width: 100%;
   }
 `;

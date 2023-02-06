@@ -10,13 +10,11 @@ import DivisionLayout from '@layout/DivisionLayout';
 import { formatWithTime } from '@lib/day';
 import CardList from '@molecules/CardList';
 import CollectionFilter from '@molecules/ColletionFilter';
-import CardDetailModal from '@molecules/Modal/CardDetailModal';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useGetUserCollection from '@query/useGetUserCollection';
 import { NextPageContext } from 'next';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 

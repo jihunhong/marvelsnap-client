@@ -9,17 +9,33 @@ export const PageIntroContainer = styled.section`
   height: 350px;
   .header {
     width: 100%;
+    padding-top: var(--header-height);
+    margin: auto 2.2rem;
+    width: 100%;
 
     @media ${device.mobileS} {
-      margin: auto 2rem;
+      margin: auto 2.2rem;
+      width: 100%;
     }
     @media ${device.tablet} {
+      margin: auto 2.2rem;
+      width: 100%;
+    }
+    @media ${device.laptop} {
+      margin: auto 62px;
+      width: 100%;
+    }
+    @media ${device.laptopL} {
       margin: auto;
+      width: 100%;
     }
     max-width: 1192px;
     z-index: 2;
     h1 {
       font-size: 4rem;
+      @media ${device.mobileS} {
+        font-size: 3.5rem;
+      }
       margin-bottom: 0.7rem;
       > div {
         display: flex;

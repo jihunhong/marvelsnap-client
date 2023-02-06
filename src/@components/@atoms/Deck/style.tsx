@@ -111,7 +111,7 @@ export const DeckContainer = styled.article`
       @media ${device.mobileS} {
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        row-gap: 2rem;
+        row-gap: 0rem;
       }
       @media ${device.tablet} {
         grid-template-columns: repeat(12, 1fr);

@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
         --black-background: #161819;
         --white-border-color: rgba(255,255,255,0.1);
 
+        --card-ratio: calc(100% * calc(334 / 260));
         --card-offset: 16px;
         // 카드 이미지 container와 실제 카드 이미지의 간격
 

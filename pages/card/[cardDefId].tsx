@@ -27,10 +27,9 @@ const Detail = () => {
   const [data] = useCardQuery();
   return (
     <>
+      <PageIntro title={data?.en} description={''} bgSource={`${baseImgix}/static/background-card-detail.webp`} />
       <DetailLayout>
-        <PageIntro title={data?.en} description={''} bgSource={`${baseImgix}/static/background-card-detail.webp`}>
-          <FlexRow></FlexRow>
-        </PageIntro>
+        <FlexRow></FlexRow>
         <CardDetailTemplate />
       </DetailLayout>
     </>

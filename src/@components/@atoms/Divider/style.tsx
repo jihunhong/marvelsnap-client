@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type DividerContainerProps = {
-  $margin: string;
+  $margin: number;
   $borderless: boolean;
 };
 export const DividerContainer = styled.div<DividerContainerProps>`

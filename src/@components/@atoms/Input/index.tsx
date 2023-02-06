@@ -1,5 +1,5 @@
 import useInput from '@hooks/useInput';
-import { ChangeEvent, forwardRef, MutableRefObject, SyntheticEvent } from 'react';
+import { ChangeEvent, ForwardedRef, forwardRef } from 'react';
 import * as S from './style';
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
   valule?: string | null;
 };
 
-const Input = ({ type = 'text', placeholder = '' }: Props, ref: MutableRefObject<any>) => {
+const Input = ({ type = 'text', placeholder = '' }: Props, ref: ForwardedRef<any>) => {
   const [value, handler] = useInput('');
   return (
     <S.InputContainer>

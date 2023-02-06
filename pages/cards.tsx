@@ -4,6 +4,8 @@ import { FlexRow } from '@atoms/Flex/style';
 import { defaultTitle, siteBaseUrl } from '@constant/text';
 import { getCardListApi } from '@fetch/index';
 import useCardNavigate from '@hooks/action/useCardNavigate';
+import useNotify from '@hooks/notify/useNotify';
+import useMobileCheck from '@hooks/useMobileCheck';
 import AppLayout from '@layout/AppLayout';
 import DivisionLayout from '@layout/DivisionLayout';
 import CardList from '@molecules/CardList';
@@ -15,7 +17,7 @@ import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
 import { dehydrate, QueryClient } from 'react-query';
 
@@ -39,6 +41,11 @@ const Cards = () => {
   const [dataSource] = useCardListQuery();
   const { daily, random } = useCardNavigate();
   const router = useRouter();
+  const [isMobile] = useMobileCheck();
+  const notify = useNotify();
+  useEffect(() => {
+    if (isMobile) notify.responsiveWarn();
+  }, [isMobile]);
 
   return (
     <>

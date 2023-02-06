@@ -1,4 +1,4 @@
-import { MutableRefObject, SyntheticEvent, useEffect, useRef } from 'react';
+import { SyntheticEvent, useEffect, useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 import { modalStatus } from 'src/@store/modal';
 

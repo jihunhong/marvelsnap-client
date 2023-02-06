@@ -1,12 +1,17 @@
 import { InputContainer } from '@atoms/Input/style';
 import { RawHtmlContainer } from '@atoms/RawHtml/style';
 import { CardGridContainer } from '@molecules/CardGrid/style';
+import device from '@styles/devices';
 import styled from 'styled-components';
 
 export const EditorLayoutContainer = styled.section`
   display: grid;
   grid-auto-flows: column;
   grid-template-columns: 1fr 1fr;
+  @media ${device.tablet} {
+    display: flex;
+    flex-direction: column;
+  }
 
   .editor,
   .preview {

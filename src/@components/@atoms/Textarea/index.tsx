@@ -1,7 +1,7 @@
 import { StyledTextarea } from '@atoms/Textarea/style';
-import { forwardRef, MutableRefObject } from 'react';
+import { ForwardedRef, forwardRef } from 'react';
 
-const Textarea = ({ ...props }, ref?: MutableRefObject<any>) => {
+const Textarea = ({ ...props }, ref?: ForwardedRef<any>) => {
   return <StyledTextarea ref={ref} {...props} />;
 };
 

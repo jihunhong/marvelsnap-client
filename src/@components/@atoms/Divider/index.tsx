@@ -1,6 +1,6 @@
 import * as S from './style';
 
-const Divider = ({ margin, borderless, children }: { margin: string; borderless: boolean; children: JSX.Element }) => {
+const Divider = ({ margin, borderless = false, children }: { margin: number; borderless?: boolean; children?: JSX.Element }) => {
   return (
     <S.DividerContainer $margin={margin} $borderless={borderless}>
       {children}
