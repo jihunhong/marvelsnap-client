@@ -87,6 +87,7 @@ export const PropsModalContainer = styled(motion.dialog)`
 
   .body {
     padding: 1rem 2rem 1.4rem 2rem;
+    overflow-x: hidden;
     overflow-y: auto;
     -ms-overflow-style: none;
     &::-webkit-scrollbar{

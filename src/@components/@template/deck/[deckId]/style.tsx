@@ -104,6 +104,13 @@ export const DeckDetailTemplateContainer = styled.article`
     padding: 24px 30px;
     border-radius: 6px;
     color: var(--white);
+    p {
+      word-break: break-all;
+      width: 100%;
+    }
+    * {
+      max-width: 100%;
+    }
   }
 
   .actions {

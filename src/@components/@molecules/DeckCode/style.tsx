@@ -24,7 +24,7 @@ export const DeckCodeContainer = styled.div`
     box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
     border-radius: 3px;
     position: absolute;
-    right: 8px;
+    right: 3px;
     padding: 5px 5px;
     font-size: 0.8rem;
     font-weight: 700;

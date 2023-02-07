@@ -1,6 +1,6 @@
 import LoginTemplate from '@components/@template/login';
 import useModalControl from '@hooks/modal/useModalControl';
-import { useRef } from 'react';
+import { BsX } from 'react-icons/bs';
 import * as S from './style';
 
 const LoginModal = () => {
@@ -8,6 +8,9 @@ const LoginModal = () => {
   useModalControl('login');
   return (
     <S.LoginModalContainer ref={ref}>
+      <div className="header">
+        <BsX className="closer" color={'#fff'} size={34} onClick={close} />
+      </div>
       <LoginTemplate />
     </S.LoginModalContainer>
   );

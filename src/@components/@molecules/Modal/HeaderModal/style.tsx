@@ -1,5 +1,6 @@
 import { AvatarContainer } from '@atoms/Avatar/style';
 import { FlexColumn } from '@atoms/Flex/style';
+import { GoogleLoginBtnContainer } from '@atoms/GoogleBtn/style';
 import { Opacity } from '@styles/transition';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
@@ -24,6 +25,11 @@ export const HeaderModalContainer = styled(motion.dialog)`
   .profile {
     ${AvatarContainer} {
       margin-right: 8px;
+    }
+    ${GoogleLoginBtnContainer} {
+      font-size: 0.6rem;
+      padding: 8px 12px;
+      height: 40px;
     }
     span {
       font-weight: 700;

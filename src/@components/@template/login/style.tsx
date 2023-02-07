@@ -1,6 +1,11 @@
+import device from '@styles/devices';
 import styled from 'styled-components';
 
 export const BackgroundContainer = styled.div`
+  display: none;
+  @media ${device.tablet} {
+    display: block;
+  }
   position: relative;
   :before {
     content: '';
@@ -84,9 +89,14 @@ export const LoginTemplateContainer = styled.section`
   box-shadow: 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%), 0px 2px 4px -1px rgb(0 0 0 / 20%);
   border: 1px solid rgb(255 255 255 / 5%);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 800px;
-  border-radius: 14px;
+  grid-template-columns: 1fr;
+  height: 600px;
+  @media ${device.tablet} {
+    grid-template-columns: 1fr 1fr;
+    height: 800px;
+  }
+
+  border-radius: 6px;
   overflow: hidden;
   padding-top: 0;
 `;

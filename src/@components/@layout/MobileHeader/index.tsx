@@ -30,7 +30,7 @@ const MobileHeader = () => {
               <Logo />
             </a>
           </Link>
-          {!user ? <Avatar href="" src={user?.avatarUrl || user?.avatar} writer={user?.username || user?.name} /> : <div></div>}
+          {user ? <Avatar href="" src={user?.avatarUrl || user?.avatar} writer={user?.username || user?.name} /> : <div></div>}
         </div>
       </S.MobileHeaderContainer>
       {visible ? (

@@ -17,11 +17,17 @@ const HeaderModal = ({ onClick }: HeaderModalProps, ref: ForwardedRef<any>) => {
     <S.HeaderModalContainer initial={{ x: -250, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ opacity: 0 }} ref={ref} onClick={onClick}>
       <div>
         <FlexRow className="profile">
-          {user ? <Avatar width={32} height={32} href="" src={user?.avatarUrl || user?.avatar} writer={user?.username || user?.name} /> : <GoogleBtn />}
-          <FlexColumn>
-            <span className="name">{user?.username || user?.name}</span>
-            <span className="email">@{user?.email}</span>
-          </FlexColumn>
+          {user ? (
+            <>
+              <Avatar width={32} height={32} href="" src={user?.avatarUrl || user?.avatar} writer={user?.username || user?.name} />
+              <FlexColumn>
+                <span className="name">{user?.username || user?.name}</span>
+                <span className="email">@{user?.email}</span>
+              </FlexColumn>
+            </>
+          ) : (
+            <GoogleBtn />
+          )}
         </FlexRow>
       </div>
       <Divider margin={20} />
