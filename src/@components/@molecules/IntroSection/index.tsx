@@ -1,4 +1,4 @@
-import videoId from '@constant/videoId';
+import { baseImgix } from '@constant/imigx';
 import SearchInput from '@molecules/SearchInput';
 import * as S from './style';
 
@@ -6,22 +6,16 @@ const IntroVideoSection = () => {
   return (
     <S.IntroSectionContainer>
       <div className="container">
-        <div className="content">
+        <div className="text search">
           <h1>Snapsco.net</h1>
           <h4>마블스냅과 관련된 다양한 컨텐츠를 찾아보세요</h4>
           <SearchInput />
         </div>
         <div className="video-background">
           <div>
-            <iframe
-              width="560"
-              height="315"
-              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&disablekb=1&rel=0&controls=0&version=3&playlist=${videoId}`}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <video loop muted autoPlay>
+              <source src={`${baseImgix}/static/videoplayback.mp4`} type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>

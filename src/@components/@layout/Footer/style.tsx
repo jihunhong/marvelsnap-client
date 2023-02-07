@@ -2,13 +2,11 @@ import device from '@styles/devices';
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
-  width: 100%;
+  min-width: 320px;
   > div {
     max-width: 1192px;
-    margin-left: auto;
-    margin-right: auto;
     padding: 2rem 0 2.5rem;
-    margin: auto;
+    margin: 0 2rem;
     border-top: 1px solid #fff;
     color: var(--white);
 

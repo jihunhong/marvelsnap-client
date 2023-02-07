@@ -3,37 +3,40 @@ import device from '@styles/devices';
 import { ellipsis } from '@styles/common';
 
 export const IntroSectionContainer = styled.div`
-  width: 100%;
-
+  display: flex;
+  margin: auto 2rem;
+  max-width: 1192px;
+  height: 480px;
+  width: auto;
+  @media ${device.tablet} {
+    margin: auto 2rem;
+    height: 480px;
+  }
+  @media ${device.laptop} {
+    margin: 0 62px;
+    height: 600px;
+  }
+  @media ${device.laptopL} {
+    margin: 0 auto;
+    width: auto;
+    height: 600px;
+  }
   .container {
-    position: relative;
     display: flex;
-
-    @media ${device.mobileS} {
-      aspect-ratio: 6/5;
-    }
-
-    @media ${device.tablet} {
-      aspect-ratio: 16 / 5;
-    }
+    z-index: 1;
     width: 100%;
   }
-  .content {
+  .text,
+  .search {
+    margin: auto 0;
     width: 100%;
-    max-width: 1192px;
     position: relative;
     z-index: 2;
-    @media ${device.mobileS} {
-      margin: auto 2rem;
-      padding-top: var(--header-height);
-    }
-    @media ${device.tablet} {
-      margin: auto;
-      padding-top: 0;
-    }
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
     h1,
     h4 {
       font-family: Poppins;
@@ -61,6 +64,15 @@ export const IntroSectionContainer = styled.div`
         margin-bottom: 1rem;
       }
     }
+    input {
+      font-size: 0.6rem;
+      @media ${device.mobileS} {
+        font-size: 0.6rem;
+      }
+      @media ${device.tablet} {
+        font-size: 1.17rem;
+      }
+    }
     svg {
       margin-left: 6px;
       vertical-align: middle;
@@ -74,21 +86,28 @@ export const IntroSectionContainer = styled.div`
   .video-background {
     top: 0px;
     left: 0px;
-    z-index: 1;
+    z-index: 0;
     position: absolute;
     width: 100%;
-    height: auto;
-    overflow: hidden;
-
-    @media ${device.mobileS} {
-      aspect-ratio: 6/5;
-    }
+    height: 480px;
 
     @media ${device.tablet} {
-      aspect-ratio: 16 / 5;
+      height: 480px;
     }
+    @media ${device.laptop} {
+      height: 600px;
+    }
+    overflow: hidden;
 
     > div {
+      filter: blur(4px);
+      position: relative;
+      width: 100%;
+      height: inherit;
+      background-color: rgb(22 24 25 / 85%);
+      z-index: 0;
+      display: flex;
+      align-items: center;
       :before {
         content: '';
         position: absolute;
@@ -96,22 +115,29 @@ export const IntroSectionContainer = styled.div`
         left: 0px;
         width: 100%;
         height: 100%;
-        background-color: rgb(22 24 25 / 95%);
+        background-color: rgba(22, 24, 25, 0.95);
         z-index: 1;
       }
-      display: flex;
-      align-items: center;
-      height: 100%;
     }
-    iframe {
+    video {
+      position: static;
       width: 100%;
-      height: auto;
-      @media ${device.mobileS} {
-        aspect-ratio: 6/5;
-      }
-      @media ${device.tablet} {
-        aspect-ratio: 16 / 9;
-      }
+      top: 0;
+      left: 0;
+      position: absolute;
+      height: 100%;
+      object-fit: cover;
     }
   }
 `;
+
+//  :before {
+//         content: '';
+//         position: absolute;
+//         top: 0px;
+//         left: 0px;
+//         width: 100%;
+//         height: 480px;
+//         @media ${device.tablet} {
+//           height: 600px;
+//         }
