@@ -28,7 +28,7 @@ export async function getServerSideProps(context: NextPageContext) {
 const DeckDetail = () => {
   return (
     <>
-      <PageIntro title={'Deck'} description={''} bgSource={`${baseImgix}/static/background-card-detail.webp`} />
+      <PageIntro title={'Deck'} description={''} bgSource={`${baseImgix}/static/background-card-detail.webp`} objectPosition="center bottom" />
       <DetailLayout>
         <FlexRow></FlexRow>
         <DeckDetailTemplate />

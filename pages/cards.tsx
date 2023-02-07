@@ -1,6 +1,7 @@
 import Button from '@atoms/Button';
 import Card from '@atoms/Card';
 import { FlexRow } from '@atoms/Flex/style';
+import backgroundUrls from '@constant/intro-background';
 import { defaultTitle, siteBaseUrl } from '@constant/text';
 import { getCardListApi } from '@fetch/index';
 import useCardNavigate from '@hooks/action/useCardNavigate';
@@ -56,7 +57,7 @@ const Cards = () => {
           title: `카드 리스트, 카드 갤러리, 카드 DB - ${defaultTitle}`,
         }}
       />
-      <PageIntro title="Cards" description="게임에서 사용되는 다양한 카드들을 찾아보세요" bgSource="https://assets-prd.ignimgs.com/2022/05/18/multiplecard-showcase-d1-v2-1652904981819.png">
+      <PageIntro title="Cards" description="게임에서 사용되는 다양한 카드들을 찾아보세요" bgSource={backgroundUrls.cards}>
         <FlexRow>
           <Button icon={<GiCardRandom />} onClick={random}>
             <span>랜덤 카드</span>

@@ -9,7 +9,7 @@ export const PageIntroContainer = styled.section`
   height: 350px;
   .header {
     width: 100%;
-    padding-top: var(--header-height);
+    padding-top: 22px;
     margin: auto 2.2rem;
     width: 100%;
 
@@ -54,19 +54,17 @@ export const PageIntroContainer = styled.section`
   }
 `;
 
-type BackgroundProps = {
-  bgSource: string;
-};
-export const Background = styled.div<BackgroundProps>`
+export const Background = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
-  overflow: hidden;
   width: 100%;
   height: 350px;
-  background: url(${p => p.bgSource}) no-repeat center top;
-  background-size: cover;
+
+  img {
+    filter: blur(6px);
+  }
 
   :before {
     content: '';

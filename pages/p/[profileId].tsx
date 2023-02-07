@@ -1,7 +1,7 @@
 import Button from '@atoms/Button';
 import ButtonGroup from '@atoms/ButtonGroup';
 import Card from '@atoms/Card';
-import { baseImgix } from '@constant/imigx';
+import backgroundUrls from '@constant/intro-background';
 import { CollectionCard } from '@customTypes/CollectionCard';
 import { getUserCollectionApi } from '@fetch/index';
 import useCollectionFilter from '@hooks/useCollectionFilter';
@@ -35,7 +35,7 @@ const InstantProfile = () => {
   const [onClick] = useCollectionFilter();
   return (
     <>
-      <PageIntro title="Collection" description={`${formatWithTime(updated)}에 업데이트된 컬렉션입니다`} bgSource={`${baseImgix}/static/collection-page-background.webp`} />
+      <PageIntro title="Collection" description={`${formatWithTime(updated)}에 업데이트된 컬렉션입니다`} bgSource={backgroundUrls.profileCollection} />
       <DivisionLayout>
         <section>
           <ButtonGroup>

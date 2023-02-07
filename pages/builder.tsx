@@ -1,5 +1,6 @@
 import Card from '@atoms/Card';
 import CardListHeader from '@atoms/CardListHeader';
+import backgroundUrls from '@constant/intro-background';
 import * as T from '@customTypes/Card';
 import { getCardListApi } from '@fetch/index';
 import useNotify from '@hooks/notify/useNotify';
@@ -52,7 +53,7 @@ const Builder = () => {
       <Head>
         <meta name="Robots" content="noindex,nofollow" />
       </Head>
-      <PageIntro title="Deck Builder" description="" bgSource="https://earlygame.com/uploads/images/_body/FutureMarvelSnap-Banner.jpg" />
+      <PageIntro title="Deck Builder" description="" bgSource={backgroundUrls.builder} objectPosition="center center" />
       <DivisionLayout>
         <section>
           <CardListHeader filterEvent={handler} />
