@@ -40,7 +40,6 @@ export const Header = styled.header`
 
     .menus {
       a {
-        pointer-events: none;
         outline: none;
         ${Opacity}
       }
