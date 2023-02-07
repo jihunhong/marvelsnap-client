@@ -14,5 +14,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       perPage: 12,
     },
   });
-  res.status(200).json(decks);
+  res.status(200).json(decks.data);
 }
