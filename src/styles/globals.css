@@ -1,20 +1,15 @@
-import { createGlobalStyle } from 'styled-components';
-import * as C from './color';
-import { HEADER_HEIGHT } from './setting';
-
-export const GlobalStyle = createGlobalStyle`
-    :root {
-        --header-height: ${HEADER_HEIGHT};
-        --primary-color: ${C.PRIMARY_COLOR};
-        --primary-light-color: ${C.PRIMARY_LIGHT_COLOR};
-        --secondary-color: ${C.SECONDARY_COLOR};
-        --secondary-light-color: ${C.SECONDARY_LIGHT_COLOR};
-        --warn-color: ${C.WARN_COLOR};
-        --warn-light-color: ${C.WARN_LIGHT_COLOR};
-        --success-color: ${C.SUCCSS_COLOR};
-        --success-light-color: ${C.SUCCESS_LIGHT_COLOR};
-        --plain-color: ${C.PLAIN_COLOR};
-        --plain-light-color: ${C.PLAIN_LIGHT_COLOR};
+:root {
+        --header-height: 75px;
+        --primary-color: #a35dca;
+        --primary-light-color: #b969e6;
+        --secondary-color: #00d64c;
+        --secondary-light-color: #67e895;
+        --warn-color: #CC3300;
+        --warn-light-color: #cd5026;
+        --success-color: #24a0ed;
+        --success-light-color: #49b3f5;
+        --plain-color: #373b55;
+        --plain-light-color: #52556d;
         --gray-0: #cacaca;
         --gray-1: #a3a0a0;
         --gray-2: #868484;
@@ -24,7 +19,6 @@ export const GlobalStyle = createGlobalStyle`
 
         --card-ratio: calc(100% * calc(334 / 260));
         --card-offset: 16px;
-        // 카드 이미지 container와 실제 카드 이미지의 간격
 
         --layer-header: 10;
         --layer-content: 20;
@@ -79,36 +73,31 @@ export const GlobalStyle = createGlobalStyle`
     * {
         box-sizing: border-box;
     }
-
-    .quill {
-        .ql-snow {
-            border: none;
-        }
-        .ql-toolbar {
-            border-top-left-radius: 6px;
-            border-top-right-radius: 6px;
-        }
-        .ql-container {
-            border-bottom-left-radius: 6px;
-            border-bottom-right-radius: 6px;
-        }
-        .ql-editor.ql-blank {
-            :before {
-            color: var(--white);
-            }
-        }
-        .ql-toolbar .ql-stroke {
-            fill: none;
-            stroke: #fff;
-        }
-
-        .ql-toolbar .ql-fill {
-            fill: #fff;
-            stroke: none;
-        }
-
-        .ql-toolbar .ql-picker {
-            color: #fff;
-        }
+    
+    .quill .ql-snow {
+        border: none;
     }
-`;
+    .quill .ql-toolbar {
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+    .quill .ql-container {
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+    .quill .ql-editor.ql-blank:before {
+        color: var(--white);
+        }
+    .quill .ql-toolbar .ql-stroke {
+        fill: none;
+        stroke: #fff;
+    }
+
+    .quill .ql-toolbar .ql-fill {
+        fill: #fff;
+        stroke: none;
+    }
+
+    .quill .ql-toolbar .ql-picker {
+        color: #fff;
+    }

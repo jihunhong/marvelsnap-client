@@ -1,11 +1,10 @@
 import Avatar from '@atoms/Avatar';
 import Button from '@atoms/Button';
-import { fromNow } from '@lib/day';
-import RandomAvatar from 'boring-avatars';
-import { BsTrash } from 'react-icons/bs';
-import useUser from '@query/useUser';
-import * as S from './style';
+import fromNow from '@lib/day/fromNow';
 import useDeleteComment from '@query/useDeleteComment';
+import useUser from '@query/useUser';
+import { BsTrash } from 'react-icons/bs';
+import * as S from './style';
 
 type CommentProps = {
   writer?: string;

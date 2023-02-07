@@ -2,8 +2,8 @@ import { TagContainer } from '@atoms/Tag/style';
 import { CardGridContainer } from '@molecules/CardGrid/style';
 import { DeckCodeContainer } from '@molecules/DeckCode/style';
 import { RecommendContainer } from '@molecules/Recommend/style';
+import { ellipsis } from '@styles/common';
 import device from '@styles/devices';
-import { textEllipsis } from '@styles/text';
 import styled from 'styled-components';
 
 export const DeckDetailTemplateContainer = styled.article`
@@ -58,7 +58,7 @@ export const DeckDetailTemplateContainer = styled.article`
         margin-top: 0;
       }
       h2 {
-        ${textEllipsis}
+        ${ellipsis}
         width: 100%;
         margin-bottom: 8px;
       }

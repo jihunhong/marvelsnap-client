@@ -3,16 +3,18 @@ import { defaultTitle } from '@constant/text';
 import { getDeckListApi } from '@fetch/index';
 import AppLayout from '@layout/AppLayout';
 import DeckList from '@molecules/DeckList';
-import DeckDetailModal from '@molecules/Modal/DeckDetailModal';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useDeckListQuery from '@query/useDeckListQuery';
 import { NextPageContext } from 'next';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { dehydrate, QueryClient } from 'react-query';
+
+const DeckDetailModal = dynamic(() => import('@molecules/Modal/DeckDetailModal'));
 
 export async function getServerSideProps({ req }: NextPageContext) {
   const queryClient = new QueryClient();
@@ -42,7 +44,7 @@ const Decks = () => {
       </Head>
       <PageIntro title="Decks" description="메타에서 효과적인 다양한 덱들을 찾아보세요" bgSource={backgroundUrls.builder} objectPosition="center bottom" />
       <section>
-        <DeckDetailModal visible={!!router.query.id} />
+        {!!router.query.id ? <DeckDetailModal visible={!!router.query.id} /> : null}
         <DeckList dataSource={dataSource} />
         {isFetching && !isFetchingNextPage ? <>loading...</> : <div ref={ref} />}
       </section>

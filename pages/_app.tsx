@@ -1,14 +1,11 @@
-import ModalBoundary from '@components/@hoc/ModalBoundary';
 import { DEFAULT_SEO } from '@constant/defaultSeo';
 import useApiNotify from '@hooks/notify/useApiNotify';
 import useGoogleAnalytics from '@hooks/util/useGoogleAnalytics';
 import GoogleScript from '@layout/GoogleScript';
-import { GlobalStyle } from '@styles/globals';
 import { Analytics } from '@vercel/analytics/react';
 import { NextPage } from 'next';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
-import dynamic from 'next/dynamic';
 import { ReactElement, ReactNode, useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -17,6 +14,7 @@ import 'react-quill/dist/quill.snow.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { RecoilRoot } from 'recoil';
+import '../src/styles/globals.css';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -49,7 +47,6 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
       <DefaultSeo {...DEFAULT_SEO} />
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <GlobalStyle />
           <RecoilRoot>
             <ToastContainer
               position="bottom-center"
@@ -64,7 +61,6 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
               theme="dark"
               limit={3}
             />
-            <ModalBoundary />
             <Analytics />
             <GoogleScript />
             {getLayout(<Component {...pageProps} />)}

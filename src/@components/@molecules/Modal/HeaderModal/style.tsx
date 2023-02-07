@@ -27,7 +27,9 @@ export const HeaderModalContainer = styled(motion.dialog)`
       margin-right: 8px;
     }
     ${GoogleLoginBtnContainer} {
-      font-size: 0.6rem;
+      span {
+        font-size: 0.6rem;
+      }
       padding: 8px 12px;
       height: 40px;
     }

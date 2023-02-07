@@ -1,5 +1,5 @@
 import { FlexRow } from '@atoms/Flex/style';
-import { SeriesIcon } from '@atoms/Icon';
+import SeriesIcon from '@atoms/Icon/series';
 import Tag from '@atoms/Tag';
 import { kIds } from '@constant/keywords';
 import * as T from '@customTypes/Card';

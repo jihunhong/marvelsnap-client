@@ -2,7 +2,6 @@ import CardImage from '@atoms/CardImage';
 import { InputContainer, InputTag } from '@atoms/Input/style';
 import * as T from '@customTypes/Card';
 import useSearch from '@hooks/action/useSearch';
-import CardDetailModal from '@molecules/Modal/CardDetailModal';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';

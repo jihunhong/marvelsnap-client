@@ -69,7 +69,7 @@ const Cards = () => {
       </PageIntro>
       <DivisionLayout>
         <section>
-          <CardDetailModal visible={!!router.query.id} />
+          {!!router.query.id ? <CardDetailModal visible={!!router.query.id} /> : null}
           <CardList
             dataSource={dataSource}
             renderItem={item => (

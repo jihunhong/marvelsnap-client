@@ -7,7 +7,7 @@ import { getUserCollectionApi } from '@fetch/index';
 import useCollectionFilter from '@hooks/useCollectionFilter';
 import AppLayout from '@layout/AppLayout';
 import DivisionLayout from '@layout/DivisionLayout';
-import { formatWithTime } from '@lib/day';
+import time from '@lib/day/time';
 import CardList from '@molecules/CardList';
 import CollectionFilter from '@molecules/ColletionFilter';
 import PageIntro from '@molecules/PageIntro';
@@ -35,7 +35,7 @@ const InstantProfile = () => {
   const [onClick] = useCollectionFilter();
   return (
     <>
-      <PageIntro title="Collection" description={`${formatWithTime(updated)}에 업데이트된 컬렉션입니다`} bgSource={backgroundUrls.profileCollection} />
+      <PageIntro title="Collection" description={`${time(updated)}에 업데이트된 컬렉션입니다`} bgSource={backgroundUrls.profileCollection} />
       <DivisionLayout>
         <section>
           <ButtonGroup>

@@ -1,10 +1,10 @@
 import Avatar from '@atoms/Avatar';
-import { SeriesIcon } from '@atoms/Icon';
+import SeriesIcon from '@atoms/Icon/series';
 import Tag from '@atoms/Tag';
 import { deckTitleSuffix, siteBaseUrl } from '@constant/text';
 import useCopyCode from '@hooks/deck/useDeckCode';
 import useDeckSeries from '@hooks/deck/useDeckSeries';
-import format from '@lib/day';
+import format from '@lib/day/format';
 import CardGrid from '@molecules/CardGrid';
 import CommentInput from '@molecules/CommentInput';
 import Comments from '@molecules/Comments';

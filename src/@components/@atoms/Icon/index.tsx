@@ -1,8 +1,7 @@
 import { BiLoaderCircle, BiMoveHorizontal } from 'react-icons/bi';
-import { BsExclamationTriangle, BsLightning, BsStar, BsStarFill } from 'react-icons/bs';
+import { BsExclamationTriangle, BsLightning } from 'react-icons/bs';
 import { FaSkull } from 'react-icons/fa';
 import { GiCardDiscard } from 'react-icons/gi';
-import { IoMdPricetags } from 'react-icons/io';
 
 export const OnRevealIcon = () => <BsLightning size={16} />;
 export const OnGoingIcon = () => <BiLoaderCircle size={16} />;
@@ -10,7 +9,6 @@ export const NoneAbilityIcon = () => <BsExclamationTriangle size={16} />;
 export const DiscardIcon = () => <GiCardDiscard size={16} />;
 export const MoveIcon = () => <BiMoveHorizontal size={16} />;
 export const DestroyIcon = () => <FaSkull size={16} />;
-export const SeriesIcon = () => <IoMdPricetags />;
 export const StarIcon = ({ size, className, ...props }: { size: number; className?: string }) => {
   return (
     <svg stroke="currentColor" className={className} fill="#b5b8b1" strokeWidth="0" viewBox="0 0 16 16" {...props} height={size} width={size} xmlns="http://www.w3.org/2000/svg">

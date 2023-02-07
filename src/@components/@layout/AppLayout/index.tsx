@@ -1,13 +1,17 @@
 import { breakpoints } from '@constant/breakpoints';
 import useSize from '@hooks/util/useSize';
 import Body from '@layout/Body';
-import Footer from '@layout/Footer';
 import Header from '@layout/Header';
-import MobileHeader from '@layout/MobileHeader';
+import dynamic from 'next/dynamic';
 
 type Props = {
   children: JSX.Element;
 };
+
+const Footer = dynamic(() => import('@layout/Footer'));
+const MobileHeader = dynamic(() => import('@layout/MobileHeader'), {
+  ssr: false,
+});
 
 const AppLayout = ({ children }: Props) => {
   const [size] = useSize();

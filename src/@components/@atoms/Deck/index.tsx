@@ -1,12 +1,12 @@
 import Card from '@atoms/Card';
-import { SeriesIcon } from '@atoms/Icon';
+import SeriesIcon from '@atoms/Icon/series';
 import Tag from '@atoms/Tag';
 import type * as C from '@customTypes/Card';
 import type * as T from '@customTypes/Deck';
 import useCopyCode from '@hooks/deck/useDeckCode';
 import useDeckTag from '@hooks/deck/useDeckTag';
 import useNavigate from '@hooks/useNavigate';
-import { fromNow } from '@lib/day';
+import fromNow from '@lib/day/fromNow';
 import Link from 'next/link';
 import { FaRegCommentDots, FaRegCopy } from 'react-icons/fa';
 import { FiThumbsUp } from 'react-icons/fi';
@@ -16,6 +16,7 @@ const Deck = ({ id, title, created, cards, like, comment }: T.Deck) => {
   const [handler] = useCopyCode({ items: cards, title });
   const series = useDeckTag({ items: cards });
   const [navigate] = useNavigate({ href: `/decks?id=${id}`, as: `/deck/${id}` });
+  const date = fromNow(created);
   return (
     <S.DeckContainer>
       <div className="header">
@@ -58,7 +59,7 @@ const Deck = ({ id, title, created, cards, like, comment }: T.Deck) => {
             <span>{comment?.length || 0}</span>
           </div>
         </div>
-        <span>{fromNow(created)}</span>
+        <span>{date}</span>
       </div>
     </S.DeckContainer>
   );
