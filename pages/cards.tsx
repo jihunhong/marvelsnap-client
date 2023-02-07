@@ -10,7 +10,6 @@ import useMobileCheck from '@hooks/useMobileCheck';
 import AppLayout from '@layout/AppLayout';
 import DivisionLayout from '@layout/DivisionLayout';
 import CardList from '@molecules/CardList';
-import CardDetailModal from '@molecules/Modal/CardDetailModal';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
@@ -19,12 +18,15 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect } from 'react';
-import { GiCardPickup, GiCardRandom } from 'react-icons/gi';
 import { dehydrate, QueryClient } from 'react-query';
 
 const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
   ssr: false,
   loading: () => <div>Filter UI Loading</div>,
+});
+
+const CardDetailModal = dynamic(() => import('@molecules/Modal/CardDetailModal'), {
+  ssr: false,
 });
 
 export async function getServerSideProps() {
@@ -59,10 +61,10 @@ const Cards = () => {
       />
       <PageIntro title="Cards" description="게임에서 사용되는 다양한 카드들을 찾아보세요" bgSource={backgroundUrls.cards}>
         <FlexRow>
-          <Button icon={<GiCardRandom />} onClick={random}>
+          <Button onClick={random}>
             <span>랜덤 카드</span>
           </Button>
-          <Button icon={<GiCardPickup />} colorType="secondary" onClick={daily}>
+          <Button colorType="secondary" onClick={daily}>
             <span>오늘의 카드</span>
           </Button>
         </FlexRow>

@@ -1,4 +1,4 @@
-import { StarIcon } from '@atoms/Icon';
+import StarIcon from '@atoms/Icon/star';
 import useRatingStar from '@hooks/useRatingStar';
 import * as S from './style';
 

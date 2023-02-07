@@ -1,10 +1,9 @@
 import Button from '@atoms/Button';
 import Cost from '@atoms/Cost';
-import { DestroyIcon, DiscardIcon, MoveIcon, NoneAbilityIcon, OnGoingIcon, OnRevealIcon } from '@atoms/Icon';
+import { DestroyIcon, DiscardIcon, ManaIcon, MoveIcon, NoneAbilityIcon, OnGoingIcon, OnRevealIcon, PowerIcon } from '@atoms/Icon';
 import useCardFilter from '@hooks/useCardFilter';
 import useToggle from '@hooks/useToggle';
 import { BsFillTrashFill } from 'react-icons/bs';
-import { GiBatteryPackAlt, GiGlassBall } from 'react-icons/gi';
 import { HiSortAscending, HiSortDescending } from 'react-icons/hi';
 import { TiSortAlphabeticallyOutline } from 'react-icons/ti';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
@@ -31,11 +30,11 @@ const CardFilter = () => {
               <span>이름</span>
             </div>
             <div data-type="sort" data-value="cost" data-direction={ascend ? 'asc' : 'descend'} onClick={onClick}>
-              <GiGlassBall />
+              <ManaIcon />
               <span>에너지</span>
             </div>
             <div data-type="sort" data-value="power" data-direction={ascend ? 'asc' : 'descend'} onClick={onClick}>
-              <GiBatteryPackAlt />
+              <PowerIcon />
               <span>파워</span>
             </div>
             <div onClick={handler}>

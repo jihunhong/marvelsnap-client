@@ -1,4 +1,4 @@
-import { StarIcon } from '@atoms/Icon';
+import StarIcon from '@atoms/Icon/star';
 import useScoreList from '@query/useScoreList';
 import * as S from './style';
 
