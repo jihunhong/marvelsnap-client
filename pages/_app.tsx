@@ -15,20 +15,9 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { RecoilRoot } from 'recoil';
 import '../src/styles/globals.css';
+import AppLayout from '@layout/AppLayout';
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode;
-};
-
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout;
-  pageProps: {
-    dehydratedState: {};
-  };
-};
-
-function App({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout || (page => page);
+function App({ Component, pageProps }: AppProps) {
   useGoogleAnalytics();
   const notify = useApiNotify();
   const [queryClient] = useState(
@@ -63,7 +52,9 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
             />
             <Analytics />
             <GoogleScript />
-            {getLayout(<Component {...pageProps} />)}
+            <AppLayout>
+              <Component {...pageProps} />
+            </AppLayout>
           </RecoilRoot>
           <ReactQueryDevtools position="bottom-right" />
         </Hydrate>
