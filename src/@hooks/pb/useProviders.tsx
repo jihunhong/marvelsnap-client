@@ -8,16 +8,19 @@ const useProviders = (): [Array<Provider>, (provider: Provider) => void] => {
   const [providers, setProviders] = useState<Array<Provider>>([]);
   const router = useRouter();
   useEffect(() => {
-    const pb = new PocketBase(process.env.NEXT_PUBLIC_END_POINT);
-    (async () => {
-      const authMethods = await pb.collection('users').listAuthMethods();
-      setProviders(() => [...authMethods.authProviders]);
-    })();
-  }, []);
+    if (!providers.length) {
+      const pb = new PocketBase(process.env.NEXT_PUBLIC_END_POINT);
+      (async () => {
+        const authMethods = await pb.collection('users').listAuthMethods();
+        setProviders(() => [...authMethods.authProviders]);
+      })();
+    }
+  }, [providers]);
 
   const onClick = (provider: Provider) => {
     localStorage.setItem('provider', JSON.stringify(provider));
-    sessionStorage.setItem('history_path', router.asPath);
+    const history_path = router.asPath;
+    sessionStorage.setItem('history_path', history_path === '/login' ? '/' : history_path);
     router.push(provider.authUrl + `${baseUrl}/redirect`);
   };
 

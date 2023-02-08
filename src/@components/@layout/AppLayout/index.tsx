@@ -1,7 +1,7 @@
-import { breakpoints } from '@constant/breakpoints';
-import useSize from '@hooks/util/useSize';
+import useMediaQuery from '@hooks/util/useMediaQuery';
 import Body from '@layout/Body';
 import Header from '@layout/Header';
+import breakpoints from '@styles/breakpoints';
 import dynamic from 'next/dynamic';
 
 type Props = {
@@ -14,10 +14,10 @@ const MobileHeader = dynamic(() => import('@layout/MobileHeader'), {
 });
 
 const AppLayout = ({ children }: Props) => {
-  const [size] = useSize();
+  const [tabletWidth] = useMediaQuery(breakpoints.tablet);
   return (
     <>
-      {size < breakpoints.laptop ? <MobileHeader /> : <Header />}
+      {tabletWidth ? <MobileHeader /> : <Header />}
       <Body>{children}</Body>
       <Footer />
     </>

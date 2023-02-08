@@ -1,3 +1,4 @@
+import isClient from '@lib/isClient';
 import { pb } from '@lib/pb';
 import { useQuery } from 'react-query';
 import { useRecoilState } from 'recoil';
@@ -10,6 +11,7 @@ const useUser = () => {
   };
   useQuery(['user'], getUser, {
     onSuccess: response => setUser(response),
+    enabled: isClient() && !user,
   });
 
   return [user];
