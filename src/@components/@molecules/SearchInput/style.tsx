@@ -27,23 +27,18 @@ export const ResultEntry = styled(motion.div)`
       display: grid;
       padding: 0.6rem 1rem;
       grid-template-columns: 60px 1fr;
-      grid-template-rows: auto 1fr;
+      grid-template-rows: 1fr;
       grid-column-gap: 0.5rem;
-      grid-template-areas:
-        'image name'
-        'image description';
 
       > img {
         grid-area: image;
         width: 100%;
       }
-      > span {
-        grid-area: name;
+      span {
         font-weight: 700;
-        margin-bottom: 0.3rem;
+        margin-bottom: 1rem;
       }
-      > p {
-        grid-area: description;
+      p {
         font-style: italic;
       }
     }

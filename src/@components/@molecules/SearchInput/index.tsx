@@ -25,8 +25,10 @@ const SearchInput = () => {
                 <Link href={`${router.asPath}?id=${item?.cardDefId}`} as={`/card/${item?.cardDefId}`} shallow={true}>
                   <a>
                     <CardImage cardDefId={item?.cardDefId} />
-                    <span>{item.name}</span>
-                    <p>{item.effect}</p>
+                    <div>
+                      <span>{item.name}</span>
+                      <p>{item.effect}</p>
+                    </div>
                   </a>
                 </Link>
               </motion.div>

@@ -41,7 +41,7 @@ const Decks = () => {
       <Head>
         <title>{`덱 리스트, 덱 갤러리, 덱 DB - ${defaultTitle}`}</title>
       </Head>
-      <PageIntro title="Decks" description="메타에서 효과적인 다양한 덱들을 찾아보세요" bgSource={backgroundUrls.builder} objectPosition="center bottom" />
+      <PageIntro title="Decks" description="메타에서 효과적인 다양한 덱들을 찾아보세요" bgSource={backgroundUrls.cards} objectPosition="center bottom" />
       <section>
         {!!router.query.id ? <DeckDetailModal visible={!!router.query.id} /> : null}
         <DeckList dataSource={dataSource} />
