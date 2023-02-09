@@ -16,6 +16,7 @@ const useApiNotify = () => {
   const postLikeDuplicate = () => toast.warn('이미 추천한 게시물입니다.');
 
   const loginError = () => toast.error('로그인 응답이 올바르지 않습니다. \n 잠시후 다시 시도해주세요');
+  const collectionError = () => toast.error('컬렉션 정보를 확인할 수 없습니다.');
 
   return {
     postDeckSuccess,
@@ -31,6 +32,7 @@ const useApiNotify = () => {
     postLikeSuccess,
     postLikeError,
     postLikeDuplicate,
+    collectionError,
   };
 };
 

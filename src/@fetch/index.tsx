@@ -150,3 +150,9 @@ export const getUserCollectionApi = async (profileId: string) => {
   });
   return data;
 };
+
+export const postUserCollectionApi = async (payload: { profileId: string; cards: Array<string> }) => {
+  const { data } = await axios.post('/api/user/collection', payload);
+
+  return data;
+};

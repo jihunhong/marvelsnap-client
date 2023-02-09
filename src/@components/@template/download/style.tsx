@@ -1,4 +1,6 @@
 import { DividerContainer } from '@atoms/Divider/style';
+import { FlexRow } from '@atoms/Flex/style';
+import { TagContainer } from '@atoms/Tag/style';
 import device from '@styles/devices';
 import styled from 'styled-components';
 
@@ -30,28 +32,16 @@ export const PreviewBox = styled.div`
       color: var(--white);
       font-size: 0.8rem;
     }
-    div.ps {
-      svg {
-        vertical-align: middle;
-        margin-right: 8px;
-      }
-      span {
-        font-size: 0.8rem;
-        font-weight: 500;
-        a {
-          text-decoration: underline;
-        }
-      }
-      display: flex;
-      align-items: center;
-    }
   }
 `;
 
 export const DescriptionBox = styled.div`
-  background: linear-gradient(142deg, #25282a, rgb(0 0 0 / 36%));
-  div {
+  ${FlexRow} {
+    align-items: flex-start;
+  }
+  div.container {
     margin: auto;
+    align-items: flex-start;
     h1 {
       color: var(--white);
       font-size: 1.8rem;
@@ -64,13 +54,17 @@ export const DescriptionBox = styled.div`
     li {
       color: var(--gray-0);
     }
-    div {
-      margin-bottom: 2rem;
-    }
+  }
+  ${TagContainer} {
+    margin-left: 4px;
+    background: linear-gradient(180deg, #050505 0%, #000000 100%);
   }
   div.download {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr 0px;
+  }
+  .upload-btn {
+    margin: 0;
   }
 `;
 
@@ -94,4 +88,21 @@ export const DownloadTemplateContainer = styled.section`
   }
   border-radius: 6px;
   padding-top: 0;
+
+  div.ps {
+    svg {
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    span,
+    p {
+      font-size: 0.8rem;
+      font-weight: 500;
+      a {
+        text-decoration: underline;
+      }
+    }
+    display: flex;
+    align-items: center;
+  }
 `;
