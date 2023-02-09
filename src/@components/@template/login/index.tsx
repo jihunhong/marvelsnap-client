@@ -37,7 +37,7 @@ const LoginTemplate = () => {
               <a href="https://discord.gg/2hb3frmA" target="_blank" rel="noreferrer noopener">
                 디스코드
               </a>
-              로 문의 부탁드립니다
+              로 문의 바랍니다
             </span>
           </div>
         </div>

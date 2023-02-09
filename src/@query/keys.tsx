@@ -13,6 +13,7 @@ const keys = {
   getLike: '/api/like/list',
 
   getUserCollection: '/api/user/collection',
+  postUserCollection: '/api/user/collection',
 };
 
 export default keys;
