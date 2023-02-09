@@ -47,11 +47,11 @@ export const Header = styled.header`
       display: flex;
       justify-content: space-between;
       span {
-        margin-left: 2rem;
+        margin: 0 1rem;
         font-weight: 500;
       }
       ${AvatarContainer} {
-        margin-left: 2rem;
+        margin: 0 1rem;
       }
     }
   }

@@ -1,16 +1,15 @@
 import Button from '@atoms/Button';
 import { InputContainer, InputTag } from '@atoms/Input/style';
 import Text from '@atoms/Text';
-import breakpoints from '@constant/breakpoints';
 import useInput from '@hooks/useInput';
 import useQuill from '@hooks/useQuill';
 import useMediaQuery from '@hooks/util/useMediaQuery';
 import EditorLayout from '@layout/EditorLayout';
 import CardGrid from '@molecules/CardGrid';
 import usePostDeck from '@query/usePostDeck';
+import breakpoints from '@styles/breakpoints';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { ReactElement } from 'react';
 import { BsCheck } from 'react-icons/bs';
 import { useRecoilValue } from 'recoil';
 import { deckStatusAtom } from 'src/@store/builder';

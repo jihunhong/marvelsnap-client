@@ -1,12 +1,12 @@
 import { DEFAULT_SEO } from '@constant/defaultSeo';
 import useApiNotify from '@hooks/notify/useApiNotify';
 import useGoogleAnalytics from '@hooks/util/useGoogleAnalytics';
+import AppLayout from '@layout/AppLayout';
 import GoogleScript from '@layout/GoogleScript';
 import { Analytics } from '@vercel/analytics/react';
-import { NextPage } from 'next';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
-import { ReactElement, ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { Hydrate } from 'react-query/hydration';
@@ -15,7 +15,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { RecoilRoot } from 'recoil';
 import '../src/styles/globals.css';
-import AppLayout from '@layout/AppLayout';
 
 function App({ Component, pageProps }: AppProps) {
   useGoogleAnalytics();

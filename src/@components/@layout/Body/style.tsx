@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const BodyContainer = styled.main`
   min-width: 320px;
   padding-bottom: 2rem;
+  min-height: 100vh;
   > section {
     :not(.full-width) {
       max-width: 1192px;
@@ -11,7 +12,7 @@ export const BodyContainer = styled.main`
       width: auto;
       padding-top: 2rem;
       @media ${device.mobileS} {
-        margin: 0 2rem;
+        margin: 0 1.5rem;
         width: auto;
         padding-top: 2rem;
       }

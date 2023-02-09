@@ -10,7 +10,7 @@ export const MobileHeaderContainer = styled.header`
   > div {
     width: 100%;
     height: 100%;
-    padding: 0.6rem 1.6rem;
+    padding: 0.6rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

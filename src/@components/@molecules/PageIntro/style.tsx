@@ -6,15 +6,17 @@ export const PageIntroContainer = styled.section`
   display: flex;
 
   width: 100%;
-  height: 350px;
+  height: 250px;
+  @media ${device.mobileM} {
+    height: 350px;
+  }
   .header {
     width: 100%;
     padding-top: 22px;
-    margin: auto 2.2rem;
     width: 100%;
 
     @media ${device.mobileS} {
-      margin: auto 2.2rem;
+      margin: auto 1.5rem;
       width: 100%;
     }
     @media ${device.tablet} {
@@ -34,7 +36,7 @@ export const PageIntroContainer = styled.section`
     h1 {
       font-size: 4rem;
       @media ${device.mobileS} {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
       }
       margin-bottom: 0.7rem;
       > div {
@@ -60,7 +62,10 @@ export const Background = styled.div`
   left: 0;
   z-index: 1;
   width: 100%;
-  height: 350px;
+  height: 250px;
+  @media ${device.mobileM} {
+    height: 350px;
+  }
 
   img {
     filter: blur(6px);
@@ -81,8 +86,8 @@ export const Background = styled.div`
     content: '';
     position: absolute;
     bottom: 0px;
-    left: -1rem;
-    right: -1rem;
+    left: 0;
+    right: 0;
     height: 15rem;
     background-image: linear-gradient(to top, var(--black-background), rgba(0, 0, 0, 0));
   }

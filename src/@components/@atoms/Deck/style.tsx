@@ -10,11 +10,15 @@ export const DeckContainer = styled.article`
   background: linear-gradient(45deg, #232525 0%, #232525 100%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 1px solid rgb(255 255 255 / 5%);
-  border-radius: 10px;
   .tags {
     margin-left: 0;
   }
-  padding: 1.1rem 1.3rem;
+  padding: 0.8rem 0.5rem;
+  border-radius: 4px;
+  @media ${device.mobileM} {
+    padding: 1.1rem 1.3rem;
+    border-radius: 10px;
+  }
 
   .header {
     position: relative;
