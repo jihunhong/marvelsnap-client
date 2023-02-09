@@ -7,7 +7,6 @@ import { getCardListApi } from '@fetch/index';
 import useCardNavigate from '@hooks/action/useCardNavigate';
 import useNotify from '@hooks/notify/useNotify';
 import useMobileCheck from '@hooks/useMobileCheck';
-import AppLayout from '@layout/AppLayout';
 import DivisionLayout from '@layout/DivisionLayout';
 import CardList from '@molecules/CardList';
 import PageIntro from '@molecules/PageIntro';
@@ -17,7 +16,7 @@ import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ReactElement, useEffect } from 'react';
+import { useEffect } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 
 const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
@@ -89,5 +88,4 @@ const Cards = () => {
   );
 };
 
-Cards.getLayout = (page: ReactElement) => <AppLayout>{page}</AppLayout>;
 export default Cards;

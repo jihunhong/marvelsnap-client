@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import * as S from './style';
 
 type EditorLayoutProps = {
-  children: Array<JSX.Element> | ReactElement;
+  children: Array<JSX.Element | null> | ReactElement;
 };
 
 const EditorLayout = ({ children }: EditorLayoutProps) => {

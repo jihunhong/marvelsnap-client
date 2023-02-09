@@ -7,7 +7,6 @@ import useNotify from '@hooks/notify/useNotify';
 import useBuilder from '@hooks/useBuilder';
 import useToggle from '@hooks/useToggle';
 import useMediaQuery from '@hooks/util/useMediaQuery';
-import AppLayout from '@layout/AppLayout';
 import DivisionLayout from '@layout/DivisionLayout';
 import BuilderStatus from '@molecules/BuilderStatus';
 import CardFilter from '@molecules/CardFilter';
@@ -17,7 +16,7 @@ import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
 import breakpoints from '@styles/breakpoints';
 import Head from 'next/head';
-import { ReactElement, SyntheticEvent, useEffect } from 'react';
+import { SyntheticEvent, useEffect } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 import { useRecoilValue } from 'recoil';
 import { getIds } from 'src/@store/builder';
@@ -73,5 +72,4 @@ const Builder = () => {
   );
 };
 
-Builder.getLayout = (page: ReactElement) => <AppLayout>{page}</AppLayout>;
 export default Builder;

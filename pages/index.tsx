@@ -1,7 +1,5 @@
-import AppLayout from '@layout/AppLayout';
 import IntroSection from '@molecules/IntroSection';
 import Trending from '@molecules/Trending';
-import { ReactElement } from 'react';
 
 const Home = () => {
   return (
@@ -15,5 +13,4 @@ const Home = () => {
   );
 };
 
-Home.getLayout = (page: ReactElement) => <AppLayout>{page}</AppLayout>;
 export default Home;

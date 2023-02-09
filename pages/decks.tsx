@@ -1,7 +1,6 @@
 import backgroundUrls from '@constant/intro-background';
 import { defaultTitle } from '@constant/text';
 import { getDeckListApi } from '@fetch/index';
-import AppLayout from '@layout/AppLayout';
 import DeckList from '@molecules/DeckList';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
@@ -10,7 +9,7 @@ import { NextPageContext } from 'next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { ReactElement, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { dehydrate, QueryClient } from 'react-query';
 
@@ -52,5 +51,4 @@ const Decks = () => {
   );
 };
 
-Decks.getLayout = (page: ReactElement) => <AppLayout>{page}</AppLayout>;
 export default Decks;

@@ -34,28 +34,29 @@ const Editor = () => {
       <Head>
         <meta name="Robots" content="noindex,nofollow" />
       </Head>
-      <div className="editor">
-        <InputContainer>
-          <InputTag type="text" placeholder="덱 제목을 입력해보세요" value={title as string} onChange={handler} />
-        </InputContainer>
-        <CardGrid expand={{ items: addedCards }} />
-        <Quill value={content} onChange={onChange} placeholder="덱 설명을 입력해보세요" />
-        <div className="actions">
-          <Button colorType="success" icon={<BsCheck />} onClick={postDeck}>
-            <span>등록</span>
-          </Button>
-        </div>
-      </div>
-      {laptop ? (
-        <div className="preview ql-snow">
-          <Text content={title || '덱 제목이 표시됩니다'} as="h2" />
+      <EditorLayout>
+        <div className="editor">
+          <InputContainer>
+            <InputTag type="text" placeholder="덱 제목을 입력해보세요" value={title as string} onChange={handler} />
+          </InputContainer>
           <CardGrid expand={{ items: addedCards }} />
-          <RawHtml className="ql-editor" content={content || '덱설명이 표시됩니다'} />
+          <Quill value={content} onChange={onChange} placeholder="덱 설명을 입력해보세요" />
+          <div className="actions">
+            <Button colorType="success" icon={<BsCheck />} onClick={postDeck}>
+              <span>등록</span>
+            </Button>
+          </div>
         </div>
-      ) : null}
+        {laptop ? (
+          <div className="preview ql-snow">
+            <Text content={title || '덱 제목이 표시됩니다'} as="h2" />
+            <CardGrid expand={{ items: addedCards }} />
+            <RawHtml className="ql-editor" content={content || '덱설명이 표시됩니다'} />
+          </div>
+        ) : null}
+      </EditorLayout>
     </>
   );
 };
 
-Editor.getLayout = (page: ReactElement) => <EditorLayout>{page}</EditorLayout>;
 export default Editor;

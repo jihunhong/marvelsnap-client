@@ -5,7 +5,6 @@ import backgroundUrls from '@constant/intro-background';
 import { CollectionCard } from '@customTypes/CollectionCard';
 import { getUserCollectionApi } from '@fetch/index';
 import useCollectionFilter from '@hooks/useCollectionFilter';
-import AppLayout from '@layout/AppLayout';
 import DivisionLayout from '@layout/DivisionLayout';
 import time from '@lib/day/time';
 import CardList from '@molecules/CardList';
@@ -15,7 +14,6 @@ import keys from '@query/keys';
 import useGetUserCollection from '@query/useGetUserCollection';
 import { NextPageContext } from 'next';
 import Link from 'next/link';
-import { ReactElement } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 
 export async function getServerSideProps(context: NextPageContext) {
@@ -68,5 +66,4 @@ const InstantProfile = () => {
   );
 };
 
-InstantProfile.getLayout = (page: ReactElement) => <AppLayout>{page}</AppLayout>;
 export default InstantProfile;

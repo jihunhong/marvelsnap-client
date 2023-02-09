@@ -3,12 +3,10 @@ import DeckDetailTemplate from '@components/@template/deck/[deckId]';
 import collections from '@constant/collections';
 import { baseImgix } from '@constant/imigx';
 import { getCommentApi, getDeckApi, getLikeApi } from '@fetch/index';
-import AppLayout from '@layout/AppLayout';
 import DetailLayout from '@layout/DetailLayout';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import { NextPageContext } from 'next';
-import { ReactElement } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 
 export async function getServerSideProps(context: NextPageContext) {
@@ -37,5 +35,4 @@ const DeckDetail = () => {
   );
 };
 
-DeckDetail.getLayout = (page: ReactElement) => <AppLayout>{page}</AppLayout>;
 export default DeckDetail;
