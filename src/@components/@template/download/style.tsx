@@ -1,4 +1,6 @@
 import { DividerContainer } from '@atoms/Divider/style';
+import { FlexRow } from '@atoms/Flex/style';
+import { TagContainer } from '@atoms/Tag/style';
 import device from '@styles/devices';
 import styled from 'styled-components';
 
@@ -49,9 +51,9 @@ export const PreviewBox = styled.div`
 `;
 
 export const DescriptionBox = styled.div`
-  background: linear-gradient(142deg, #25282a, rgb(0 0 0 / 36%));
   div {
     margin: auto;
+    align-items: flex-start;
     h1 {
       color: var(--white);
       font-size: 1.8rem;
@@ -67,6 +69,10 @@ export const DescriptionBox = styled.div`
     div {
       margin-bottom: 2rem;
     }
+  }
+  ${TagContainer} {
+    margin-left: 4px;
+    background: linear-gradient(180deg, #050505 0%, #000000 100%);
   }
   div.download {
     display: grid;

@@ -1,5 +1,7 @@
 import Button from '@atoms/Button';
 import Divider from '@atoms/Divider';
+import { FlexRow } from '@atoms/Flex/style';
+import Tag from '@atoms/Tag';
 import { baseImgix } from '@constant/imigx';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,7 +15,10 @@ const DownloadTemplate = () => {
     <S.DownloadTemplateContainer>
       <S.DescriptionBox>
         <div>
-          <h1>Snapsco Tracker (Beta)</h1>
+          <FlexRow>
+            <h1>Snapsco Tracker </h1>
+            <Tag>Beta</Tag>
+          </FlexRow>
           <h4>현재 트래커 기능은 베타버전입니다. 추후 여러 기능들을 추가할 예정이며 현재는 아래와같은 기능들을 이용 할 수 있습니다.</h4>
           <div>
             <ul>
