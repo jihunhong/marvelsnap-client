@@ -9,5 +9,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     sort: '+cost,+power,+en',
     filter: 'grade!=0',
   });
+  res.setHeader('Cache-Control', 's-maxage=86400');
   res.status(200).json(cards);
 }
