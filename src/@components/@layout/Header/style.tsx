@@ -16,11 +16,17 @@ export const Header = styled.header`
   width: 100%;
   z-index: var(--layer-header);
   display: flex;
-  height: var(--header-height);
+  height: 56px;
+
+  #logo {
+    width: 130px;
+  }
 
   .header-menu {
+    width: 100%;
     max-width: 1192px;
     padding: 0 4px;
+    margin: 0 0.5rem;
 
     @media ${device.tablet} {
       margin: 0 2rem;
@@ -51,7 +57,7 @@ export const Header = styled.header`
         font-weight: 500;
       }
       ${AvatarContainer} {
-        margin: 0 1rem;
+        margin: 0 0 0 1rem;
       }
     }
   }

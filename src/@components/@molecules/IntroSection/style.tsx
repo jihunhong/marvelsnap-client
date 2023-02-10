@@ -4,10 +4,10 @@ import { ellipsis } from '@styles/common';
 
 export const IntroSectionContainer = styled.div`
   display: flex;
-  margin: auto 2rem;
   max-width: 1192px;
   height: 480px;
   width: auto;
+  margin: auto 0.5rem;
   @media ${device.tablet} {
     margin: auto 2rem;
     height: 480px;
@@ -37,10 +37,6 @@ export const IntroSectionContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
 
-    h1,
-    h4 {
-      font-family: Poppins;
-    }
     h1 {
       @media ${device.mobileS} {
         font-size: 1.8rem;
@@ -48,7 +44,7 @@ export const IntroSectionContainer = styled.div`
       @media ${device.tablet} {
         font-size: 4.2rem;
       }
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
     h4 {
       font-weight: 500;

@@ -1,7 +1,6 @@
-import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const BuilderStatusContainer = styled(motion.section)`
+export const BuilderStatusContainer = styled.section`
   > * {
     width: 100%;
   }

@@ -28,9 +28,8 @@ const BuilderStatus = () => {
     }
   };
   return (
-    <S.BuilderStatusContainer initial={{ x: 300, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
+    <S.BuilderStatusContainer>
       <div className="content">
-        {/* <DeckStatistic dataSource={status} /> */}
         <DeckRow
           dataSource={status}
           renderItem={item => (

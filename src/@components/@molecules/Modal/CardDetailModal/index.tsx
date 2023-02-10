@@ -1,8 +1,10 @@
-import PropsModalBase from '@atoms/Modal/props';
+import ModalBase from '@atoms/Modal';
 import CardDetailTemplate from '@components/@template/card/[cardDefId]';
+import { baseImgix } from '@constant/imigx';
+import DetailLayout from '@layout/DetailLayout';
+import PageIntro from '@molecules/PageIntro';
 import useCardQuery from '@query/useCardQuery';
 import { useRouter } from 'next/router';
-import { FaRegIdCard } from 'react-icons/fa';
 
 const CardDetailModal = ({ visible }: { visible: boolean }) => {
   const router = useRouter();
@@ -12,9 +14,12 @@ const CardDetailModal = ({ visible }: { visible: boolean }) => {
     router.replace('/cards', undefined, { shallow: true, scroll: false });
   };
   return (
-    <PropsModalBase icon={<FaRegIdCard color="white" />} title={data?.name} visible={visible} onClose={onClose}>
-      <CardDetailTemplate />
-    </PropsModalBase>
+    <ModalBase visible={visible} onClose={onClose}>
+      <PageIntro title={data?.en} description={''} bgSource={`${baseImgix}/static/background-card-detail.webp`} objectPosition="center center" />
+      <DetailLayout>
+        <CardDetailTemplate />
+      </DetailLayout>
+    </ModalBase>
   );
 };
 

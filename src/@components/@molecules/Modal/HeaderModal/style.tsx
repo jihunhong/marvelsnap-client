@@ -11,6 +11,7 @@ export const HeaderModalContainer = styled(motion.dialog)`
   left: 0;
   margin: 0;
   width: 60vw;
+  max-width: 300px;
   height: 100vh;
   max-height: 100vh;
   border: none;

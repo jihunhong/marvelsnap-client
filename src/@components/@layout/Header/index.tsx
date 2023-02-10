@@ -1,8 +1,8 @@
-import * as S from './style';
-import Link from 'next/link';
-import Logo from '@atoms/Logo';
 import Avatar from '@atoms/Avatar';
+import Logo from '@atoms/Logo';
 import useUser from '@query/useUser';
+import Link from 'next/link';
+import * as S from './style';
 
 const Header = () => {
   const [user] = useUser();
