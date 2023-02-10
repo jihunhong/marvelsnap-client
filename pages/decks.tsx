@@ -27,7 +27,7 @@ export async function getServerSideProps({ req }: NextPageContext) {
 }
 
 const Decks = () => {
-  const { dataSource, fetchNextPage, isFetching, isFetchingNextPage, hasNextPage, status } = useDeckListQuery();
+  const { dataSource, fetchNextPage, isFetching, isFetchingNextPage, hasNextPage } = useDeckListQuery();
   const { ref, inView } = useInView();
   const router = useRouter();
   useEffect(() => {
@@ -43,7 +43,7 @@ const Decks = () => {
       </Head>
       <PageIntro title="Decks" description="메타에서 효과적인 다양한 덱들을 찾아보세요" bgSource={backgroundUrls.cards} objectPosition="center bottom" />
       <section>
-        {!!router.query.id ? <DeckDetailModal visible={!!router.query.id} /> : null}
+        {!!router.query.id ? <DeckDetailModal visible={!!router.query.id} /> : <></>}
         <DeckList dataSource={dataSource} />
         {isFetching && !isFetchingNextPage ? <>loading...</> : <div ref={ref} />}
       </section>
