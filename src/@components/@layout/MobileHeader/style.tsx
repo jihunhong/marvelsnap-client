@@ -10,12 +10,12 @@ export const MobileHeaderContainer = styled.header`
   > div {
     width: 100%;
     height: 100%;
-    padding: 0.6rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media ${device.mobileM} {
-      padding: 1rem 2.2rem;
+    padding: 0.6rem 0.5rem;
+    @media ${device.tablet} {
+      padding: 0.6rem 2rem;
     }
 
     svg {

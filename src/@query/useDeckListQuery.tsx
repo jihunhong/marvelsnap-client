@@ -1,7 +1,7 @@
 import * as T from '@customTypes/Deck';
 import { getDeckListApi } from '@fetch/index';
 import keys from '@query/keys';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useInfiniteQuery } from 'react-query';
 
 /**

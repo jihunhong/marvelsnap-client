@@ -9,8 +9,8 @@ export const FooterContainer = styled.footer`
     margin: 0 2rem;
     border-top: 1px solid #fff;
     color: var(--white);
-
-    @media ${device.mobileS} {
+    margin: 0 0.5rem;
+    @media ${device.tablet} {
       margin: 0 2rem;
     }
     @media ${device.laptop} {
