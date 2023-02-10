@@ -27,7 +27,7 @@ const CardDetailModal = dynamic(() => import('@molecules/Modal/CardDetailModal')
   ssr: false,
 });
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery([keys.getCardList], getCardListApi);
 
