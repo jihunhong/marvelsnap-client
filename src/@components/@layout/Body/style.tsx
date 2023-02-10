@@ -8,7 +8,7 @@ export const BodyContainer = styled.main`
   > section {
     :not(.full-width) {
       max-width: 1192px;
-      margin: 0 2rem;
+      margin: 0 0.5rem;
       width: auto;
       padding-top: 2rem;
       @media ${device.mobileS} {

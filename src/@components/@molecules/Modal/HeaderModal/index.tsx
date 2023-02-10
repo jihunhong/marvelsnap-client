@@ -14,7 +14,7 @@ type HeaderModalProps = { onClick: (e: SyntheticEvent) => void };
 const HeaderModal = ({ onClick }: HeaderModalProps, ref: ForwardedRef<any>) => {
   const [user] = useUser();
   return (
-    <S.HeaderModalContainer initial={{ x: -250, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ opacity: 0 }} ref={ref} onClick={onClick}>
+    <S.HeaderModalContainer transition={{ default: { ease: 'linear' } }} initial={{ x: -250, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ opacity: 0 }} ref={ref} onClick={onClick}>
       <div>
         <FlexRow className="profile">
           {user ? (

@@ -27,7 +27,7 @@ const MobileHeader = () => {
           <FiMenu size={32} onClick={handler} />
           <Link href="/">
             <a>
-              <Logo />
+              <Logo width={94} height={34} />
             </a>
           </Link>
           <div className="avatar">{user ? <Avatar href="" src={user?.avatarUrl || user?.avatar} writer={user?.username || user?.name} /> : null}</div>
