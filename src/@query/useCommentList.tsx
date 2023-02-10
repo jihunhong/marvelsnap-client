@@ -2,7 +2,7 @@ import * as T from '@customTypes/Comment';
 import { getCommentApi } from '@fetch/index';
 import keys from '@query/keys';
 import { SyntheticEvent, useDebugValue } from 'react';
-import { useInfiniteQuery } from 'react-query';
+import { useInfiniteQuery, useQuery, useQueryClient } from 'react-query';
 
 /**
  * @comment pageParam의 기본값은 SSR에서 이미 가져온 페이지가 1이므로 2부터 시작하도록 기본값을 2로 선언했다
@@ -11,7 +11,7 @@ import { useInfiniteQuery } from 'react-query';
  */
 
 const useCommentListQuery = ({ collectionId, recordId }: { collectionId: string; recordId: string }) => {
-  const { data, fetchNextPage } = useInfiniteQuery([keys.getCommentList, collectionId, recordId], ({ pageParam = 2 }) => getCommentApi({ collectionId, recordId, page: pageParam }), {
+  const { data, fetchNextPage } = useInfiniteQuery([keys.getCommentList, collectionId, recordId], ({ pageParam = 1 }) => getCommentApi({ collectionId, recordId, page: pageParam }), {
     getNextPageParam: data => (data.page === data.totalPages ? undefined : data.page + 1),
     refetchOnReconnect: false,
     refetchOnMount: false,

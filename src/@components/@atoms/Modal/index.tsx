@@ -7,7 +7,7 @@ import * as S from './style';
 type Props = {
   children: JSX.Element | Array<JSX.Element>;
   visible: boolean;
-  onClose: (e: any) => void;
+  onClose?: (e: any) => void;
 };
 setAppElement('#__next');
 

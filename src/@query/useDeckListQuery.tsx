@@ -15,6 +15,7 @@ const useDeckListQuery = () => {
     getNextPageParam: data => {
       return data.page === data.totalPages ? undefined : data.page + 1;
     },
+    cacheTime: 1000 * 5,
     refetchOnReconnect: false,
     refetchOnMount: false,
     refetchOnWindowFocus: false,

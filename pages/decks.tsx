@@ -13,11 +13,12 @@ import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { dehydrate, QueryClient } from 'react-query';
 
-const DeckDetailModal = dynamic(() => import('@molecules/Modal/DeckDetailModal'));
+const DeckDetailModal = dynamic(() => import('@molecules/Modal/DeckDetailModal'), {
+  ssr: false,
+});
 
 export async function getServerSideProps({ req }: NextPageContext) {
   const queryClient = new QueryClient();
-  // 첫 로드에서는 1페이지만 로딩하면 되기 때문에
   await queryClient.prefetchInfiniteQuery([keys.getDeckList], ({ pageParam = 1 }) => getDeckListApi(pageParam));
   return {
     props: {
@@ -43,7 +44,7 @@ const Decks = () => {
       </Head>
       <PageIntro title="Decks" description="메타에서 효과적인 다양한 덱들을 찾아보세요" bgSource={backgroundUrls.cards} objectPosition="center bottom" />
       <section>
-        {!!router.query.id ? <DeckDetailModal visible={!!router.query.id} /> : <></>}
+        {!!router.query.id ? <DeckDetailModal visible={!!router.query.id} /> : null}
         <DeckList dataSource={dataSource} />
         {isFetching && !isFetchingNextPage ? <>loading...</> : <div ref={ref} />}
       </section>

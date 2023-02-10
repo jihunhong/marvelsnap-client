@@ -13,7 +13,7 @@ export const style: Styles = {
     backgroundColor: 'var(--modal-background)',
     border: 'none',
     boxShadow: 'var(--modal-boxshadow)',
-    inset: '10px',
+    inset: '0px',
     width: '100vw',
     height: '100vh',
   },
