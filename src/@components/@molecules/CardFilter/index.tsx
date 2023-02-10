@@ -17,7 +17,7 @@ const CardFilter = () => {
   const [ascend, handler] = useToggle(true);
 
   return (
-    <S.CardFilterContainer key="filter" initial={{ x: 300, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
+    <S.CardFilterContainer key="filter">
       <div className="content">
         <section className="filter">
           <div className="header">

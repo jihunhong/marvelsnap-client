@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
 type Props = {
-  children: JSX.Element;
+  children: JSX.Element | Array<JSX.Element>;
 };
 
 const Footer = dynamic(() => import('@layout/Footer'));

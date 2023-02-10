@@ -12,7 +12,7 @@ export const BodyContainer = styled.main`
       width: auto;
       padding-top: 2rem;
       @media ${device.mobileS} {
-        margin: 0 1.5rem;
+        margin: 0 0.5rem;
         width: auto;
         padding-top: 2rem;
       }

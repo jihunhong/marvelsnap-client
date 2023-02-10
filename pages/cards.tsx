@@ -21,7 +21,6 @@ import { dehydrate, QueryClient } from 'react-query';
 
 const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
   ssr: false,
-  loading: () => <div>Filter UI Loading</div>,
 });
 
 const CardDetailModal = dynamic(() => import('@molecules/Modal/CardDetailModal'), {

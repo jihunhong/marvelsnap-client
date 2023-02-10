@@ -8,18 +8,24 @@ import useBuilder from '@hooks/useBuilder';
 import useToggle from '@hooks/useToggle';
 import useMediaQuery from '@hooks/util/useMediaQuery';
 import DivisionLayout from '@layout/DivisionLayout';
-import BuilderStatus from '@molecules/BuilderStatus';
-import CardFilter from '@molecules/CardFilter';
 import CardList from '@molecules/CardList';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
 import breakpoints from '@styles/breakpoints';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { SyntheticEvent, useEffect } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 import { useRecoilValue } from 'recoil';
 import { getIds } from 'src/@store/builder';
+
+const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
+  ssr: false,
+});
+const BuilderStatus = dynamic(() => import('@molecules/BuilderStatus'), {
+  ssr: false,
+});
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -66,7 +72,7 @@ const Builder = () => {
             )}
           />
         </section>
-        {visible ? <CardFilter /> : <BuilderStatus />}
+        {visible ? <BuilderStatus /> : <CardFilter />}
       </DivisionLayout>
     </>
   );

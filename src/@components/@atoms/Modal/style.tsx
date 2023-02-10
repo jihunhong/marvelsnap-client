@@ -1,6 +1,23 @@
 import { Opacity } from '@styles/transition';
 import { motion } from 'framer-motion';
+import { Styles } from 'react-modal';
 import styled from 'styled-components';
+
+export const style: Styles = {
+  overlay: {
+    zIndex: 'var(--layer-modal)',
+    backgroundColor: 'var(--modal-backdrop)',
+  },
+  content: {
+    padding: '0',
+    backgroundColor: 'var(--modal-background)',
+    border: 'none',
+    boxShadow: 'var(--modal-boxshadow)',
+    inset: '0px',
+    width: '100vw',
+    height: '100vh',
+  },
+};
 
 export const ModalBaseContainer = styled(motion.dialog)`
   position: fixed;
