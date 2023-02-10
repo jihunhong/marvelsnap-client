@@ -22,4 +22,4 @@ const nextConfig = {
 
 module.exports = nextConfig;
 
-module.exports = withSentryConfig(module.exports, { silent: true }, { hideSourcemaps: false });
+module.exports = process.env.NODE_ENV === 'development' ? nextConfig : withSentryConfig(module.exports, { silent: true }, { hideSourcemaps: false });
