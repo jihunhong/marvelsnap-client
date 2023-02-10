@@ -3,6 +3,8 @@ import { baseImgix } from '@constant/imigx';
 import PageIntro from '@molecules/PageIntro';
 import { NextPageContext } from 'next';
 import Head from 'next/head';
+import * as Sentry from '@sentry/nextjs';
+import NextErrorComponent from 'next/error';
 
 const Error = ({ statusCode }: { statusCode: number }) => {
   return (
@@ -16,9 +18,9 @@ const Error = ({ statusCode }: { statusCode: number }) => {
   );
 };
 
-Error.getInitialProps = ({ res, err }: NextPageContext) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
-  return { statusCode };
+Error.getInitialProps = async (context: NextPageContext) => {
+  await Sentry.captureUnderscoreErrorException(context);
+  return NextErrorComponent.getInitialProps(context);
 };
 
 export default Error;
