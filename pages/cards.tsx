@@ -12,6 +12,7 @@ import CardList from '@molecules/CardList';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
+import { NextPageContext } from 'next';
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
@@ -27,10 +28,10 @@ const CardDetailModal = dynamic(() => import('@molecules/Modal/CardDetailModal')
   ssr: false,
 });
 
-export async function getStaticProps() {
+export async function getStaticProps({ res }: NextPageContext) {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery([keys.getCardList], getCardListApi);
-
+  res?.setHeader('Cache-Control', 'public, s-maxage=31536000, ');
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
