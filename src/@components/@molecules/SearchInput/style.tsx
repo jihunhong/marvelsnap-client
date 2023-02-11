@@ -54,6 +54,6 @@ export const SearchInputContainer = styled.div`
   position: relative;
   input {
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 400;
   }
 `;

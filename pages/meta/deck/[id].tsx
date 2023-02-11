@@ -1,7 +1,7 @@
 import { FlexRow } from '@atoms/Flex/style';
 import MetaDeckDetailTemplate from '@components/@template/meta/deck/[deckId]';
 import { baseImgix } from '@constant/imigx';
-import { getDeckApi, getMetaDeckApi } from '@fetch/index';
+import { getMetaDeckApi } from '@fetch/index';
 import DetailLayout from '@layout/DetailLayout';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
