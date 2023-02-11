@@ -11,6 +11,7 @@ const keys = {
   getDeck: '/api/deck',
   postLike: '/api/like',
   getLike: '/api/like/list',
+  getArticles: '/api/article/list',
 
   getMetaDeck: '/api/meta/deck',
   getMetaDeckList: '/api/meta/deck/list',

@@ -28,6 +28,15 @@ export const getMetaDeckListApi = async (page: number = 1) => {
   return data;
 };
 
+export const getArticleListApi = async (page: number = 1) => {
+  const { data } = await axios.get('/api/article/list', {
+    params: {
+      page,
+    },
+  });
+  return data;
+};
+
 export const getMetaDeckApi = async (id: string) => {
   const { data } = await axios.get('/api/meta/deck', {
     params: {

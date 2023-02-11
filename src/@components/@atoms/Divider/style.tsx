@@ -5,6 +5,7 @@ type DividerContainerProps = {
   $borderless: boolean;
 };
 export const DividerContainer = styled.div<DividerContainerProps>`
+  width: 100%;
   margin: ${props => props.$margin}px auto;
   border-top: ${props => (props.$borderless ? 'none' : '1px solid var(--white-border-color)')};
 `;

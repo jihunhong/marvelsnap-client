@@ -1,35 +1,36 @@
-import { PostPreviewContainer } from './style';
 import Avatar from '@atoms/Avatar';
+import Divider from '@atoms/Divider';
+import { PostPreviewContainer } from './style';
 
 type Props = {
   title: string;
-  content: string;
+  summary: string;
   tags: Array<string>;
   writer: string;
 };
 
-const Post = ({ title = 'ChatGPT Is Having a Thomas Edison Moment', content = 'Why breakthrough technologies need to be accessible', writer = 'jihunhong' }: Partial<Props>) => {
+const Post = ({ title = 'ChatGPT Is Having a Thomas Edison Moment', summary = 'Why breakthrough technologies need to be accessible', writer = 'jihunhong' }: Partial<Props>) => {
   return (
-    <PostPreviewContainer>
-      <div className="meta">
-        <div className="writer">
-          <Avatar
-            src="https://avatars.githubusercontent.com/u/21700764?v=4"
-            // TODO :: example image
-          />
+    <>
+      <PostPreviewContainer>
+        <div className="meta">
+          <div className="writer">
+            <Avatar src="https://avatars.githubusercontent.com/u/21700764?v=4" />
+            <a>
+              <h4>{writer}</h4>
+            </a>
+          </div>
           <a>
-            <h4>{writer}</h4>
+            <h2>{title}</h2>
+            <h3>{summary}</h3>
           </a>
         </div>
-        <a>
-          <h2>{title}</h2>
-          <h3>{content}</h3>
-        </a>
-      </div>
-      <div className="thumb-container">
-        <img width={200} height={134} src="https://miro.medium.com/fit/c/300/201/1*uPt_ccZmvCMnQahIs43ahg.png" />
-      </div>
-    </PostPreviewContainer>
+        <div className="thumb-container">
+          <img width={200} height={134} src="https://miro.medium.com/fit/c/300/201/1*uPt_ccZmvCMnQahIs43ahg.png" />
+        </div>
+      </PostPreviewContainer>
+      <Divider margin={24} />
+    </>
   );
 };
 
