@@ -11,6 +11,7 @@ export const HeaderModalContainer = styled(motion.dialog)`
   left: 0;
   margin: 0;
   width: 60vw;
+  min-width: 200px;
   max-width: 300px;
   height: 100vh;
   max-height: 100vh;
@@ -18,12 +19,14 @@ export const HeaderModalContainer = styled(motion.dialog)`
   box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
   border: 1px solid rgb(255 255 255 / 5%);
   background-color: #000;
-  padding: 1rem;
+  padding: 0;
+
   &::backdrop {
     background-color: #4f4f4f70;
   }
 
   .profile {
+    padding: 1rem 1rem 0 1rem;
     ${AvatarContainer} {
       margin-right: 8px;
     }
@@ -52,9 +55,9 @@ export const HeaderModalContainer = styled(motion.dialog)`
 
   nav {
     display: grid;
-    grid-auto-rows: 40px;
-    row-gap: 1rem;
+    grid-auto-rows: 54px;
     a {
+      padding: 1rem;
       display: flex;
       align-items: center;
       ${Opacity}
@@ -68,6 +71,8 @@ export const HeaderModalContainer = styled(motion.dialog)`
     }
     .active {
       opacity: 1;
+      background-color: #2d2d2d;
+      border-left: 4px solid var(--primary-light-color);
     }
   }
 `;

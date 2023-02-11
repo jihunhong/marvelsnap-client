@@ -2,7 +2,7 @@ import { defaultTitle, siteBaseUrl } from '@constant/text';
 import PageIntro from '@molecules/PageIntro';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import backgroundUrls from '@constant/intro-background';
+import backgroundUrls from '@constant/backgrounds';
 import DownloadTemplate from '@components/@template/download';
 
 const Download = () => {

@@ -1,4 +1,4 @@
-import backgroundUrls from '@constant/intro-background';
+import backgroundUrls from '@constant/backgrounds';
 import { defaultTitle } from '@constant/text';
 import { getDeckListApi } from '@fetch/index';
 import DeckList from '@molecules/DeckList';

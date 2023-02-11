@@ -6,22 +6,20 @@ import type * as T from '@customTypes/Deck';
 import useCopyCode from '@hooks/deck/useDeckCode';
 import useDeckTag from '@hooks/deck/useDeckTag';
 import useNavigate from '@hooks/useNavigate';
-import format from '@lib/day/format';
 import Link from 'next/link';
-import { FaRegCommentDots, FaRegCopy } from 'react-icons/fa';
+import { FaLink, FaRegCommentDots, FaRegCopy } from 'react-icons/fa';
 import { FiThumbsUp } from 'react-icons/fi';
 import * as S from './style';
 
-const Deck = ({ id, title, created, cards, like, comment }: T.Deck) => {
+const MetaDeck = ({ id, title, created, cards, like, comment, origin, writer }: T.Deck) => {
   const [handler] = useCopyCode({ items: cards, title });
   const series = useDeckTag({ items: cards });
-  const [navigate] = useNavigate({ href: `/decks?id=${id}`, as: `/deck/${id}` });
-  const date = format(created);
+  const [navigate] = useNavigate({ href: `/meta?id=${id}`, as: `/meta/deck/${id}` });
   return (
-    <S.DeckContainer>
+    <S.MetaDeckContainer>
       <div className="header">
         <div className="meta-top">
-          <Link href={`/decks?id=${id}`} as={`/deck/${id}`} scroll={false} shallow={true}>
+          <Link href={`/meta?id=${id}`} as={`/meta/deck/${id}`} scroll={false} shallow={true}>
             <a>
               <div className="tags">
                 <Tag icon={<SeriesIcon />} className="tag" data-series={series}>
@@ -33,6 +31,9 @@ const Deck = ({ id, title, created, cards, like, comment }: T.Deck) => {
         </div>
 
         <div className="action" onClick={handler}>
+          <a href={origin} target="_blank" rel="noreferrer noopener">
+            <FaLink size={24} color="#fff" />
+          </a>
           <FaRegCopy size={24} color="#fff" />
         </div>
       </div>
@@ -59,10 +60,10 @@ const Deck = ({ id, title, created, cards, like, comment }: T.Deck) => {
             <span>{comment?.length || 0}</span>
           </div>
         </div>
-        <span>{date}</span>
+        <span>{writer as string}</span>
       </div>
-    </S.DeckContainer>
+    </S.MetaDeckContainer>
   );
 };
 
-export default Deck;
+export default MetaDeck;

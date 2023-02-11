@@ -4,12 +4,10 @@ import styled from 'styled-components';
 import { CardListContainer } from '../../@molecules/CardList/style';
 
 export const DivisionLayoutContainer = styled.section`
-  @media ${device.tablet} {
-    display: flex;
-    flex-direction: column-reverse;
-  }
+  display: flex;
+  flex-direction: column-reverse;
 
-  @media ${device.laptop} {
+  @media ${device.tablet} {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas: 'card card card card card card card card offset filter filter filter';
@@ -42,14 +40,15 @@ export const DivisionLayoutContainer = styled.section`
     }
 
     .content {
-      position: sticky;
-      top: var(--header-height);
-      min-height: var(--min-height);
+      position: relative;
+      top: unset;
+      min-height: 0px;
+      height: auto;
+      margin-bottom: 2rem;
       @media ${device.tablet} {
-        position: relative;
-        top: unset;
-        min-height: 0px;
-        height: auto;
+        position: sticky;
+        top: var(--header-height);
+        min-height: var(--min-height);
       }
     }
   }

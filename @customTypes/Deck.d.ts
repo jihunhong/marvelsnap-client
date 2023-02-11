@@ -11,9 +11,10 @@ export type Deck = {
   };
   collectionId?: string;
   cards: Array<C.Card>;
-  writer: User;
+  writer: User | string;
   archtype: Array<ArchType>;
   created: string; // "2023-01-11 11:41:14.909Z"
   like?: Array<string>;
   comment?: Array<string>;
+  origin?: string;
 };

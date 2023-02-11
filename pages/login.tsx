@@ -1,5 +1,5 @@
 import LoginTemplate from '@components/@template/login';
-import backgroundUrls from '@constant/intro-background';
+import backgroundUrls from '@constant/backgrounds';
 import PageIntro from '@molecules/PageIntro';
 
 const Login = () => {

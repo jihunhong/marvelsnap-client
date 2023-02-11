@@ -19,6 +19,25 @@ export const getDeckListApi = async (page: number = 1) => {
   return data;
 };
 
+export const getMetaDeckListApi = async (page: number = 1) => {
+  const { data } = await axios.get('/api/meta/deck/list', {
+    params: {
+      page,
+    },
+  });
+  return data;
+};
+
+export const getMetaDeckApi = async (id: string) => {
+  const { data } = await axios.get('/api/meta/deck', {
+    params: {
+      id,
+    },
+  });
+
+  return data;
+};
+
 export const postDeckApi = async (payload: { title: string; items: string[]; description: string | null }) => {
   const { data } = await axios.post('/api/deck', payload, {
     headers: {

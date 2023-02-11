@@ -12,6 +12,8 @@ const keys = {
   postLike: '/api/like',
   getLike: '/api/like/list',
 
+  getMetaDeck: '/api/meta/deck',
+  getMetaDeckList: '/api/meta/deck/list',
   getUserCollection: '/api/user/collection',
   postUserCollection: '/api/user/collection',
 };

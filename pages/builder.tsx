@@ -1,21 +1,18 @@
 import Card from '@atoms/Card';
 import CardListHeader from '@atoms/CardListHeader';
-import backgroundUrls from '@constant/intro-background';
+import backgroundUrls from '@constant/backgrounds';
 import * as T from '@customTypes/Card';
 import { getCardListApi } from '@fetch/index';
-import useNotify from '@hooks/notify/useNotify';
 import useBuilder from '@hooks/useBuilder';
 import useToggle from '@hooks/useToggle';
-import useMediaQuery from '@hooks/util/useMediaQuery';
 import DivisionLayout from '@layout/DivisionLayout';
 import CardList from '@molecules/CardList';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
-import breakpoints from '@styles/breakpoints';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { SyntheticEvent, useEffect } from 'react';
+import { SyntheticEvent } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 import { useRecoilValue } from 'recoil';
 import { getIds } from 'src/@store/builder';
@@ -43,11 +40,6 @@ const Builder = () => {
   const [onClick] = useBuilder();
   const selectedIds = useRecoilValue(getIds);
   const [visible, handler, setVisible] = useToggle();
-  const [tablet] = useMediaQuery(breakpoints.tablet);
-  const notify = useNotify();
-  useEffect(() => {
-    if (tablet) notify.responsiveWarn();
-  }, [tablet]);
 
   const onAdd = (e: SyntheticEvent, item: T.Card) => {
     onClick(e, item);

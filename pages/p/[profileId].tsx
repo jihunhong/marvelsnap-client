@@ -1,7 +1,7 @@
 import Button from '@atoms/Button';
 import ButtonGroup from '@atoms/ButtonGroup';
 import Card from '@atoms/Card';
-import backgroundUrls from '@constant/intro-background';
+import backgroundUrls from '@constant/backgrounds';
 import { CollectionCard } from '@customTypes/CollectionCard';
 import { getUserCollectionApi } from '@fetch/index';
 import useCollectionFilter from '@hooks/useCollectionFilter';

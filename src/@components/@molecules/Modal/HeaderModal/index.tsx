@@ -6,6 +6,8 @@ import useUser from '@query/useUser';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ForwardedRef, forwardRef, SyntheticEvent } from 'react';
+import { BiDownload } from 'react-icons/bi';
+import { BsDownload } from 'react-icons/bs';
 import { CgNotes } from 'react-icons/cg';
 import { FaHome, FaRegIdCard, FaWrench } from 'react-icons/fa';
 import * as S from './style';
@@ -57,6 +59,12 @@ const HeaderModal = ({ onClick }: HeaderModalProps, ref: ForwardedRef<any>) => {
           <a className={router.asPath === '/builder' ? 'active' : ''}>
             <FaWrench size={22} color="#fff" />
             <span>덱 빌더</span>
+          </a>
+        </Link>
+        <Link href="/download">
+          <a className={router.asPath === '/download' ? 'active' : ''}>
+            <BiDownload size={22} color="#fff" />
+            <span>다운로드</span>
           </a>
         </Link>
       </nav>

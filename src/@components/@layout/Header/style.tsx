@@ -49,12 +49,19 @@ export const Header = styled.header`
         outline: none;
         ${Opacity}
       }
+      a.active {
+        opacity: 1;
+        span {
+          border-bottom: 3px solid var(--primary-light-color);
+        }
+      }
       margin-left: auto;
       display: flex;
       justify-content: space-between;
       span {
         margin: 0 1rem;
-        font-weight: 500;
+        font-weight: 700;
+        font-size: 0.8rem;
       }
       ${AvatarContainer} {
         margin: 0 0 0 1rem;

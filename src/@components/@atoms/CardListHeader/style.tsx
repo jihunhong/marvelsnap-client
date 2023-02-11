@@ -2,9 +2,6 @@ import styled from 'styled-components';
 
 export const CardListHeaderContainer = styled.div`
   background: #1618199c;
-  z-index: var(--layer-header);
-  position: sticky;
-  top: var(--header-height);
   padding: 6px 0;
   display: flex;
   align-items: center;

@@ -1,6 +1,6 @@
 import Avatar from '@atoms/Avatar';
 import Button from '@atoms/Button';
-import fromNow from '@lib/day/fromNow';
+import format from '@lib/day/format';
 import useDeleteComment from '@query/useDeleteComment';
 import useUser from '@query/useUser';
 import { BsTrash } from 'react-icons/bs';
@@ -23,7 +23,7 @@ const Comment = ({ writer, content, created, id, avatarUrl, user }: CommentProps
       <div className="header">
         <Avatar src={avatarUrl} writer={writer} />
         <h4>{writer}</h4>
-        <span>{fromNow(created)}</span>
+        <span>{format(created)}</span>
       </div>
       <div className="body">
         <p>{content}</p>
