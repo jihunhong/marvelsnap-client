@@ -2,12 +2,13 @@ import Avatar from '@atoms/Avatar';
 import Divider from '@atoms/Divider';
 import { FlexColumn, FlexRow } from '@atoms/Flex/style';
 import GoogleBtn from '@atoms/GoogleBtn';
+import StarIcon from '@atoms/Icon/star';
 import useUser from '@query/useUser';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ForwardedRef, forwardRef, SyntheticEvent } from 'react';
 import { BiDownload } from 'react-icons/bi';
-import { BsDownload } from 'react-icons/bs';
+import { BsDownload, BsStarFill } from 'react-icons/bs';
 import { CgNotes } from 'react-icons/cg';
 import { FaHome, FaRegIdCard, FaWrench } from 'react-icons/fa';
 import * as S from './style';
@@ -41,6 +42,12 @@ const HeaderModal = ({ onClick }: HeaderModalProps, ref: ForwardedRef<any>) => {
           <a className={router.asPath === '/' ? 'active' : ''}>
             <FaHome size={22} color="#fff" />
             <span>홈</span>
+          </a>
+        </Link>
+        <Link href="/meta">
+          <a className={router.asPath === '/meta' ? 'active' : ''}>
+            <BsStarFill size={22} color="#fff" />
+            <span>메타</span>
           </a>
         </Link>
         <Link href="/decks">

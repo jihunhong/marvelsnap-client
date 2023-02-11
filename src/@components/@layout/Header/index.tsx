@@ -19,6 +19,11 @@ const Header = () => {
           </Link>
         </div>
         <div className="menus">
+          <Link href="/meta">
+            <a className={router.asPath === '/meta' ? 'active' : ''}>
+              <span>메타</span>
+            </a>
+          </Link>
           <Link href="/decks">
             <a className={router.asPath === '/decks' ? 'active' : ''}>
               <span>덱</span>
