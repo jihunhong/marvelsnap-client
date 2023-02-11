@@ -26,7 +26,8 @@ const Editor = () => {
   const [content, onChange] = useQuill(null);
   const addedCards = useRecoilValue(deckStatusAtom);
   const [postDeck] = usePostDeck(title, content);
-  const [laptop] = useMediaQuery(breakpoints.laptop);
+  const [tablet] = useMediaQuery(breakpoints.tablet);
+  console.log(tablet);
 
   return (
     <>
@@ -46,13 +47,13 @@ const Editor = () => {
             </Button>
           </div>
         </div>
-        {laptop ? (
+        {tablet ? null : (
           <div className="preview ql-snow">
             <Text content={title || '덱 제목이 표시됩니다'} as="h2" />
             <CardGrid expand={{ items: addedCards }} />
             <RawHtml className="ql-editor" content={content || '덱설명이 표시됩니다'} />
           </div>
-        ) : null}
+        )}
       </EditorLayout>
     </>
   );

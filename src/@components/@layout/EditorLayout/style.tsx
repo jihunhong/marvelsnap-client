@@ -5,12 +5,12 @@ import device from '@styles/devices';
 import styled from 'styled-components';
 
 export const EditorLayoutContainer = styled.section`
-  display: grid;
-  grid-auto-flows: column;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   @media ${device.tablet} {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-auto-flows: column;
+    grid-template-columns: 1fr 1fr;
   }
 
   .editor,

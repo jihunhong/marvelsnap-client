@@ -49,5 +49,5 @@ jsconfig.js
 next.config.original.js
 
 # only use in development
-/pages/article
+/pages/article*
 /api/article/
