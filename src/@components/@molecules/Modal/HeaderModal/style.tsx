@@ -17,8 +17,8 @@ export const HeaderModalContainer = styled(motion.dialog)`
   border: none;
   box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
   border: 1px solid rgb(255 255 255 / 5%);
-  background-color: #0b080f;
-  padding: 40px 2rem;
+  background-color: #000;
+  padding: 1rem;
   &::backdrop {
     background-color: #4f4f4f70;
   }
@@ -53,16 +53,21 @@ export const HeaderModalContainer = styled(motion.dialog)`
   nav {
     display: grid;
     grid-auto-rows: 40px;
+    row-gap: 1rem;
     a {
       display: flex;
       align-items: center;
       ${Opacity}
       svg {
-        margin-right: 8px;
+        margin-right: 1rem;
       }
       span {
+        font-size: 1.2rem;
         font-weight: 700;
       }
+    }
+    .active {
+      opacity: 1;
     }
   }
 `;

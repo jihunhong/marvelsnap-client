@@ -6,7 +6,7 @@ import keys from '@query/keys';
 import { useQuery } from 'react-query';
 
 const useSearch = () => {
-  const [value, handler] = useInput(null);
+  const [value, handler] = useInput('');
   const q = useDebounce(value, 250);
   const { data } = useQuery([keys.getSearch, q], () => searchingApi(q), {
     enabled: !!q && isClient(),

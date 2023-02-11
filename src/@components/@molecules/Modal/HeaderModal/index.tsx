@@ -4,15 +4,18 @@ import { FlexColumn, FlexRow } from '@atoms/Flex/style';
 import GoogleBtn from '@atoms/GoogleBtn';
 import useUser from '@query/useUser';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { ForwardedRef, forwardRef, SyntheticEvent } from 'react';
 import { CgNotes } from 'react-icons/cg';
-import { FaRegIdCard, FaWrench } from 'react-icons/fa';
+import { FaHome, FaRegIdCard, FaWrench } from 'react-icons/fa';
 import * as S from './style';
 
 type HeaderModalProps = { onClick: (e: SyntheticEvent) => void };
 
 const HeaderModal = ({ onClick }: HeaderModalProps, ref: ForwardedRef<any>) => {
   const [user] = useUser();
+  const router = useRouter();
+
   return (
     <S.HeaderModalContainer transition={{ default: { ease: 'linear' } }} initial={{ x: -250, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ opacity: 0 }} ref={ref} onClick={onClick}>
       <div>
@@ -32,21 +35,27 @@ const HeaderModal = ({ onClick }: HeaderModalProps, ref: ForwardedRef<any>) => {
       </div>
       <Divider margin={20} />
       <nav>
+        <Link href="/">
+          <a className={router.asPath === '/' ? 'active' : ''}>
+            <FaHome size={22} color="#fff" />
+            <span>홈</span>
+          </a>
+        </Link>
         <Link href="/decks">
-          <a>
-            <CgNotes color="#fff" />
+          <a className={router.asPath === '/decks' ? 'active' : ''}>
+            <CgNotes size={22} color="#fff" />
             <span>덱</span>
           </a>
         </Link>
         <Link href="/cards">
-          <a>
-            <FaRegIdCard color="#fff" />
+          <a className={router.asPath === '/cards' ? 'active' : ''}>
+            <FaRegIdCard size={22} color="#fff" />
             <span>카드</span>
           </a>
         </Link>
         <Link href="/builder">
-          <a>
-            <FaWrench color="#fff" />
+          <a className={router.asPath === '/builder' ? 'active' : ''}>
+            <FaWrench size={22} color="#fff" />
             <span>덱 빌더</span>
           </a>
         </Link>
