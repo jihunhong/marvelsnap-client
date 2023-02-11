@@ -66,7 +66,7 @@ const DownloadTemplate = () => {
             <FiInfo size={14} color="#fff" />
             <span>
               트래커 이용에 문제가 있으시다면{' '}
-              <a href="https://discord.gg/2hb3frmA" target="_blank" rel="noreferrer noopener">
+              <a href="https://discord.gg/EM2bmXDAwQ" target="_blank" rel="noreferrer noopener">
                 디스코드
               </a>
               로 문의 바랍니다

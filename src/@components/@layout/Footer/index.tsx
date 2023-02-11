@@ -26,7 +26,7 @@ const Footer = () => {
           <a href="mailto:redgee49@gmail.com" rel="noreferrer noopener">
             <BsFillEnvelopeFill size={20} />
           </a>
-          <a href="https://discord.gg/2hb3frmA" target="_blank" rel="noreferrer noopener">
+          <a href="https://discord.gg/EM2bmXDAwQ" target="_blank" rel="noreferrer noopener">
             <FaDiscord size={21} />
           </a>
           <a href="https://toon.at/donate/638107584926564794" target="_blank" rel="noreferrer noopener">
