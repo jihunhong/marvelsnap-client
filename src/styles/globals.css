@@ -107,7 +107,15 @@
         background-color: var(--black-background);
     }
 
+    li,em {
+        color: var(--white);
+    }
+
     ul li::marker {
+        color: var(--white);
+    }
+
+    .terms, .privacy {
         color: var(--white);
     }
 

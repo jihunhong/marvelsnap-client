@@ -1,6 +1,7 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
 import { ServerStyleSheet } from 'styled-components';
+import Script from 'next/script';
 
 React.useLayoutEffect = React.useEffect;
 
@@ -44,6 +45,13 @@ export default class MyDocument extends Document {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#848484" />
           <meta name="msapplication-TileColor" content="#2b5797" />
           <meta name="theme-color" content="#000000" />
+          <Script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8284554096460532"
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+            onError={e => console.error('script failed to load', e)}
+          />
         </Head>
         <body>
           <Main />

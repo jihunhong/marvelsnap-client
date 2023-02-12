@@ -15,7 +15,7 @@ const postRequestForCreate = async (req, res) => {
   } catch (err) {
     const created = await pb.collection('user_collection').create({
       profileId: req.body.profileId,
-      cards: req.body.cards,
+      cards: JSON.stringify(req.body.cards),
     });
     return res.status(200).json(created);
   }
