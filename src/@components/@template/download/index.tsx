@@ -59,7 +59,6 @@ const DownloadTemplate = () => {
           <ul className="notes">
             <li>덱 통계</li>
             <li>전적 통계</li>
-            <li>컬렉션 자동 연동</li>
           </ul>
           <Divider margin={14} />
           <div className="ps">

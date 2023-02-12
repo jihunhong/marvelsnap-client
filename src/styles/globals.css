@@ -107,6 +107,10 @@
         background-color: var(--black-background);
     }
 
+    ul li::marker {
+        color: var(--white);
+    }
+
     kbd {
       background-color: #eee;
       border-radius: 3px;
