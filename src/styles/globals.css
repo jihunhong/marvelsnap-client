@@ -115,7 +115,7 @@
         color: var(--white);
     }
 
-    .terms {
+    .terms, .privacy {
         color: var(--white);
     }
 
