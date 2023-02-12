@@ -19,6 +19,7 @@
     "dompurify": "^2.4.3",
     "framer-motion": "^8.5.0",
     "next": "^12.3.4",
+    "next-s3-upload": "^0.2.9",
     "next-seo": "^5.15.0",
     "pocketbase": "^0.9.0",
     "react": "18.2.0",
