@@ -13,7 +13,7 @@ export const DEFAULT_SEO = {
     site_name: 'Snapsco',
     images: [
       {
-        url: 'https://marvelsnap.imgix.net/static/logo.png?w=256&h=256',
+        url: 'https://marvelsnap.imgix.net/static/snapsco.png?w=256&h=256',
         width: 256,
         height: 256,
         alt: 'Snapsco logo',
