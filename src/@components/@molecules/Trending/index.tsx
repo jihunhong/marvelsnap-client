@@ -1,19 +1,16 @@
 import Post from '@atoms/Post';
-import { getArticleListApi } from '@fetch/index';
-import keys from '@query/keys';
-import { useQuery } from 'react-query';
+import Link from 'next/link';
 import * as S from './style';
 
-const Trending = () => {
-  const { data } = useQuery([keys.getArticles], () => getArticleListApi(), {
-    refetchOnMount: false,
-    refetchOnReconnect: false,
-    refetchOnWindowFocus: false,
-  });
+const Trending = ({ dataSource }) => {
   return (
     <S.TrendingContainer>
-      {data?.items.map(item => (
-        <Post key={item.id} {...item} />
+      {dataSource?.map(item => (
+        <Link key={item.id} href={`/article?id=${item.id}`}>
+          <a>
+            <Post key={item.id} {...item} />
+          </a>
+        </Link>
       ))}
     </S.TrendingContainer>
   );

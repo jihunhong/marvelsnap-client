@@ -11,7 +11,6 @@ export const PostPreviewContainer = styled.article`
     grid-template-columns: 1fr 200px;
   }
   column-gap: 34px;
-
   .meta {
     div.writer {
       display: flex;

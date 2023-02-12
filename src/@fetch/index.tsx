@@ -74,6 +74,15 @@ export const getDeckApi = async (id: string) => {
   return data;
 };
 
+export const getArticle = async (id: string) => {
+  const { data } = await axios.get('/api/article', {
+    params: {
+      id,
+    },
+  });
+  return data;
+};
+
 export const getCommentApi = async ({ collectionId, recordId, page }: { collectionId: string; recordId: string; page: number }) => {
   const { data } = await axios.get('/api/comment/list', {
     params: {

@@ -9,5 +9,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     sort: '-created',
     expand: 'items',
   });
+  res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=60');
   res.status(200).json(decks);
 }

@@ -16,18 +16,14 @@ const Post = ({ title = 'ChatGPT Is Having a Thomas Edison Moment', summary = 'W
       <PostPreviewContainer>
         <div className="meta">
           <div className="writer">
-            <Avatar src="https://avatars.githubusercontent.com/u/21700764?v=4" />
-            <a>
-              <h4>{writer}</h4>
-            </a>
+            {/* <Avatar src="https://avatars.githubusercontent.com/u/21700764?v=4" /> */}
+            <h4>{writer}</h4>
           </div>
-          <a>
-            <h2>{title}</h2>
-            <h3>{summary}</h3>
-          </a>
+          <h2>{title}</h2>
+          <h3>{summary}</h3>
         </div>
         <div className="thumb-container">
-          <img width={200} height={134} src={thumbnail} />
+          <img width={200} height={134} src={thumbnail} alt={title || 'post thumbnail'} />
         </div>
       </PostPreviewContainer>
       <Divider margin={24} />
