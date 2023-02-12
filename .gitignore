@@ -47,7 +47,3 @@ jsconfig.js
 
 # Sentry
 next.config.original.js
-
-# only use in development
-/pages/article*
-/api/article/
