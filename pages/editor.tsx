@@ -27,7 +27,6 @@ const Editor = () => {
   const addedCards = useRecoilValue(deckStatusAtom);
   const [postDeck] = usePostDeck(title, content);
   const [tablet] = useMediaQuery(breakpoints.tablet);
-  console.log(tablet);
 
   return (
     <>

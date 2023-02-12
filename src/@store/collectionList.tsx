@@ -49,7 +49,6 @@ export const filterSelector = selector({
       set(ownCollection, result);
     } else if (newFilter.type === 'grade') {
       const target = get(ownCollection).length ? get(ownCollection) : get(collection);
-      console.log(target);
       const result = filtering(target, newFilter);
       set(filterAtom, newFilter);
       set(seriesCollection, result);
