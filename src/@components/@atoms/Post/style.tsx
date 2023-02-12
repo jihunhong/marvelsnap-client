@@ -44,6 +44,7 @@ export const PostPreviewContainer = styled.article`
       }
     }
     h3 {
+      color: var(--gray-2);
       font-weight: 400;
       font-size: 0.9rem;
       display: -webkit-box;
@@ -51,13 +52,15 @@ export const PostPreviewContainer = styled.article`
       -webkit-line-clamp: 2;
       overflow: hidden;
       @media ${device.tablet} {
-        font-size: 1.3rem;
+        font-size: 1rem;
       }
     }
   }
   .thumb-container {
     img {
       display: none;
+      object-fit: cover;
+      border-radius: 6px;
       @media ${device.tablet} {
         display: block;
       }

@@ -17,6 +17,7 @@ const Quill = (props: any, { value, onChange, placeholder }: QuillProps) => {
         container: [
           [{ header: '1' }, { header: '2' }, { font: [] }],
           [{ size: [] }],
+          [{ color: [] }],
           ['bold', 'italic', 'underline', 'strike', 'blockquote'],
           [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
           ['link'],

@@ -84,9 +84,12 @@
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
     }
+    .quill .ql-editor * {
+        color: var(--white);
+    }
     .quill .ql-editor.ql-blank:before {
         color: var(--white);
-        }
+    }
     .quill .ql-toolbar .ql-stroke {
         fill: none;
         stroke: #fff;
@@ -99,6 +102,9 @@
 
     .quill .ql-toolbar .ql-picker {
         color: #fff;
+    }
+    .ql-snow .ql-picker-options {
+        background-color: var(--black-background);
     }
 
     kbd {

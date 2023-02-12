@@ -7,9 +7,10 @@ type Props = {
   summary: string;
   tags: Array<string>;
   writer: string;
+  thumbnail: string;
 };
 
-const Post = ({ title = 'ChatGPT Is Having a Thomas Edison Moment', summary = 'Why breakthrough technologies need to be accessible', writer = 'jihunhong' }: Partial<Props>) => {
+const Post = ({ title = 'ChatGPT Is Having a Thomas Edison Moment', summary = 'Why breakthrough technologies need to be accessible', writer = 'jihunhong', thumbnail }: Partial<Props>) => {
   return (
     <>
       <PostPreviewContainer>
@@ -26,7 +27,7 @@ const Post = ({ title = 'ChatGPT Is Having a Thomas Edison Moment', summary = 'W
           </a>
         </div>
         <div className="thumb-container">
-          <img width={200} height={134} src="https://miro.medium.com/fit/c/300/201/1*uPt_ccZmvCMnQahIs43ahg.png" />
+          <img width={200} height={134} src={thumbnail} />
         </div>
       </PostPreviewContainer>
       <Divider margin={24} />
