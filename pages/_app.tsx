@@ -6,6 +6,7 @@ import GoogleScript from '@layout/GoogleScript';
 import { Analytics } from '@vercel/analytics/react';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -15,6 +16,10 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { RecoilRoot } from 'recoil';
 import '../src/styles/globals.css';
+
+const ModalBoundary = dynamic(() => import('@components/@hoc/ModalBoundary'), {
+  ssr: false,
+});
 
 function App({ Component, pageProps }: AppProps) {
   useGoogleAnalytics();
@@ -36,6 +41,7 @@ function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <RecoilRoot>
+            <ModalBoundary />
             <ToastContainer
               position="bottom-center"
               autoClose={1200}

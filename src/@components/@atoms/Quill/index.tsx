@@ -21,10 +21,10 @@ const Quill = (props: any, { value, onChange, placeholder }: QuillProps) => {
           ['bold', 'italic', 'underline', 'strike', 'blockquote'],
           [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
           ['link'],
-          ['image'],
+          // ['image'],
         ],
         handlers: {
-          image: imageHandler,
+          // image: imageHandler,
         },
       },
       clipboard: {

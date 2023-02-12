@@ -43,7 +43,7 @@ const Builder = () => {
 
   const onAdd = (e: SyntheticEvent, item: T.Card) => {
     onClick(e, item);
-    setVisible(false);
+    setVisible(true);
   };
 
   return (
