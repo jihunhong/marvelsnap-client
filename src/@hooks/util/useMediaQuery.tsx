@@ -13,7 +13,7 @@ const useMediaQuery = (width: BreakPoint): [boolean] => {
 
   useEffect(() => {
     const media = window.matchMedia(`(max-width: ${width}px)`);
-    media.addEventListener('cahge', updateTarget);
+    media.addEventListener('change', updateTarget);
 
     // Check on mount (callback is not called until a change occurs)
     if (media.matches) {
