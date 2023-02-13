@@ -48,7 +48,7 @@ export const DeckContainer = styled.article`
         column-gap: 8px;
         svg,
         span {
-          color: var(--gray-1);
+          color: var(--white);
           text-align: center;
           font-weight: 600;
         }
@@ -62,7 +62,7 @@ export const DeckContainer = styled.article`
       font-size: 0.8rem;
       font-weight: 500;
       margin-left: auto;
-      color: var(--gray-1);
+      color: var(--white);
     }
   }
 

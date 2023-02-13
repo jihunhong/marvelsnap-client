@@ -53,7 +53,7 @@ const InstantProfile = () => {
               <Link key={item?.id} href={`/card/${item?.cardDefId}`}>
                 <a id={item?.cardDefId}>
                   <div data-selected={!(item as CollectionCard)?.mine}>
-                    <Card {...item} w={116} />
+                    <Card {...item} />
                   </div>
                 </a>
               </Link>

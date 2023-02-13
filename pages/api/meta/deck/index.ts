@@ -7,6 +7,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const record = await pb.collection('meta_deck').getFirstListItem(`id='${req.query.id}'`, {
     expand: 'items',
   });
-  res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=3600');
+  res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=60');
   res.status(200).json(record);
 }
