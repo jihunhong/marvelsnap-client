@@ -14,7 +14,7 @@ const SearchInput = () => {
     <S.SearchInputContainer>
       <S.InputEntry>
         <InputContainer>
-          <InputTag type="text" placeholder="카드이름으로 검색해보세요" value={value as string} onChange={handler} autoFocus />
+          <InputTag type="text" placeholder="카드이름으로 검색해보세요" value={value as string} onChange={handler} />
         </InputContainer>
       </S.InputEntry>
       <AnimatePresence>

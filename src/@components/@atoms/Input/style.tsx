@@ -29,6 +29,7 @@ export const InputTag = styled.input`
   width: 100%;
   height: inherit;
   background: transparent;
+  font-size: 16px;
   border: none;
   outline: none;
   box-shadow: none;
