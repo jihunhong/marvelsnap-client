@@ -1,7 +1,7 @@
 import * as T from '@customTypes/Card';
 
 export const asc = (items: Array<T.Card>) => {
-  return items
+  return [...items]
     .sort((a, b) => {
       if (a.en < b.en) return -1;
       if (a.en > b.en) return 1;
@@ -16,7 +16,7 @@ export const asc = (items: Array<T.Card>) => {
 };
 
 export const desc = (items: Array<T.Card>) => {
-  return items
+  return [...items]
     .sort((a, b) => {
       if (a.en > b.en) return -1;
       if (a.en < b.en) return 1;
@@ -31,7 +31,7 @@ export const desc = (items: Array<T.Card>) => {
 };
 
 export const ascName = (items: Array<T.Card>) => {
-  return items.sort((a, b) => {
+  return [...items].sort((a, b) => {
     if (a.en < b.en) return -1;
     if (a.en > b.en) return 1;
     return 0;
@@ -39,7 +39,7 @@ export const ascName = (items: Array<T.Card>) => {
 };
 
 export const descName = (items: Array<T.Card>) => {
-  return items.sort((a, b) => {
+  return [...items].sort((a, b) => {
     if (a.en > b.en) return -1;
     if (a.en < b.en) return 1;
     return 0;

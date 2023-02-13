@@ -31,7 +31,6 @@ const useAuthenticate = () => {
         router.push(beforeLoginPath || '/');
       })
       .catch(err => {
-        debugger;
         console.error(err);
         notify.loginError();
         localStorage.removeItem('provider');
