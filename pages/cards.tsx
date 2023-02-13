@@ -28,10 +28,11 @@ const CardDetailModal = dynamic(() => import('@molecules/Modal/CardDetailModal')
 export async function getStaticProps({ res }: NextPageContext) {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery([keys.getCardList], getCardListApi);
-  res?.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=3600');
+  res?.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=60');
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
+      revalidate: 60,
     },
   };
 }
