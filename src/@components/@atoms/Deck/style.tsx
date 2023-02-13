@@ -40,7 +40,7 @@ export const DeckContainer = styled.article`
 
     .post-info {
       display: grid;
-      grid-template-columns: repeat(3, 68px);
+      grid-template-columns: repeat(2, 68px);
       column-gap: 16px;
       div {
         display: grid;
