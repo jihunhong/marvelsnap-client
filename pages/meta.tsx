@@ -8,6 +8,8 @@ import keys from '@query/keys';
 import { NextPageContext } from 'next';
 import { useRouter } from 'next/router';
 import { dehydrate, QueryClient, useQuery } from 'react-query';
+import { NextSeo } from 'next-seo';
+import { defaultTitle, siteBaseUrl } from '@constant/text';
 
 export async function getServerSideProps(context: NextPageContext) {
   const queryClient = new QueryClient();
@@ -30,6 +32,13 @@ const Meta = () => {
   });
   return (
     <>
+      <NextSeo
+        title={`메타 덱 리스트 - ${defaultTitle}`}
+        openGraph={{
+          url: `${siteBaseUrl}/${router.asPath}`,
+          title: `메타 덱 리스트 - ${defaultTitle}`,
+        }}
+      />
       <PageIntro title="Meta" description="강력하고 어썸한 덱들을 확인해보세요!" bgSource={backgroundUrls.cards}></PageIntro>
       <section>
         {!!router.query.id ? <MetaDeckDetailModal visible={!!router.query.id} /> : null}

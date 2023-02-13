@@ -7,6 +7,8 @@ import { NextPageContext } from 'next';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { dehydrate, QueryClient, useQuery } from 'react-query';
+import { defaultTitle, siteBaseUrl } from '@constant/text';
+import { NextSeo } from 'next-seo';
 
 export async function getServerSideProps(context: NextPageContext) {
   const queryClient = new QueryClient();
@@ -30,9 +32,15 @@ const ArticleDetail = () => {
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
   });
-  console.log(data);
   return (
     <>
+      <NextSeo
+        title={`${data?.title} - ${defaultTitle}`}
+        openGraph={{
+          url: `${siteBaseUrl}/${router.asPath}`,
+          title: `${data?.title} - ${defaultTitle}`,
+        }}
+      />
       <PageIntro title={data?.title} description={data?.summary} bgSource={`${baseImgix}/static/background-card-detail.webp`} objectPosition="center bottom" />
       <DetailLayout>
         <div>

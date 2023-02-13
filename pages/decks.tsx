@@ -1,5 +1,5 @@
 import backgroundUrls from '@constant/backgrounds';
-import { defaultTitle } from '@constant/text';
+import { defaultTitle, siteBaseUrl } from '@constant/text';
 import { getDeckListApi } from '@fetch/index';
 import DeckList from '@molecules/DeckList';
 import PageIntro from '@molecules/PageIntro';
@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { dehydrate, QueryClient } from 'react-query';
+import { NextSeo } from 'next-seo';
 
 const DeckDetailModal = dynamic(() => import('@molecules/Modal/DeckDetailModal'), {
   ssr: false,
@@ -40,9 +41,13 @@ const Decks = () => {
 
   return (
     <>
-      <Head>
-        <title>{`덱 리스트, 덱 갤러리, 덱 DB - ${defaultTitle}`}</title>
-      </Head>
+      <NextSeo
+        title={`덱 리스트, 덱 갤러리, 덱 DB - ${defaultTitle}`}
+        openGraph={{
+          url: `${siteBaseUrl}/${router.asPath}`,
+          title: `덱 리스트, 덱 갤러리, 덱 DB - ${defaultTitle}`,
+        }}
+      />
       <PageIntro title="Decks" description="메타에서 효과적인 다양한 덱들을 찾아보세요" bgSource={backgroundUrls.cards} objectPosition="center bottom" />
       <section>
         {!!router.query.id ? <DeckDetailModal visible={!!router.query.id} /> : null}

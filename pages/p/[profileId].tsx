@@ -15,6 +15,7 @@ import useGetUserCollection from '@query/useGetUserCollection';
 import { NextPageContext } from 'next';
 import Link from 'next/link';
 import { dehydrate, QueryClient } from 'react-query';
+import { NextSeo } from 'next-seo';
 
 export async function getServerSideProps(context: NextPageContext) {
   const queryClient = new QueryClient();
