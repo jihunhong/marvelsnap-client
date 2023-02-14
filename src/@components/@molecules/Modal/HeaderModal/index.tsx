@@ -2,22 +2,24 @@ import Avatar from '@atoms/Avatar';
 import Divider from '@atoms/Divider';
 import { FlexColumn, FlexRow } from '@atoms/Flex/style';
 import GoogleBtn from '@atoms/GoogleBtn';
-import StarIcon from '@atoms/Icon/star';
+import useProviders from '@hooks/pb/useProviders';
 import useUser from '@query/useUser';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ForwardedRef, forwardRef, SyntheticEvent } from 'react';
 import { BiDownload } from 'react-icons/bi';
-import { BsDownload, BsStarFill } from 'react-icons/bs';
+import { BsStarFill } from 'react-icons/bs';
 import { CgNotes } from 'react-icons/cg';
 import { FaHome, FaRegIdCard, FaWrench } from 'react-icons/fa';
 import * as S from './style';
+import { Provider } from '@customTypes/Provider';
 
 type HeaderModalProps = { onClick: (e: SyntheticEvent) => void };
 
 const HeaderModal = ({ onClick }: HeaderModalProps, ref: ForwardedRef<any>) => {
   const [user] = useUser();
   const router = useRouter();
+  const [providers, handler] = useProviders();
 
   return (
     <S.HeaderModalContainer transition={{ default: { ease: 'linear' } }} initial={{ x: -250, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ opacity: 0 }} ref={ref} onClick={onClick}>
@@ -32,7 +34,7 @@ const HeaderModal = ({ onClick }: HeaderModalProps, ref: ForwardedRef<any>) => {
               </FlexColumn>
             </>
           ) : (
-            <GoogleBtn />
+            providers?.map((item: Provider) => <GoogleBtn key={item.name} onClick={() => handler(item)} />)
           )}
         </FlexRow>
       </div>
