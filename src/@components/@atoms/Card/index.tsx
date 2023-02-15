@@ -6,6 +6,10 @@ const Card = ({ name, effect, cardDefId, w, h }: Partial<T.Card> & { w?: number;
   return (
     <S.CardContainer>
       <CardImage cardDefId={cardDefId!} w={w} />
+      <div className="text-content">
+        <p className="name">{name}</p>
+        <p className="effect">{effect}</p>
+      </div>
       <p className="name">{name}</p>
       <p className="effect">{effect}</p>
     </S.CardContainer>
