@@ -41,7 +41,6 @@ const Cards = () => {
   const [dataSource] = useCardListQuery();
   const { daily, random } = useCardNavigate();
   const router = useRouter();
-
   return (
     <>
       <NextSeo
@@ -69,7 +68,7 @@ const Cards = () => {
             renderItem={item => (
               <Link key={item?.id} href={`/cards?id=${item?.cardDefId}`} as={`/card/${item?.cardDefId}`} scroll={false} shallow={true}>
                 <a id={item?.cardDefId}>
-                  <Card {...item}  />
+                  <Card {...item} />
                 </a>
               </Link>
             )}
