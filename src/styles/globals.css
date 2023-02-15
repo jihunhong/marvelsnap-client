@@ -13,7 +13,11 @@
         --gray-0: #cacaca;
         --gray-1: #a3a0a0;
         --gray-2: #868484;
-        --white: rgb(255 255 255 / 95%);
+        --black-0: #171717;;
+        --black-1: #101010;
+        --black-2: #090909;
+        --black-3: #000;
+        --white: #efefef;
         --black-background: #161819;
         --white-border-color: rgba(255,255,255,0.1);
         --modal-background: #171717;
@@ -57,7 +61,7 @@
     }
     
     h1, h2, h3, h4, h5, span, p {
-        color: rgb(255 255 255 / 95%);
+        color: var(--white);
         margin: 0;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
