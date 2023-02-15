@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const GoogleLoginBtnContainer = styled.div`
-  background-color: #fff;
+  background-color: #efefef;
   height: 50px;
   padding: 16px 18px;
   width: 100%;

@@ -10,7 +10,7 @@ export const CardFilterContainer = styled.section`
     align-content: start;
     border-radius: 6px;
     padding-top: 42px;
-    color: #fff;
+    color: var(--white);
   }
 
   section.filter {
@@ -34,7 +34,7 @@ export const CardFilterContainer = styled.section`
       width: 100%;
       margin-left: 1rem;
       height: 1px;
-      background: #fff;
+      background: var(--white);
     }
   }
 

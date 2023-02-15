@@ -42,37 +42,37 @@ const HeaderModal = ({ onClick }: HeaderModalProps, ref: ForwardedRef<any>) => {
       <nav>
         <Link href="/">
           <a className={router.asPath === '/' ? 'active' : ''}>
-            <FaHome size={22} color="#fff" />
+            <FaHome size={22} color="#efefef" />
             <span>홈</span>
           </a>
         </Link>
         <Link href="/meta">
           <a className={router.asPath === '/meta' ? 'active' : ''}>
-            <BsStarFill size={22} color="#fff" />
+            <BsStarFill size={22} color="#efefef" />
             <span>메타</span>
           </a>
         </Link>
         <Link href="/decks">
           <a className={router.asPath === '/decks' ? 'active' : ''}>
-            <CgNotes size={22} color="#fff" />
+            <CgNotes size={22} color="#efefef" />
             <span>덱</span>
           </a>
         </Link>
         <Link href="/cards">
           <a className={router.asPath === '/cards' ? 'active' : ''}>
-            <FaRegIdCard size={22} color="#fff" />
+            <FaRegIdCard size={22} color="#efefef" />
             <span>카드</span>
           </a>
         </Link>
         <Link href="/builder">
           <a className={router.asPath === '/builder' ? 'active' : ''}>
-            <FaWrench size={22} color="#fff" />
+            <FaWrench size={22} color="#efefef" />
             <span>덱 빌더</span>
           </a>
         </Link>
         <Link href="/download">
           <a className={router.asPath === '/download' ? 'active' : ''}>
-            <BiDownload size={22} color="#fff" />
+            <BiDownload size={22} color="#efefef" />
             <span>다운로드</span>
           </a>
         </Link>

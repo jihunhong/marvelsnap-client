@@ -34,7 +34,7 @@ const Deck = ({ id, title, created, cards, like, comment }: T.Deck) => {
         </div>
 
         <div className="action" onClick={handler}>
-          <FaRegCopy size={24} color="#fff" />
+          <FaRegCopy size={24} color="#efefef" />
         </div>
       </div>
       <div className="deck-list">

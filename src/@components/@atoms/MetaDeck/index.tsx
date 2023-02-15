@@ -33,9 +33,9 @@ const MetaDeck = ({ id, title, created, cards, like, comment, origin, writer }: 
 
         <div className="action" onClick={handler}>
           <a href={origin} target="_blank" rel="noreferrer noopener">
-            <FaLink size={24} color="#fff" />
+            <FaLink size={24} color="#efefef" />
           </a>
-          <FaRegCopy size={24} color="#fff" />
+          <FaRegCopy size={24} color="#efefef" />
         </div>
       </div>
       <div className="deck-list">

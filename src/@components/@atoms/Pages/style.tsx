@@ -31,7 +31,7 @@ export const PagesContainer = styled.ul`
     }
   }
   svg:not(.disabled) {
-    color: #fff;
+    color: var(--white);
   }
   .disabled {
     cursor: not-allowed;
@@ -40,9 +40,9 @@ export const PagesContainer = styled.ul`
     }
   }
   .active {
-    border: 1px solid #fff;
+    border: 1px solid var(--white);
     a {
-      color: #fff;
+      color: var(--white);
     }
     &:hover {
       background-color: #1c1f20;

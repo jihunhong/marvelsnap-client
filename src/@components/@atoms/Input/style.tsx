@@ -33,7 +33,7 @@ export const InputTag = styled.input`
   border: none;
   outline: none;
   box-shadow: none;
-  color: #fff;
+  color: var(--white);
   caret-color: var(--primary-color);
   ::placeholder {
     color: var(--gray-1);

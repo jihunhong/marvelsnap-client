@@ -45,7 +45,7 @@ const DownloadTemplate = () => {
           </div>
           <Divider margin={14} />
           <div className="ps">
-            <FiInfo size={14} color="#fff" />
+            <FiInfo size={14} color="#efefef" />
             <p>직접 업로드를 이용하신다면 아래의 경로에 위치한 파일을 업로드해주세요</p>
           </div>
           <Divider margin={8} borderless />
@@ -62,7 +62,7 @@ const DownloadTemplate = () => {
           </ul>
           <Divider margin={14} />
           <div className="ps">
-            <FiInfo size={14} color="#fff" />
+            <FiInfo size={14} color="#efefef" />
             <span>
               트래커 이용에 문제가 있으시다면{' '}
               <a href="https://discord.gg/EM2bmXDAwQ" target="_blank" rel="noreferrer noopener">

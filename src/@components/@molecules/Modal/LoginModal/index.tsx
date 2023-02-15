@@ -9,7 +9,7 @@ const LoginModal = () => {
   return (
     <S.LoginModalContainer ref={ref}>
       <div className="header">
-        <BsX className="closer" color={'#fff'} size={34} onClick={close} />
+        <BsX className="closer" color={'#efefef'} size={34} onClick={close} />
       </div>
       <LoginTemplate />
     </S.LoginModalContainer>

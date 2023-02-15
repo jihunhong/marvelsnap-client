@@ -31,7 +31,7 @@ const LoginTemplate = () => {
           <h4>정기적으로 업로드되는 글도 읽어보세요</h4>
           <div className="divider" />
           <div className="ps">
-            <FiInfo size={14} color="#fff" />
+            <FiInfo size={14} color="#efefef" />
             <span>
               사이트 이용에 문제가 있으시다면{' '}
               <a href="https://discord.gg/EM2bmXDAwQ" target="_blank" rel="noreferrer noopener">

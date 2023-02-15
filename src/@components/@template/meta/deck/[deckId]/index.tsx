@@ -44,7 +44,7 @@ const MetaDeckDetailTemplate = () => {
               <Avatar writer={data?.writer} />
               <span>{data?.writer}</span>
               <a href={data?.origin} target="_blank" rel="noreferrer noopener">
-                <FaLink size={18} color="#fff" />
+                <FaLink size={18} color="#efefef" />
               </a>
             </div>
             <div className="series">
