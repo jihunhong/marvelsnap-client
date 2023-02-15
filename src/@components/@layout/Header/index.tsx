@@ -1,12 +1,10 @@
-import Avatar from '@atoms/Avatar';
 import Logo from '@atoms/Logo';
-import useUser from '@query/useUser';
+import UserDetailMenu from '@molecules/UserDetail';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as S from './style';
 
 const Header = () => {
-  const [user] = useUser();
   const router = useRouter();
   return (
     <S.Header>
@@ -44,7 +42,7 @@ const Header = () => {
               <span>다운로드</span>
             </a>
           </Link>
-          {user ? <Avatar href="" src={user?.avatarUrl || user?.avatar} writer={user?.username || user?.name} /> : null}
+          <UserDetailMenu />
         </div>
       </div>
     </S.Header>

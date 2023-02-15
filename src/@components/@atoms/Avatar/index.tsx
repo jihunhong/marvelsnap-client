@@ -18,7 +18,7 @@ const Avatar = ({ width = 20, height = 20, src, href = '/', writer }: Props) => 
     );
   }
   return (
-    <S.AvatarContainer href={href}>
+    <S.AvatarContainer>
       <S.ImgTag width={width} height={height} src={src} />
     </S.AvatarContainer>
   );

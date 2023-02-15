@@ -74,6 +74,15 @@ export const getDeckApi = async (id: string) => {
   return data;
 };
 
+export const getProfileApi = async (userName: string) => {
+  const { data } = await axios.get('/api/profile', {
+    params: {
+      userName,
+    },
+  });
+  return data;
+};
+
 export const getArticle = async (id: string) => {
   const { data } = await axios.get('/api/article', {
     params: {

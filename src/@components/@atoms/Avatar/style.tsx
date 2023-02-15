@@ -3,7 +3,7 @@ import styled from 'styled-components';
 /**
  * @anchor
  */
-export const AvatarContainer = styled.a`
+export const AvatarContainer = styled.div`
   svg,
   img {
     border-radius: 50%;

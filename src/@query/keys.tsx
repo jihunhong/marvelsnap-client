@@ -14,6 +14,8 @@ const keys = {
   getArticles: '/api/article/list',
   getArticle: '/api/article',
 
+  getProfile: '/api/profile',
+
   getMetaDeck: '/api/meta/deck',
   getMetaDeckList: '/api/meta/deck/list',
   getUserCollection: '/api/user/collection',

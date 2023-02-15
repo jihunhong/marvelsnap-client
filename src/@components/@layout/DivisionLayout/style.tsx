@@ -10,7 +10,7 @@ export const DivisionLayoutContainer = styled.section`
   @media ${device.tablet} {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-areas: 'card card card card card card card card offset filter filter filter';
+    grid-template-areas: 'left left left left left left left left offset right right right';
   }
 
   ${ButtonGroupContainer} {
@@ -19,17 +19,24 @@ export const DivisionLayoutContainer = styled.section`
   }
 
   ${CardListContainer} {
-    grid-area: card;
+    grid-area: left;
   }
 
   section:has(${CardListContainer}) {
-    grid-area: card;
+    grid-area: left;
+  }
+  section.left {
+    grid-area: left;
+  }
+
+  section.right {
+    grid-area: right;
   }
 
   --min-height: calc(100vh - var(--header-height));
   > section:nth-child(2) {
     position: relative;
-    grid-area: filter;
+    grid-area: right;
     @media ${device.tablet} {
       width: 100%;
       height: auto;

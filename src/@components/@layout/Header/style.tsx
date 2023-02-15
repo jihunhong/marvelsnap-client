@@ -1,4 +1,5 @@
 import { AvatarContainer } from '@atoms/Avatar/style';
+import { UserDetailMenuContainer } from '@molecules/UserDetail/style';
 import styled from 'styled-components';
 import device from '../../../styles/devices';
 import { Opacity } from '../../../styles/transition';
@@ -45,7 +46,7 @@ export const Header = styled.header`
     align-items: center;
 
     .menus {
-      a {
+      > a {
         outline: none;
         ${Opacity}
       }
@@ -63,7 +64,7 @@ export const Header = styled.header`
         font-weight: 700;
         font-size: 0.8rem;
       }
-      ${AvatarContainer} {
+      ${UserDetailMenuContainer} {
         margin: 0 0 0 1rem;
       }
     }
