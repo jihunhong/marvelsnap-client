@@ -13,7 +13,6 @@ const usePostComment = ({ collectionId, recordId, content = '' }: { collectionId
   const apiNotify = useApiNotify();
   const { loginAccessNotify } = useBlockNotify();
   const [user] = useUser();
-  const router = useRouter();
   const { mutate, isSuccess } = useMutation(postCommentApi, {
     onSuccess: () => {
       queryClient.invalidateQueries(keys.getCommentList);

@@ -5,4 +5,5 @@ export interface User {
   id: string;
   name: '홍지훈';
   username: string;
+  cId?: string;
 }

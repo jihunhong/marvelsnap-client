@@ -3,25 +3,24 @@ import ButtonGroup from '@atoms/ButtonGroup';
 import Card from '@atoms/Card';
 import backgroundUrls from '@constant/backgrounds';
 import { CollectionCard } from '@customTypes/CollectionCard';
-import { getCollectionApi } from '@fetch/index';
-import useCollectionSync from '@hooks/action/useCollectionSync';
+import { getUsersCollectionApi } from '@fetch/index';
 import useCollectionFilter from '@hooks/useCollectionFilter';
 import DivisionLayout from '@layout/DivisionLayout';
-import time from '@lib/day/time';
 import CardList from '@molecules/CardList';
 import CollectionFilter from '@molecules/ColletionFilter';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
-import useCollection from '@query/useCollection';
+import useUserCollection from '@query/useUserCollection';
 import { NextPageContext } from 'next';
 import Link from 'next/link';
-import { FaSyncAlt } from 'react-icons/fa';
 import { dehydrate, QueryClient } from 'react-query';
+import { useRecoilValue } from 'recoil';
+import { userAtom } from 'src/@store/user';
 
 export async function getServerSideProps(context: NextPageContext) {
   const queryClient = new QueryClient();
-  const profileId = context.query.profileId as string;
-  await queryClient.prefetchQuery([keys.getCollection], () => getCollectionApi(profileId));
+  const id = context.query.id as string;
+  await queryClient.prefetchQuery([keys.getCollectionList], () => getUsersCollectionApi(id));
 
   return {
     props: {
@@ -30,17 +29,13 @@ export async function getServerSideProps(context: NextPageContext) {
   };
 }
 
-const InstantProfile = () => {
-  const { collection, updated } = useCollection();
+const Collection = () => {
+  const { collection } = useUserCollection();
   const [onClick] = useCollectionFilter();
-  const [sync] = useCollectionSync();
+  const user = useRecoilValue(userAtom);
   return (
     <>
-      <PageIntro title="Collection" description={`${time(updated)}에 업데이트된 컬렉션입니다`} bgSource={backgroundUrls.profileCollection}>
-        <Button icon={<FaSyncAlt />} colorType="success" onClick={sync}>
-          <span>계정과 연동</span>
-        </Button>
-      </PageIntro>
+      <PageIntro title="Collection" description={`${user?.username}님의 컬렉션`} bgSource={backgroundUrls.profileCollection} />
       <DivisionLayout>
         <section>
           <ButtonGroup>
@@ -73,4 +68,4 @@ const InstantProfile = () => {
   );
 };
 
-export default InstantProfile;
+export default Collection;
