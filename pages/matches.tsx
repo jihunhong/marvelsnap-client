@@ -1,12 +1,14 @@
 import backgroundUrls from '@constant/backgrounds';
 import { defaultTitle, siteBaseUrl } from '@constant/text';
+import MatchList from '@molecules/MatchList';
 import PageIntro from '@molecules/PageIntro';
+import useMatches from '@query/useMatches';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 
 const Matches = () => {
   const router = useRouter();
-
+  const [matches] = useMatches();
   return (
     <>
       <NextSeo
@@ -16,8 +18,10 @@ const Matches = () => {
           title: `친선전 - ${defaultTitle}`,
         }}
       />
-      <PageIntro title="Meta" description="강력하고 어썸한 덱들을 확인해보세요!" bgSource={backgroundUrls.cards}></PageIntro>
-      <section></section>
+      <PageIntro title="Matches" description="snapsco에서 친선전 상대를 찾아보세요" bgSource={backgroundUrls.cards}></PageIntro>
+      <section>
+        <MatchList dataSource={matches} />
+      </section>
     </>
   );
 };
