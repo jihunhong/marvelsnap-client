@@ -1,3 +1,3 @@
-
-
-Disallow: /builder, /editor
+User-agent: *
+Disallow: /builder
+Disallow: /editor
