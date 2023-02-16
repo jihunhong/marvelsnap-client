@@ -1,5 +1,6 @@
 import Avatar from '@atoms/Avatar';
 import Divider from '@atoms/Divider';
+import Image from 'next/image';
 import { PostPreviewContainer } from './style';
 
 type Props = {
@@ -23,10 +24,9 @@ const Post = ({ title = 'ChatGPT Is Having a Thomas Edison Moment', summary = 'W
           <h3>{summary}</h3>
         </div>
         <div className="thumb-container">
-          <img width={200} height={134} src={thumbnail} alt={title || 'post thumbnail'} />
+          <Image width={200} height={134} src={thumbnail!} alt={title || 'post thumbnail'} />
         </div>
       </PostPreviewContainer>
-      <Divider margin={24} />
     </>
   );
 };
