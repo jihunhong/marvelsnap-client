@@ -1,4 +1,4 @@
-import Card from '@atoms/Card';
+import CardImage from '@atoms/CardImage';
 import SeriesIcon from '@atoms/Icon/series';
 import Tag from '@atoms/Tag';
 import type * as C from '@customTypes/Card';
@@ -7,11 +7,11 @@ import useCopyCode from '@hooks/deck/useDeckCode';
 import useDeckTag from '@hooks/deck/useDeckTag';
 import useNavigate from '@hooks/useNavigate';
 import format from '@lib/day/format';
+import { asc } from '@lib/sort';
 import Link from 'next/link';
 import { FaRegCommentDots, FaRegCopy } from 'react-icons/fa';
 import { FiThumbsUp } from 'react-icons/fi';
 import * as S from './style';
-import { asc } from '@lib/sort';
 
 const Deck = ({ id, title, created, cards, like, comment }: T.Deck) => {
   const [handler] = useCopyCode({ items: cards, title });
@@ -44,7 +44,7 @@ const Deck = ({ id, title, created, cards, like, comment }: T.Deck) => {
           </div>
           <div className="cards">
             {asc(cards).map((v: C.Card) => (
-              <Card key={v.id} {...v} />
+              <CardImage key={v.id} cardDefId={v.cardDefId} />
             ))}
           </div>
         </div>

@@ -7,7 +7,6 @@ import * as S from './style';
 
 const MatchMessage = ({ user, message, match_code, updated }) => {
   const date = onlyTime(updated);
-  console.log(user);
   return (
     <S.MatchMessageContainer>
       <div className="grid">
