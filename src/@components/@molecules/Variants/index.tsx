@@ -4,7 +4,6 @@ import * as T from '@customTypes/Variant';
 import useImageGroup from '@hooks/action/useImageGroup';
 import useModalToggler from '@hooks/modal/useModalToggler';
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
 import * as S from './style';
 
 type VariantsProps = {

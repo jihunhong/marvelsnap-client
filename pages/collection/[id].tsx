@@ -52,13 +52,9 @@ const Collection = () => {
           <CardList
             dataSource={collection}
             renderItem={item => (
-              <Link key={item?.id} href={`/card/${item?.cardDefId}`}>
-                <a id={item?.cardDefId}>
-                  <div data-selected={!(item as CollectionCard)?.mine}>
-                    <Card {...item} />
-                  </div>
-                </a>
-              </Link>
+              <div key={item.id} data-selected={!(item as CollectionCard)?.mine}>
+                <Card {...item} />
+              </div>
             )}
           />
         </section>
