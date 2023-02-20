@@ -55,7 +55,7 @@ function App({ Component, pageProps }: AppProps) {
               theme="dark"
               limit={3}
             />
-            <Analytics />
+            <Analytics mode={process.env.NODE_ENV} />
             <GoogleScript />
             <AppLayout>
               <Component {...pageProps} />

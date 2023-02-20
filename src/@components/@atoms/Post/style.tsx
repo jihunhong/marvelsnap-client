@@ -56,13 +56,14 @@ export const PostPreviewContainer = styled.article`
     }
   }
   .thumb-container {
-    img {
-      display: none;
+    display: none;
+    span {
+      box-shadow: var(--dark-boxshadow);
       object-fit: cover;
       border-radius: 6px;
-      @media ${device.tablet} {
-        display: block;
-      }
+    }
+    @media ${device.tablet} {
+      display: block;
     }
   }
 `;

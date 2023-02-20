@@ -1,17 +1,37 @@
 import Slider from '@atoms/Slider';
 import Variant from '@atoms/Variant';
+import * as T from '@customTypes/Variant';
+import useImageGroup from '@hooks/action/useImageGroup';
+import useModalToggler from '@hooks/modal/useModalToggler';
+import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 import * as S from './style';
 
 type VariantsProps = {
   cardDefId: string;
-  dataSource?: Array<any>;
+  dataSource?: Array<T.Variant>;
 };
 
+const VariantsModal = dynamic(() => import('@molecules/Modal/VariantsModal'), {
+  ssr: false,
+});
+
 const Variants = ({ cardDefId, dataSource = [] }: VariantsProps) => {
+  const [toggler] = useModalToggler('variants');
+  const [selectedIndex, handleClick] = useImageGroup();
+  const onClick = (index: number) => {
+    toggler();
+    handleClick(index);
+    // 원본이미지가 맨앞에 하나 위치하기 때문에 하나 더하기
+  };
+
   return (
-    <S.VariantsContainer>
-      <Slider occupy={'14%'} dataSource={dataSource} renderItem={item => <Variant key={item.id} cardDefId={cardDefId} {...item} />} />
-    </S.VariantsContainer>
+    <>
+      <VariantsModal selectedIndex={selectedIndex} />
+      <S.VariantsContainer>
+        <Slider occupy={'14%'} dataSource={dataSource} renderItem={(item: T.Variant, index: number) => <Variant onClick={() => onClick(index)} key={item.id} cardDefId={cardDefId} {...item} />} />
+      </S.VariantsContainer>
+    </>
   );
 };
 

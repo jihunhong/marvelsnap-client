@@ -6,6 +6,7 @@ export const modalAtom = atom({
   default: {
     postDeck: false,
     login: false,
+    variants: false,
   },
 });
 

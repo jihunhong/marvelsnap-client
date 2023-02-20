@@ -11,6 +11,7 @@ import { FaLink, FaRegCommentDots, FaRegCopy } from 'react-icons/fa';
 import { FiThumbsUp } from 'react-icons/fi';
 import * as S from './style';
 import { asc } from '@lib/sort';
+import CardImage from '@atoms/CardImage';
 
 const MetaDeck = ({ id, title, created, cards, like, comment, origin, writer }: T.Deck) => {
   const [handler] = useCopyCode({ items: cards, title });
@@ -45,7 +46,7 @@ const MetaDeck = ({ id, title, created, cards, like, comment, origin, writer }: 
           </div>
           <div className="cards">
             {asc(cards).map((v: C.Card) => (
-              <Card key={v.id} {...v} />
+              <CardImage key={v.id} cardDefId={v.cardDefId} />
             ))}
           </div>
         </div>

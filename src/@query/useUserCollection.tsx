@@ -1,5 +1,5 @@
 import { CollectionCard } from '@customTypes/CollectionCard';
-import { getUserCollectionApi } from '@fetch/index';
+import { getCollectionApi, getUsersCollectionApi } from '@fetch/index';
 import useAggregateCollection from '@hooks/useAggregateCollection';
 import keys from '@query/keys';
 import { useRouter } from 'next/router';
@@ -7,20 +7,20 @@ import { useQuery } from 'react-query';
 import { useRecoilValue } from 'recoil';
 import { collectionSelector, filterAtom, seriesCollectionListAtom } from 'src/@store/collectionList';
 
-const useGetUserCollection = (): { collection: Array<CollectionCard>; profileId: string; updated: string } => {
+const useUserCollection = (): { collection: Array<CollectionCard>; updated: string } => {
   const router = useRouter();
-  const profileId = router.query.profileId as string;
-  const { data, isFetched } = useQuery([keys.getUserCollection], () => getUserCollectionApi(profileId), {
+  const id = router.query.id as string;
+  const { data, isFetched } = useQuery([keys.getCollectionList], () => getUsersCollectionApi(id), {
     refetchOnReconnect: false,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
-    enabled: !!profileId,
+    enabled: !!id,
   });
   const [collection] = useAggregateCollection(data?.cards, isFetched);
   const filteredCollectionList = useRecoilValue(collectionSelector);
   const filter = useRecoilValue(filterAtom);
 
-  return { collection: filter ? filteredCollectionList : collection, profileId: data?.profileId, updated: data?.updated };
+  return { collection: filter ? filteredCollectionList : collection, updated: data?.updated };
 };
 
-export default useGetUserCollection;
+export default useUserCollection;

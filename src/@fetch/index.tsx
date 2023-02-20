@@ -188,7 +188,7 @@ export const getLikeApi = async ({ collectionId, recordId }: { collectionId: str
   return data;
 };
 
-export const getUserCollectionApi = async (profileId: string) => {
+export const getCollectionApi = async (profileId: string) => {
   const { data } = await axios.get('/api/user/collection', {
     params: {
       profileId,
@@ -197,8 +197,27 @@ export const getUserCollectionApi = async (profileId: string) => {
   return data;
 };
 
+export const getUsersCollectionApi = async (id: string) => {
+  const { data } = await axios.get('/api/user/collection/list', {
+    params: {
+      id,
+    },
+  });
+  return data;
+};
+
 export const postUserCollectionApi = async (payload: { profileId: string; cards: Array<string> }) => {
   const { data } = await axios.post('/api/user/collection', payload);
+
+  return data;
+};
+
+export const postCollectionApi = async (payload: { profileId: string; userId: string }) => {
+  const { data } = await axios.patch('/api/user/collection/sync', payload, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')?.token,
+    },
+  });
 
   return data;
 };

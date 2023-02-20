@@ -18,7 +18,8 @@ const keys = {
 
   getMetaDeck: '/api/meta/deck',
   getMetaDeckList: '/api/meta/deck/list',
-  getUserCollection: '/api/user/collection',
+  getCollection: '/api/user/collection',
+  getCollectionList: '/api/user/collection/list',
   postUserCollection: '/api/user/collection',
 };
 

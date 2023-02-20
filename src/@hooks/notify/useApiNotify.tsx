@@ -15,6 +15,9 @@ const useApiNotify = () => {
   const postLikeError = () => toast.error('추천 요청이 실패했습니다. \n 잠시후 다시 시도해주세요');
   const postLikeDuplicate = () => toast.warn('이미 추천한 게시물입니다.');
 
+  const postCollectionSuccess = () => toast.success('컬렉션이 계정에 연동되었습니다.');
+  const postCollectionError = () => toast.error('계정 연동에 실패했습니다. \n 잠시후 다시 시도해주세요');
+
   const loginError = () => toast.error('로그인 응답이 올바르지 않습니다. \n 잠시후 다시 시도해주세요');
   const collectionError = () => toast.error('컬렉션 정보를 확인할 수 없습니다.');
 
@@ -33,6 +36,8 @@ const useApiNotify = () => {
     postLikeError,
     postLikeDuplicate,
     collectionError,
+    postCollectionSuccess,
+    postCollectionError,
   };
 };
 

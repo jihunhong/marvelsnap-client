@@ -24,6 +24,7 @@
         --modal-backdrop: rgba(0, 0, 0, 0.4);
         --modal-boxshadow: rgb(0 0 0 / 18%) 0px 5px 11px 0px, rgb(0 0 0 / 15%) 0px 4px 15px 0px;
 
+        --dark-boxshadow: 4px 7px 0px hsla(0, 0%, 0%, 0.14), 0px 1px 18px 0px hsla(0, 0%, 0%, 0.12), 0px 3px 5px -1px hsla(0, 0%, 0%, 0.2);
         --card-ratio: calc(100% * calc(334 / 260));
         --card-offset: 16px;
 

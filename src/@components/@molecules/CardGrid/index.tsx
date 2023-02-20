@@ -3,6 +3,7 @@ import * as T from '@customTypes/Card';
 import Link from 'next/link';
 import * as S from './style';
 import { asc } from '@lib/sort';
+import Card from '@atoms/Card';
 
 type CardGridProps = {
   expand: T.Expand;
@@ -15,7 +16,7 @@ const CardGrid = ({ expand }: CardGridProps) => {
       {dataSource?.map(item => (
         <Link key={item?.cardDefId} href={{ pathname: '/card/[cardDefId]', query: { cardDefId: item?.cardDefId } }}>
           <a>
-            <CardImage cardDefId={item.cardDefId} w={140} priority />
+            <Card {...item} w={140} />
           </a>
         </Link>
       ))}
