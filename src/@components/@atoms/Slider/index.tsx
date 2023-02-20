@@ -3,7 +3,7 @@ import { SliderContainer } from './style';
 
 type SliderProps = {
   dataSource?: any[];
-  renderItem?: (item: any) => ReactNode;
+  renderItem?: (item: any, index: number) => ReactNode | JSX.Element;
   occupy: string | number;
   gap?: number;
   children?: JSX.Element | Array<JSX.Element>;

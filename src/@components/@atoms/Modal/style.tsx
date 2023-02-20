@@ -15,3 +15,19 @@ export const style: Styles = {
     height: '100vh',
   },
 };
+
+export const imageStyle: Styles = {
+  overlay: {
+    zIndex: 'var(--layer-modal)',
+    backgroundColor: 'var(--modal-backdrop)',
+  },
+  content: {
+    padding: '0',
+    backgroundColor: 'var(--modal-backdrop)',
+    border: 'none',
+    boxShadow: 'var(--modal-boxshadow)',
+    inset: '0px',
+    width: '100vw',
+    height: '100vh',
+  },
+};
