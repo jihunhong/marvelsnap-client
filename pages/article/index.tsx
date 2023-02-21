@@ -43,7 +43,7 @@ const ArticleDetail = () => {
       />
       <PageIntro title={data?.title} description={data?.summary} bgSource={`${baseImgix}/static/background-card-detail.webp`} objectPosition="center bottom" />
       <DetailLayout>
-        <div>
+        <div className="raw">
           <RawHtml content={data?.content} />
         </div>
       </DetailLayout>
