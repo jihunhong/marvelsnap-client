@@ -116,7 +116,6 @@ export const IntroSectionContainer = styled.div`
       }
     }
     video {
-      position: static;
       width: 100%;
       top: 0;
       left: 0;
@@ -126,14 +125,3 @@ export const IntroSectionContainer = styled.div`
     }
   }
 `;
-
-//  :before {
-//         content: '';
-//         position: absolute;
-//         top: 0px;
-//         left: 0px;
-//         width: 100%;
-//         height: 480px;
-//         @media ${device.tablet} {
-//           height: 600px;
-//         }
