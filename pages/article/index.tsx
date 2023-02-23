@@ -1,14 +1,14 @@
+import ArticleTemplate from '@components/@template/article';
 import { baseImgix } from '@constant/imigx';
+import { defaultTitle, siteBaseUrl } from '@constant/text';
 import { getArticle } from '@fetch/index';
 import DetailLayout from '@layout/DetailLayout';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import { NextPageContext } from 'next';
-import dynamic from 'next/dynamic';
+import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import { dehydrate, QueryClient, useQuery } from 'react-query';
-import { defaultTitle, siteBaseUrl } from '@constant/text';
-import { NextSeo } from 'next-seo';
 
 export async function getServerSideProps(context: NextPageContext) {
   const queryClient = new QueryClient();
@@ -21,9 +21,6 @@ export async function getServerSideProps(context: NextPageContext) {
     },
   };
 }
-const RawHtml = dynamic(() => import('@atoms/RawHtml'), {
-  ssr: false,
-});
 
 const ArticleDetail = () => {
   const router = useRouter();
@@ -43,9 +40,7 @@ const ArticleDetail = () => {
       />
       <PageIntro title={data?.title} description={data?.summary} bgSource={`${baseImgix}/static/background-card-detail.webp`} objectPosition="center bottom" />
       <DetailLayout>
-        <div className="raw">
-          <RawHtml content={data?.content} />
-        </div>
+        <ArticleTemplate data={data} />
       </DetailLayout>
     </>
   );

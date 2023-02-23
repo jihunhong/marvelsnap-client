@@ -1,8 +1,9 @@
 import Avatar from '@atoms/Avatar';
 import Button from '@atoms/Button';
-import format from '@lib/day/format';
+import fromNow from '@lib/day/fromNow';
 import useDeleteComment from '@query/useDeleteComment';
 import useUser from '@query/useUser';
+import { memo } from 'react';
 import { BsTrash } from 'react-icons/bs';
 import * as S from './style';
 
@@ -18,12 +19,13 @@ type CommentProps = {
 const Comment = ({ writer, content, created, id, avatarUrl, user }: CommentProps) => {
   const [me] = useUser();
   const [deleteHandler] = useDeleteComment(id);
+  const relativeTime = fromNow(created);
   return (
     <S.Comment>
       <div className="header">
         <Avatar src={avatarUrl} writer={writer} />
         <h4>{writer}</h4>
-        <span>{format(created)}</span>
+        <span>{relativeTime}</span>
       </div>
       <div className="body">
         <p>{content}</p>
@@ -37,4 +39,4 @@ const Comment = ({ writer, content, created, id, avatarUrl, user }: CommentProps
   );
 };
 
-export default Comment;
+export default memo(Comment);
