@@ -13,7 +13,7 @@ const IntroVideoSection = () => {
         </div>
         <div className="video-background">
           <div>
-            <video loop muted autoPlay>
+            <video autoPlay loop muted playsInline>
               <source src={`${baseImgix}/static/videoplayback.mp4`} type="video/mp4" />
             </video>
           </div>
