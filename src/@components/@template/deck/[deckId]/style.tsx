@@ -1,3 +1,4 @@
+import { AvatarContainer } from '@atoms/Avatar/style';
 import { TagContainer } from '@atoms/Tag/style';
 import { CardGridContainer } from '@molecules/CardGrid/style';
 import { DeckCodeContainer } from '@molecules/DeckCode/style';
@@ -63,6 +64,7 @@ export const DeckDetailTemplateContainer = styled.article`
         margin-bottom: 8px;
       }
       div.profile {
+        display: flex;
         margin-bottom: 1rem;
         span {
           font-weight: 700;
