@@ -10,7 +10,7 @@ const useModalControl = (key: string) => {
       if (!visible) {
         dialogRef.current.close();
       } else {
-        if (!dialogRef.current.open) dialogRef.current.showModal();
+        if (!dialogRef.current.open) dialogRef?.current?.showModal();
       }
     }
   }, [dialogRef, visible]);
