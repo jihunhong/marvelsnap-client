@@ -8,10 +8,10 @@ const usePropsModalControl = (visible: boolean) => {
     if (dialogRef?.current) {
       if (visible) {
         if (!dialogRef?.current.open) {
-          dialogRef?.current.showModal();
+          dialogRef?.current?.showModal();
         }
       } else {
-        dialogRef?.current.close();
+        dialogRef?.current?.close();
       }
     }
   }, [dialogRef, visible]);
