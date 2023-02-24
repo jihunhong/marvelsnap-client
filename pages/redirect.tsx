@@ -1,4 +1,5 @@
 import useAuthenticate from '@hooks/pb/useAuthenticate';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
 const Redirect = () => {
@@ -13,4 +14,6 @@ const Redirect = () => {
   );
 };
 
-export default Redirect;
+export default dynamic(() => Promise.resolve(Redirect), {
+  ssr: false,
+});

@@ -1,3 +1,4 @@
+import { CardContainer } from '@atoms/Card/style';
 import { CardImageContainer } from '@atoms/CardImage/style';
 import styled from 'styled-components';
 
@@ -12,5 +13,8 @@ export const CardGridContainer = styled.section`
     :hover {
       transform: scale(1.05);
     }
+  }
+  ${CardContainer} {
+    position: relative;
   }
 `;

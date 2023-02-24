@@ -6,14 +6,14 @@ type Props = {
   placeholder: string;
   type?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  valule?: string | null;
+  value?: string;
+  name?: string;
 };
 
-const Input = ({ type = 'text', placeholder = '' }: Props, ref: ForwardedRef<any>) => {
-  const [value, handler] = useInput('');
+const Input = ({ type = 'text', placeholder = '', name = '', value, onChange }: Props, ref: ForwardedRef<any>) => {
   return (
     <S.InputContainer>
-      <S.InputTag ref={ref} type={type} placeholder={placeholder} value={value as string} onChange={handler} autoFocus />
+      <S.InputTag ref={ref} type={type} name={name} placeholder={placeholder} value={value} onChange={onChange} autoFocus />
     </S.InputContainer>
   );
 };

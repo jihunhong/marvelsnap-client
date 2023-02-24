@@ -1,3 +1,5 @@
 User-agent: *
-Disallow: /builder
 Disallow: /editor
+Disallow: /redirect
+Disallow: /admin*
+Disallow: /matches

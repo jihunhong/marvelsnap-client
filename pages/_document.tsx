@@ -47,6 +47,8 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#000000" />
           <Script
             async
+            id="adsense-init"
+            data-ad-client="ca-pub-8284554096460532"
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8284554096460532"
             crossOrigin="anonymous"
             strategy="afterInteractive"

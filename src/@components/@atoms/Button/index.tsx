@@ -6,11 +6,12 @@ interface ButtonProps extends DOMAttributes<HTMLButtonElement> {
   icon?: JSX.Element;
   className?: string;
   children?: JSX.Element | ReactNode;
+  type?: 'submit' | 'button';
 }
 
-const Button = ({ children, colorType = 'primary', icon, ...props }: ButtonProps & Attributes) => {
+const Button = ({ children, type = 'button', colorType = 'primary', icon, ...props }: ButtonProps & Attributes) => {
   return (
-    <ButtonTag colorType={colorType} {...props}>
+    <ButtonTag colorType={colorType} type={type} {...props}>
       {icon}
       {children}
     </ButtonTag>
