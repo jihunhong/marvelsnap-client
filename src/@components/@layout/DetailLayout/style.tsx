@@ -6,7 +6,7 @@ export const DetailLayoutContainer = styled.section`
   display: flex;
   flex-direction: column;
 
-  .raw {
+  .contents {
     ${RawHtmlContainer} {
       p:has(img) {
         display: flex;

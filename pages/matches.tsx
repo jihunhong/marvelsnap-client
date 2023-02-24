@@ -4,6 +4,7 @@ import MatchList from '@molecules/MatchList';
 import PageIntro from '@molecules/PageIntro';
 import useMatches from '@query/useMatches';
 import { NextSeo } from 'next-seo';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
 const Matches = () => {
@@ -26,4 +27,6 @@ const Matches = () => {
   );
 };
 
-export default Matches;
+export default dynamic(() => Promise.resolve(Matches), {
+  ssr: false,
+});

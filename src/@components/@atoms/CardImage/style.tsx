@@ -7,4 +7,5 @@ export const CardImageContainer = styled.div`
   padding-bottom: var(--card-ratio);
   border-radius: 6px;
   overflow: hidden;
+  user-select: none;
 `;

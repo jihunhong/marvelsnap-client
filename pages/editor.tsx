@@ -58,4 +58,6 @@ const Editor = () => {
   );
 };
 
-export default Editor;
+export default dynamic(() => Promise.resolve(Editor), {
+  ssr: false,
+});

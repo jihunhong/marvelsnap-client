@@ -1,3 +1,4 @@
+import { Card } from '@customTypes/Card';
 import axios from 'axios';
 
 export const baseUrl = process.env.NODE_ENV === 'production' ? 'https://snapsco.net' : 'http://localhost:3000';
@@ -49,6 +50,15 @@ export const getMetaDeckApi = async (id: string) => {
 
 export const postDeckApi = async (payload: { title: string; items: string[]; description: string | null }) => {
   const { data } = await axios.post('/api/deck', payload, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')?.token,
+    },
+  });
+  return data;
+};
+
+export const postMetaDeckApi = async (payload: { title: string; description: string; origin: string; writer: string; items: string[] }) => {
+  const { data } = await axios.post('/api/meta/deck', payload, {
     headers: {
       Authorization: JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')?.token,
     },

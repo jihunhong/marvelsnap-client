@@ -1,4 +1,4 @@
-import { imageStyle } from '@atoms/Modal/style';
+import { variantStyle } from '@atoms/Modal/style';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -41,7 +41,7 @@ const VariantsModal = ({ selectedIndex }: Props) => {
   }, [router.events]);
 
   return (
-    <Modal style={imageStyle} isOpen={visible} preventScroll={true} onRequestClose={() => close('variants')}>
+    <Modal style={variantStyle} isOpen={visible} preventScroll={true} onRequestClose={() => close('variants')}>
       <S.VariantsModalContainer>
         <div className="header">
           <BsX className="closer" color={'#efefef'} size={56} onClick={() => close('variants')} />

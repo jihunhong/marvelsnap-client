@@ -1,9 +1,8 @@
-import CardImage from '@atoms/CardImage';
+import Card from '@atoms/Card';
 import * as T from '@customTypes/Card';
+import { asc } from '@lib/sort';
 import Link from 'next/link';
 import * as S from './style';
-import { asc } from '@lib/sort';
-import Card from '@atoms/Card';
 
 type CardGridProps = {
   expand: T.Expand;

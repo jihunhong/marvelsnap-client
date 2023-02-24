@@ -75,7 +75,12 @@
     }
 
     * {
+        user-select: none;
         box-sizing: border-box;
+    }
+
+    img {
+        pointer-events: none;
     }
     
     .quill .ql-snow {
