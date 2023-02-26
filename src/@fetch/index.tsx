@@ -48,6 +48,15 @@ export const getMetaDeckApi = async (id: string) => {
   return data;
 };
 
+export const postArticleApi = async (payload: { title: string; summary: string; thumbnail: string; content: string; writer: string }) => {
+  const { data } = await axios.post('/api/admin/article', payload, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')?.token,
+    },
+  });
+  return data;
+};
+
 export const postDeckApi = async (payload: { title: string; items: string[]; description: string | null }) => {
   const { data } = await axios.post('/api/deck', payload, {
     headers: {

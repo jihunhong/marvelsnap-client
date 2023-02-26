@@ -3,7 +3,7 @@
 // https://nextjs.org/docs/api-reference/next.config.js/introduction
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
 const { withSentryConfig } = require('@sentry/nextjs');
-
+const removeImports = require('next-remove-imports')();
 /** @type {import('next').NextConfig} */
 
 const securityHeaders = [
@@ -52,6 +52,6 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = removeImports(nextConfig);
 
-module.exports = process.env.NODE_ENV === 'development' ? nextConfig : withSentryConfig(module.exports, { silent: true }, { hideSourcemaps: false });
+module.exports = process.env.NODE_ENV === 'development' ? module.exports : withSentryConfig(module.exports, { silent: true }, { hideSourcemaps: false });

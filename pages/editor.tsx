@@ -3,6 +3,7 @@ import { InputContainer, InputTag } from '@atoms/Input/style';
 import Text from '@atoms/Text';
 import useInput from '@hooks/useInput';
 import useQuill from '@hooks/useQuill';
+import useBeforeUnload from '@hooks/util/useBeforeUnload';
 import useMediaQuery from '@hooks/util/useMediaQuery';
 import EditorLayout from '@layout/EditorLayout';
 import CardGrid from '@molecules/CardGrid';
@@ -27,6 +28,7 @@ const Editor = () => {
   const addedCards = useRecoilValue(deckStatusAtom);
   const [postDeck] = usePostDeck(title, content);
   const [tablet] = useMediaQuery(breakpoints.tablet);
+  useBeforeUnload();
 
   return (
     <>

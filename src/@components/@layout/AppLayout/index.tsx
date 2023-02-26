@@ -19,7 +19,7 @@ const MobileHeader = dynamic(() => import('@layout/MobileHeader'), {
 const AppLayout = ({ children }: Props) => {
   const [tabletWidth] = useMediaQuery(breakpoints.tablet);
   const router = useRouter();
-  if (router.asPath === '/editor') return <>{children}</>;
+  if (router.asPath.includes('/editor')) return <>{children}</>;
   return (
     <>
       {tabletWidth ? <MobileHeader /> : <Header />}

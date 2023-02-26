@@ -33,7 +33,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="ko">
+      <Html lang="ko" data-color-mode="dark">
         <Head>
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
