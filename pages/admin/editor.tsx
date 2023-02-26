@@ -8,7 +8,6 @@ import EditorLayout from '@layout/EditorLayout';
 import useImageUploadCommand from '@lib/markdown/commands/imageUpload';
 import searchCardCommand from '@lib/markdown/commands/searchCardCommand';
 import usePostArticle from '@query/usePostArticle';
-import usePostDeck from '@query/usePostDeck';
 import breakpoints from '@styles/breakpoints';
 import '@uiw/react-markdown-preview/markdown.css';
 import '@uiw/react-md-editor/markdown-editor.css';
