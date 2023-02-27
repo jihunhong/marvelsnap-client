@@ -29,10 +29,10 @@ const MetaDeckDetailTemplate = () => {
   return (
     <>
       <NextSeo
-        title={`${data?.title} - ${deckTitleSuffix}`}
+        title={`${data?.title} | SNAPSCO`}
         openGraph={{
           url: `${siteBaseUrl}/${router.asPath}`,
-          title: `${data?.title} - ${deckTitleSuffix}`,
+          title: `${data?.title} | SNAPSCO`,
         }}
       />
       <S.MetaDeckDetailTemplateContainer>

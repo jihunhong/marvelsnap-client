@@ -1,6 +1,7 @@
 import StarIcon from '@atoms/Icon/star';
 import useScoreList from '@query/useScoreList';
 import * as S from './style';
+import Head from 'next/head';
 
 type ScoreDetailProps = {
   title: string;

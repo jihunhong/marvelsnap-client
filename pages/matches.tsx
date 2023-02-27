@@ -13,10 +13,10 @@ const Matches = () => {
   return (
     <>
       <NextSeo
-        title={`친선전 - ${defaultTitle}`}
+        title={`친선전 | SNAPSCO`}
         openGraph={{
           url: `${siteBaseUrl}/${router.asPath}`,
-          title: `친선전 - ${defaultTitle}`,
+          title: `친선전 | SNAPSCO`,
         }}
       />
       <PageIntro title="Matches" description="snapsco에서 친선전 상대를 찾아보세요" bgSource={backgroundUrls.cards}></PageIntro>

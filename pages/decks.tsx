@@ -42,10 +42,10 @@ const Decks = () => {
   return (
     <>
       <NextSeo
-        title={`덱 리스트, 덱 갤러리, 덱 DB - ${defaultTitle}`}
+        title={`덱 리스트, 덱 갤러리, 덱 DB | SNAPSCO`}
         openGraph={{
           url: `${siteBaseUrl}/${router.asPath}`,
-          title: `덱 리스트, 덱 갤러리, 덱 DB - ${defaultTitle}`,
+          title: `덱 리스트, 덱 갤러리, 덱 DB | SNAPSCO`,
         }}
       />
       <PageIntro title="Decks" description="메타에서 효과적인 다양한 덱들을 찾아보세요" bgSource={backgroundUrls.cards} objectPosition="center bottom" />

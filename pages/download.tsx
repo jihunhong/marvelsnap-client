@@ -10,10 +10,10 @@ const Download = () => {
   return (
     <>
       <NextSeo
-        title={`컬렉션 트래커 다운로드 - ${defaultTitle}`}
+        title={`컬렉션 트래커 다운로드 | SNAPSCO`}
         openGraph={{
           url: `${siteBaseUrl}/${router.asPath}`,
-          title: `컬렉션 트래커 다운로드 - ${defaultTitle}`,
+          title: `컬렉션 트래커 다운로드 | SNAPSCO`,
         }}
       />
       <PageIntro title="Download" description="트래커로 컬렉션을 연동시켜 보세요" bgSource={backgroundUrls.cards} />

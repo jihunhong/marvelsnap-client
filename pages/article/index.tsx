@@ -32,10 +32,10 @@ const ArticleDetail = () => {
   return (
     <>
       <NextSeo
-        title={`${data?.title} - ${defaultTitle}`}
+        title={`${data?.title} | SNAPSCO`}
         openGraph={{
           url: `${siteBaseUrl}/${router.asPath}`,
-          title: `${data?.title} - ${defaultTitle}`,
+          title: `${data?.title}`,
         }}
       />
       <PageIntro title={data?.title} description={data?.summary} bgSource={`${baseImgix}/static/background-card-detail.webp`} objectPosition="center bottom" />

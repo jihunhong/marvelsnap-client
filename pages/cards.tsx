@@ -44,10 +44,10 @@ const Cards = () => {
   return (
     <>
       <NextSeo
-        title={`카드 리스트, 카드 갤러리, 카드 DB - ${defaultTitle}`}
+        title={`카드 리스트, 카드 갤러리, 카드 DB | SNAPSCO`}
         openGraph={{
           url: `${siteBaseUrl}/${router.asPath}`,
-          title: `카드 리스트, 카드 갤러리, 카드 DB - ${defaultTitle}`,
+          title: `카드 리스트, 카드 갤러리, 카드 DB | SNAPSCO`,
         }}
       />
       <PageIntro title="Cards" description="게임에서 사용되는 다양한 카드들을 찾아보세요" bgSource={backgroundUrls.cards}>

@@ -33,10 +33,10 @@ const Meta = () => {
   return (
     <>
       <NextSeo
-        title={`메타 덱 리스트 - ${defaultTitle}`}
+        title={`메타 덱 리스트 | SNAPSCO`}
         openGraph={{
           url: `${siteBaseUrl}/${router.asPath}`,
-          title: `메타 덱 리스트 - ${defaultTitle}`,
+          title: `메타 덱 리스트 | SNAPSCO`,
         }}
       />
       <PageIntro title="Meta" description="강력하고 어썸한 덱들을 확인해보세요!" bgSource={backgroundUrls.cards}></PageIntro>

@@ -9,19 +9,24 @@ import useCardQuery from '@query/useCardQuery';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import * as S from './style';
+import useScoreList from '@query/useScoreList';
+import Head from 'next/head';
+import useCommentListQuery from '@query/useCommentList';
 
 const CardDetailTemplate = () => {
   const [data] = useCardQuery();
   const router = useRouter();
+  const { avg, ratings } = useScoreList({ collectionId: data?.collectionId, recordId: data?.id });
+  const { dataSource } = useCommentListQuery({ collectionId: data?.collectionId, recordId: data?.id });
 
   return (
     <>
       <NextSeo
-        title={`${data?.name}(${data?.en}) - ${cardTitleSuffix}`}
+        title={`${data?.name} | SNAPSCO`}
         description={`${data?.name} - ${data?.effect}`}
         openGraph={{
           url: `${siteBaseUrl}${router.asPath}`,
-          title: `${data?.name}(${data?.en}) - ${cardTitleSuffix}`,
+          title: `${data?.name} | SNAPSCO`,
           description: `${data?.name} - ${data?.effect}`,
           images: [
             {
@@ -30,6 +35,38 @@ const CardDetailTemplate = () => {
           ],
         }}
       />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `
+        {
+          "@context": "https://schema.org/",
+          "@type": "UserReview",
+          "name": ${data?.name},
+          "image": [
+            "https://${baseImgix}/cards/basic/${data?.cardDefId}.webp?format=auto",
+           ],
+          "description": "${data?.name} - ${data?.effect}",
+          "review": {
+            "@type": "Review",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "${avg}",
+              "bestRating": "5"
+            },
+          },
+          "commentCount": "${dataSource?.length}",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "${avg}",
+            "reviewCount": "${dataSource?.length}"
+          },
+        }
+    `,
+          }}
+        ></script>
+      </Head>
       <S.CardDetailContainer>
         <div className="meta">
           <section>

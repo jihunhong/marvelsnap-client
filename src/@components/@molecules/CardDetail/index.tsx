@@ -22,7 +22,7 @@ const CardDetail = ({ name, effect, grade, keywords, collectionId, id }: T.Card)
           </Tag>
         ))}
       </FlexRow>
-      <ScoreDetail collectionId={collectionId} recordId={id} title="카드 평가" />
+      <ScoreDetail collectionId={collectionId} recordId={id} title={name} />
       <div>
         <Rating collectionId={collectionId} recordId={id} value={2} />
       </div>
