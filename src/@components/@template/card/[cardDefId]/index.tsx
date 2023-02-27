@@ -43,7 +43,7 @@ const CardDetailTemplate = () => {
         {
           "@context": "https://schema.org/",
           "@type": "UserReview",
-          "name": ${data?.name},
+          "name": "${data?.name}",
           "image": [
             "https://${baseImgix}/cards/basic/${data?.cardDefId}.webp?format=auto",
            ],
