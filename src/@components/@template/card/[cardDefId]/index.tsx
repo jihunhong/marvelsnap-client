@@ -52,14 +52,14 @@ const CardDetailTemplate = () => {
               "@type": "Rating",
               "ratingValue": "${avg}",
               "bestRating": "5"
-            },
+            }
           },
           "commentCount": "${dataSource?.length}",
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "${avg}",
             "reviewCount": "${dataSource?.length}"
-          },
+          }
         }
     `,
           }}
