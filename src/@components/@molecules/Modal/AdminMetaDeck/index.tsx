@@ -13,8 +13,12 @@ import * as S from './style';
 setAppElement('#__next');
 
 const AdminMetaDeckModal = ({ visible, onClose }: { visible: boolean; onClose: () => void }) => {
-  const [values, onChange, onSubmit] = useMetaDeckForm();
+  const [values, onChange, submit] = useMetaDeckForm();
   const addedCards = useRecoilValue(deckStatusAtom);
+  const onSubmit = () => {
+    submit();
+    onClose();
+  };
   return (
     <Modal style={smallStyle} isOpen={visible} preventScroll={true} onRequestClose={onClose}>
       <S.AdminMetaDeckModalContainer justify="flex-start">
