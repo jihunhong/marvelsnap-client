@@ -12,14 +12,23 @@ import Link from 'next/link';
 import { FaRegCommentDots, FaRegCopy } from 'react-icons/fa';
 import { FiThumbsUp } from 'react-icons/fi';
 import * as S from './style';
+import { useQueryClient } from 'react-query';
+import keys from '@query/keys';
+import { getDeckApi } from '@fetch/index';
 
 const Deck = ({ id, title, created, cards, like, comment }: T.Deck) => {
   const [handler] = useCopyCode({ items: cards, title });
   const series = useDeckTag({ items: cards });
   const [navigate] = useNavigate({ href: `/decks?id=${id}`, as: `/deck/${id}` });
   const date = format(created);
+  const queryClient = useQueryClient();
+  const onMouseOver = async () => {
+    await queryClient.prefetchQuery([keys.getDeck, id], () => getDeckApi(id), {
+      staleTime: 86400,
+    });
+  };
   return (
-    <S.DeckContainer>
+    <S.DeckContainer onMouseOver={onMouseOver}>
       <div className="header">
         <div className="meta-top">
           <Link href={`/decks?id=${id}`} as={`/deck/${id}`} scroll={false} shallow={true}>

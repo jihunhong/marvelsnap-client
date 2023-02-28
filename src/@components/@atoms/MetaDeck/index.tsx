@@ -1,24 +1,32 @@
-import Card from '@atoms/Card';
+import CardImage from '@atoms/CardImage';
 import SeriesIcon from '@atoms/Icon/series';
 import Tag from '@atoms/Tag';
 import type * as C from '@customTypes/Card';
 import type * as T from '@customTypes/Deck';
+import { getMetaDeckApi } from '@fetch/index';
 import useCopyCode from '@hooks/deck/useDeckCode';
 import useDeckTag from '@hooks/deck/useDeckTag';
 import useNavigate from '@hooks/useNavigate';
+import { asc } from '@lib/sort';
+import keys from '@query/keys';
 import Link from 'next/link';
 import { FaLink, FaRegCommentDots, FaRegCopy } from 'react-icons/fa';
 import { FiThumbsUp } from 'react-icons/fi';
+import { useQueryClient } from 'react-query';
 import * as S from './style';
-import { asc } from '@lib/sort';
-import CardImage from '@atoms/CardImage';
 
-const MetaDeck = ({ id, title, created, cards, like, comment, origin, writer }: T.Deck) => {
+const MetaDeck = ({ id, title, cards, like, comment, origin, writer }: T.Deck) => {
   const [handler] = useCopyCode({ items: cards, title });
   const series = useDeckTag({ items: cards });
   const [navigate] = useNavigate({ href: `/meta?id=${id}`, as: `/meta/deck/${id}` });
+  const queryClient = useQueryClient();
+  const onMouseOver = async () => {
+    await queryClient.prefetchQuery([keys.getMetaDeck, id], () => getMetaDeckApi(id), {
+      staleTime: 86400,
+    });
+  };
   return (
-    <S.MetaDeckContainer>
+    <S.MetaDeckContainer onMouseOver={onMouseOver}>
       <div className="header">
         <div className="meta-top">
           <Link href={`/meta?id=${id}`} as={`/meta/deck/${id}`} scroll={false} shallow={true}>
