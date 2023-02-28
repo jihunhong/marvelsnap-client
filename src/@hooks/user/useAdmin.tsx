@@ -26,6 +26,7 @@ const useAdmin = () => {
         );
         handler();
       } catch (err) {
+        console.log(err);
         router.push('/');
       }
     };
