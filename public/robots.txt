@@ -3,3 +3,4 @@ Disallow: /editor
 Disallow: /redirect
 Disallow: /admin*
 Disallow: /matches
+Disallow: /admin*
