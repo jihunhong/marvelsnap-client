@@ -7,3 +7,10 @@ export interface User {
   username: string;
   cId?: string;
 }
+
+export interface JWTPayload {
+  exp: number;
+  collectionId: string;
+  id: string;
+  type: string;
+}

@@ -2,7 +2,7 @@ import Button from '@atoms/Button';
 import Card from '@atoms/Card';
 import { FlexRow } from '@atoms/Flex/style';
 import backgroundUrls from '@constant/backgrounds';
-import { defaultTitle, siteBaseUrl } from '@constant/text';
+import { siteBaseUrl } from '@constant/text';
 import { getCardListApi } from '@fetch/index';
 import useCardNavigate from '@hooks/action/useCardNavigate';
 import DivisionLayout from '@layout/DivisionLayout';

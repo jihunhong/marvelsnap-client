@@ -1,5 +1,3 @@
-import type * as T from '.Card';
-
 export interface Comment {
   id: string;
   content: string;

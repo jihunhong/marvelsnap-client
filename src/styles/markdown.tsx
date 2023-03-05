@@ -1,3 +1,4 @@
+import device from '@styles/devices';
 import { css } from 'styled-components';
 
 export const MarkdownCss = css`
@@ -38,8 +39,32 @@ export const MarkdownCss = css`
     }
   }
   center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    @media ${device.tablet} {
+      :has(a:nth-child(1)) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      :has(a:nth-child(2)) {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+      }
+      :has(a:nth-child(3)) {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      :has(a:nth-child(4)) {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+      }
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
   }
 `;

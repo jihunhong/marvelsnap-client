@@ -6,12 +6,17 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 const useAdmin = () => {
-  console.log(pb.authStore.model);
   const [admin, handler] = useToggle();
   const router = useRouter();
   useEffect(() => {
     const adminLogin = async () => {
       const pw = prompt('Welcom back!');
+      try {
+        await pb.collection('users').authRefresh();
+      } catch (err) {
+        alert('세션이 만료되었습니다.');
+        router.push('/login');
+      }
       try {
         await axios.post(
           `${baseUrl}/api/admin/login`,
@@ -27,7 +32,8 @@ const useAdmin = () => {
         handler();
       } catch (err) {
         console.log(err);
-        router.push('/');
+        debugger;
+        // router.push('/');
       }
     };
     adminLogin();

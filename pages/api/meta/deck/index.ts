@@ -15,11 +15,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     if (!pb.authStore.isValid) return res.status(401).end();
 
     try {
-      await pb.collection('users').authRefresh();
-    } catch (_) {
-      pb.authStore.clear();
-    }
-    try {
       const record = await pb.collection('meta_deck').create({
         title: req.body.title,
         description: req.body.description,

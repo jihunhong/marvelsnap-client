@@ -1,9 +1,9 @@
-import { defaultTitle, siteBaseUrl } from '@constant/text';
+import DownloadTemplate from '@components/@template/download';
+import backgroundUrls from '@constant/backgrounds';
+import { siteBaseUrl } from '@constant/text';
 import PageIntro from '@molecules/PageIntro';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import backgroundUrls from '@constant/backgrounds';
-import DownloadTemplate from '@components/@template/download';
 
 const Download = () => {
   const router = useRouter();

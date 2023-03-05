@@ -22,12 +22,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   pb.authStore.save(req.headers.authorization);
   if (!pb.authStore.isValid) return res.status(401).end();
 
-  try {
-    await pb.collection('users').authRefresh();
-  } catch (_) {
-    pb.authStore.clear();
-  }
-
   // Duplicate check
   try {
     await pb.collection('like').getFirstListItem(`collection="${req.body.collectionId}" && recordId="${req.body.recordId}" && user="${pb.authStore.model?.id}"`);

@@ -1,10 +1,10 @@
 import ErrorTemplate from '@components/@template/_error';
 import { baseImgix } from '@constant/imigx';
 import PageIntro from '@molecules/PageIntro';
-import { NextPageContext } from 'next';
-import Head from 'next/head';
 import * as Sentry from '@sentry/nextjs';
+import { NextPageContext } from 'next';
 import NextErrorComponent from 'next/error';
+import Head from 'next/head';
 
 const Error = ({ statusCode }: { statusCode: number }) => {
   return (

@@ -1,10 +1,8 @@
 import { postCommentApi } from '@fetch/index';
 import useApiNotify from '@hooks/notify/useApiNotify';
 import useBlockNotify from '@hooks/notify/useBlockNotify';
-import useNotify from '@hooks/notify/useNotify';
 import keys from '@query/keys';
 import useUser from '@query/useUser';
-import { useRouter } from 'next/router';
 import { SyntheticEvent } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 

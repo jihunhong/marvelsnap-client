@@ -9,13 +9,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   if (!pb.authStore.isValid) return res.status(401).end();
 
   try {
-    await pb.collection('users').authRefresh();
-  } catch (err) {
-    console.error(err.message);
-    pb.authStore.clear();
-  }
-
-  try {
     await pb.admins.authWithPassword(pb.authStore.model.email, req.body.pw);
     res.status(200).send(null);
   } catch (err) {
