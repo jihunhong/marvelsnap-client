@@ -6,7 +6,7 @@ import useMetaDeckForm from '@hooks/user/useMetaDeckForm';
 import CardGrid from '@molecules/CardGrid';
 import { TbClipboardList } from 'react-icons/tb';
 import Modal, { setAppElement } from 'react-modal';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { deckStatusAtom } from 'src/@store/builder';
 import * as S from './style';
 
@@ -15,8 +15,10 @@ setAppElement('#__next');
 const AdminMetaDeckModal = ({ visible, onClose }: { visible: boolean; onClose: () => void }) => {
   const [values, onChange, submit] = useMetaDeckForm();
   const addedCards = useRecoilValue(deckStatusAtom);
+  const resetter = useResetRecoilState(deckStatusAtom);
   const onSubmit = () => {
     submit();
+    resetter();
     onClose();
   };
   return (
