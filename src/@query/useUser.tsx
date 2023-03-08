@@ -10,11 +10,12 @@ const useUser = () => {
   const [user, setUser] = useRecoilState(userAtom);
   const { expiredSession } = useBlockNotify();
   const getUser = async () => {
+    const user = await pb.authStore.model;
+    if (!user) return null;
     if (!pb.authStore.isValid) {
       expiredSession();
       return;
     }
-    const user = await pb.authStore.model;
     const date = getExp(pb.authStore.token);
     if (isValidForRefresh(date)) {
       const token = await pb.collection('users').authRefresh();
