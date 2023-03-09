@@ -1,6 +1,7 @@
 import { defaultDescription, defaultTitle, siteBaseUrl } from '@constant/text';
+import { BuildTagsParams } from 'next-seo/lib/types';
 
-export const DEFAULT_SEO = {
+export const DEFAULT_SEO: BuildTagsParams = {
   title: defaultTitle,
   description: defaultDescription,
   canonical: 'https://snapsco.net',
@@ -25,4 +26,7 @@ export const DEFAULT_SEO = {
     site: '@snapsco.net',
     cardType: 'summary_large_image',
   },
+  noindex: false,
+  nofollow: false,
+  themeColor: '#161819',
 };

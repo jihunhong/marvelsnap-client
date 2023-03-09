@@ -2,6 +2,10 @@ export interface Expand {
   items: Array<Card>;
 }
 
+export interface Variant {
+  variants: Array<Variant>;
+}
+
 export type Card = {
   id: string;
   name: string;
@@ -17,6 +21,6 @@ export type Card = {
   effect: string;
   en: string;
   cardDefId: string;
-  expand?: Array<any> | Expand;
+  expand?: Expand | Variant | Array<any>;
   collectionId?: string;
 };

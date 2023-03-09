@@ -11,8 +11,8 @@ import usePostArticle from '@query/usePostArticle';
 import breakpoints from '@styles/breakpoints';
 import '@uiw/react-markdown-preview/markdown.css';
 import '@uiw/react-md-editor/markdown-editor.css';
+import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 import { useState } from 'react';
 import { BsCheck } from 'react-icons/bs';
 
@@ -30,9 +30,7 @@ const AdminEditor = () => {
   useBeforeUnload();
   return (
     <>
-      <Head>
-        <meta name="Robots" content="noindex,nofollow" />
-      </Head>
+      <NextSeo noindex={true} nofollow={true} />
       <EditorLayout>
         <div className="editor">
           <div className="post-info">

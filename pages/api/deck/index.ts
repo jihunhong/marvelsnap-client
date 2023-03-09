@@ -13,6 +13,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       pb.authStore.save(req.headers.authorization);
       if (!pb.authStore.isValid) return res.status(401).end();
 
+      try {
+        await pb.collection('users').authRefresh();
+      } catch (err) {
+        pb.authStore.clear();
+      }
+
       const record = await pb.collection('decks').create({
         title: req.body.title,
         description: req.body.description,

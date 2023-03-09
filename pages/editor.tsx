@@ -9,8 +9,8 @@ import EditorLayout from '@layout/EditorLayout';
 import CardGrid from '@molecules/CardGrid';
 import usePostDeck from '@query/usePostDeck';
 import breakpoints from '@styles/breakpoints';
+import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 import { BsCheck } from 'react-icons/bs';
 import { useRecoilValue } from 'recoil';
 import { deckStatusAtom } from 'src/@store/builder';
@@ -32,9 +32,7 @@ const Editor = () => {
 
   return (
     <>
-      <Head>
-        <meta name="Robots" content="noindex,nofollow" />
-      </Head>
+      <NextSeo noindex={true} nofollow={true} />
       <EditorLayout>
         <div className="editor">
           <InputContainer>

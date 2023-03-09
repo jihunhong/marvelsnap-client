@@ -8,6 +8,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   if (!pb.authStore.isValid) return res.status(401).end();
 
   try {
+    await pb.collection('users').authRefresh();
+  } catch (err) {
+    pb.authStore.clear();
+  }
+
+  try {
     const user = await pb.collection('users').getFirstListItem(`id='${req.body.userId}'`);
     const userCollection = await pb.collection('user_collection').getFirstListItem(`profileId='${req.body.profileId}'`);
     if (user && userCollection) {

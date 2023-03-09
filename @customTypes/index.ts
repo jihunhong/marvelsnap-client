@@ -7,6 +7,7 @@ export type { Deck } from './Deck';
 export type { Filter } from './Filter';
 export type { Keyword } from './Keyword';
 export type { Provider } from './Provider';
+export type { IVariantsAtom } from './recoil/variantsAtom';
 export type { SnapDeckCode } from './SnapDeckCode';
 export type { JWTPayload, User } from './User';
 export type { Variant } from './Variant';

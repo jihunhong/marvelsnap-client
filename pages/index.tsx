@@ -8,7 +8,7 @@ import { dehydrate, QueryClient, useQuery } from 'react-query';
 export async function getServerSideProps({ res }: NextPageContext) {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery([keys.getArticles], () => getArticleListApi());
-  res?.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=59');
+  res?.setHeader('Cache-Control', 'public, s-maxage=31536000, max-age=0, stale-while-revalidate=59');
   return {
     props: {
       dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),

@@ -32,6 +32,7 @@ const nextConfig = {
   images: {
     domains: ['marvelsnap.imgix.net'],
     disableStaticImages: true,
+    deviceSizes: [425, 768, 2560],
   },
   eslint: {
     ignoreDuringBuilds: true,

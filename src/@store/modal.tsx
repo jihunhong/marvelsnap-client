@@ -1,7 +1,7 @@
 import { atom, selector, selectorFamily } from 'recoil';
 import { v1 } from 'uuid';
 
-export const modalAtom = atom({
+export const modalAtom = atom<Record<string, boolean>>({
   key: `modal/${v1()}`,
   default: {
     postDeck: false,

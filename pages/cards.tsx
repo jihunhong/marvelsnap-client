@@ -28,7 +28,7 @@ const CardDetailModal = dynamic(() => import('@molecules/Modal/CardDetailModal')
 export async function getStaticProps({ res }: NextPageContext) {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery([keys.getCardList], getCardListApi);
-  res?.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=60');
+  res?.setHeader('Cache-Control', 'public, s-maxage=31536000, max-age=0, stale-while-revalidate=59');
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
@@ -44,10 +44,10 @@ const Cards = () => {
   return (
     <>
       <NextSeo
-        title={`카드 리스트, 카드 갤러리, 카드 DB | SNAPSCO`}
+        title={`마블스냅 카드 리스트, 카드 갤러리, 카드 DB | SNAPSCO`}
         openGraph={{
           url: `${siteBaseUrl}/${router.asPath}`,
-          title: `카드 리스트, 카드 갤러리, 카드 DB | SNAPSCO`,
+          title: `마블스냅 카드 리스트, 카드 갤러리, 카드 DB | SNAPSCO`,
         }}
       />
       <PageIntro title="Cards" description="게임에서 사용되는 다양한 카드들을 찾아보세요" bgSource={backgroundUrls.cards}>

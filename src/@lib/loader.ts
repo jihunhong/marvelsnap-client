@@ -12,3 +12,7 @@ export const cardLoader = ({ src, width }: loaderProps) => {
 export const variantLoader = ({ src, width }: loaderProps) => {
   return `${baseImgix}/variants/${src}.webp?w=${width}&auto=format`;
 };
+
+export const variantThumbnailLoader = ({ src, width }: loaderProps) => {
+  return `/variants/${src}.webp?w=${width}&auto=format`;
+};

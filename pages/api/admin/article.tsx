@@ -8,6 +8,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   if (!pb.authStore.isValid) return res.status(401).end();
 
   try {
+    await pb.collection('users').authRefresh();
+  } catch (err) {
+    pb.authStore.clear();
+  }
+
+  try {
     const article = await pb.collection('articles').create({
       title: req.body.title,
       summary: req.body.summary,

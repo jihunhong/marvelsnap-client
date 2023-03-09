@@ -69,8 +69,16 @@ export const VariantsModalContainer = styled.div`
     display: flex;
 
     .flex {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 100px);
+      grid-auto-flow: column;
+      column-gap: 12px;
     }
+  }
+  .thumbnail {
+    cursor: pointer;
+    position: relative;
+    width: 100px;
   }
 
   .active {

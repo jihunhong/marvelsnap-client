@@ -1,18 +1,24 @@
 import { baseImgix } from '@constant/imigx';
-import { Card } from '@customTypes/Card';
+import { Card, IVariantsAtom } from '@customTypes/index';
 
-const WIDTH = 864;
+const SOURCE_WIDTH = 714;
 
-const variantsMapping = (json: Card) => {
-  if (Array.isArray(json?.expand?.variants)) {
-    const variantsIds = json?.expand?.variants?.map(v => {
-      return `${baseImgix}/variants/${json.cardDefId}/${v.id}.webp?w=${WIDTH}&auto=format`;
+const variantsMapping = (json: Card): IVariantsAtom => {
+  if (json?.expand.variants?.length) {
+    const variantsIds = json.expand.variants.map(v => {
+      return `${baseImgix}/variants/${json.cardDefId}/${v.id}.webp?w=${SOURCE_WIDTH}&auto=format`;
     });
-    const origin = `${baseImgix}/cards/basic/${json.cardDefId}.webp?w=${WIDTH}&auto=format`;
-    const variants = [origin, ...variantsIds];
-    return variants;
+    const origin = `${baseImgix}/cards/basic/${json.cardDefId}.webp?w=${SOURCE_WIDTH}&auto=format`;
+    const variantSource = [origin, ...variantsIds];
+    return {
+      variantSource,
+      thumbnailSource: json.expand.variants.map(v => v.id),
+    };
   }
-  return [];
+  return {
+    variantSource: [],
+    thumbnailSource: [],
+  };
 };
 
 export default variantsMapping;

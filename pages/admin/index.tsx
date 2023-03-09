@@ -1,19 +1,19 @@
 import Card from '@atoms/Card';
 import CardListHeader from '@atoms/CardListHeader';
-import useBuilder from '@hooks/useBuilder';
+import backgroundUrls from '@constant/backgrounds';
 import * as T from '@customTypes/Card';
+import useBuilder from '@hooks/useBuilder';
 import useAdmin from '@hooks/user/useAdmin';
 import useToggle from '@hooks/useToggle';
 import DivisionLayout from '@layout/DivisionLayout';
 import CardList from '@molecules/CardList';
+import PageIntro from '@molecules/PageIntro';
 import useCardListQuery from '@query/useCardListQuery';
+import { NextSeo } from 'next-seo';
+import dynamic from 'next/dynamic';
 import { SyntheticEvent } from 'react';
 import { useRecoilValue } from 'recoil';
 import { getIds } from 'src/@store/builder';
-import dynamic from 'next/dynamic';
-import PageIntro from '@molecules/PageIntro';
-import backgroundUrls from '@constant/backgrounds';
-import Head from 'next/head';
 
 const CardFilter = dynamic(() => import('@molecules/CardFilter'), {
   ssr: false,
@@ -36,9 +36,7 @@ const Admin = () => {
 
   return (
     <>
-      <Head>
-        <meta name="Robots" content="noindex,nofollow" />
-      </Head>
+      <NextSeo noindex={true} nofollow={true} />
       <PageIntro title="Admin Deck Builder" description="" bgSource={backgroundUrls.builder} objectPosition="center center" />
       <DivisionLayout>
         <section>

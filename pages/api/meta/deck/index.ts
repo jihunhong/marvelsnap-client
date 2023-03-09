@@ -10,11 +10,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const record = await pb.collection('meta_deck').getFirstListItem(`id='${req.query.id}'`, {
       expand: 'items',
     });
-    res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=60');
+    res?.setHeader('Cache-Control', 'public, s-maxage=31536000, max-age=0, stale-while-revalidate=59');
     res.status(200).json(record);
   } else if (req.method === 'POST') {
     pb.authStore.save(req.headers.authorization);
     if (!pb.authStore.isValid) return res.status(401).end();
+
+    try {
+      await pb.collection('users').authRefresh();
+    } catch (err) {
+      pb.authStore.clear();
+    }
 
     try {
       const record = await pb.collection('meta_deck').create({
@@ -24,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         writer: req.body.writer,
         items: req.body.items,
       });
-      const pages = await redis.keys(keys.getMetaDeckList);
+      const pages = await redis.keys(`${keys.getMetaDeckList}*`);
       const promises = pages.map(async (key: string) => await redis.del(key));
       await Promise.allSettled(promises);
       return res.status(200).json(record);

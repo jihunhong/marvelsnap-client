@@ -1,9 +1,10 @@
+import { CardContainer } from '@atoms/Card/style';
 import { InputContainer } from '@atoms/Input/style';
 import { RawHtmlContainer } from '@atoms/RawHtml/style';
 import { CardGridContainer } from '@molecules/CardGrid/style';
 import device from '@styles/devices';
-import styled from 'styled-components';
 import { MarkdownCss } from '@styles/markdown';
+import styled from 'styled-components';
 
 export const EditorLayoutContainer = styled.section`
   display: flex;
@@ -31,6 +32,15 @@ export const EditorLayoutContainer = styled.section`
       grid-template-rows: 1fr;
       grid-template-columns: repeat(12, 1fr);
       padding: 1rem 0;
+      ${CardContainer} {
+        transition: none;
+        p {
+          display: none;
+        }
+        .text-content {
+          display: none;
+        }
+      }
     }
     ${InputContainer} {
       height: 40px;
