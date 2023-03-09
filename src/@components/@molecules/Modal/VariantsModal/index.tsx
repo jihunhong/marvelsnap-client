@@ -12,11 +12,12 @@ import { variantsAtom } from 'src/@store/variants';
 import * as S from './style';
 
 type Props = {
+  cardDefId: string;
   selectedIndex: number;
 };
 setAppElement('#__next');
 
-const VariantsModal = ({ selectedIndex }: Props) => {
+const VariantsModal = ({ cardDefId, selectedIndex }: Props) => {
   const { variantSource, thumbnailSource } = useRecoilValue(variantsAtom);
   const [current, setCurrent] = useState(selectedIndex);
   const close = useSetRecoilState(modalCloser);
@@ -58,7 +59,7 @@ const VariantsModal = ({ selectedIndex }: Props) => {
           <div className="flex">
             {thumbnailSource?.map((id, index) => (
               <div key={id} className={`thumbnail ${(current + 1) % variantSource.length === index ? 'active' : ''}`} onClick={() => setCurrent(index - 1)}>
-                <Variant id={id} cardDefId={'Deadpool'} w={50} />
+                <Variant id={id} cardDefId={cardDefId} w={50} />
               </div>
             ))}
           </div>

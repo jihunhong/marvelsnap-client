@@ -26,7 +26,7 @@ const Variants = ({ cardDefId, dataSource = [] }: VariantsProps) => {
 
   return (
     <>
-      <VariantsModal selectedIndex={selectedIndex} />
+      <VariantsModal cardDefId={cardDefId} selectedIndex={selectedIndex} />
       <S.VariantsContainer>
         <Slider occupy={'14%'} dataSource={dataSource} renderItem={(item: T.Variant, index: number) => <Variant onClick={() => onClick(index)} key={item.id} cardDefId={cardDefId} {...item} />} />
       </S.VariantsContainer>
