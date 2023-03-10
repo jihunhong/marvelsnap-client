@@ -9,6 +9,7 @@ const PER_PAGE = 12;
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   const page = req.query.page || 1;
   const KEY = `${keys.getMetaDeckList}?page=${page}`;
+  res.setHeader('Cache-Control', 's-maxage=600, stale-while-revalidate=30');
   try {
     const exist = await redis.exists(KEY);
     if (exist) {
@@ -24,6 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     });
     await redis.set(KEY, JSON.stringify(temp));
     res.setHeader('redis-cache', 'MISS');
+    res.setHeader('Cache-Control', 's-maxage=600, stale-while-revalidate=30');
     return res.status(200).json(temp);
   } catch (err) {
     console.error(err);
