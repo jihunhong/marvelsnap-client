@@ -1,20 +1,24 @@
-import CardImage from '@atoms/CardImage';
 import SeriesIcon from '@atoms/Icon/series';
 import Tag from '@atoms/Tag';
 import type * as C from '@customTypes/Card';
 import type * as T from '@customTypes/Deck';
+import { getDeckApi } from '@fetch/index';
 import useCopyCode from '@hooks/deck/useDeckCode';
 import useDeckTag from '@hooks/deck/useDeckTag';
 import useNavigate from '@hooks/useNavigate';
 import format from '@lib/day/format';
 import { asc } from '@lib/sort';
+import keys from '@query/keys';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { FaRegCommentDots, FaRegCopy } from 'react-icons/fa';
 import { FiThumbsUp } from 'react-icons/fi';
-import * as S from './style';
 import { useQueryClient } from 'react-query';
-import keys from '@query/keys';
-import { getDeckApi } from '@fetch/index';
+import * as S from './style';
+
+const CardImage = dynamic(() => import('@atoms/CardImage'), {
+  ssr: false,
+});
 
 const Deck = ({ id, title, created, cards, like, comment }: T.Deck) => {
   const [handler] = useCopyCode({ items: cards, title });

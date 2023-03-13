@@ -1,4 +1,3 @@
-import CardImage from '@atoms/CardImage';
 import SeriesIcon from '@atoms/Icon/series';
 import Tag from '@atoms/Tag';
 import type * as C from '@customTypes/Card';
@@ -9,11 +8,16 @@ import useDeckTag from '@hooks/deck/useDeckTag';
 import useNavigate from '@hooks/useNavigate';
 import { asc } from '@lib/sort';
 import keys from '@query/keys';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { FaLink, FaRegCommentDots, FaRegCopy } from 'react-icons/fa';
 import { FiThumbsUp } from 'react-icons/fi';
 import { useQueryClient } from 'react-query';
 import * as S from './style';
+
+const CardImage = dynamic(() => import('@atoms/CardImage'), {
+  ssr: false,
+});
 
 const MetaDeck = ({ id, title, cards, like, comment, origin, writer }: T.Deck) => {
   const [handler] = useCopyCode({ items: cards, title });
