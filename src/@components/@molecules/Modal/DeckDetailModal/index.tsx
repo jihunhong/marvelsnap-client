@@ -1,6 +1,6 @@
 import ModalBase from '@atoms/Modal';
 import DeckDetailTemplate from '@components/@template/deck/[deckId]';
-import { baseImgix } from '@constant/imigx';
+import backgroundUrls from '@constant/backgrounds';
 import DetailLayout from '@layout/DetailLayout';
 import PageIntro from '@molecules/PageIntro';
 import { useRouter } from 'next/router';
@@ -17,7 +17,7 @@ const DeckDetailModal = ({ visible }: { visible: boolean }) => {
   }, []);
   return (
     <ModalBase visible={visible}>
-      <PageIntro title={'Deck'} description={''} bgSource={`${baseImgix}/static/background-card-detail.webp`} objectPosition="center bottom" />
+      <PageIntro title={'Deck'} description={''} bgSource={backgroundUrls.cards} objectPosition="center bottom" />
       <DetailLayout>
         <DeckDetailTemplate />
       </DetailLayout>

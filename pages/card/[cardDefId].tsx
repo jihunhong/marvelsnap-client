@@ -1,6 +1,6 @@
 import { FlexRow } from '@atoms/Flex/style';
 import CardDetailTemplate from '@components/@template/card/[cardDefId]';
-import { baseImgix } from '@constant/imigx';
+import backgroundUrls from '@constant/backgrounds';
 import { getCardApi } from '@fetch/index';
 import DetailLayout from '@layout/DetailLayout';
 import PageIntro from '@molecules/PageIntro';
@@ -25,7 +25,7 @@ const Detail = () => {
   const [data] = useCardQuery();
   return (
     <>
-      <PageIntro title={data?.en} description={''} bgSource={`${baseImgix}/static/background-card-detail.webp`} objectPosition="center center" />
+      <PageIntro title={data?.en} description={''} bgSource={backgroundUrls.cards} objectPosition="center center" />
       <DetailLayout>
         <FlexRow></FlexRow>
         <CardDetailTemplate />

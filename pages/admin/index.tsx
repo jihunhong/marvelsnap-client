@@ -37,7 +37,7 @@ const Admin = () => {
   return (
     <>
       <NextSeo noindex={true} nofollow={true} />
-      <PageIntro title="Admin Deck Builder" description="" bgSource={backgroundUrls.builder} objectPosition="center center" />
+      <PageIntro title="Admin Deck Builder" description="" bgSource={backgroundUrls.cards} objectPosition="center center" />
       <DivisionLayout>
         <section>
           <CardListHeader filterEvent={handler} />

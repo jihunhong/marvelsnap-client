@@ -1,6 +1,6 @@
 import ModalBase from '@atoms/Modal';
 import CardDetailTemplate from '@components/@template/card/[cardDefId]';
-import { baseImgix } from '@constant/imigx';
+import backgroundUrls from '@constant/backgrounds';
 import DetailLayout from '@layout/DetailLayout';
 import PageIntro from '@molecules/PageIntro';
 import useCardQuery from '@query/useCardQuery';
@@ -19,7 +19,7 @@ const CardDetailModal = ({ visible }: { visible: boolean }) => {
   }, []);
   return (
     <ModalBase visible={visible}>
-      <PageIntro title={data?.en} description={''} bgSource={`${baseImgix}/static/background-card-detail.webp`} objectPosition="center center" />
+      <PageIntro title={data?.en} description={''} bgSource={backgroundUrls.cards} objectPosition="center center" />
       <DetailLayout>
         <CardDetailTemplate />
       </DetailLayout>

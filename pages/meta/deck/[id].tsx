@@ -1,6 +1,6 @@
 import { FlexRow } from '@atoms/Flex/style';
 import MetaDeckDetailTemplate from '@components/@template/meta/deck/[deckId]';
-import { baseImgix } from '@constant/imigx';
+import backgroundUrls from '@constant/backgrounds';
 import { getMetaDeckApi } from '@fetch/index';
 import DetailLayout from '@layout/DetailLayout';
 import PageIntro from '@molecules/PageIntro';
@@ -23,7 +23,7 @@ export async function getServerSideProps(context: NextPageContext) {
 const MetaDeckDetail = () => {
   return (
     <>
-      <PageIntro title={'Meta Deck'} description={''} bgSource={`${baseImgix}/static/background-card-detail.webp`} objectPosition="center bottom" />
+      <PageIntro title={'Meta Deck'} description={''} bgSource={backgroundUrls.cards} objectPosition="center bottom" />
       <DetailLayout>
         <FlexRow></FlexRow>
         <MetaDeckDetailTemplate />

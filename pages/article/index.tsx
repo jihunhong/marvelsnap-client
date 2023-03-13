@@ -1,6 +1,6 @@
 import ArticleTemplate from '@components/@template/article';
-import { baseImgix } from '@constant/imigx';
-import { defaultTitle, siteBaseUrl } from '@constant/text';
+import backgroundUrls from '@constant/backgrounds';
+import { siteBaseUrl } from '@constant/text';
 import { getArticle } from '@fetch/index';
 import DetailLayout from '@layout/DetailLayout';
 import PageIntro from '@molecules/PageIntro';
@@ -38,7 +38,7 @@ const ArticleDetail = () => {
           title: `${data?.title}`,
         }}
       />
-      <PageIntro title={data?.title} description={data?.summary} bgSource={`${baseImgix}/static/background-card-detail.webp`} objectPosition="center bottom" />
+      <PageIntro title={data?.title} description={data?.summary} bgSource={backgroundUrls.cards} objectPosition="center bottom" />
       <DetailLayout>
         <ArticleTemplate data={data} />
       </DetailLayout>

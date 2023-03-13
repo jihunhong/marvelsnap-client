@@ -1,5 +1,4 @@
-import { FlexRow } from '@atoms/Flex/style';
-import { baseImgix } from '@constant/imigx';
+import backgroundUrls from '@constant/backgrounds';
 import { getProfileApi } from '@fetch/index';
 import DivisionLayout from '@layout/DivisionLayout';
 import PageIntro from '@molecules/PageIntro';
@@ -23,7 +22,7 @@ export async function getServerSideProps(context: NextPageContext) {
 const UserDetail = () => {
   return (
     <>
-      <PageIntro title={'Profile'} description={''} bgSource={`${baseImgix}/static/background-card-detail.webp`} objectPosition="center bottom" />
+      <PageIntro title={'Profile'} description={''} bgSource={backgroundUrls.cards} objectPosition="center bottom" />
       <DivisionLayout>
         <ProfileSummary />
         <section></section>
