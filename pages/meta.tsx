@@ -15,7 +15,7 @@ export async function getServerSideProps(context: NextPageContext) {
   const queryClient = new QueryClient();
   const page = context.query.page || 1;
   await queryClient.prefetchQuery([keys.getMetaDeckList, page], () => getMetaDeckListApi(Number(page)));
-  context.res!.setHeader('Cache-Control', 'public, s-maxage=1800, stale-while-revalidate=86400');
+  context.res!.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=86400');
   return {
     props: {
       dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
