@@ -10,8 +10,8 @@ import CardList from '@molecules/CardList';
 import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useCardListQuery from '@query/useCardListQuery';
+import { NextPageContext } from 'next';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 import { SyntheticEvent } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 import { useRecoilValue } from 'recoil';
@@ -24,10 +24,10 @@ const BuilderStatus = dynamic(() => import('@molecules/BuilderStatus'), {
   ssr: false,
 });
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ res }: NextPageContext) {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery([keys.getCardList], getCardListApi);
-
+  res?.setHeader('Cache-Control', 'public, s-maxage=1800, stale-while-revalidate=86400');
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

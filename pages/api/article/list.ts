@@ -7,6 +7,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const articles = await pb.collection('articles').getList(1, perPage, {
     sort: '-created',
   });
-  res?.setHeader('Cache-Control', 'public, s-maxage=31536000, max-age=0, stale-while-revalidate=59');
   res.status(200).json(articles);
 }

@@ -20,7 +20,7 @@ const DeckDetailModal = dynamic(() => import('@molecules/Modal/DeckDetailModal')
 export async function getServerSideProps({ res }: NextPageContext) {
   const queryClient = new QueryClient();
   await queryClient.prefetchInfiniteQuery([keys.getDeckList], ({ pageParam = 1 }) => getDeckListApi(pageParam));
-  res?.setHeader('Cache-Control', 'public, s-maxage=31536000, max-age=0, stale-while-revalidate=59');
+  res?.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=86400');
   return {
     props: {
       dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),

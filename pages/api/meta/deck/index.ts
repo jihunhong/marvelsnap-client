@@ -10,7 +10,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const record = await pb.collection('meta_deck').getFirstListItem(`id='${req.query.id}'`, {
       expand: 'items',
     });
-    res?.setHeader('Cache-Control', 'public, s-maxage=31536000, max-age=0, stale-while-revalidate=59');
     res.status(200).json(record);
   } else if (req.method === 'POST') {
     pb.authStore.save(req.headers.authorization);
