@@ -116,12 +116,29 @@ export const IntroSectionContainer = styled.div`
       }
     }
     video {
+      @media ${device.tablet} {
+        transition-delay: 0.1s;
+      }
+      transition: opacity 0.15s;
+      opacity: 0;
+      &[data-visible='true'] {
+        opacity: 1;
+      }
       width: 100%;
       top: 0;
       left: 0;
       position: absolute;
       height: 100%;
       object-fit: cover;
+    }
+    :after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 0;
+      right: 0;
+      height: 8rem;
+      background-image: linear-gradient(to top, var(--black-background), transparent);
     }
   }
 `;

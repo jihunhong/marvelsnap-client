@@ -1,10 +1,12 @@
 import { baseImgix } from '@constant/imigx';
+import useIntersecting from '@hooks/util/useIntersect';
 import SearchInput from '@molecules/SearchInput';
 import * as S from './style';
 
 const IntroVideoSection = () => {
+  const { ref, visible } = useIntersecting();
   return (
-    <S.IntroSectionContainer>
+    <S.IntroSectionContainer ref={ref}>
       <div className="container">
         <div className="text search">
           <h1>Snapsco.net</h1>
@@ -13,9 +15,9 @@ const IntroVideoSection = () => {
         </div>
         <div className="video-background">
           <div>
-            <video autoPlay loop muted playsInline poster={`${baseImgix}/static/intro-video-thumbnail.png?format=auto`}>
-              <source src={`${baseImgix}/static/intro-video.webm`} type="video/webm; codecs=vp9,vorbis" />
-              <source src={`${baseImgix}/static/intro-video.mp4`} type="video/mp4" />
+            <video autoPlay loop muted playsInline poster={`${baseImgix}/static/intro-video-thumbnail.png?format=auto`} data-visible={visible}>
+              <source src={`${baseImgix}/static/intro-video-v2.webm`} type="video/webm; codecs=vp9,vorbis" />
+              <source src={`${baseImgix}/static/intro-video-v2.mp4`} type="video/mp4" />
             </video>
           </div>
         </div>
