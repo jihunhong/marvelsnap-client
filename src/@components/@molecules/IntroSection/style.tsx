@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import device from '@styles/devices';
 import { ellipsis } from '@styles/common';
+import device from '@styles/devices';
+import styled from 'styled-components';
 
 export const IntroSectionContainer = styled.div`
   display: flex;

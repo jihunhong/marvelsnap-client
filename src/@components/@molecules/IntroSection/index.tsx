@@ -13,8 +13,9 @@ const IntroVideoSection = () => {
         </div>
         <div className="video-background">
           <div>
-            <video autoPlay loop muted playsInline>
-              <source src={`${baseImgix}/static/videoplayback.mp4`} type="video/mp4" />
+            <video autoPlay loop muted playsInline poster={`${baseImgix}/static/intro-video-thumbnail.png?format=auto`}>
+              <source src={`${baseImgix}/static/intro-video.webm`} type="video/webm; codecs=vp9,vorbis" />
+              <source src={`${baseImgix}/static/intro-video.mp4`} type="video/mp4" />
             </video>
           </div>
         </div>
