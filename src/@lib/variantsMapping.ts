@@ -8,8 +8,7 @@ const variantsMapping = (json: Card): IVariantsAtom => {
     const variantsIds = json.expand.variants.map(v => {
       return `${baseImgix}/variants/${json.cardDefId}/${v.id}.webp?w=${SOURCE_WIDTH}&auto=format`;
     });
-    const origin = `${baseImgix}/cards/basic/${json.cardDefId}.webp?w=${SOURCE_WIDTH}&auto=format`;
-    const variantSource = [origin, ...variantsIds];
+    const variantSource = [...variantsIds];
     return {
       variantSource,
       thumbnailSource: json.expand.variants.map(v => v.id),

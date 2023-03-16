@@ -20,7 +20,7 @@ const Variants = ({ cardDefId, dataSource = [] }: VariantsProps) => {
   const [selectedIndex, handleClick] = useImageGroup();
   const onClick = (index: number) => {
     toggler();
-    handleClick(index);
+    handleClick(index - 1);
     // 원본이미지가 맨앞에 하나 위치하기 때문에 하나 더하기
   };
 
