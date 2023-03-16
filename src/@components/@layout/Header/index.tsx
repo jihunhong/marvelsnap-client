@@ -1,5 +1,5 @@
 import Logo from '@atoms/Logo';
-import UserDetailMenu from '@molecules/UserDetail';
+import UserMenu from '@molecules/UserDetail';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as S from './style';
@@ -42,7 +42,7 @@ const Header = () => {
               <span>다운로드</span>
             </a>
           </Link>
-          <UserDetailMenu />
+          <UserMenu />
         </div>
       </div>
     </S.Header>
