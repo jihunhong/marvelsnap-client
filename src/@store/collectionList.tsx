@@ -1,6 +1,7 @@
 import { CollectionCard } from '@customTypes/CollectionCard';
 import { Filter } from '@customTypes/Filter';
 import { filtering } from '@lib/filter';
+import { toggleOwnCardMapping } from '@lib/toggleOwnCard';
 import { atom, selector } from 'recoil';
 import { v1 } from 'uuid';
 
@@ -32,6 +33,23 @@ export const collectionSelector = selector({
     const seriesCollection = get(seriesCollectionListAtom);
     const collection = filter?.type === 'own' ? ownCollection : seriesCollection;
     return collection;
+  },
+});
+
+export const toggleOwnCard = selector({
+  key: `toggleOwnCard/${v1()}`,
+  get: () => {},
+  set: ({ get, set }, cardDefId) => {
+    const seriesCollection = get(seriesCollectionListAtom);
+    const collection = get(collectionListAtom);
+    const ownCollection = get(ownCollectionListAtom);
+
+    const newCollection = toggleOwnCardMapping(collection, cardDefId);
+    const newOwnCollection = toggleOwnCardMapping(ownCollection, cardDefId);
+    const newSeriesCollection = toggleOwnCardMapping(seriesCollection, cardDefId);
+    set(collectionListAtom, newCollection);
+    set(ownCollectionListAtom, newOwnCollection);
+    set(seriesCollectionListAtom, newSeriesCollection);
   },
 });
 

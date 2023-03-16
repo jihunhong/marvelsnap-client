@@ -12,7 +12,6 @@ import PageIntro from '@molecules/PageIntro';
 import keys from '@query/keys';
 import useUserCollection from '@query/useUserCollection';
 import { NextPageContext } from 'next';
-import Link from 'next/link';
 import { dehydrate, QueryClient } from 'react-query';
 import { useRecoilValue } from 'recoil';
 import { userAtom } from 'src/@store/user';
@@ -30,7 +29,7 @@ export async function getServerSideProps(context: NextPageContext) {
 }
 
 const Collection = () => {
-  const { collection } = useUserCollection();
+  const { collection, toggleCardStatus } = useUserCollection();
   const [onClick] = useCollectionFilter();
   const user = useRecoilValue(userAtom);
   return (
@@ -52,7 +51,7 @@ const Collection = () => {
           <CardList
             dataSource={collection}
             renderItem={item => (
-              <div key={item.id} data-selected={!(item as CollectionCard)?.mine}>
+              <div key={item.id} data-selected={!(item as CollectionCard)?.mine} data-carddefid={item?.cardDefId} onClick={toggleCardStatus}>
                 <Card {...item} />
               </div>
             )}

@@ -17,8 +17,8 @@ const useAggregateCollection = (cardNames: string[], isFetched: boolean): [Array
   });
   useEffect(() => {
     if (isFetched && cardListFetched) {
-      const collection = aggregate({ cardNames, data: data as Array<T.Card> });
-      setCollection(collection);
+      const newCollection = aggregate({ cardNames, data: data as Array<T.Card> });
+      setCollection(newCollection);
     }
   }, [isFetched, cardListFetched]);
 

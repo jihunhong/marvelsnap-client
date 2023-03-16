@@ -21,6 +21,8 @@ const keys = {
   getCollection: '/api/user/collection',
   getCollectionList: '/api/user/collection/list',
   postUserCollection: '/api/user/collection',
+
+  putUserCollection: '/api/user/collection/insert',
 };
 
 export default keys;

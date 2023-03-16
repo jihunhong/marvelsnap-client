@@ -1,4 +1,3 @@
-import { Card } from '@customTypes/Card';
 import axios from 'axios';
 
 export const baseUrl = process.env.NODE_ENV === 'production' ? 'https://snapsco.net' : 'http://localhost:3000';
@@ -222,6 +221,11 @@ export const getUsersCollectionApi = async (id: string) => {
       id,
     },
   });
+  return data;
+};
+
+export const putUserCollectionApi = async (payload: { id: string; cardDefId: string }) => {
+  const { data } = await axios.put('/api/user/collection/insert', payload);
   return data;
 };
 
