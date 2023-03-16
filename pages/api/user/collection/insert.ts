@@ -19,7 +19,6 @@ const postRequestForCreate = async (req, res) => {
       return res.status(200).send(req.body.cardDefId);
     }
   } catch (err) {
-    console.log(err.message);
     return res.status(404).send();
   }
 };
