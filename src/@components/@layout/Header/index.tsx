@@ -22,11 +22,11 @@ const Header = () => {
               <span>메타</span>
             </a>
           </Link>
-          <Link href="/decks">
+          {/* <Link href="/decks">
             <a className={router.asPath === '/decks' ? 'active' : ''}>
               <span>덱</span>
             </a>
-          </Link>
+          </Link> */}
           <Link href="/cards">
             <a className={router.asPath === '/cards' ? 'active' : ''}>
               <span>카드</span>

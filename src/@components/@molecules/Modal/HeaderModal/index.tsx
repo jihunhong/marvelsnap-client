@@ -2,6 +2,7 @@ import Avatar from '@atoms/Avatar';
 import Divider from '@atoms/Divider';
 import { FlexColumn, FlexRow } from '@atoms/Flex/style';
 import GoogleBtn from '@atoms/GoogleBtn';
+import { Provider } from '@customTypes/Provider';
 import useProviders from '@hooks/pb/useProviders';
 import useUser from '@query/useUser';
 import Link from 'next/link';
@@ -9,10 +10,8 @@ import { useRouter } from 'next/router';
 import { ForwardedRef, forwardRef, SyntheticEvent } from 'react';
 import { BiDownload } from 'react-icons/bi';
 import { BsStarFill } from 'react-icons/bs';
-import { CgNotes } from 'react-icons/cg';
 import { FaHome, FaRegIdCard, FaWrench } from 'react-icons/fa';
 import * as S from './style';
-import { Provider } from '@customTypes/Provider';
 
 type HeaderModalProps = { onClick: (e: SyntheticEvent) => void };
 
@@ -52,12 +51,12 @@ const HeaderModal = ({ onClick }: HeaderModalProps, ref: ForwardedRef<any>) => {
             <span>메타</span>
           </a>
         </Link>
-        <Link href="/decks">
+        {/* <Link href="/decks">
           <a className={router.asPath === '/decks' ? 'active' : ''}>
             <CgNotes size={22} color="#efefef" />
             <span>덱</span>
           </a>
-        </Link>
+        </Link> */}
         <Link href="/cards">
           <a className={router.asPath === '/cards' ? 'active' : ''}>
             <FaRegIdCard size={22} color="#efefef" />
