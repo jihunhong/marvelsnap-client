@@ -8,9 +8,8 @@ import useUser from '@query/useUser';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ForwardedRef, forwardRef, SyntheticEvent } from 'react';
-import { BiDownload } from 'react-icons/bi';
 import { BsStarFill } from 'react-icons/bs';
-import { FaHome, FaRegIdCard, FaWrench } from 'react-icons/fa';
+import { FaHome, FaRegIdCard } from 'react-icons/fa';
 import * as S from './style';
 
 type HeaderModalProps = { onClick: (e: SyntheticEvent) => void };
@@ -63,7 +62,7 @@ const HeaderModal = ({ onClick }: HeaderModalProps, ref: ForwardedRef<any>) => {
             <span>카드</span>
           </a>
         </Link>
-        <Link href="/builder">
+        {/* <Link href="/builder">
           <a className={router.asPath === '/builder' ? 'active' : ''}>
             <FaWrench size={22} color="#efefef" />
             <span>덱 빌더</span>
@@ -74,7 +73,7 @@ const HeaderModal = ({ onClick }: HeaderModalProps, ref: ForwardedRef<any>) => {
             <BiDownload size={22} color="#efefef" />
             <span>다운로드</span>
           </a>
-        </Link>
+        </Link> */}
       </nav>
     </S.HeaderModalContainer>
   );

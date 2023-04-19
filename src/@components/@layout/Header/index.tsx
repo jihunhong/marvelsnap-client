@@ -32,7 +32,7 @@ const Header = () => {
               <span>카드</span>
             </a>
           </Link>
-          <Link href="/builder">
+          {/* <Link href="/builder">
             <a className={router.asPath === '/builder' ? 'active' : ''}>
               <span>덱 빌더</span>
             </a>
@@ -41,7 +41,7 @@ const Header = () => {
             <a className={router.asPath === '/download' ? 'active' : ''}>
               <span>다운로드</span>
             </a>
-          </Link>
+          </Link> */}
           <UserMenu />
         </div>
       </div>
