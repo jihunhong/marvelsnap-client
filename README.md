@@ -34,7 +34,7 @@
 
 이러한 카드 게임의 특징으로는 어떤 16장의 카드를 조합 하느냐에 따라 전략의 다양성을 늘리는데
 
-[##_Image|kage@72XJc/btr0frYoszk/jRdk7CMk3hEMQWtFFzh7DK/img.png|CDM|1.3|{"originWidth":465,"originHeight":227,"style":"alignCenter","width":null}_##]
+<center><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F72XJc%2Fbtr0frYoszk%2FjRdk7CMk3hEMQWtFFzh7DK%2Fimg.png" /></center>
 
 경쟁이 이루어지는 만큼 어떤 덱(조합)이 가장 효과적인지, 가장 효과적인덱을 어떻게 대항하는지가 눈치싸움처럼 이루어진다.
 
@@ -44,13 +44,14 @@
 
 하지만 공유하려는 사람이 덱을 공유할때 덱코드를 공유하는것이 아니라 스크린샷을 찍어 올리는것이 더 편하기 때문에 대부분의 유저들은 이런 방법을 자주 사용했고
 
-[##_Image|kage@k3ZWe/btr0dmjlUBC/5tHqmBtkxBrCTgX135jpPk/img.png|CDM|1.3|{"originWidth":896,"originHeight":940,"style":"alignCenter","width":null}_##]
+<center><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fk3ZWe%2Fbtr0dmjlUBC%2F5tHqmBtkxBrCTgX135jpPk%2Fimg.png" /></center>
+
 
 이용하는 입장에서 덱코드를 입력하는것이 아닌 스크린샷을 보고 16장을 일일히 추가해 만들어야한다는 불편함이 있었다.
 
 그렇기 때문에 사이트의 컨텐츠에서 자동으로 `덱코드`를 generate하고 버튼을 클릭하면 바로 복사해 올 수 있는 기능을 만들어 덱을 좀 더 편리하게 공유 할 수있도록 하는 기능을 만들었다.
 
-[##_Image|kage@cuIV88/btr0ilCMU5Y/ldKhqsfrBgbQiFX9YuM6Ok/img.png|CDM|1.3|{"originWidth":1824,"originHeight":1938,"style":"alignCenter","width":null}_##]
+<center><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcuIV88%2Fbtr0ilCMU5Y%2FldKhqsfrBgbQiFX9YuM6Ok%2Fimg.png" /></center>
 
 ---
 
@@ -64,7 +65,7 @@
 
 로그파일을 읽어 계정과 연동하는 기능도 같이 만들어 제공했다.
 
-[##_Image|kage@bzbWcB/btr0fUMHl2t/WbtzUqKWJKfatldhIGsz31/img.png|CDM|1.3|{"originWidth":1856,"originHeight":1879,"style":"alignCenter","width":null}_##]
+<center><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbzbWcB%2Fbtr0fUMHl2t%2FWbtzUqKWJKfatldhIGsz31%2Fimg.png" /></center>
 
 electron은 사실 전혀 해보질 않아 생각보다 시간이 많이 소요됐었는데, 그래도 있으면 너무 좋은 기능일것같아 github에 올라와있는 오픈소스들을 참고해가며 만들었었다.
 
@@ -153,7 +154,7 @@ hydration 관련 퍼포먼스 이슈를 최대한 열심히 디버깅해가며 �
 
 그렇기에 여러가지 방법들을 시도해보며 찾은것이 인스타그램이나 트위터에서 주로 이용하는 [Route as Modal](https://github.com/vercel/next.js/tree/canary/examples/with-route-as-modal)이었다.
 
-[##_Image|kage@xuVam/btr0jjx30bS/1B0Z6dtyKpHp6GZqR5x5pK/img.png|CDM|1.3|{"originWidth":1709,"originHeight":1336,"style":"alignCenter","width":null}_##]
+<center><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FxuVam%2Fbtr0jjx30bS%2F1B0Z6dtyKpHp6GZqR5x5pK%2Fimg.png" /></center>
 
 이를 통해 스크롤 관련 이슈를 깔끔하게 해결 할 수 있었고, shallow routing을 때에따라 이용하며 SEO가 보장된 페이지를 제공 할 수 있었다.
 
