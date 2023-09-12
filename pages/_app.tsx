@@ -53,7 +53,7 @@ function App({ Component, pageProps }: AppProps) {
               draggable={false}
               pauseOnHover={false}
               theme="dark"
-              limit={3}
+              limit={1}
             />
             <Analytics mode={process.env.NODE_ENV} />
             <GoogleScript />

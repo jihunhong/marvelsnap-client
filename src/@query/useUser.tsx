@@ -19,7 +19,6 @@ const useUser = () => {
     const date = getExp(pb.authStore.token);
     if (isValidForRefresh(date)) {
       const token = await pb.collection('users').authRefresh();
-      console.log(token);
     }
     return user;
   };

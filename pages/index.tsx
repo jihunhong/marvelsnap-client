@@ -27,7 +27,7 @@ const Home = () => {
       <section className="full-width">
         <IntroSection />
       </section>
-      <Trending dataSource={data?.items} />
+      <Trending dataSource={data} />
     </>
   );
 };
