@@ -21,7 +21,7 @@ export const ScoreDetailContainer = styled.section`
   }
   .rating-status {
     display: grid;
-    width: 100%;
+    width: 80%;
     grid-template-rows: repeat(5, 1fr);
     grid-auto-flow: row;
     .progress-grid {

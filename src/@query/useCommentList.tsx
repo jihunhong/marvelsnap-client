@@ -2,7 +2,7 @@ import * as T from '@customTypes/Comment';
 import { getCommentApi } from '@fetch/index';
 import keys from '@query/keys';
 import { SyntheticEvent, useDebugValue } from 'react';
-import { useInfiniteQuery, useQuery, useQueryClient } from 'react-query';
+import { useInfiniteQuery } from 'react-query';
 
 /**
  * @comment pageParam의 기본값은 SSR에서 이미 가져온 페이지가 1이므로 2부터 시작하도록 기본값을 2로 선언했다
@@ -26,7 +26,7 @@ const useCommentListQuery = ({ collectionId, recordId }: { collectionId: string;
   };
 
   const isLast = data?.pages?.[0]?.totalPages === data?.pages?.[0]?.page || data?.pages?.[0]?.totalPages === 0;
-  const dataSource: undefined | T.Comment[] = data?.pages?.map(p => p.items)?.flat();
+  const dataSource: undefined | T.Comment[] = data?.pages?.map(p => p.items).flat();
 
   useDebugValue([data, isLast]);
 

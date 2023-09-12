@@ -10,7 +10,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const exist = await redis.exists(keys.getCardList);
     if (exist) {
       const cards = await redis.get(keys.getCardList);
-      console.log(cards);
       if (cards) {
         res.setHeader('redis-cache', 'HIT');
         return res.status(200).json(JSON.parse(cards));
@@ -21,7 +20,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       sort: '+cost,+power,+en',
       filter: 'grade!=0',
     });
-    console.log(temp);
     await redis.set(keys.getCardList, JSON.stringify(temp));
     res.setHeader('redis-cache', 'MISS');
     return res.status(200).json(temp);

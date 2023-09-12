@@ -1,0 +1,34 @@
+{
+    "items": [{
+            "id": 1,
+            "content": "댓글창에는 유저들이 남긴 댓글이 표시됩니다.",
+            "expand": {
+                "user": {
+                    "id": 101,
+                    "name": "cardgamer1"
+                }
+            }
+        },
+        {
+            "id": 2,
+            "content": "제가 가장 즐겨쓰는 카드에요!",
+            "expand": {
+                "user": {
+                    "id": 102,
+                    "name": "marvelgamer"
+                }
+            }
+        },
+        {
+            "id": 3,
+            "content": "변형 스킨들이 너무 멋진 카드에요!",
+            "expand": {
+                "user": {
+                    "id": 103,
+                    "name": "happygamer"
+                }
+            }
+        }
+    ],
+    "totalPages": 0
+}

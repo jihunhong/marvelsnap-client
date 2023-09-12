@@ -8,6 +8,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   // const articles = await pb.collection('articles').getList(1, perPage, {
   //   sort: '-created',
   // });
-  console.log(articles);
   res.status(200).json(articles);
 }

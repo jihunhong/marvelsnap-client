@@ -1,17 +1,17 @@
 import CardImage from '@atoms/CardImage';
 import { baseImgix } from '@constant/imigx';
-import { cardTitleSuffix, siteBaseUrl } from '@constant/text';
+import { siteBaseUrl } from '@constant/text';
 import CardDetail from '@molecules/CardDetail';
 import CommentInput from '@molecules/CommentInput';
 import Comments from '@molecules/Comments';
 import Variants from '@molecules/Variants';
 import useCardQuery from '@query/useCardQuery';
+import useCommentListQuery from '@query/useCommentList';
+import useScoreList from '@query/useScoreList';
 import { NextSeo } from 'next-seo';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import * as S from './style';
-import useScoreList from '@query/useScoreList';
-import Head from 'next/head';
-import useCommentListQuery from '@query/useCommentList';
 
 const CardDetailTemplate = () => {
   const [data] = useCardQuery();
