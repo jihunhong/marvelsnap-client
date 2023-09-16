@@ -7,6 +7,7 @@ export const ResultEntry = styled(motion.div)`
   background: #2e2e2eb3;
   backdrop-filter: blur(4px);
   max-height: 304px;
+  overflow-y: scroll;
   top: 48px;
   left: 0;
   border-bottom-right-radius: 4px;
@@ -16,6 +17,19 @@ export const ResultEntry = styled(motion.div)`
   display: grid;
   grid-auto-flow: row;
   grid-auto-rows: 1fr;
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #b2b1ad;
+  }
 
   > div {
     :hover {
